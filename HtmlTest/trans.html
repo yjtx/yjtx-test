@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+</head>
+<body>
+<div id="text"></div>
+<input id="input" value=""/>
+<button id="submit1" onclick="change()">查看</button>
+<div id="trans"></div>
+
+
+    <script type="text/javascript">
+        var thisHeader = null;
+        function change() {
+            var str = getTrans(input.value);
+
+            if ("innerText" in trans) {
+                trans.innerText = str;
+            }
+            else if ("textContent" in trans) {
+                trans.textContent = str;
+            }
+        }
+
+        function getTrans(style, judge) {
+            var header = "";
+
+            
+            if (judge == true) {
+                
+                header = getHeader(style);
+            }
+            else {
+                
+                if (thisHeader == null) {
+                    thisHeader = getHeader("transform");
+                }
+                header = thisHeader;
+            }
+
+            
+            if (header == "") {
+                return style;
+            }
+
+            return header + style.charAt(0).toUpperCase() + style.substring(1, style.length);
+        }
+
+        function getHeader(style) {
+            
+            var divStyles = document.createElement('div').style;
+
+            if (style in divStyles) {
+                
+                return "";
+            }
+
+            
+            style = style.charAt(0).toUpperCase() + style.substring(1, style.length);
+            
+            var transArr = ["webkit", "ms", "Moz", "O"];
+            for (var i = 0; i < transArr.length; i++) {
+                var tempStyle = transArr[i] + style;
+
+                if (tempStyle in divStyles) {
+                    
+                    return transArr[i];
+                }
+            }
+
+            
+            return "";
+        }
+
+        function showDiv() {
+            
+            var str = "transform=" + getTrans("transform") + "\n"
+                    + "transformOrigin=" + getTrans("transformOrigin") + "\n"
+                    + "imageSmoothingEnabled=" + getTrans("imageSmoothingEnabled") + "\n"
+
+            
+            if ("innerText" in text) {
+                
+                text.innerText = str;
+            }
+            else if ("textContent" in text) {
+                
+                text.textContent = str;
+            }
+        }
+
+        
+        showDiv();
+    </script>
+</body>
+</html>

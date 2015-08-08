@@ -1,0 +1,8 @@
+{
+    "name": "third",
+    "dependence": ["core"],
+    "source": "",
+    "file_list": [
+        "Utils.d.ts"
+    ]
+}

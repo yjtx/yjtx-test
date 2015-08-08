@@ -1,0 +1,6 @@
+bin-debug/
+libs/
+.idea/
+
+.DS_Store
+.[Tt]humb

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="libs/style-min.css"/>
+</head>
+<body>
+
+<div style="position: absolute; left: 0px; top: 0px; right:0px;">
+    <ul id="items_ul">
+    </ul>
+</div>
+
+<div style="position:fixed;right: 0px;z-index: 999">
+    纹理设置：
+    <select id="input_size">
+        <option value=1>正常大小</option>
+        <option value=2>缩小一半</option>
+    </select>
+</div>
+
+<script src="libs/Utils.js"></script>
+<script src="DirtyTest/Dirty.js"></script>
+<script src="SwanTest/Swan.js"></script>
+<script src="EgretTest/Egret.js"></script>
+<script src="HtmlTest/Html.js"></script>
+
+<script>
+
+    var href = document.location.href;
+    var array = [];
+    if (href.match(/#[^&]*/)) {
+        var tag = href.match(/#[^&]*/)[0].substring(1);
+        array = tag.split("_");
+        console.log(array);
+    }
+
+    for (var i = 0; i < array.length; i++) {
+        var item = document.getElementById("item_ul" + array[i]);
+        item.style.display = "block";
+    }
+
+</script>
+
+</body>
+</html>

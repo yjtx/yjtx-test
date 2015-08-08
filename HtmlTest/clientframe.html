@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+
+        div, canvas {
+            display: block;
+            position: absolute;
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<!--<iframe src="client.html" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="auto" width="100%"></iframe>-->
+<iframe id="frame" src="client.html" border="0"></iframe>
+
+<script>
+    alert(frame.style.width);
+    alert(frame.style.height);
+
+    window.onresize = function () {
+        alert(frame.style.width);
+        alert(frame.style.height);
+    };
+
+</script>
+</body>
+</html>

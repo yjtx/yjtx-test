@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+
+        div, canvas {
+            display: block;
+            position: absolute;
+            margin: 0 auto;
+            padding: 0;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="text"></div>
+    <script type="text/javascript">
+//        网页可见区域宽： document.body.clientWidth;
+//        网页可见区域高： document.body.clientHeight;
+//        网页可见区域宽： document.body.offsetWidth   (包括边线的宽);
+//        网页可见区域高： document.body.offsetHeight  (包括边线的宽);
+//        网页正文全文宽： document.body.scrollWidth;
+//        网页正文全文高： document.body.scrollHeight;
+//        网页被卷去的高： document.body.scrollTop;
+//        网页被卷去的左： document.body.scrollLeft;
+//        网页正文部分上： window.screenTop;
+//        网页正文部分左： window.screenLeft;
+//        屏幕分辨率的高： window.screen.height;
+//        屏幕分辨率的宽： window.screen.width;
+//        屏幕可用工作区高度： window.screen.availHeight;
+//        屏幕可用工作区宽度：window.screen.availWidth;
+
+
+        window.onresize = function () {
+            showDiv();
+        };
+
+        function showDiv() {
+            var clientWidth = document.documentElement.clientWidth;
+            var clientHeight = document.documentElement.clientHeight;
+
+            var clientTop = document.documentElement.clientTop;
+            var clientLeft = document.documentElement.clientLeft;
+
+            var offsetWidth = document.documentElement.offsetWidth;
+            var offsetHeight = document.documentElement.offsetHeight;
+
+            var offsetTop = document.documentElement.offsetTop;
+            var offsetLeft = document.documentElement.offsetLeft;
+
+            var scrollWidth = document.documentElement.scrollWidth;
+            var scrollHeight = document.documentElement.scrollHeight;
+
+            var scrollTop = document.documentElement.scrollTop;
+            var scrollLeft = document.documentElement.scrollLeft;
+
+
+            var screenTop = window.screenTop;
+            var screenLeft = window.screenLeft;
+
+            var height = window.screen.height;
+            var width = window.screen.width;
+
+            var availHeight = window.screen.availHeight;
+            var availWidth = window.screen.availWidth;
+
+            var str = "clientWidth=" + clientWidth + "\n"
+                    + "clientHeight=" + clientHeight + "\n"
+                    + "clientTop=" + clientTop + "\n"
+                    + "clientLeft=" + clientLeft + "\n"
+                    + "offsetWidth=" + offsetWidth + "\n"
+                    + "offsetHeight=" + offsetHeight + "\n"
+                    + "offsetTop=" + offsetTop + "\n"
+                    + "offsetLeft=" + offsetLeft + "\n"
+                    + "scrollWidth=" + scrollWidth + "\n"
+                    + "scrollHeight=" + scrollHeight + "\n"
+                    + "scrollTop=" + scrollTop + "\n"
+                    + "scrollLeft=" + scrollLeft + "\n"
+                    + "screenTop=" + screenTop + "\n"
+                    + "screenLeft=" + screenLeft + "\n"
+                    + "width=" + width + "\n"
+                    + "height=" + height + "\n"
+                    + "availWidth=" + availWidth + "\n"
+                    + "availHeight=" + availHeight + "\n"
+
+            if ("innerText" in text) {
+                text.innerText = str;
+            }
+            else if ("textContent" in text) {
+                text.textContent = str;
+            }
+
+        }
+
+        showDiv();
+    </script>
+</body>
+</html>
