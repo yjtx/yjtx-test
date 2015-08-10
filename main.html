@@ -6,7 +6,7 @@
           content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
     <title></title>
 
-    <link rel="stylesheet" type="text/css" href="libs/style-min.css"/>
+    <link rel="stylesheet" type="text/css" href="clibs/style-min.css"/>
 </head>
 <body>
 
@@ -21,29 +21,25 @@
         <option value=1>正常大小</option>
         <option value=2>缩小一半</option>
     </select>
+    <p></p>
+    清理：
+    <button id="btn">清理
+    </button>
 </div>
-
-<script src="libs/Utils.js"></script>
+<script src="clibs/Utils.js"></script>
 <script src="DirtyTest/Dirty.js"></script>
 <script src="SwanTest/Swan.js"></script>
 <script src="EgretTest/Egret.js"></script>
 <script src="HtmlTest/Html.js"></script>
 
 <script>
+    ex();
 
-    var href = document.location.href;
-    var array = [];
-    if (href.match(/#[^&]*/)) {
-        var tag = href.match(/#[^&]*/)[0].substring(1);
-        array = tag.split("_");
-        console.log(array);
+    btn.onclick = function () {
+        var href = window.location.href;
+        href = href.substring(0, href.indexOf("#"));
+        window.location.href = href;
     }
-
-    for (var i = 0; i < array.length; i++) {
-        var item = document.getElementById("item_ul" + array[i]);
-        item.style.display = "block";
-    }
-
 </script>
 
 </body>
