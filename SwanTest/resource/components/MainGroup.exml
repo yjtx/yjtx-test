@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <s:Group class="components.MainGroup" touchThrough="true" xmlns:s="http://ns.egret.com/swan" xmlns:c="components.*"
     verticalCenter="0" horizontalCenter="0" width="880" height="405">
-    <s:Image source="resource/assets/whiteBg.png" top="0" bottom="0" left="0" right="0" />
+    <s:Image source="resource/assets/blackBg.png" top="0" bottom="0" left="0" right="0" />
     <c:TabBar dataProvider="{viewStack}" width="180"/>
     <s:ViewStack id="viewStack" verticalCenter="0" left="180" top="0" right="0" bottom="0">
         <s:Group name="Button" left="100" height = "300">
@@ -28,12 +28,12 @@
              </s:Group>
         </s:Group>
         <s:Group name="Slider"  width = "700" height = "300">
-            <s:Label text="Value:" verticalCenter="0" left="40" fontFamily="Tahoma"/>
-            <s:Label text="{vSlider.value}" left="130" verticalCenter="0" fontFamily="Tahoma"/>
-            <s:VSlider id="vSlider" x="230" verticalCenter="0" height="200" maximum="100"/>
-            <s:HSlider id="hSlider" x="300" verticalCenter="0" width="200" maximum="100"/>
-            <s:Label text="Value:" verticalCenter="30" x="350" fontFamily="Tahoma"/>
-            <s:Label text="{hSlider.value}" verticalCenter="30" x="440" fontFamily="Tahoma"/>
+            <s:Label text="Value:" verticalCenter="0" left="40" textColor="0x727070"  fontFamily="Tahoma"/>
+            <s:Label text="{vSlider.value}" width="100" height="30" left="130" verticalCenter="0" textColor="0x727070"  fontFamily="Tahoma"/>
+            <s:VSlider id="vSlider" x="230" verticalCenter="0" height="200"  maximum="100"/>
+            <s:HSlider id="hSlider" x="300" verticalCenter="0" width="200"  maximum="100"/>
+            <s:Label text="Value:" verticalCenter="30" x="350" textColor="0x727070"  fontFamily="Tahoma"/>
+            <s:Label text="{hSlider.value}" verticalCenter="30" x="440" textColor="0x727070"  fontFamily="Tahoma"/>
         </s:Group>
         <s:Group name="Progress"  width = "700" height = "300">
             <s:ProgressBar width="200" maximum="100" value="20" verticalCenter="0" horizontalCenter="0"/>
@@ -92,7 +92,7 @@
               <s:Group width="100%">
                      <s:Image source="resource/assets/checkbox_unselect.png" width="100%" height="100" scale9Grid="2,2,19,19"/>
                      <s:EditableText  width="100%" height="100" x="2" y="2"
-                                 size="20" fontFamily="Tahoma" text="" wordWrap="true"
+                                 size="20" fontFamily="Tahoma" text="" wordWrap="true" multiline="true"
                                  textColor="0x727070"/>
               </s:Group>
                 <s:Button label="确定"/>
