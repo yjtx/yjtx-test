@@ -192,9 +192,7 @@ function onClick(e) {
 }
 
 function ex() {
-
     var href = document.location.href;
-    var array = [];
     if (href.match(/#[^&]*/)) {
         var tag = href.match(/#[^&]*/)[0].substring(1);
         array = tag.split("_");
