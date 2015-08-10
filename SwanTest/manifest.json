@@ -1,0 +1,12 @@
+[
+    "libs/LoadResources.ts",
+    "libs/utils.ts",
+    "test/editableText/EditableTextNormal.ts",
+    "Main.ts",
+    "test/all/AllExamples.ts",
+    "test/button/ButtonCancel.ts",
+    "test/button/ButtonOK.ts",
+    "test/editableText/EditableTextSkinNormal.ts",
+    "test/image/ImageNormal.ts",
+    "test/list/ListNormal.ts"
+]

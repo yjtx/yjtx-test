@@ -17,7 +17,7 @@ class TextFieldInput extends egret.DisplayObjectContainer {
     private testTextInput():void {
 
         var TextField = new egret.TextField();
-        TextField.text = "sfsfsf";
+        TextField.text = "";
         TextField.size = 30;
         TextField.textColor = 0xff0000;
         TextField.type = egret.TextFieldType.INPUT
@@ -33,7 +33,7 @@ class TextFieldInput extends egret.DisplayObjectContainer {
 
 
         var TextField = new egret.TextField();
-        TextField.text = "sfsfsf";
+        TextField.text = "";
         TextField.size = 30;
         TextField.multiline = true;
         TextField.textColor = 0xff0000;

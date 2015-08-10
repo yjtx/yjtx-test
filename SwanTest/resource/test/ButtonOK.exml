@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<s:Button class="components.OKButton" minHeight="150" minWidth="150"  xmlns:s="http://ns.egret.com/swan" label="确定">
+
+</s:Button>

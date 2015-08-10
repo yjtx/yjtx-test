@@ -5,7 +5,7 @@
                     source="resource/assets/red.jpg"
                     source.down="resource/assets/redDown.png"/>
            <s:Label id="labelDisplay" top="0" bottom="0" left="8" right="8"
-                    fontSize="20" fontFamily="Tahoma"
+                    size="20" fontFamily="Tahoma"
                     textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
            <s:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>
     </s:Skin>

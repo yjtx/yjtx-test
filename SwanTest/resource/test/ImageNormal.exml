@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<s:Image class="components.ImageNormal" xmlns:s="http://ns.egret.com/swan" source="resource/assets/checkbox_unselect.png" width="400" height="400" scale9Grid="2,2,19,19"/>

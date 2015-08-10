@@ -1,21 +1,15 @@
-﻿declare module components{
-    export class MainGroup extends swan.Group{
-
-    }
-}
-
-class Main extends swan.Group {
+﻿class Main extends swan.Group {
 
     green_skins = [
-        "components/green/ListGroup.exml",
-        "components/green/TabBar.exml",
-        "components/MainGroup.exml"
+        "resource/components/green/ListGroup.exml",
+        "resource/components/green/TabBar.exml",
+        "resource/components/MainGroup.exml"
     ];
 
     blue_skins = [
-        "components/blue/ListGroup.exml",
-        "components/blue/TabBar.exml",
-        "components/MainGroup.exml"
+        "resource/components/blue/ListGroup.exml",
+        "resource/components/blue/TabBar.exml",
+        "resource/components/MainGroup.exml"
     ];
 
     constructor() {
@@ -30,8 +24,12 @@ class Main extends swan.Group {
         var bg:swan.Image = new swan.Image();
         bg.source = "resource/assets/blackBg.png";
         bg.percentHeight = 100;
-        bg.percentWidth = 100;
+        bg.percentWidth = 80;
         this.addChild(bg);
+
+        var input:swan.EditableText = new swan.EditableText();
+        input.text = "asdfsf";
+        this.addChild(input);
 
         var label:swan.Label = new swan.Label();
         label.horizontalCenter = 0;
@@ -44,10 +42,12 @@ class Main extends swan.Group {
         themeGroup.horizontalCenter = 0;
         themeGroup.verticalCenter = 0;
         themeGroup.layout = new swan.HorizontalLayout();
+        themeGroup.touchEnabled = true;
         themeGroup.addEventListener(egret.TouchEvent.TOUCH_TAP , this.touchTheme , this);
         this.addChild(themeGroup);
 
         var image:swan.Image = new swan.Image();
+        //image.touchEnabled = true;
         image.name = "blue";
         image.width = 100;
         image.height = 40;
@@ -55,6 +55,7 @@ class Main extends swan.Group {
         themeGroup.addChild(image);
 
         var image2:swan.Image = new swan.Image();
+        //image2.touchEnabled = true;
         image2.name = "green";
         image2.width = 100;
         image2.height = 40;
@@ -70,15 +71,15 @@ class Main extends swan.Group {
             var name = event.target.name;
             this.themeName = name;
             var skins = [
-                "components/"+name+"/ListGroup.exml",
-                "components/"+name+"/TabBar.exml",
-                "components/CloseButton.exml",
-                "components/CancelButton.exml"
+                "resource/components/"+name+"/ListGroup.exml",
+                "resource/components/"+name+"/TabBar.exml",
+                "resource/components/CloseButton.exml",
+                "resource/components/CancelButton.exml"
             ];
 
 
             Loader.load(skins, () => {
-                Loader.load(["components/MainGroup.exml"], () => this.loaded());
+                Loader.load(["resource/components/MainGroup.exml"], () => this.loaded());
             });
         }
     }
@@ -86,7 +87,7 @@ class Main extends swan.Group {
     loaded() {
         new swan.Theme("resource/theme/"+this.themeName+"-theme.json",this.stage);
         this.removeChildren();
-        var ui = new components.MainGroup();
+        var ui = utils.createClass("components.MainGroup");
         this.addChild(ui);
     }
 }

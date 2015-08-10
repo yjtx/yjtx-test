@@ -23,31 +23,8 @@ var examples = {
     "": []
 };
 
-var item1 = document.getElementById("egret");
-if (!item1) {
-    var items_ul = document.getElementById("items_ul");
-    var item1 = getItem1("Egret");
-    item1.id = "egret";
+function returnHref(thirdName, forthName) {
+    return "EgretTest/launcher/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value;
 }
 
-items_ul.appendChild(item1);
-
-var item2 = getItem2("Egret");
-item1.lastChild.appendChild(item2);
-
-for (key in examples) {
-    if (key == "") {
-        continue;
-    }
-    var item3 = getItem3(key);
-    item2.lastChild.appendChild(item3);
-
-    var contents = examples[key];
-    for (var i = 0; i < contents.length; i++) {
-        var content = contents[i];
-        var href = "EgretTest/launcher/index.html?mainClass=" + (key + content) + "&factor=" + input_size.value;
-
-        var item4 = getItem4(content, href);
-        item3.lastChild.appendChild(item4);
-    }
-}
+createRoot("Egret", "Egret", examples, returnHref);

@@ -5,11 +5,11 @@
             <s:HorizontalLayout verticalAlign="middle"/>
         </s:layout>
         <s:Image fillMode="scale" alpha="1" alpha.disabled="0.5" alpha.down="0.7"
-                 source="resource/assets/blue/RadioButton/radiobutton_unselect.png"
-                 source.upAndSelected="resource/assets/blue/RadioButton/radiobutton_select_up.png"
-                 source.downAndSelected="resource/assets/blue/RadioButton/radiobutton_select_down.png"
-                 source.disabledAndSelected="resource/assets/blue/RadioButton/radiobutton_select_disabled.png"/>
-        <s:Label id="labelDisplay" fontSize="20" textColor="0x707070"
+                 source="resource/assets/green/RadioButton/radiobutton_unselect.png"
+                 source.upAndSelected="resource/assets/green/RadioButton/radiobutton_select_up.png"
+                 source.downAndSelected="resource/assets/green/RadioButton/radiobutton_select_down.png"
+                 source.disabledAndSelected="resource/assets/green/RadioButton/radiobutton_select_disabled.png"/>
+        <s:Label id="labelDisplay" size="20" textColor="0x707070"
                  textAlign="center" verticalAlign="middle"
                  fontFamily="Tahoma"/>
     </s:Group>
