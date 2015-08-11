@@ -15,7 +15,7 @@ class CheckboxExample extends swan.Group {
                              source.upAndSelected="resource/CheckBox/checkbox_select_up.png"
                              source.downAndSelected="resource/CheckBox/checkbox_select_down.png"
                              source.disabledAndSelected="resource/CheckBox/checkbox_select_disabled.png"/>
-                    <s:Label id="labelDisplay" fontSize="20" textColor="0x707070"
+                    <s:Label id="labelDisplay" size="20" textColor="0x707070"
                              textAlign="center" verticalAlign="middle"
                              fontFamily="Tahoma"/>
                 </s:Group>

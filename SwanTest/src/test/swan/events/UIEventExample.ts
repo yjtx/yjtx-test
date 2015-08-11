@@ -38,7 +38,7 @@ class UIEventExample extends egret.DisplayObjectContainer {
         var exmlButton =
         `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:s="http://ns.egret.com/swan">
             <s:Image source="resource/button_up.png" source.down="resource/button_down.png" scale9Grid="1,3,8,8" width="100%" height="100%"/>
-            <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" fontSize="20" fontFamily="Tahoma" textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
+            <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
         </s:Skin>`;
         EXML.parse(exmlButton);
 
@@ -47,7 +47,7 @@ class UIEventExample extends egret.DisplayObjectContainer {
             <s:Image left="0" right="0" bottom="0"  top="0" source="resource/border.png" scale9Grid="2,2,12,12"/>
             <s:Group id="moveArea" left="0" right="0" top="1" height="45">
                 <s:Image left="0" right="0" bottom="0"  top="0" source="resource/header.png"/>
-                <s:Label id="titleDisplay" fontSize="20" fontFamily="Tahoma" textColor="0xFFFFFF" wordWrap="false" left="15" right="5" verticalCenter="0"/>
+                <s:Label id="titleDisplay" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" wordWrap="false" left="15" right="5" verticalCenter="0"/>
             </s:Group>
             <s:Group id="contentGroup" width="100%" height="200" top="50" bottom="30"/>
             <s:Button skinName = "skins.ButtonSkin" id="closeButton" label="close" bottom="5" horizontalCenter="0"/>

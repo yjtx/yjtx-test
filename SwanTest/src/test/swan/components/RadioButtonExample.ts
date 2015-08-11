@@ -9,7 +9,7 @@ class RadioButtonExample extends egret.DisplayObjectContainer {
                 <s:Image includeIn="downAndSelected" source="resource/RadioButton/radiobutton_select_down.png"/>
                 <s:Image includeIn="upAndSelected" source="resource/RadioButton/radiobutton_select_up.png"/>
                 <s:Image includeIn="up,down,disabled" source="resource/RadioButton/radiobutton_unselect.png"/>
-                <s:Label x="38" id="labelDisplay" textColor="0xffffff" fontSize="18"/>
+                <s:Label x="38" id="labelDisplay" textColor="0xffffff" size="18"/>
             </s:Skin>`;
         EXML.parse(skinExml);
 

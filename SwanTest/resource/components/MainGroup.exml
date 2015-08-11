@@ -13,6 +13,8 @@
                 <s:Button x="150" label="禁用" enabled="false"/>
             </s:Group>
             <s:Group>
+                <c:CancelButton label="取消" height="50" width="100"/>
+                <c:CloseButton width="30" x="150" height="30" top="10" />
             </s:Group>
              <s:Group>
                  <s:ToggleSwitch label="ToggleSwitch"/>
@@ -24,16 +26,16 @@
              </s:Group>
             <s:Group>
                 <s:RadioButton label="Option 1"/>
-                <s:RadioButton x="150" label="Option 2"/>
+                <s:RadioButton x="150" label="Option 1"/>
              </s:Group>
         </s:Group>
         <s:Group name="Slider"  width = "700" height = "300">
-            <s:Label text="Value:" verticalCenter="0" left="40" textColor="0x727070"  fontFamily="Tahoma"/>
-            <s:Label text="{vSlider.value}" width="100" height="30" left="130" verticalCenter="0" textColor="0x727070"  fontFamily="Tahoma"/>
-            <s:VSlider id="vSlider" x="230" verticalCenter="0" height="200"  maximum="100"/>
-            <s:HSlider id="hSlider" x="300" verticalCenter="0" width="200"  maximum="100"/>
-            <s:Label text="Value:" verticalCenter="30" x="350" textColor="0x727070"  fontFamily="Tahoma"/>
-            <s:Label text="{hSlider.value}" verticalCenter="30" x="440" textColor="0x727070"  fontFamily="Tahoma"/>
+            <s:Label text="Value:" verticalCenter="0" left="40" fontFamily="Tahoma"/>
+            <s:Label text="{vSlider.value}" left="130" verticalCenter="0" fontFamily="Tahoma"/>
+            <s:VSlider id="vSlider" x="230" verticalCenter="0" height="200" maximum="100"/>
+            <s:HSlider id="hSlider" x="300" verticalCenter="0" width="200" maximum="100"/>
+            <s:Label text="Value:" verticalCenter="30" x="350" fontFamily="Tahoma"/>
+            <s:Label text="{hSlider.value}" verticalCenter="30" x="440" fontFamily="Tahoma"/>
         </s:Group>
         <s:Group name="Progress"  width = "700" height = "300">
             <s:ProgressBar width="200" maximum="100" value="20" verticalCenter="0" horizontalCenter="0"/>
@@ -45,7 +47,7 @@
         <s:Group name="List" width = "700" height = "100%">
             <c:ListGroup width="300" height="98%" verticalCenter="0" horizontalCenter="0"/>
         </s:Group>
-        <s:Group name="Label" width = "700" height = "405" left="0" top="0">
+        <s:Group name="Label" width = "600" height = "300" left="50" top="50">
            	<s:Label top="0" width="100%" height="100%"
            					 size="20" fontFamily="'Microsoft Yahei'" left = "0" text="左对齐文本"
            					 textColor="0x727070" textAlign="left" />
@@ -92,7 +94,7 @@
               <s:Group width="100%">
                      <s:Image source="resource/assets/checkbox_unselect.png" width="100%" height="100" scale9Grid="2,2,19,19"/>
                      <s:EditableText  width="100%" height="100" x="2" y="2"
-                                 size="20" fontFamily="Tahoma" text="" wordWrap="true" multiline="true"
+                                 size="20" fontFamily="Tahoma" text="" wordWrap="true"
                                  textColor="0x727070"/>
               </s:Group>
                 <s:Button label="确定"/>
