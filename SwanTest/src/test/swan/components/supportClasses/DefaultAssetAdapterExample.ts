@@ -22,7 +22,7 @@ class DefaultAssetAdapterExample extends swan.Group {
 
         //在程序的其他地方，需要加载资源时可以使用下面的方法
         var adapter: swan.IAssetAdapter = this.stage.getImplementation("swan.IAssetAdapter");
-        adapter.getAsset('resource/cloudy.png', this.assetLoaded, this);
+        adapter.getAsset('resource/examples/cloudy.png', this.assetLoaded, this);
     }
 
     private assetLoaded(content: any, source: string) {

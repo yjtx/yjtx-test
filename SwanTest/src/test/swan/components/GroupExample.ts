@@ -22,7 +22,7 @@ class GroupExample extends egret.DisplayObjectContainer {
                     </s:layout>
                     <s:Label text="北京" textColor="0xFFFFFF"/>
                     <s:Label text="晴天" textColor="0xFFFFCC"/>
-                    <s:Image source="resource/sunny.png"/>
+                    <s:Image source="resource/examples/sunny.png"/>
                 </s:Group>
                 <s:Group>
                     <s:layout>
@@ -30,7 +30,7 @@ class GroupExample extends egret.DisplayObjectContainer {
                     </s:layout>
                     <s:Label text="上海" textColor="0xFFFFFF"/>
                     <s:Label text="多云" textColor="0xFFFFCC"/>
-                    <s:Image source="resource/cloudy.png"/>
+                    <s:Image source="resource/examples/cloudy.png"/>
                 </s:Group>
             </s:Group>`;
 

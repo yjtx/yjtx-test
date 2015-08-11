@@ -11,10 +11,10 @@ class CheckboxExample extends swan.Group {
                         <s:HorizontalLayout verticalAlign="middle"/>
                     </s:layout>
                     <s:Image fillMode="scale" alpha="1" alpha.disabled="0.5" alpha.down="0.7"
-                             source="resource/CheckBox/checkbox_unselect.png"
-                             source.upAndSelected="resource/CheckBox/checkbox_select_up.png"
-                             source.downAndSelected="resource/CheckBox/checkbox_select_down.png"
-                             source.disabledAndSelected="resource/CheckBox/checkbox_select_disabled.png"/>
+                             source="resource/examples/CheckBox/checkbox_unselect.png"
+                             source.upAndSelected="resource/examples/CheckBox/checkbox_select_up.png"
+                             source.downAndSelected="resource/examples/CheckBox/checkbox_select_down.png"
+                             source.disabledAndSelected="resource/examples/CheckBox/checkbox_select_disabled.png"/>
                     <s:Label id="labelDisplay" size="20" textColor="0x707070"
                              textAlign="center" verticalAlign="middle"
                              fontFamily="Tahoma"/>

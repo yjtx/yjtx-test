@@ -13,7 +13,7 @@ class ThemeExample extends egret.DisplayObjectContainer {
     }
     private progress: swan.ProgressBar;
     private init() {
-        var theme = new swan.Theme("resource/green-theme.json", this.stage);
+        var theme = new swan.Theme("resource/examples/green-theme.json", this.stage);
         this.progress = new swan.ProgressBar();
         this.progress.x = 30;
         this.progress.y = 30;

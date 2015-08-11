@@ -13,8 +13,8 @@ class RangeViewer extends swan.Range {
         super();
         this.skinName =
         `<s:Skin class="skins.RangeViewerSkin" minWidth="30" minHeight="18" xmlns:s="http://ns.egret.com/swan">
-	        <s:Image x="0" y="0" source="resource/range-background.png"/>
-	        <s:Image id="pointer" x="60" y="60" source="resource/pointer.png"/>
+	        <s:Image x="0" y="0" source="resource/examples/range-background.png"/>
+	        <s:Image id="pointer" x="60" y="60" source="resource/examples/pointer.png"/>
         </s:Skin>`;
     }
     protected updateSkinDisplayList() {

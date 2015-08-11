@@ -13,19 +13,19 @@ class VScrollBarExample extends egret.DisplayObjectContainer {
 
         var exml =
             `<s:Group xmlns:s="http://ns.egret.com/swan">
-                <s:Image width="200" height="400" source="resource/selected.png" scale9Grid="1,1,4,4"/>
+                <s:Image width="200" height="400" source="resource/examples/selected.png" scale9Grid="1,1,4,4"/>
                 <s:Scroller >
                     <s:Skin>
                         <s:HScrollBar id="horizontalScrollBar" width="100%" height="30" bottom="0">
                             <s:Skin>
-                                <s:Image width="100%" height="100%" source="resource/track.png" scale9Grid="1,1,4,4"/>
-                                <s:Image id="thumb" width="30" height="30" source="resource/thumb.png"  scale9Grid="1,1,4,4"/>
+                                <s:Image width="100%" height="100%" source="resource/examples/track.png" scale9Grid="1,1,4,4"/>
+                                <s:Image id="thumb" width="30" height="30" source="resource/examples/thumb.png"  scale9Grid="1,1,4,4"/>
                             </s:Skin>
                         </s:HScrollBar>
                         <s:VScrollBar id="verticalScrollBar" width="30" height="100%" right="0">
                             <s:Skin>
-                                <s:Image width="100%" height="100%" source="resource/track.png" scale9Grid="1,1,4,4"/>
-                                <s:Image id="thumb" width="30" height="30" source="resource/thumb.png"  scale9Grid="1,1,4,4"/>
+                                <s:Image width="100%" height="100%" source="resource/examples/track.png" scale9Grid="1,1,4,4"/>
+                                <s:Image id="thumb" width="30" height="30" source="resource/examples/thumb.png"  scale9Grid="1,1,4,4"/>
                             </s:Skin>
                         </s:VScrollBar>
                     </s:Skin>

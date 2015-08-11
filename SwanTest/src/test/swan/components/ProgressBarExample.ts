@@ -6,7 +6,7 @@ class ProgressBarExample extends egret.DisplayObjectContainer {
         var exml =
             `<s:ProgressBar xmlns:s="http://ns.egret.com/swan">
                 <s:Skin>
-                    <s:Image id="thumb" width="100%" height="100%" source="resource/thumb.png" scale9Grid="1,1,4,4"/>
+                    <s:Image id="thumb" width="100%" height="100%" source="resource/examples/thumb.png" scale9Grid="1,1,4,4"/>
                     <s:Label id="labelDisplay" textColor="0xffffff" horizontalCenter="0" verticalCenter="0"/>
                 </s:Skin>
             </s:ProgressBar>`;

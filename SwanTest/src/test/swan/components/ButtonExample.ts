@@ -14,8 +14,8 @@ class ButtonExample extends swan.Group {
         var buttonSkin = 
             `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:s="http://ns.egret.com/swan">
                 <s:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
-                         source="resource/button_up.png"
-                         source.down="resource/button_down.png"/>
+                         source="resource/examples/button_up.png"
+                         source.down="resource/examples/button_down.png"/>
                 <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8"
                          textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
                 <s:Image id="iconDisplay" horizontalCenter="0" verticalCenter="0"/>

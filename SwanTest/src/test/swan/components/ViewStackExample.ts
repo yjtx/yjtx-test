@@ -19,14 +19,14 @@ class ViewStackExample extends egret.DisplayObjectContainer {
                     <s:Group name="页面1">
                         <s:Panel width="400" height="300" title="title panel" xmlns:s="http://ns.egret.com/swan" y="50">
                             <s:Skin>
-                                <s:Image width="100%" height="100%" source="resource/track.png" scale9Grid="1,1,4,4"/>
+                                <s:Image width="100%" height="100%" source="resource/examples/track.png" scale9Grid="1,1,4,4"/>
                                 <s:Group id="moveArea" width="100%" height="40">
-                                    <s:Image width="100%" height="100%" source="resource/thumb.png" scale9Grid="1,1,4,4"/>
+                                    <s:Image width="100%" height="100%" source="resource/examples/thumb.png" scale9Grid="1,1,4,4"/>
                                     <s:Label id="titleDisplay" text="标题" textColor="0" horizontalCenter="0" verticalCenter="0"/>
                                 </s:Group>
                                 <s:Button id="closeButton" right="-15" y="-15">
                                     <s:Skin states="up,down,disabled">
-                                        <s:Image width="50" height="50" source="resource/close.png" scaleX.up="1" scaleX.down="0.95" scaleY.up="1" scaleY.down="0.95"/>
+                                        <s:Image width="50" height="50" source="resource/examples/close.png" scaleX.up="1" scaleX.down="0.95" scaleY.up="1" scaleY.down="0.95"/>
                                     </s:Skin>
                                 </s:Button>
                             </s:Skin>
