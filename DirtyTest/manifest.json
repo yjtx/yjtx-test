@@ -50,6 +50,7 @@
     "test/textfield/TextFieldInput.ts",
     "test/textfield/TextFieldNormal.ts",
     "test/textfield/TextFieldNormalDelay.ts",
+    "test/textfield/TextFieldTextArea.ts",
     "test/textfield/TextFieldWrap.ts",
     "test/touch/TouchBitmap.ts",
     "test/touch/TouchContainer.ts",

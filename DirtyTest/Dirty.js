@@ -2,7 +2,7 @@ var examples = {
     "Empty": ["HelloWorld"],
     "Function": ["Super", "DefaultValue"],
     "Loader": ["Bitmap", "Sound", "Text"],
-    "TextField": ["Normal", "AppendText", "Background", "Flow", "Input", "Wrap", "NormalDelay"],
+    "TextField": ["Normal", "AppendText", "Background", "Flow", "Input", "TextArea", "Wrap", "NormalDelay"],
     "Sound": ["Normal"],
     "WebSocket": ["String", "Binary"],
     "Base64": ["FromTexture", "FromDisplayObject", "FromCrossUrl", "SaveFromTexture", "SaveFromDisplayObject"],
@@ -25,7 +25,7 @@ var examples = {
 
 
 function returnHref(thirdName, forthName) {
-    return "DirtyTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value;
+    return "DirtyTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
 }
 
 createRoot("Egret", "Dirty", examples, returnHref);

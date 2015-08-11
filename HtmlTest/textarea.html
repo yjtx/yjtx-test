@@ -8,15 +8,22 @@
 </head>
 <body>
 <textarea id="egretTextarea" tabindex="-1"
-          style="resize: none; width: 200px; height: 90px; position: absolute; left: 10px; top: 10px; border: 1; padding: 0px; outline: thin; overflow: hidden;
-          word-break: break-all; opacity: 1; font-family: SimSun; font-style: normal; font-weight: normal; text-align: center; font-size: 30px; line-height: 30px;
+          style="resize: none; width: 200px;position: absolute; left: 10px; top: 10px; border: 1px solid; padding: 10px; outline: thin; overflow: hidden;
+          word-break: break-all; opacity: 1; font-family: SimSun; font-style: normal; font-weight: normal; text-align: center; font-size: 30px; line-height: 40px;
           color: rgb(239, 44, 44); vertical-align:text-bottom; background: none;">
 
 </textarea>
 
+<div style="position: absolute; left: 130px; top: 111px; border: none; padding: 0px; width: 150px; height: 200px; clip: rect(0px 150px 200px 0px); transform-origin: 0% 0% 0px; display: block;">
+    <textarea id="egretTextarea3" tabindex="-1"
+              style="resize: none; width: 150px; height: 220px; position: absolute; left: 0px; top: 0px; border: none; padding: 0px; outline: thin; overflow: hidden;
+              word-break: break-all; display: block; opacity: 1; font-family: sans-serif; font-style: normal; font-weight: normal; text-align: right; font-size: 40px;
+              color: rgb(255, 0, 0); vertical-align: top; line-height: 60px; background: none; transform-origin: 0% 0% 0px; transform: translate(0px, -20px)"></textarea>
+</div>
 
 <script type="text/javascript">
     egretTextarea.value = "sdfsfs"
+    egretTextarea3.value = "aaa\nbb\ndfadf\ndf\ndf"
 </script>
 </body>
 </html>

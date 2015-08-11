@@ -22,10 +22,10 @@ var examples = {
 
 function returnHref(thirdName, forthName) {
     if (thirdName.indexOf("examples") < 0) {
-        return "SwanTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value;
+        return "SwanTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
     }
     else {
-        return "SwanTest/index.html?mainClass=" + (forthName) + "&factor=" + input_size.value;
+        return "SwanTest/index.html?mainClass=" + (forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
     }
 }
 

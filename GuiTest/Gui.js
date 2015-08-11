@@ -4,7 +4,7 @@ var examples = {
 };
 
 function returnHref(thirdName, forthName) {
-    return "GuiTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value;
+    return "GuiTest/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
 }
 
 createRoot("Egret", "Gui", examples, returnHref);

@@ -2,7 +2,7 @@ var examples = {
     "Empty": ["HelloWorld"],
     "Function": ["Super", "DefaultValue"],
     "Loader": ["Bitmap", "Sound", "Text"],
-    "TextField": ["Normal", "AppendText", "Background", "Flow", "Input", "Wrap"],
+    "TextField": ["Normal", "AppendText", "Background", "Flow", "Input", "TextArea", "Wrap"],
     "Sound": ["Normal"],
     "WebSocket": ["String", "Binary"],
     "Base64": ["FromTexture", "FromDisplayObject", "FromCrossUrl", "SaveFromTexture", "SaveFromDisplayObject"],
@@ -24,7 +24,7 @@ var examples = {
 };
 
 function returnHref(thirdName, forthName) {
-    return "EgretTest/launcher/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value;
+    return "EgretTest/launcher/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
 }
 
 createRoot("Egret", "Egret", examples, returnHref);
