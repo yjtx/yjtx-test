@@ -36,7 +36,10 @@
 
     btn.onclick = function () {
         var href = window.location.href;
-        href = href.substring(0, href.indexOf("#"));
+        alert(href);
+        if (href.indexOf("#") >= 0) {
+            href = href.substring(0, href.indexOf("#"));
+        }
         window.location.href = href;
     }
 </script>
