@@ -11,9 +11,10 @@ function getItem1(name) {
     div.setAttribute("name", name);
     div.onclick = onClick;
 
-    var h2 = document.createElement("h2");
-    h2.textContent = name;
-    div.appendChild(h2);
+    var span = document.createElement("span");
+    span.className = "txt";
+    span.textContent = name;
+    div.appendChild(span);
 
     var ul = document.createElement("ul");
     ul.setAttribute("ulname", name);
@@ -106,7 +107,7 @@ function getItem4(name, href) {
     li.className = "list_item";
 
     var div = document.createElement("div");
-    div.className = "div4 item_title";
+    div.className = "div4 item_title list_div_4_1";
     div.setAttribute("name", name);
     li.appendChild(div);
 

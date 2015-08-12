@@ -1,30 +1,24 @@
-﻿html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;}
+﻿html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,img,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend{margin:0;padding:0;border:0;outline:0;font-size:110%;vertical-align: middle;color:#ffffff}
+html,body {background:#363e45}
+
+
 ol,ul{list-style:none;}
 .none{display:none!important;}
 .visible{visibility:visible!important;}
 .hidden{visibility:hidden!important;}
 a{text-decoration:none;}
 body{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none;font-size:16px;}
-body,.bg,.score_list .list_item{background:#e3e3e3;}
-
-.list_div_2_2{background:#bbbbbb;background-image: url(arrow2_2.png);background-repeat:no-repeat;background-size:20px 20px;background-position:10px 50%;}
-.list_div_2_1{background:#e3e3e3;background-image: url(arrow2_1.png);background-repeat:no-repeat;background-size:20px 20px;background-position:10px 50%;}
-
-.list_div_3_2{background:#cccccc;background-image: url(arrow1_2.png);background-repeat:no-repeat;background-size:22px 22px;background-position:20px 50%;}
-.list_div_3_1{background:#e3e3e3;background-image: url(arrow1_1.png);background-repeat:no-repeat;background-size:22px 22px;background-position:20px 50%;}
-
-.list_div_1_2{background:#bbbbbb;}
-.list_div_1_1{background:#e3e3e3;}
+body,.bg,.score_list .list_item{background:#000000;}
 
 
 .list ul{overflow:hidden;}
-.list_title{-webkit-box-shadow:0 1px 7px #6d6b69;-moz-box-shadow:0 1px 7px #6d6b69;-ms-box-shadow:0 1px 7px #6d6b69;-o-box-shadow:0 1px 7px #6d6b69;box-shadow:0 1px 7px #6d6b69;border-bottom:1px solid #FFF;color:#8e8e8e;height:30px;line-height:30px;padding:0 13px;position:relative;top:0;z-index:10;}
+.list_title{border-bottom:1px solid #000000;color:#8e8e8e;height:30px;line-height:30px;padding:0 13px;position:relative;top:0;z-index:10;}
 .list_title h2{display:inline;float:left;font-weight:bold;}
 .list_title .more{display:inline;float:right;font-weight:bold;}
-.list>li>ul{-webkit-box-shadow:inset 0 1px 4px #c1c1c1;-moz-box-shadow:inset 0 1px 4px #c1c1c1;-ms-box-shadow:inset 0 1px 4px #c1c1c1;-o-box-shadow:inset 0 1px 4px #c1c1c1;box-shadow:inset 0 1px 4px #c1c1c1;}
+.list>li>ul{-webkit-box-shadow:inset 0 1px 4px #000000;-moz-box-shadow:inset 0 1px 4px #000000;-ms-box-shadow:inset 0 1px 4px #000000;-o-box-shadow:inset 0 1px 4px #000000;box-shadow:inset 0 1px 4px #000000;}
 .list a{color:#000;display:block;}
 .list .list_item{clear:both;}
-.list .item_title{border-bottom:1px solid #c1c1c1;font-size:14px;font-weight:bold;height:38px;line-height:38px;}
+.list .item_title{border-bottom:1px solid #000000;font-size:14px;font-weight:bold;height:38px;line-height:38px;}
 .score_list .item_title a{padding-left:13px;}
 .list .item_icon{width:14px;float:left;display:block;}
 .list .score{color:#818181;display:inline;font-size:20px;margin-right:13px;}
@@ -40,3 +34,20 @@ body,.bg,.score_list .list_item{background:#e3e3e3;}
 .score_list .list_item .list_item .item_title a{color:#666;font-size:10px;font-weight:normal;padding-left:40px;}
 .score_list .list_item .list_item .item_title a .txt{text-overflow:ellipsis;overflow:hidden;white-space:nowrap;display:block;float:left;position:absolute;left:74px;right:80px;}
 .score_list .list_item .list_item .item_title a .item_icon{visibility:hidden;}
+
+
+
+button,select{width:120px;height:40px;border:1px solid;margin:0px 0px 8px 0px;font-size:110%;}
+
+
+.list_div_1_2{background:#4D5E6C;vertical-align: text-bottom;padding:6px;}
+.list_div_1_1{background:#363e45;vertical-align: middle;padding:6px;}
+
+.list_div_2_2{background:#4D5E6C;background-image: url(arrow2_2.png);background-repeat:no-repeat;background-size:20px 20px;background-position:10px 50%;}
+.list_div_2_1{background:#363e45;background-image: url(arrow2_1.png);background-repeat:no-repeat;background-size:20px 20px;background-position:10px 50%;}
+
+.list_div_3_2{background:#4D5E6C;background-image: url(arrow1_2.png);background-repeat:no-repeat;background-size:22px 22px;background-position:30px 50%;}
+.list_div_3_1{background:#363e45;background-image: url(arrow1_1.png);background-repeat:no-repeat;background-size:22px 22px;background-position:30px 50%;}
+
+.list_div_4_2{background:#4D5E6C;}
+.list_div_4_1{background:#363e45;}
