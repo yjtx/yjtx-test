@@ -44,6 +44,7 @@
     "test/scrollview/ScrollViewNormal.ts",
     "test/sound/SoundNormal.ts",
     "test/spritesheet/SpriteSheetDiff.ts",
+    "test/spritesheet/SpriteSheetSubKey.ts",
     "test/textfield/TextFieldAppendText.ts",
     "test/textfield/TextFieldBackground.ts",
     "test/textfield/TextFieldFlow.ts",

@@ -21,7 +21,7 @@
 		"name":"fonts"
 	},
 	{
-		"keys":"ori_0_png,ori_1_json",
+		"keys":"ori_0_png,ori_1_json,copy_1_json",
 		"name":"spritesheets"
 	},
 	{
@@ -169,5 +169,11 @@
 		"subkeys":"ori_2_png",
 		"type":"sheet",
 		"url":"spritesheet/ori_1.json"
+	},
+	{
+		"name":"copy_1_json",
+		"subkeys":"ori_2_png",
+		"type":"sheet",
+		"url":"spritesheet/copy_1.json"
 	}]
 }

@@ -18,7 +18,7 @@ var examples = {
     "Mask": ["MaskRect", "ScrollRect", "DisplayObject", "CircleGraphics"],
     "ScrollView": ["Normal"],
     "BitmapText": ["Normal", "RESNormal"],
-    "SpriteSheet": ["Diff"],
+    "SpriteSheet": ["Diff", "SubKey"],
     "RES": ["ByUrl", "Async"],
     "": []
 };
