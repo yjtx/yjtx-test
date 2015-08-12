@@ -1,5 +1,5 @@
 var examples = {
-    "list": ["input", "textarea", "trans", "userAgent", "client", "save", "sound"],
+    "list": ["input", "textarea", "trans", "userAgent", "client", "save", "sound", "effect"],
     "": []
 };
 

@@ -5,7 +5,7 @@ function getItem1(name) {
     li.setAttribute("liname", name);
 
     var div = document.createElement("div");
-    div.className = "list_title";
+    div.className = "div1 list_title list_div_1_1";
     li.appendChild(div);
     div.id = "item_a" + count;
     div.setAttribute("name", name);
@@ -31,7 +31,7 @@ function getItem2(name, href) {
     li.setAttribute("liname", name);
 
     var div = document.createElement("div");
-    div.className = "item_title title_lv1";
+    div.className = "div2 item_title title_lv1 list_div_2_1";
     li.appendChild(div);
     div.id = "item_a" + count;
     div.setAttribute("name", name);
@@ -44,7 +44,7 @@ function getItem2(name, href) {
     }
 
     var span1 = document.createElement("span");
-    span1.className = "bg_x item_icon";
+    span1.className = "item_icon";
     a.appendChild(span1);
 
     var span2 = document.createElement("span");
@@ -66,10 +66,10 @@ function getItem2(name, href) {
 function getItem3(name, href) {
     var li = document.createElement("li");
     li.setAttribute("liname", name);
-    li.className = "list_item li_lv2 list_item_bg1";
+    li.className = "list_item";
 
     var div = document.createElement("div");
-    div.className = "item_title";
+    div.className = "div3 item_title list_div_3_1";
     li.appendChild(div);
     div.id = "item_a" + count;
     div.setAttribute("name", name);
@@ -82,7 +82,7 @@ function getItem3(name, href) {
     }
 
     var span1 = document.createElement("span");
-    span1.className = "bg_x item_icon";
+    span1.className = "item_icon";
     a.appendChild(span1);
 
     var span2 = document.createElement("span");
@@ -106,7 +106,7 @@ function getItem4(name, href) {
     li.className = "list_item";
 
     var div = document.createElement("div");
-    div.className = "item_title";
+    div.className = "div4 item_title";
     div.setAttribute("name", name);
     li.appendChild(div);
 
@@ -118,7 +118,7 @@ function getItem4(name, href) {
     a.id = "item_a" + count;
 
     var span1 = document.createElement("span");
-    span1.className = "bg_x item_icon";
+    span1.className = "item_icon";
     a.appendChild(span1);
 
     var span2 = document.createElement("span");
@@ -170,20 +170,42 @@ function createRoot(firstName, secondName, examples, hrefCall) {
 var array = [];
 
 function onClick(e) {
-    var a = e.currentTarget;
-    var id = a.id;
+    var div = e.currentTarget;
+    var id = div.id;
     var countIdx = parseInt(id.substring(id.indexOf("_a") + 2));
     var item = document.getElementById(id.replace("_a", "_ul"));
+
+    var className = div.className;
 
     if (item.style.display == "none") {
         item.style.display = "block";
 
         array.push(countIdx + "");
+
+        if (className.indexOf("div1") >= 0) {
+            div.className = className.replace("list_div_1_1", "list_div_1_2");
+        }
+        else if (className.indexOf("div2") >= 0) {
+            div.className = className.replace("list_div_2_1", "list_div_2_2");
+        }
+        else if (className.indexOf("div3") >= 0) {
+            div.className = className.replace("list_div_3_1", "list_div_3_2");
+        }
     }
     else {
         item.style.display = "none";
 
         array.splice(array.indexOf(countIdx + ""), 1);
+
+        if (className.indexOf("div1") >= 0) {
+            div.className = className.replace("list_div_1_2", "list_div_1_1");
+        }
+        else if (className.indexOf("div2") >= 0) {
+            div.className = className.replace("list_div_2_2", "list_div_2_1");
+        }
+        else if (className.indexOf("div3") >= 0) {
+            div.className = className.replace("list_div_3_2", "list_div_3_1");
+        }
     }
 
     var href = window.location.href;
@@ -202,6 +224,19 @@ function ex() {
     for (var i = 0; i < array.length; i++) {
         var item = document.getElementById("item_ul" + array[i]);
         item.style.display = "block";
+
+        var div = document.getElementById("item_a" + array[i]);
+        var className = div.className;
+
+        if (className.indexOf("div1") >= 0) {
+            div.className = className.replace("list_div_1_1", "list_div_1_2");
+        }
+        else if (className.indexOf("div2") >= 0) {
+            div.className = className.replace("list_div_2_1", "list_div_2_2");
+        }
+        else if (className.indexOf("div3") >= 0) {
+            div.className = className.replace("list_div_3_1", "list_div_3_2");
+        }
     }
 
 }
