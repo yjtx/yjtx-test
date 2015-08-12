@@ -101,7 +101,7 @@ function getItem3(name, href) {
 
     return li;
 }
-function getItem4(name, href) {
+function getItem4(name, callHref, lastNode) {
     var li = document.createElement("li");
     li.setAttribute("liname", name);
     li.className = "list_item";
@@ -113,10 +113,11 @@ function getItem4(name, href) {
 
     var a = document.createElement("a");
     div.appendChild(a);
-    if (href) {
-        a.href = href;
-    }
     a.id = "item_a" + count;
+    a.onclick = onLink;
+    a.setAttribute("linkHref", callHref);
+    a.setAttribute("lastNode", lastNode);
+    a.setAttribute("name", name);
 
     var span1 = document.createElement("span");
     span1.className = "item_icon";
@@ -160,13 +161,23 @@ function createRoot(firstName, secondName, examples, hrefCall) {
         var contents = examples[key];
         for (var i = 0; i < contents.length; i++) {
             var content = contents[i];
-            var href = hrefCall(key, content);
-
-            var item4 = getItem4(content, href);
+            var item4 = getItem4(content, hrefCall, key);
             appendToParent(item4, item3);
         }
     }
 }
+
+function onLink(e) {
+    var item = e.currentTarget;
+
+    var key = item.getAttribute("lastNode");
+    eval("var hrefCall = " + item.getAttribute("linkHref"));
+    var content = item.getAttribute("name");
+    var href = hrefCall(key, content);
+
+    window.location.href = href;
+}
+
 
 var array = [];
 
