@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    var bitmapData = document.createElement("img");
+    bitmapData.onload = function () {
+        alert("onload");
+    };
+    bitmapData.onerror = function () {
+        alert("onerror");
+    };
+
+    //bug语句，crossOrigin 不管是设置成""或者null，都会有问题，去掉即可
+    bitmapData.crossOrigin = null;
+    //
+
+    bitmapData.src = "http://112.124.115.0:8080/static/images/head/T0.png";
+    document.body.appendChild(bitmapData);
+</script>
+
+</body>
+</html>
