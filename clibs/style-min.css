@@ -32,7 +32,7 @@ body,.bg,.score_list .list_item{background:#000000;}
 
 
 
-button,select{width:120px;height:40px;border:1px solid;margin:0px 0px 8px 0px;font-size:110%;}
+button,select{width:120px;height:40px;border:1px solid;margin:0px 0px 8px 0px;font-size:110%;background-color:#cccccc;font-size: 20px}
 
 
 .list_div_1_2{background-color:#4D5E6C;vertical-align: text-bottom;padding:6px;}
