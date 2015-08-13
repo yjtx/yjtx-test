@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<div>
+    <p>原图</p>
+    <img src="QQ_Scale9/origin.png" id="img">
+    <p>正确结果图</p>
+    <img src="QQ_Scale9/right.png">
+    <p>错误结果图</p>
+    <img src="QQ_Scale9/wrong.png">
+    <p>canvas实际绘制</p>
+    <canvas id="myCanvas" width="400" height="400" style="width: 400px;height: 400px;"></canvas>
+</div>
+
+<script>
+    //有问题版本
+    //mx2 m040 android  4.4.4  flyme flyme 0s 4.1.7a   基带版本 02.1201.01-248
+    //qq浏览器 5.3.0.0995以及以后的版本
+
+    //无问题版本
+    //qq 5.2.1.880
+
+    window.onload = function () {
+        var context = myCanvas.getContext("2d");
+        context.clearRect(0, 0, 400, 400);
+
+        //"scale9grid":"45,44,8,14",
+        var orgW = 98;
+        var orgH = 98;
+        var p1x = 45;
+        var p1y = 44;
+        var p2x = orgW - 45 - 8;
+        var p2y = orgH - 44 - 14;
+
+        var w = 200;
+        var h = 200;
+
+        var left = 0;
+        var top = 0;
+        //                      x               y       orgw                orgh        x2              y2      w               h
+        context.drawImage(img,  left,           top,    p1x,                p1y,        left,           top,    p1x,            p1y);
+        context.drawImage(img,  left + p1x,     top,    orgW - p1x - p2x,   p1y,        left + p1x,     top,    w - p1x - p2x,  p1y);
+        context.drawImage(img,  orgW - p2x,     top,    p2x,                p1y,        w - p2x,        top,    p2x,            p1y);
+
+        context.drawImage(img,  left,           top + p1y,    p1x,                orgH - p1y - p2y,        left,           top + p1y,    p1x,            h - p1y - p2y);
+        context.drawImage(img,  left + p1x,     top + p1y,    orgW - p1x - p2x,   orgH - p1y - p2y,        left + p1x,     top + p1y,    w - p1x - p2x,  h - p1y - p2y);
+        context.drawImage(img,  orgW - p2x,     top + p1y,    p2x,                orgH - p1y - p2y,        w - p2x,        top + p1y,    p2x,            h - p1y - p2y);
+
+        context.drawImage(img,  left,           orgH - p2y,    p1x,                p2y,        left,           h - p2y,    p1x,            p2y);
+        context.drawImage(img,  left + p1x,     orgH - p2y,    orgW - p1x - p2x,   p2y,        left + p1x,     h - p2y,    w - p1x - p2x,  p2y);
+        context.drawImage(img,  orgW - p2x,     orgH - p2y,    p2x,                p2y,        w - p2x,        h - p2y,    p2x,            p2y);
+    }
+
+</script>
+</body>
+</html>

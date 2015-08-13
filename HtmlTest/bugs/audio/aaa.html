@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--<audio src="resource/assets/effect.mp3" loop autoplay></audio>-->
+<!--<audio src="resource/assets/wf.mp3" loop autoplay></audio>-->
+
+<script>
+    var ad = document.createElement("audio");
+    ad.src = "effect.mp3";
+    ad.autoplay = true;
+    ad.load();
+    ad.play();
+
+    ad.addEventListener("ended", function() {
+       ad.load();
+//        ad.currentTime = 0;
+        ad.play();
+    });
+
+</script>
+
+</body>
+</html>
