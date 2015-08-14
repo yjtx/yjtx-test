@@ -1,0 +1,8 @@
+{
+	"file_list": [
+		"ISocket.ts",
+		"web/HTML5WebSocket.ts",
+		"native/NativeSocket.ts",
+		"WebSocket.ts"
+	]
+}

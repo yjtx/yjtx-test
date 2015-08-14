@@ -19,9 +19,12 @@
 </head>
 <body>
 
-<iframe id="iframe" src="input/textarea.html" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" height="500" width="100%" style="height: 627px;"></iframe>
+<iframe id="iframe" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" height="500" width="100%" style="height: 627px;"></iframe>
 
 <script type="text/javascript">
+    document.get iframe.src = "input/textarea.html?r=" + Math.random();
+
+
     function setHeight() {
         var height = getHeight();
 

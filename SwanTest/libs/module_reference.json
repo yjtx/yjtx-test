@@ -1,0 +1,1659 @@
+{
+	"referenceInfoList": {
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/en_US.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/zh_CN.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/registerClass.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/ByteArray.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedSuperclassName.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Injector.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Recycler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/toColorString.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setInterval.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/hasDefinition.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventPhase.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/HTTPStatusEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TextEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/FocusEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Bitmap.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/RenderTexture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/IDisplayObjectContainer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/IDisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsRenderContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsGradient.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsPattern.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsGradient.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsPattern.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Graphics.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsRenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Shape.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Graphics.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/IDisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Graphics.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipData.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipDataFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClip.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipData.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollView.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollViewProperties.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Ease.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollViewProperties.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/EgretEntry.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DirtyRegion.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DirtyRegion.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/IScreenAdapter.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Shape.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/IScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/IScreenAdapter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Console.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldType.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/InputController.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldType.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Graphics.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TextEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/toColorString.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldUtils.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldUtils.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldType.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/InputController.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/FocusEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HtmlTextParser.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapFont.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapFont.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Ease.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/localStorage.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/ExternalInterface.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/BitmapFilterQuality.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/Filter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/GlowFilter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/Filter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/BlurFilter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/Filter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/ColorMatrixFilter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/Filter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/DropShadowFilter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/GlowFilter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/Html5VersionController.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/events/ResourceEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceConfig.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Injector.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/events/ResourceEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceConfig.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Recycler.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/ImageAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/JsonAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/TextAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SheetAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/FontAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapFont.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SheetAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SoundAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/XMLAnalyzer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Injector.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/ImageAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/TextAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/JsonAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SheetAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/FontAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SoundAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/XMLAnalyzer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceConfig.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/events/ResourceEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/BitmapFillMode.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/ScrollPolicy.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Theme.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Validator.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Bitmap.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/AddItems.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Image.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/IOverride.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXML.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXML.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Theme.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IViewport.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Button.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Image.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/DataGroup.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ItemRenderer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/VerticalLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Range.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleButton.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Button.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/DefaultAssetAdapter.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IAssetAdapter.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ListBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/DataGroup.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ItemTapEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ScrollBarBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IViewport.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/SliderBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Range.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/UIEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Animation.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ScrollerThrowEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Watcher.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/IOverride.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Binding.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Watcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/AddItems.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/IOverride.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/SetProperty.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/IOverride.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Animation.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/AddItems.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/SetProperty.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Binding.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/HScrollBar.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ScrollBarBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Label.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButtonGroup.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButton.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/VScrollBar.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ScrollBarBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ViewStack.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ListBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/TouchScroll.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ScrollerThrowEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Animation.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Direction.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IAssetAdapter.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IViewport.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ItemTapEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/UIEvent.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLParser.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/registerClass.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/ColumnAlign.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/HorizontalLayout.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/RowAlign.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/TileOrientation.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ArrayCollection.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/CheckBox.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleButton.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/EditablText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldType.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/HSlider.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/SliderBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Image.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Bitmap.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IAssetAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/DefaultAssetAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ItemRenderer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/List.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ListBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ItemTapEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Panel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Button.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/UIEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ProgressBar.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Range.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Animation.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Label.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Direction.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButton.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleButton.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButtonGroup.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Scroller.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ScrollerThrowEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/HScrollBar.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/VScrollBar.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IViewport.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/TouchScroll.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/UIEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/TabBar.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ViewStack.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ListBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/HorizontalLayout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleSwitch.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleButton.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/VSlider.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/SliderBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXML.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLParser.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/i18n/en_US.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/i18n/zh_CN.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/TileLayout.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/ColumnAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/RowAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/TileOrientation.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/VerticalLayout.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/MatrixUtil.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/web/WebLocalStorage.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/EgretWeb.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/HTML5NetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebImageLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTexture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Shape.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/native/NativeLocalStorage.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeImageLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTexture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/EgretNative.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts"
+		]
+	},
+	"classNameToPath": {
+		"egret.$locale_strings": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+		"egret.$language": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+		"egret.sys.tr": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+		"egret.registerClass": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/registerClass.ts",
+		"DEBUG": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+		"RELEASE": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+		"__extends": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts",
+		"egret.superSetter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts",
+		"egret.superGetter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts",
+		"egret.NumberUtils": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+		"egret_sin_map": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+		"egret_cos_map": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+		"DEG_TO_RAD": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+		"NumberUtils_i": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts",
+		"egret.$hashCount": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+		"egret.HashObject": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+		"egret.Endian": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/ByteArray.ts",
+		"egret.ByteArray": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/ByteArray.ts",
+		"egret.getDefinitionByName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
+		"__global": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
+		"egret.getQualifiedClassName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts",
+		"egret.getQualifiedSuperclassName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedSuperclassName.ts",
+		"egret.Injector": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Injector.ts",
+		"egret.Recycler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Recycler.ts",
+		"egret.$START_TIME": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+		"egret.getTimer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+		"egret.toColorString": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/toColorString.ts",
+		"egret.is": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/is.ts",
+		"egret.isUndefined": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+		"egret.getNumber": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+		"egret.startTick": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts",
+		"egret.stopTick": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts",
+		"egret.XMLNode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+		"egret.XML": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+		"egret.XMLText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
+		"egret.$callLaterFunctionList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callLaterThisList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callLaterArgsList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.callLater": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callAsyncFunctionList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callAsyncThisList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callAsyncArgsList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.$callAsync": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+		"egret.setTimeout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
+		"egret.clearTimeout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
+		"egret.setInterval": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setInterval.ts",
+		"egret.clearInterval": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setInterval.ts",
+		"egret.Logger": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts",
+		"egret.getString": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts",
+		"egret.hasDefinition": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/hasDefinition.ts",
+		"egret.getOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts",
+		"egret.Matrix": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+		"egret.$TempMatrix": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Matrix.ts",
+		"egret.Point": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+		"egret.$TempPoint": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
+		"egret.Rectangle": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+		"egret.$TempRectangle": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+		"egret.IEventDispatcher": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+		"egret.EventDispatcher": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+		"egret.sys.EventBin": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+		"egret.Timer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts",
+		"egret.Event": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+		"egret.ProgressEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
+		"egret.TimerEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts",
+		"egret.TouchEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
+		"egret.HTTPStatusEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/HTTPStatusEvent.ts",
+		"egret.IOErrorEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+		"egret.SoundEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts",
+		"egret.TextEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TextEvent.ts",
+		"egret.FocusEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/FocusEvent.ts",
+		"egret.BlendMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
+		"egret.sys.blendModeToNumber": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
+		"egret.sys.numberToBlendMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
+		"egret.DisplayObject": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+		"egret.Bitmap": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Bitmap.ts",
+		"egret.BitmapFillMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts",
+		"egret.$TextureScaleFactor": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+		"egret.Texture": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+		"egret.RenderTexture": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/RenderTexture.ts",
+		"egret.BitmapData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts",
+		"egret.IDisplayObjectContainer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/IDisplayObjectContainer.ts",
+		"egret.DisplayObjectContainer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
+		"egret.Vector": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsRenderContext.ts",
+		"egret.GraphicsRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsRenderContext.ts",
+		"egret.sys.GraphicsCommand": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsRenderContext.ts",
+		"egret.GraphicsGradient": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsGradient.ts",
+		"egret.GraphicsPattern": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/GraphicsPattern.ts",
+		"egret.Graphics": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Graphics.ts",
+		"egret.Shape": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Shape.ts",
+		"egret.Sprite": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
+		"egret.Stage": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+		"egret.FrameLabel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts",
+		"egret.MovieClipData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipData.ts",
+		"egret.MovieClipDataFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClipDataFactory.ts",
+		"egret.MovieClip": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/MovieClip.ts",
+		"egret.SpriteSheet": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
+		"egret.ScrollView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollView.ts",
+		"egret.ScrollViewProperties": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollViewProperties.ts",
+		"egret.URLRequestMethod": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
+		"egret.URLLoaderDataFormat": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+		"egret.URLVariables": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts",
+		"egret.URLRequestHeader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts",
+		"egret.URLRequest": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
+		"egret.URLLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+		"egret.NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
+		"egret.$getUrl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
+		"egret.IVersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
+		"egret.VersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
+		"egret.BaseImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts",
+		"egret.ImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
+		"egret.sys.Screen": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+		"egret.sys.OrientationMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts",
+		"egret.sys.DirtyRegion": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DirtyRegion.ts",
+		"egret.sys.DisplayList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+		"egret.sys.IScreenAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/IScreenAdapter.ts",
+		"egret.sys.StageDisplaySize": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/IScreenAdapter.ts",
+		"PlayerOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
+		"egret.sys.Player": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+		"egret.sys.FPS": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+		"egret.sys.Region": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+		"egret.sys.Renderable": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts",
+		"egret.sys.RenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+		"egret.sys.TextMetrics": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+		"egret.sys.ImageData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+		"egret.StageScaleMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts",
+		"egret.sys.screenAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+		"egret.sys.ScreenAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+		"egret.sys.Surface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+		"egret.sys.sharedRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+		"egret.sys.surfaceFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+		"egret.sys.SurfaceFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+		"egret.Ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.$ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.$invalidateRenderFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.$requestRenderingFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.SystemTicker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.TouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts",
+		"egret.Capabilities": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts",
+		"egret.HorizontalAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
+		"egret.TextFieldType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldType.ts",
+		"egret.TextField": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+		"egret.sys.toFontString": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+		"egret.sys.toColorString": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+		"egret.VerticalAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/VerticalAlign.ts",
+		"egret.TextFieldUtils": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextFieldUtils.ts",
+		"egret.StageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts",
+		"egret.InputController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/InputController.ts",
+		"egret.IHitTextElement": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+		"egret.ITextStyle": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+		"egret.ITextElement": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+		"egret.IWTextElement": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+		"egret.ILineElement": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/ITextElement.ts",
+		"egret.HtmlTextParser": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HtmlTextParser.ts",
+		"egret.BitmapFont": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapFont.ts",
+		"egret.BitmapText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/BitmapText.ts",
+		"egret.Tween": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts",
+		"egret.Ease": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Ease.ts",
+		"egret.MainContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+		"testDeviceType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+		"testRuntimeType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+		"egret.localStorage.getItem": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/localStorage.ts",
+		"egret.localStorage.setItem": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/localStorage.ts",
+		"egret.localStorage.removeItem": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/localStorage.ts",
+		"egret.localStorage.clear": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/localStorage.ts",
+		"egret.ExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/ExternalInterface.ts",
+		"egret.Filter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/Filter.ts",
+		"egret.GlowFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/GlowFilter.ts",
+		"egret.BlurFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/BlurFilter.ts",
+		"egret.ColorMatrixFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/ColorMatrixFilter.ts",
+		"egret.DropShadowFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/DropShadowFilter.ts",
+		"egret.Audio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts",
+		"egret.Sound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+		"egret.PromiseObject": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+		"egret.DefaultLoadingView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts",
+		"egret.ILoadingView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts",
+		"egret.Html5VersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/Html5VersionController.ts",
+		"RES.ResourceEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/events/ResourceEvent.ts",
+		"RES.ResourceItem": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts",
+		"RES.ResourceConfig": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceConfig.ts",
+		"RES.ResourceLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceLoader.ts",
+		"RES.AnalyzerBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts",
+		"RES.BinAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
+		"RES.ImageAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/ImageAnalyzer.ts",
+		"RES.JsonAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/JsonAnalyzer.ts",
+		"RES.TextAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/TextAnalyzer.ts",
+		"RES.SheetAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SheetAnalyzer.ts",
+		"RES.FontAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/FontAnalyzer.ts",
+		"RES.SoundAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SoundAnalyzer.ts",
+		"RES.XMLAnalyzer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/XMLAnalyzer.ts",
+		"RES.loadConfig": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.loadGroup": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.isGroupLoaded": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.getGroupByName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.createGroup": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.hasRes": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.parseConfig": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.getRes": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.getResAsync": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.getResByUrl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.destroyRes": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.setMaxLoadingThread": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.setMaxRetryTimes": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.addEventListener": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.removeEventListener": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"RES.Resource": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts",
+		"swan.BitmapFillMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/BitmapFillMode.ts",
+		"swan.ScrollPolicy": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/ScrollPolicy.ts",
+		"swan.Theme": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Theme.ts",
+		"swan.sys.Validator": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Validator.ts",
+		"swan.sys.DepthQueue": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Validator.ts",
+		"swan.sys.DepthBin": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Validator.ts",
+		"swan.UIComponent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+		"swan.sys.UIComponentImpl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/UIComponent.ts",
+		"swan.State": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+		"swan.sys.StateClient": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+		"swan.sys.StateValues": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/State.ts",
+		"swan.registerProperty": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerProperty.ts",
+		"swan.Component": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Component.ts",
+		"swan.Group": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Group.ts",
+		"swan.registerBindable": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/registerBindable.ts",
+		"swan.Button": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Button.ts",
+		"swan.DataGroup": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/DataGroup.ts",
+		"swan.Range": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Range.ts",
+		"swan.LayoutBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LayoutBase.ts",
+		"swan.ToggleButton": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleButton.ts",
+		"swan.DefaultAssetAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/DefaultAssetAdapter.ts",
+		"swan.ListBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ListBase.ts",
+		"swan.ScrollBarBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/ScrollBarBase.ts",
+		"swan.SliderBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/SliderBase.ts",
+		"swan.ScrollerThrowEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ScrollerThrowEvent.ts",
+		"swan.sys.NS_S": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+		"swan.sys.NS_W": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+		"swan.sys.EXMLConfig": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLConfig.ts",
+		"swan.LinearLayoutBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts",
+		"swan.sys.ChildInfo": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/supportClasses/LinearLayoutBase.ts",
+		"swan.PropertyEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/PropertyEvent.ts",
+		"swan.Watcher": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Watcher.ts",
+		"swan.Skin": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Skin.ts",
+		"swan.IOverride": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/IOverride.ts",
+		"swan.Binding": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/binding/Binding.ts",
+		"swan.AddItems": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/AddItems.ts",
+		"swan.SetProperty": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/states/SetProperty.ts",
+		"swan.ICollection": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+		"ICollection": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ICollection.ts",
+		"swan.sys.Animation": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/Animation.ts",
+		"swan.IDisplayText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IDisplayText.ts",
+		"swan.IItemRenderer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IItemRenderer.ts",
+		"swan.CollectionEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEvent.ts",
+		"swan.CollectionEventKind": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/CollectionEventKind.ts",
+		"swan.sys.CodeBase": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXClass": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXCodeBlock": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXFunction": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXVariable": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXState": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXAddItems": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXSetProperty": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.sys.EXBinding": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/CodeFactory.ts",
+		"swan.JustifyAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/JustifyAlign.ts",
+		"swan.HScrollBar": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/HScrollBar.ts",
+		"swan.Label": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Label.ts",
+		"swan.RadioButtonGroup": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButtonGroup.ts",
+		"swan.VScrollBar": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/VScrollBar.ts",
+		"swan.ViewStack": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ViewStack.ts",
+		"swan.sys.TouchScroll": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/supportClasses/TouchScroll.ts",
+		"swan.Direction": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/Direction.ts",
+		"swan.IAssetAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IAssetAdapter.ts",
+		"swan.IViewport": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/core/IViewport.ts",
+		"swan.ItemTapEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/ItemTapEvent.ts",
+		"swan.UIEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/events/UIEvent.ts",
+		"swan.sys.exmlConfig": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLParser.ts",
+		"swan.sys.EXMLParser": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXMLParser.ts",
+		"swan.ColumnAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/ColumnAlign.ts",
+		"swan.HorizontalLayout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/HorizontalLayout.ts",
+		"swan.RowAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/RowAlign.ts",
+		"swan.TileOrientation": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/TileOrientation.ts",
+		"swan.ArrayCollection": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/collections/ArrayCollection.ts",
+		"swan.CheckBox": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/CheckBox.ts",
+		"swan.EditableText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/EditablText.ts",
+		"swan.HSlider": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/HSlider.ts",
+		"swan.Image": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Image.ts",
+		"swan.ItemRenderer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ItemRenderer.ts",
+		"swan.List": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/List.ts",
+		"swan.Panel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Panel.ts",
+		"swan.ProgressBar": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ProgressBar.ts",
+		"swan.RadioButton": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/RadioButton.ts",
+		"swan.Scroller": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/Scroller.ts",
+		"swan.TabBar": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/TabBar.ts",
+		"swan.ToggleSwitch": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/ToggleSwitch.ts",
+		"swan.VSlider": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/components/VSlider.ts",
+		"EXML.parse": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXML.ts",
+		"EXML.load": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/exml/EXML.ts",
+		"swan.BasicLayout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+		"swan.sys.measure": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+		"swan.sys.updateDisplayList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/BasicLayout.ts",
+		"swan.TileLayout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/TileLayout.ts",
+		"swan.VerticalLayout": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/layouts/VerticalLayout.ts",
+		"swan.sys.MatrixUtil": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/swan/utils/MatrixUtil.ts",
+		"egret.web.HTML5StageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.HTMLInput": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.$getTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.$cacheTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.WebExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts",
+		"egret.web.CanvasFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts",
+		"egret.web.toBitmapData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts",
+		"egret.web.WebCapability": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts",
+		"egret.web.WebPlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
+		"egret.web.WebTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts",
+		"egret.web.XMLNode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.XML": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.XMLText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.HTML5NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/HTML5NetContext.ts",
+		"egret.web.WebHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
+		"egret.web.WebImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebImageLoader.ts",
+		"egret.web.Html5Audio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts",
+		"egret.web.QQAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts",
+		"egret.web.WebAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
+		"AudioBuffer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
+		"AudioBufferSourceNodeEgret": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
+		"egret.web.AudioType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.SystemOSType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.Html5Capatibility": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.getPrefixStyleName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.NativeStageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts",
+		"egret.native.NativeExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts",
+		"egret.native.NativeAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts",
+		"egret_native_sound.currentPath": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts",
+		"egret.native.NativeHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts",
+		"egret.native.NativeTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
+		"egret.native.NativeImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeImageLoader.ts",
+		"egret.native.NativeNetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts",
+		"egret.native.OpenGLFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
+		"egret.NativeResourceLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts",
+		"egret.native.NativeSurface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+		"egret.native.NativePlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts",
+		"egret.native.NativeRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts"
+	}
+}
