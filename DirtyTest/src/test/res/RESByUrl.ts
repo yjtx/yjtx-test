@@ -40,7 +40,9 @@ class RESByUrl extends egret.DisplayObjectContainer {
     }
 
     private testUrl():void {
+        alert("开始加载");
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
+            alert("加载完毕");
             console.log(arguments);
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);

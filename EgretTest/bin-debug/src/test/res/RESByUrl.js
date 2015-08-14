@@ -37,8 +37,9 @@ var RESByUrl = (function (_super) {
         this.testUrl();
     };
     __egretProto__.testUrl = function () {
+        alert("开始加载");
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
-            console.log(arguments);
+            alert("加载完毕");
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);
             RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
