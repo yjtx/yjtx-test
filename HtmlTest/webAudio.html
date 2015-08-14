@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi"/>
+    <title></title>
+    <style>
+
+        button{
+            width:200px;
+            height:100px;
+            margin: 10px;
+            font-size:24px;
+        }
+
+    </style>
+</head>
+<body>
+
+<button id="btn1" onclick="$loadByUrl('webaudio/guangyin_wrong.mp3')">解码失败</button>
+<button id="btn2" onclick="$loadByUrl('webaudio/guangyin_right.mp3')">解码成功</button>
+<button id="btn3" onclick="$loadByUrl('webaudio/guangyin.mp3')">清理3</button>
+<button id="btn4" onclick="$loadByUrl('webaudio/guangyin_441_3.mp3')">清理4</button>
+
+<script>
+    var canUseWebAudio = window["AudioContext"] || window["webkitAudioContext"] || window["mozAudioContext"];
+    if (!canUseWebAudio) {
+        alert("不支持webAudio！");
+    }
+    var ctx = canUseWebAudio ? new (window["AudioContext"] || window["webkitAudioContext"] || window["mozAudioContext"])() : undefined;
+
+    function $loadByUrl(virtualUrl) {
+        var request = new XMLHttpRequest();
+        request.open("GET", virtualUrl + "?r=" + Math.random(), true);
+        request.responseType = "arraybuffer";
+        console.log("loadWebAudio");
+
+        request.onload = function () {
+            var buffer = request.response;
+            alert("开始解码");
+            console.log(buffer);
+            ctx.decodeAudioData(buffer, function (audioBuffer) {
+                alert("解码成功: " + virtualUrl);
+            }, function (e) { //这个是解码失败会调用的函数
+                alert("解码失败: " + virtualUrl);
+            });
+        };
+        request.send();
+    }
+</script>
+</body>
+</html>
