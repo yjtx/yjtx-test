@@ -6574,6 +6574,16 @@ declare module egret {
         $Bitmap: Object;
         /**
          * @private
+         * 显示对象添加到舞台
+         */
+        $onAddToStage(stage: Stage, nestLevel: number): void;
+        /**
+         * @private
+         * 显示对象从舞台移除
+         */
+        $onRemoveFromStage(): void;
+        /**
+         * @private
          */
         $bitmapData: Texture;
         /**
@@ -6589,6 +6599,10 @@ declare module egret {
          * @platform Web,Native
          */
         texture: Texture;
+        /**
+         * @private
+         */
+        $setBitmapData(value: Texture): void;
         /**
          * @private
          */
@@ -6646,10 +6660,6 @@ declare module egret {
          */
         fillMode: string;
         $setFillMode(value: string): void;
-        /**
-         * @private
-         */
-        $setBitmapData(value: Texture): void;
         /**
          * @private
          */
@@ -7025,6 +7035,11 @@ declare module egret {
          * @platform Web,Native
          */
         dispose(): void;
+        private static _displayList;
+        static $addDisplayObject(displayObject: DisplayObject, texture: Texture): void;
+        static $removeDisplayObject(displayObject: DisplayObject, texture: Texture): void;
+        static $dispose(texture: Texture): void;
+        static $loaded(texture: Texture): void;
     }
 }
 
@@ -7071,6 +7086,11 @@ declare module egret {
         private drawWithClip(displayObject, context);
         private drawWithScrollRect(displayObject, context);
         private createRenderContext(width, height);
+        /**
+         * 销毁 RenderTexture 对象
+         * @method egret.RenderTexture#dispose
+         */
+        dispose(): void;
     }
 }
 

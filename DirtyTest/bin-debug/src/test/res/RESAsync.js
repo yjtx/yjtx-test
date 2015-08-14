@@ -34,7 +34,7 @@ var RESAsync = (function (_super) {
     }
     var __egretProto__ = RESAsync.prototype;
     __egretProto__.init = function () {
-        new LoadResources(this.testUrl, this, "img_scale9_png", this.stage.textureScaleFactor);
+        new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
     };
     __egretProto__.testUrl = function () {
         RES.getResAsync("run_down_png", function (texture) {

@@ -98,6 +98,26 @@ var egret;
             this.texture = bitmapData;
         }
         var __egretProto__ = Bitmap.prototype;
+        /**
+         * @private
+         * 显示对象添加到舞台
+         */
+        __egretProto__.$onAddToStage = function (stage, nestLevel) {
+            _super.prototype.$onAddToStage.call(this, stage, nestLevel);
+            if (this.$bitmapData) {
+                egret.Texture.$addDisplayObject(this, this.$bitmapData);
+            }
+        };
+        /**
+         * @private
+         * 显示对象从舞台移除
+         */
+        __egretProto__.$onRemoveFromStage = function () {
+            _super.prototype.$onRemoveFromStage.call(this);
+            if (this.$bitmapData) {
+                egret.Texture.$removeDisplayObject(this, this.$bitmapData);
+            }
+        };
         Object.defineProperty(__egretProto__, "texture", {
             /**
              * @language en_US
@@ -120,6 +140,19 @@ var egret;
             enumerable: true,
             configurable: true
         });
+        /**
+         * @private
+         */
+        __egretProto__.$setBitmapData = function (value) {
+            if (value == this.$bitmapData) {
+                return;
+            }
+            this.$bitmapData = value;
+            if (this.$stage) {
+                egret.Texture.$addDisplayObject(this, value);
+            }
+            this.$invalidateContentBounds();
+        };
         Object.defineProperty(__egretProto__, "scale9Grid", {
             /**
              * @language en_US
@@ -192,16 +225,6 @@ var egret;
                 return;
             }
             this.$fillMode = value;
-        };
-        /**
-         * @private
-         */
-        __egretProto__.$setBitmapData = function (value) {
-            if (value == this.$bitmapData) {
-                return;
-            }
-            this.$bitmapData = value;
-            this.$invalidateContentBounds();
         };
         Object.defineProperty(__egretProto__, "smoothing", {
             /**
@@ -415,7 +438,7 @@ var egret;
          */
         Bitmap.$drawImage = function (context, texture, destW, destH, scale9Grid, fillMode, smoothing, offsetX, offsetY) {
             var bitmapData = texture;
-            if (!bitmapData._bitmapData["avaliable"]) {
+            if (!bitmapData._bitmapData || !bitmapData._bitmapData["avaliable"]) {
                 return;
             }
             context.imageSmoothingEnabled = smoothing;

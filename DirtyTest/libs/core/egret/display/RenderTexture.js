@@ -101,6 +101,7 @@ var egret;
             if (drawCalls == 0) {
                 return false;
             }
+            context.surface["avaliable"] = true;
             this._setBitmapData(context.surface);
             this._offsetX = bounds.x * scale;
             this._offsetY = bounds.y * scale;
@@ -288,6 +289,16 @@ var egret;
             surface.width = Math.max(257, width);
             surface.height = Math.max(257, height);
             return surface.renderContext;
+        };
+        /**
+         * 销毁 RenderTexture 对象
+         * @method egret.RenderTexture#dispose
+         */
+        __egretProto__.dispose = function () {
+            if (this._bitmapData) {
+                egret.Texture.$dispose(this);
+                this._bitmapData = null;
+            }
         };
         return RenderTexture;
     })(egret.Texture);

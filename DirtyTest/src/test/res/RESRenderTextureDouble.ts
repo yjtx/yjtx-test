@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESAsync extends egret.DisplayObjectContainer {
+class RESRenderTextureDouble extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -41,15 +41,19 @@ class RESAsync extends egret.DisplayObjectContainer {
 
     private testUrl():void {
         RES.getResAsync("run_down_png", function (texture) {
-            console.log(arguments);
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
+            var c = new egret.DisplayObjectContainer();
+            var icon:egret.Bitmap = new egret.Bitmap(texture);
+            c.addChild(icon);
 
-            RES.getResAsync("run_down_png", function (texture) {
-                console.log(arguments);
-            }, this);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
 
-            console.log(2222);
+            var c = new egret.DisplayObjectContainer();
+            var icon:egret.Bitmap = new egret.Bitmap(RES.getRes("img_scale9_png"));
+            c.addChild(icon);
+
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
 
         }, this);
     }

@@ -291,8 +291,54 @@ var egret;
          * @platform Web,Native
          */
         __egretProto__.dispose = function () {
-            egret.ImageLoader.disposeBitmapData(this._bitmapData);
+            if (this._bitmapData) {
+                Texture.$dispose(this);
+                egret.ImageLoader.disposeBitmapData(this._bitmapData);
+            }
         };
+        Texture.$addDisplayObject = function (displayObject, texture) {
+            var hashCode = texture._bitmapData.$hashCode;
+            if (!Texture._displayList[hashCode]) {
+                Texture._displayList[hashCode] = [displayObject];
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            if (tempList.indexOf(displayObject) < 0) {
+                tempList.push(displayObject);
+            }
+        };
+        Texture.$removeDisplayObject = function (displayObject, texture) {
+            var hashCode = texture._bitmapData.$hashCode;
+            if (!Texture._displayList[hashCode]) {
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            var index = tempList.indexOf(displayObject);
+            if (index >= 0) {
+                tempList.splice(index);
+            }
+        };
+        Texture.$dispose = function (texture) {
+            var hashCode = texture._bitmapData.$hashCode;
+            if (!Texture._displayList[hashCode]) {
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            for (var i = 0; i < tempList.length; i++) {
+                tempList[i].$invalidateContentBounds();
+            }
+        };
+        Texture.$loaded = function (texture) {
+            var hashCode = texture._bitmapData.$hashCode;
+            if (!Texture._displayList[hashCode]) {
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            for (var i = 0; i < tempList.length; i++) {
+                tempList[i].$invalidateContentBounds();
+            }
+        };
+        Texture._displayList = {};
         return Texture;
     })(egret.HashObject);
     egret.Texture = Texture;

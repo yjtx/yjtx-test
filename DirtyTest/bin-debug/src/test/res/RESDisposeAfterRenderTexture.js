@@ -26,33 +26,51 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-class RESAsync extends egret.DisplayObjectContainer {
-
-    public constructor() {
-        super();
-
+var RESDisposeAfterRenderTexture = (function (_super) {
+    __extends(RESDisposeAfterRenderTexture, _super);
+    function RESDisposeAfterRenderTexture() {
+        _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-
-    private init():void {
+    var __egretProto__ = RESDisposeAfterRenderTexture.prototype;
+    __egretProto__.init = function () {
         new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testUrl():void {
+    };
+    __egretProto__.testUrl = function () {
         RES.getResAsync("run_down_png", function (texture) {
-            console.log(arguments);
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
-
-            RES.getResAsync("run_down_png", function (texture) {
-                console.log(arguments);
-            }, this);
-
-            console.log(2222);
-
+            var c = new egret.DisplayObjectContainer();
+            var icon = new egret.Bitmap(texture);
+            c.addChild(icon);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
+            this._bitmap = new egret.Bitmap(renderTexture);
+            this.addChild(this._bitmap);
+            this._bitmap.texture = renderTexture;
+            egret.setTimeout(function () {
+                this.destroy();
+            }, this, 4000);
         }, this);
-    }
-}
-
-
+    };
+    __egretProto__.load = function () {
+        RES.getResAsync("run_down_png", function (texture) {
+            var c = new egret.DisplayObjectContainer();
+            var icon = new egret.Bitmap(texture);
+            c.addChild(icon);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
+            this._bitmap.texture = renderTexture;
+            egret.setTimeout(function () {
+                this.destroy();
+            }, this, 4000);
+        }, this);
+    };
+    __egretProto__.destroy = function () {
+        this._bitmap.texture.dispose();
+        egret.setTimeout(function () {
+            this.load();
+        }, this, 4000);
+    };
+    return RESDisposeAfterRenderTexture;
+})(egret.DisplayObjectContainer);
+RESDisposeAfterRenderTexture.prototype.__class__ = "RESDisposeAfterRenderTexture";
+egret.registerClass(RESDisposeAfterRenderTexture,"RESDisposeAfterRenderTexture");

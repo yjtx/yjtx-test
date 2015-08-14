@@ -69,7 +69,7 @@ var egret;
                 var winURL = window["URL"] || window["webkitURL"];
                 if (egret.BaseImageLoader._bitmapCallbackMap[url] == null) {
                     this._addToCallbackList(url, callback);
-                    if (web.Html5Capatibility._canUseBlob) {
+                    if (url.indexOf("data:") != 0 && url.indexOf("http:") != 0 && url.indexOf("https:") != 0 && web.Html5Capatibility._canUseBlob) {
                         var xhr = new XMLHttpRequest();
                         xhr.open("get", url, true);
                         xhr.responseType = "blob";

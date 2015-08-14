@@ -193,6 +193,7 @@ var egret;
                     }
                     var texture = new egret.Texture();
                     texture._setBitmapData(bitmapData);
+                    egret.Texture.$loaded(texture);
                     loader.data = texture;
                     egret.$callAsync(egret.Event.dispatchEvent, egret.Event, loader, egret.Event.COMPLETE);
                 });

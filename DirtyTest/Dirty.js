@@ -19,7 +19,7 @@ var examples = {
     "ScrollView": ["Normal"],
     "BitmapText": ["Normal", "RESNormal"],
     "SpriteSheet": ["Diff", "SubKey"],
-    "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync"],
+    "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync", "DisposeAfterRenderTexture", "RenderTextureDouble"],
     "": []
 };
 

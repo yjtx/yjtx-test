@@ -26,33 +26,31 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-
-class RESAsync extends egret.DisplayObjectContainer {
-
-    public constructor() {
-        super();
-
+var RESRenderTextureDouble = (function (_super) {
+    __extends(RESRenderTextureDouble, _super);
+    function RESRenderTextureDouble() {
+        _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-
-    private init():void {
+    var __egretProto__ = RESRenderTextureDouble.prototype;
+    __egretProto__.init = function () {
         new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testUrl():void {
+    };
+    __egretProto__.testUrl = function () {
         RES.getResAsync("run_down_png", function (texture) {
-            console.log(arguments);
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
-
-            RES.getResAsync("run_down_png", function (texture) {
-                console.log(arguments);
-            }, this);
-
-            console.log(2222);
-
+            var c = new egret.DisplayObjectContainer();
+            var icon = new egret.Bitmap(texture);
+            c.addChild(icon);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
+            var c = new egret.DisplayObjectContainer();
+            var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
+            c.addChild(icon);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
         }, this);
-    }
-}
-
-
+    };
+    return RESRenderTextureDouble;
+})(egret.DisplayObjectContainer);
+RESRenderTextureDouble.prototype.__class__ = "RESRenderTextureDouble";
+egret.registerClass(RESRenderTextureDouble,"RESRenderTextureDouble");

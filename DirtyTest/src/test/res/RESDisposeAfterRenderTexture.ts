@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESAsync extends egret.DisplayObjectContainer {
+class RESDisposeAfterRenderTexture extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -39,20 +39,54 @@ class RESAsync extends egret.DisplayObjectContainer {
         new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
     }
 
+    private _bitmap:egret.Bitmap;
     private testUrl():void {
         RES.getResAsync("run_down_png", function (texture) {
-            console.log(arguments);
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
+            var c = new egret.DisplayObjectContainer();
+            var icon:egret.Bitmap = new egret.Bitmap(texture);
+            c.addChild(icon);
 
-            RES.getResAsync("run_down_png", function (texture) {
-                console.log(arguments);
-            }, this);
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
 
-            console.log(2222);
+            this._bitmap = new egret.Bitmap(renderTexture);
+            this.addChild(this._bitmap);
+            this._bitmap.texture = renderTexture;
+
+            egret.setTimeout(function () {
+                this.destroy();
+            }, this, 4000);
 
         }, this);
     }
+
+    private load() {
+        RES.getResAsync("run_down_png", function (texture) {
+            var c = new egret.DisplayObjectContainer();
+            var icon:egret.Bitmap = new egret.Bitmap(texture);
+            c.addChild(icon);
+
+            var renderTexture = new egret.RenderTexture();
+            renderTexture.drawToTexture(c);
+
+            this._bitmap.texture = renderTexture;
+
+            egret.setTimeout(function () {
+                this.destroy();
+            }, this, 4000);
+
+        }, this);
+    }
+
+    private destroy() {
+        this._bitmap.texture.dispose();
+
+        egret.setTimeout(function () {
+
+            this.load();
+        }, this, 4000);
+    }
+
 }
 
 

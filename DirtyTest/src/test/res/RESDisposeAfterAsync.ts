@@ -36,7 +36,7 @@ class RESDisposeAfterAsync extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testUrl, this, "img_scale9_png", this.stage.textureScaleFactor);
+        new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
     }
 
     private testUrl():void {

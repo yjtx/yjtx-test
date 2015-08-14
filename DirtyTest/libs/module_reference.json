@@ -179,13 +179,15 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/RenderTexture.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
