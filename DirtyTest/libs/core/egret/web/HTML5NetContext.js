@@ -187,8 +187,6 @@ var egret;
                     }
                 }
                 this._imageLoader.load(virtualUrl, function (code, bitmapData) {
-                    alert(code)
-
                     if (code != 0) {
                         egret.IOErrorEvent.dispatchIOErrorEvent(loader);
                         return;

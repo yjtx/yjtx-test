@@ -62,7 +62,6 @@ var egret;
                     if (bitmapData.hasAttribute("crossOrigin")) {
                         bitmapData.removeAttribute("crossOrigin");
                     }
-                    //bitmapData.setAttribute("crossOrigin", egret.BaseImageLoader.crossOrigin);
                 }
                 else {
                     bitmapData.setAttribute("crossOrigin", egret.BaseImageLoader.crossOrigin);

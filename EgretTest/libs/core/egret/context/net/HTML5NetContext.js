@@ -213,8 +213,6 @@ var egret;
                 }
             }
             egret.Texture.createBitmapData(virtualUrl, function (code, bitmapData) {
-                alert(code)
-
                 if (code != 0) {
                     egret.IOErrorEvent.dispatchIOErrorEvent(loader);
                     return;
