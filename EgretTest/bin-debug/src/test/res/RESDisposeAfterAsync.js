@@ -34,7 +34,7 @@ var RESDisposeAfterAsync = (function (_super) {
     }
     var __egretProto__ = RESDisposeAfterAsync.prototype;
     __egretProto__.init = function () {
-        new LoadResources(this.testUrl, this, "img_scale9_png", egret.MainContext.instance.rendererContext.texture_scale_factor);
+        new LoadResources(this.testUrl, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
     };
     __egretProto__.testUrl = function () {
         RES.getResAsync("run_down_png", function (texture) {
