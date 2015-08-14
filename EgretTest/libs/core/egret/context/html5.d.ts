@@ -551,7 +551,8 @@ declare module egret {
          * @method egret.Sound#load
          */
         _load(): void;
-        _setArrayBuffer(buffer: ArrayBuffer, callback: Function): void;
+        private _url;
+        _setArrayBuffer(buffer: ArrayBuffer, url: string, callback: Function): void;
         _preload(type: string, callback?: Function, thisObj?: any): void;
         private _volume;
         /**

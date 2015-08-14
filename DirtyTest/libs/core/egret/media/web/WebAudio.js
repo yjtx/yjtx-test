@@ -102,6 +102,13 @@ var egret;
                     }
                     WebAudio.isDecoding = false;
                     WebAudio.decodeAudios();
+                }, function () {
+                    alert(egret.getString(1034, decodeInfo["url"]));
+                    if (decodeInfo["callback"]) {
+                        decodeInfo["callback"]();
+                    }
+                    WebAudio.isDecoding = false;
+                    WebAudio.decodeAudios();
                 });
             };
             /**
@@ -247,7 +254,7 @@ var egret;
             __egretProto__._setArrayBuffer = function (buffer, callback) {
                 var self = this;
                 this._arrayBuffer = buffer;
-                WebAudio.decodeArr.push({ "buffer": buffer, "callback": callback, "self": self });
+                WebAudio.decodeArr.push({ "buffer": buffer, "callback": callback, "self": self, "url": this._url });
                 WebAudio.decodeAudios();
             };
             /**
@@ -319,6 +326,7 @@ var egret;
              * @param callback
              */
             __egretProto__.$loadByUrl = function (virtualUrl, callback) {
+                this._url = virtualUrl;
                 var request = new XMLHttpRequest();
                 request.open("GET", virtualUrl, true);
                 request.responseType = "arraybuffer";

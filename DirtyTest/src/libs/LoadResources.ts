@@ -37,6 +37,7 @@ class LoadResources {
         this._thisObj = thisObj;
         this._group = group;
 
+        alert("开始加载");
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig(ResourceUtils.getRoot(factor) + "resource.json", ResourceUtils.getRoot(factor));
     }
@@ -97,6 +98,7 @@ class LoadResources {
      * Create a game scene
      */
     private createGameScene():void {
+        alert("加载完毕");
         this._callback.call(this._thisObj);
     }
 }

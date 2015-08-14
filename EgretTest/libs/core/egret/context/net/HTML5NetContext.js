@@ -168,7 +168,7 @@ var egret;
             console.log("loadWebAudio");
             request.onload = function () {
                 var audio = new egret.WebAudio();
-                audio._setArrayBuffer(request.response, function () {
+                audio._setArrayBuffer(request.response, virtualUrl, function () {
                     var sound = new egret.Sound();
                     sound._setAudio(audio);
                     loader.data = sound;

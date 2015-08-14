@@ -26,6 +26,7 @@ var egret;
     locale_strings[1028] = ". called injection is not configured rule: {0}, please specify configuration during its initial years of injection rule, and then call the corresponding single case.";
     locale_strings[1029] = "Function.prototype.bind - what is trying to be bound is not callable";
     locale_strings[1033] = "Photos can not be used across domains toDataURL to convert base64";
+    locale_strings[1034] = "Music file decoding failed: \"{0}\", please use the standard conversion tool reconversion under mp3.";
     //RES
     locale_strings[2000] = "RES.createGroup() passed in non-existed key value in configuration: {0}";
     locale_strings[2001] = "RES loaded non-existed or empty resource group:\"{0}\"";

@@ -2041,6 +2041,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebGetOption.ts": [

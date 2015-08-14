@@ -1127,6 +1127,7 @@ declare module egret.web {
          *
          */
         $destroy(): void;
+        private _url;
         /**
          * @private
          *

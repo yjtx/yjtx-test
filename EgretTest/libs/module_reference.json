@@ -638,6 +638,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/Html5Capatibility.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/WebAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/Logger.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/media/IAudio.ts"
 		],
