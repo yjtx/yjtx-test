@@ -72,6 +72,7 @@ var egret;
                 var displayList = new sys.DisplayList(stage);
                 displayList.renderContext = context;
                 stage.$displayList = displayList;
+                displayList.setClipRect(stage.$stageWidth, stage.$stageHeight);
                 return displayList;
             };
             /**

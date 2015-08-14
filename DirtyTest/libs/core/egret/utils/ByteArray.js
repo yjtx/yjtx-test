@@ -192,11 +192,11 @@ var egret;
                 return this._position;
             },
             set: function (value) {
-                if (this._position < value) {
-                    if (!this.validate(value - this._position)) {
-                        return;
-                    }
-                }
+                //if (this._position < value) {
+                //    if (!this.validate(value - this._position)) {
+                //        return;
+                //    }
+                //}
                 this._position = value;
                 this.write_position = value > this.write_position ? value : this.write_position;
             },

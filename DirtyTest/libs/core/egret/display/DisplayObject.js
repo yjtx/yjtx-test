@@ -1142,6 +1142,7 @@ var egret;
             if (this.$renderRegion) {
                 parentCache.markDirty(this);
             }
+            this.$propagateFlagsDown(16 /* InvalidConcatenatedMatrix */ | 32 /* InvalidInvertedConcatenatedMatrix */);
         };
         Object.defineProperty(__egretProto__, "alpha", {
             /**
