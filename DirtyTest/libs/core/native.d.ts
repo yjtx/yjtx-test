@@ -235,6 +235,9 @@ declare module egret_native {
         begin();
 
         end();
+        dispose();
+        toDataURL(type);
+        saveToFile(type:string, filePath:string);
     }
 
     module rastergl {
@@ -698,6 +701,7 @@ declare module egret.native {
          */
         renderContext: egret.sys.RenderContext;
         toDataURL(type?: string, ...args: any[]): string;
+        saveToFile(type: string, filePath: string): void;
         /**
          * @private
          * @inheritDoc

@@ -6980,7 +6980,7 @@ declare module egret {
          * @param y {number} 像素点的Y轴坐标
          * @returns {number} 指定像素点的颜色值
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         getPixel32(x: number, y: number): number[];
         /**

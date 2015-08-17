@@ -130,8 +130,7 @@ var egret;
          * @platform Web
          */
         __egretProto__.getPixel32 = function (x, y) {
-            var result = this._bitmapData.getContext("2d").getImageData(x, y, 1, 1);
-            return result.data;
+            throw new Error();
         };
         /**
          * 销毁纹理对象

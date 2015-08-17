@@ -603,6 +603,6 @@ declare module egret_native_sound {
     var currentPath: string;
 }
 
-declare module egret.web {
+declare module egret.native {
 }
 

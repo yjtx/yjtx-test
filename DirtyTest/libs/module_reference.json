@@ -2125,6 +2125,8 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTexture.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/EgretNative.ts": [

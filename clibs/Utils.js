@@ -151,14 +151,22 @@ function createRoot(firstName, secondName, examples, hrefCall) {
     var item2 = getItem2(secondName);
     item1.lastChild.appendChild(item2);
 
+    var keys = [];
     for (key in examples) {
         if (key == "") {
             continue;
         }
+        keys.push(key);
+    }
+
+    keys.sort();
+    for (var ii = 0; ii < keys.length; ii++) {
+        var key = keys[ii];
         var item3 = getItem3(key);
         appendToParent(item3, item2);
 
         var contents = examples[key];
+        contents.sort();
         for (var i = 0; i < contents.length; i++) {
             var content = contents[i];
             var item4 = getItem4(content, hrefCall, key);

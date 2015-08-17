@@ -57,7 +57,15 @@ var egret;
                 for (var _i = 1; _i < arguments.length; _i++) {
                     args[_i - 1] = arguments[_i];
                 }
+                if (this.$nativeRenderTexture) {
+                    return this.$nativeRenderTexture.toDataURL.apply(this, arguments);
+                }
                 return null;
+            };
+            __egretProto__.saveToFile = function (type, filePath) {
+                if (this.$nativeRenderTexture) {
+                    this.$nativeRenderTexture.saveToFile(type, filePath);
+                }
             };
             Object.defineProperty(__egretProto__, "width", {
                 /**

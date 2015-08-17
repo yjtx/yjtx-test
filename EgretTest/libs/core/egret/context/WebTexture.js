@@ -91,7 +91,17 @@ var egret;
             evt.initEvent("click", false, false); //initEvent 不加后两个参数在FF下会报错
             aLink.dispatchEvent(evt);
         }
+        function getPixel32(x, y) {
+            if (this._bitmapData && this._bitmapData.getContext) {
+                var result = this._bitmapData.getContext("2d").getImageData(x - this._offsetX, y - this._offsetY, 1, 1);
+                return result.data;
+            }
+            var surface = convertImageToCanvas(this, new egret.Rectangle(x - 1, y - 1, 3, 3));
+            result = surface.getContext("2d").getImageData(1, 1, 1, 1);
+            return result.data;
+        }
         egret.Texture.prototype.toDataURL = toDataURL;
         egret.Texture.prototype.saveToFile = saveToFile;
+        egret.Texture.prototype.getPixel32 = getPixel32;
     })(web = egret.web || (egret.web = {}));
 })(egret || (egret = {}));

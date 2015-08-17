@@ -25,7 +25,7 @@
 		"name":"spritesheets"
 	},
 	{
-		"keys":"img_scale9_png",
+		"keys":"img_scale9_png,dot_png",
 		"name":"bitmap"
 	}],
 	"resources":[
@@ -175,5 +175,10 @@
 		"subkeys":"ori_2_png",
 		"type":"sheet",
 		"url":"spritesheet/copy_1.json"
+	},
+	{
+		"name":"dot_png",
+		"type":"image",
+		"url":"dot.png"
 	}]
 }

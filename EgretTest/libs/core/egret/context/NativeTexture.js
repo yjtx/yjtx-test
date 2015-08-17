@@ -28,8 +28,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
-    var web;
-    (function (web) {
+    var native;
+    (function (native) {
         /**
          * @private
          */
@@ -91,7 +91,11 @@ var egret;
                 egret.$error(1033);
             }
         }
+        function getPixel32(x, y) {
+            return null;
+        }
         egret.Texture.prototype.toDataURL = toDataURL;
         egret.Texture.prototype.saveToFile = saveToFile;
-    })(web = egret.web || (egret.web = {}));
+        egret.Texture.prototype.getPixel32 = getPixel32;
+    })(native = egret.native || (egret.native = {}));
 })(egret || (egret = {}));

@@ -2,7 +2,7 @@ var examples = {
     "Empty": ["HelloWorld"],
     "Function": ["Super", "DefaultValue"],
     "Loader": ["Bitmap", "Sound", "Text"],
-    "TextField": ["Normal", "AppendText", "Background", "Flow", "Input", "TextArea", "Wrap", "NormalDelay"],
+    "TextField": ["Normal", "AppendText", "Background", "Family", "Flow", "Input", "TextArea", "Wrap", "NormalDelay"],
     "Sound": ["Normal"],
     "WebSocket": ["String", "Binary"],
     "Base64": ["FromTexture", "FromDisplayObject", "FromCrossUrl", "SaveFromTexture", "SaveFromDisplayObject"],
@@ -19,6 +19,7 @@ var examples = {
     "ScrollView": ["Normal"],
     "BitmapText": ["Normal", "RESNormal"],
     "SpriteSheet": ["Diff", "SubKey"],
+    "Texture": ["GetPixel32WithImg", "GetPixel32WithDO"],
     "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync", "DisposeAfterRenderTexture", "RenderTextureDouble"],
     "": []
 };
