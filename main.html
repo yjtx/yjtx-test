@@ -20,9 +20,15 @@
         <option value=1>正常大小</option>
         <option value=2>缩小一半</option>
     </select>
-    <p></p>
+    <br/>
+    <select id="input_iframe">
+        <option value="default">默认</option>
+        <option value="iframe">iframe</option>
+    </select>
+    <br/>
     <button id="btn">清理
     </button>
+    <br/>
 </div>
 <script src="clibs/Utils.js"></script>
 <script src="DirtyTest/Dirty.js"></script>
@@ -32,7 +38,6 @@
 <script src="HtmlTest/Html.js"></script>
 
 <script>
-
     btn.onclick = function () {
         var href = window.location.href;
         if (href.indexOf("#") >= 0) {
@@ -42,7 +47,7 @@
             href = href.substring(0, href.indexOf("?"));
         }
         window.location.href = href + "?r=" + Math.random();
-    }
+    };
 
     ex();
 

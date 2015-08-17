@@ -1,58 +1,61 @@
-
 <!DOCTYPE HTML>
-<html><head>
+<html>
+<head>
     <meta charset="utf-8">
     <title>摩尔战记</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="full-screen" content="true">
-    <meta name="screen-orientation" content="portrait">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="360-fullscreen" content="true">
-
-    <script src="http://open.egret-labs.org/static/js/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <style type="text/css">
-        html,body{width:100%;padding:0px;margin:0px;}
-
-    </style>
-
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
 
-<h4 style="color: #ff0000">问题机型：iPhone</h4>
-<h4 style="color: #ff0000">浏览器：qq、微信</h4>
+<h3>请在 iframe 模式下测试</h3>
+<p>如果是inputDiv监听，则长按住输入框后（非第一个字符前）不能弹出粘贴图标，而且不能输入字符（第一个输入框）； 如果是label监听或者不加监听，则长按后都可以弹出粘贴图标（第二个输入框）。</p>
 
-<iframe id="iframe" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" height="500" width="100%" style="height: 627px;"></iframe>
+<div>
+    问题输入框
+    <div id="label"></div>
+    <div id="inputDiv"
+         style="background: #ffff00;width: 300px;height:100px">
+            <textarea id="text" type="text" tabindex="-1"
+                      style="top:100px;width: 200px;text-align: left; font-size: 40px; color: rgb(0, 0, 0);">
+            </textarea>
+    </div>
+</div>
 
-<script type="text/javascript">
-    document.getElementById("iframe").src = "input/textarea.html?r=" + Math.random();
+<div style="margin: 30px 0px">
+    正确输入框
+    <div id="label2"></div>
+    <div id="inputDiv2"
+         style="background: #ffff00;width: 300px;height:100px">
+            <textarea id="text2" type="text" tabindex="-1"
+                      style="top:100px;width: 200px;text-align: left; font-size: 40px; color: rgb(0, 0, 0);">
+            </textarea>
+    </div>
+</div>
 
 
-    function setHeight() {
-        var height = getHeight();
+<script>
+    //////////////////////////////1111111//////////////////////////////////
+    var text = document.getElementById("text");
+    var label = document.getElementById("label");
+    var inputDiv = document.getElementById("inputDiv");
 
-        $("#iframe").height(height);
-    }
-
-    function getHeight() {
-        var winHeight = 0;
-        //获取窗口高度
-        if (window.innerHeight) {
-            winHeight = window.innerHeight;
-        } else if ((document.body) && (document.body.clientHeight)) {
-            winHeight = document.body.clientHeight;
-        }
-        //通过深入Document内部对body进行检测，获取窗口大小
-        if (document.documentElement && document.documentElement.clientHeight) {
-            winHeight = document.documentElement.clientHeight;
-        }
-        return winHeight;
-    }
-
-    $(document).ready(function () {
-        setHeight();
-
+    inputDiv.addEventListener("touchstart", function () {
     });
-</script>
+    text.value = "bbb";
+    //////////////////////////////1111111//////////////////////////////////
 
-</body></html>
+
+    //////////////////////////////2222222//////////////////////////////////
+    var text2 = document.getElementById("text2");
+    var label2 = document.getElementById("label2");
+    var inputDiv2 = document.getElementById("inputDiv2");
+
+    label2.addEventListener("touchstart", function () {
+    });
+    text2.value = "bbb";
+    //////////////////////////////2222222//////////////////////////////////
+
+</script>
+</body>
+</html>

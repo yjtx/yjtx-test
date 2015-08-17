@@ -173,9 +173,21 @@ function onLink(e) {
     var key = item.getAttribute("lastNode");
     eval("var hrefCall = " + item.getAttribute("linkHref"));
     var content = item.getAttribute("name");
-    var href = hrefCall(key, content);
+    var href = hrefCall(key, content, document.getElementById("input_size").value);
 
-    window.location.href = href;
+    var input_iframe = document.getElementById("input_iframe");
+    if (input_iframe.value == "iframe") {
+        //href = href.replace(/\?/g, "%3F");
+        //href = href.replace(/\//g, "%2F");
+        href = href.replace(/&/g, "%26");
+        //href = href.replace(/=/g, "%3D");
+        //href = href.replace(/#/g, "%23");
+        console.log(href);
+        window.location.href = "iframe.html?url=" + href;
+    }
+    else {
+        window.location.href = href;
+    }
 }
 
 

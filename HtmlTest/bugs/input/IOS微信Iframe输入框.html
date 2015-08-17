@@ -1,0 +1,58 @@
+
+<!DOCTYPE HTML>
+<html><head>
+    <meta charset="utf-8">
+    <title>摩尔战记</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="full-screen" content="true">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="360-fullscreen" content="true">
+
+    <script src="http://open.egret-labs.org/static/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+        html,body{width:100%;padding:0px;margin:0px;}
+
+    </style>
+
+</head>
+<body>
+
+<h4 style="color: #ff0000">问题机型：iPhone</h4>
+<h4 style="color: #ff0000">浏览器：qq、微信</h4>
+
+<iframe id="iframe" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" height="500" width="100%" style="height: 627px;"></iframe>
+
+<script type="text/javascript">
+    document.getElementById("iframe").src = "textarea.html?r=" + Math.random();
+
+
+    function setHeight() {
+        var height = getHeight();
+
+        $("#iframe").height(height);
+    }
+
+    function getHeight() {
+        var winHeight = 0;
+        //获取窗口高度
+        if (window.innerHeight) {
+            winHeight = window.innerHeight;
+        } else if ((document.body) && (document.body.clientHeight)) {
+            winHeight = document.body.clientHeight;
+        }
+        //通过深入Document内部对body进行检测，获取窗口大小
+        if (document.documentElement && document.documentElement.clientHeight) {
+            winHeight = document.documentElement.clientHeight;
+        }
+        return winHeight;
+    }
+
+    $(document).ready(function () {
+        setHeight();
+
+    });
+</script>
+
+</body></html>
