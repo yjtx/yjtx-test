@@ -31,6 +31,7 @@ var LoadResources = (function () {
         this._callback = callback;
         this._thisObj = thisObj;
         this._group = group;
+        alert("开始加载");
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig(ResourceUtils.getRoot(factor) + "resource.json", ResourceUtils.getRoot(factor));
     }
@@ -85,6 +86,7 @@ var LoadResources = (function () {
      * Create a game scene
      */
     __egretProto__.createGameScene = function () {
+        alert("加载完毕");
         this._callback.call(this._thisObj);
     };
     return LoadResources;

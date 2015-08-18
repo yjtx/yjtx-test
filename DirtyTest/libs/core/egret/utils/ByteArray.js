@@ -121,7 +121,6 @@ var egret;
         var __egretProto__ = ByteArray.prototype;
         /**
          * @private
-         *
          * @param buffer
          */
         __egretProto__._setArrayBuffer = function (buffer) {
@@ -137,7 +136,6 @@ var egret;
         __egretProto__.setArrayBuffer = function (buffer) {
         };
         Object.defineProperty(__egretProto__, "buffer", {
-            // getter setter
             get: function () {
                 return this.data.buffer;
             },
@@ -169,6 +167,9 @@ var egret;
             configurable: true
         });
         Object.defineProperty(__egretProto__, "bufferOffset", {
+            /**
+             * @private
+             */
             get: function () {
                 return this.data.byteOffset;
             },

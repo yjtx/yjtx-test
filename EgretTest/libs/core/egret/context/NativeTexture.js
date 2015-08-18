@@ -92,6 +92,7 @@ var egret;
             }
         }
         function getPixel32(x, y) {
+            egret.$error(1035);
             return null;
         }
         egret.Texture.prototype.toDataURL = toDataURL;

@@ -56,6 +56,7 @@
     "test/textfield/TextFieldInput.ts",
     "test/textfield/TextFieldNormal.ts",
     "test/textfield/TextFieldNormalDelay.ts",
+    "test/textfield/TextFieldRestrict.ts",
     "test/textfield/TextFieldTextArea.ts",
     "test/textfield/TextFieldWrap.ts",
     "test/texture/TextureGetPixel32WithDO.ts",

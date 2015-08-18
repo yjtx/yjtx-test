@@ -108,6 +108,34 @@ var egret;
             this.stageText._hide();
         };
         __egretProto__.updateTextHandler = function (event) {
+            var values = this._text._TF_Props_;
+            var textValue = this.stageText._getText();
+            var isChanged = false;
+            if (values._restrictAnd != null) {
+                var reg = new RegExp("[" + values._restrictAnd + "]", "g");
+                var result = textValue.match(reg);
+                if (result) {
+                    textValue = result.join("");
+                }
+                else {
+                    textValue = "";
+                }
+                isChanged = true;
+            }
+            if (values._restrictNot != null) {
+                reg = new RegExp("[^" + values._restrictNot + "]", "g");
+                result = textValue.match(reg);
+                if (result) {
+                    textValue = result.join("");
+                }
+                else {
+                    textValue = "";
+                }
+                isChanged = true;
+            }
+            if (isChanged) {
+                this.stageText._setText(textValue);
+            }
             this.resetText();
             //抛出change事件
             this._text.dispatchEvent(new egret.Event(egret.Event.CHANGE, true));

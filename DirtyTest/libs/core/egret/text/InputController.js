@@ -150,6 +150,37 @@ var egret;
          * @param event
          */
         __egretProto__.updateTextHandler = function (event) {
+            console.log("111");
+            var values = this._text.$TextField;
+            var textValue = this.stageText.$getText();
+            var isChanged = false;
+            if (values[35 /* restrictAnd */] != null) {
+                var reg = new RegExp("[" + values[35 /* restrictAnd */] + "]", "g");
+                var result = textValue.match(reg);
+                console.log(result);
+                if (result) {
+                    textValue = result.join("");
+                }
+                else {
+                    textValue = "";
+                }
+                isChanged = true;
+            }
+            if (values[36 /* restrictNot */] != null) {
+                reg = new RegExp("[^" + values[36 /* restrictNot */] + "]", "g");
+                result = textValue.match(reg);
+                console.log(result);
+                if (result) {
+                    textValue = result.join("");
+                }
+                else {
+                    textValue = "";
+                }
+                isChanged = true;
+            }
+            if (isChanged) {
+                this.stageText.$setText(textValue);
+            }
             this.resetText();
             //抛出change事件
             this._text.dispatchEvent(new egret.Event(egret.Event.CHANGE, true));

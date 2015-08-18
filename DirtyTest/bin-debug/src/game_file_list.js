@@ -56,6 +56,7 @@ var game_file_list = [
 	"test/textfield/TextFieldInput.js",
 	"test/textfield/TextFieldNormal.js",
 	"test/textfield/TextFieldNormalDelay.js",
+	"test/textfield/TextFieldRestrict.js",
 	"test/textfield/TextFieldTextArea.js",
 	"test/textfield/TextFieldWrap.js",
 	"test/texture/TextureGetPixel32WithDO.js",
