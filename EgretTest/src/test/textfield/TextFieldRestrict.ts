@@ -146,7 +146,7 @@ class TextFieldRestrict extends egret.DisplayObjectContainer {
 
         var textField = new egret.TextField();
         textField.multiline = true;
-        textField.text = "aaa\nbb";
+        textField.text = "黄海鹰";
         textField.size = 40;
         textField.textColor = 0xff0000;
         textField.type = egret.TextFieldType.INPUT;
@@ -160,6 +160,7 @@ class TextFieldRestrict extends egret.DisplayObjectContainer {
         textField.backgroundColor = 0xffffff;
         textField.border = true;
         textField.borderColor = 0x000000;
+        textField.restrict = "黄海鹰";
 
         var textField = new egret.TextField();
         textField.multiline = true;

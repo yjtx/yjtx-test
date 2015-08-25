@@ -28,76 +28,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
-    /**
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    var Ticker = (function (_super) {
-        __extends(Ticker, _super);
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        function Ticker() {
-            _super.call(this);
-            if (Ticker.instance != null) {
-                if (DEBUG) {
-                    egret.$error(1033);
-                }
-            }
-        }
-        var __egretProto__ = Ticker.prototype;
-        /**
-         * 注册帧回调事件，同一函数的重复监听会被忽略。
-         * @method egret.Ticker#register
-         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
-         * @param thisObject {any} 帧回调函数的this对象
-         * @param priority {number} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.register = function (callBack, thisObject, priority) {
-            if (priority === void 0) { priority = 0; }
-            egret.sys.$ticker.$startTick(callBack, thisObject);
-        };
-        /**
-         * 取消侦听enterFrame事件
-         * @method egret.Ticker#unregister
-         * @param listener {Function} 事件侦听函数
-         * @param thisObject {any} 侦听函数的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.unregister = function (callBack, thisObject) {
-            egret.sys.$ticker.$stopTick(callBack, thisObject);
-        };
-        /**
-         * @method egret.Ticker.getInstance
-         * @returns {Ticker}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        Ticker.getInstance = function () {
-            if (Ticker.instance == null) {
-                Ticker.instance = new Ticker();
-            }
-            return Ticker.instance;
-        };
-        return Ticker;
-    })(egret.EventDispatcher);
-    egret.Ticker = Ticker;
-    Ticker.prototype.__class__ = "egret.Ticker";
-    egret.registerClass(Ticker,"egret.Ticker");
-})(egret || (egret = {}));
-var egret;
-(function (egret) {
     var sys;
     (function (sys) {
-        /**
-         * @private
-         * 心跳计时器单例
-         */
-        sys.$ticker;
         /**
          * @private
          * 是否要广播Event.RENDER事件的标志。
@@ -117,10 +49,6 @@ var egret;
              * @private
              */
             function SystemTicker() {
-                /**
-                 * @private
-                 */
-                this.lastTime = 0;
                 /**
                  * @private
                  */
@@ -150,7 +78,6 @@ var egret;
                     egret.$error(1008, "egret.sys.SystemTicker");
                 }
                 egret.$START_TIME = Date.now();
-                this.lastTime = 0;
             }
             var __egretProto__ = SystemTicker.prototype;
             /**
@@ -232,7 +159,7 @@ var egret;
              * 设置全局帧率
              */
             __egretProto__.$setFrameRate = function (value) {
-                //value = +value || 0;
+                value = +value || 0;
                 if (value <= 0) {
                     return;
                 }
@@ -256,10 +183,8 @@ var egret;
                 var length = callBackList.length;
                 var requestRenderingFlag = sys.$requestRenderingFlag;
                 var timeStamp = egret.getTimer();
-                var advancedTime = timeStamp - this.lastTime;
-                this.lastTime = timeStamp;
                 for (var i = 0; i < length; i++) {
-                    if (!callBackList[i].call(thisObjectList[i], advancedTime)) {
+                    if (!callBackList[i].call(thisObjectList[i], timeStamp)) {
                         requestRenderingFlag = true;
                     }
                 }
@@ -332,6 +257,11 @@ var egret;
         sys.SystemTicker = SystemTicker;
         SystemTicker.prototype.__class__ = "egret.sys.SystemTicker";
         egret.registerClass(SystemTicker,"egret.sys.SystemTicker");
+        /**
+         * @private
+         * 心跳计时器单例
+         */
+        sys.$ticker = new sys.SystemTicker();
     })(sys = egret.sys || (egret.sys = {}));
 })(egret || (egret = {}));
 if (DEBUG) {

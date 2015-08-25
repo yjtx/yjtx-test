@@ -3507,12 +3507,14 @@ declare module egret {
          * @private
          */
         $addListener(type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number, emitOnce?: boolean): void;
+        $insertEventBin(list: Array<any>, type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number, emitOnce?: boolean): boolean;
         /**
          * @inheritDoc
          * @version Egret 2.0
          * @platform Web,Native
          */
         removeEventListener(type: string, listener: Function, thisObject: any, useCapture?: boolean): void;
+        $removeEventBin(list: Array<any>, listener: Function, thisObject: any): boolean;
         /**
          * @inheritDoc
          * @version Egret 2.0
@@ -3743,7 +3745,7 @@ declare module egret {
          * @private
          * Ticker以60FPS频率刷新此方法
          */
-        $update(advancedTime: number): boolean;
+        $update(timeStamp: number): boolean;
     }
 }
 
@@ -3990,19 +3992,6 @@ declare module egret {
         static LOOP_COMPLETE: string;
         /**
          * @language en_US
-         * Emitted when the net request is failed.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 网络请求加载失败
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static IO_ERROR: string;
-        /**
-         * @language en_US
          * Emitted when the TextInput instance gets focus.
          * @version Egret 2.0
          * @platform Web,Native
@@ -4042,39 +4031,40 @@ declare module egret {
         static ENDED: string;
         /**
          * 游戏激活
-         * @constant {string} egret.Event.ACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static ACTIVATE: string;
         /**
          * 取消激活
-         * @constant {string} egret.Event.DEACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static DEACTIVATE: string;
         /**
          * Event.CLOSE 常量定义 close 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CLOSE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static CLOSE: string;
         /**
          * Event.CONNECT 常量定义 connect 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         static CONNECT: string;
         /**
          * Event.LEAVE_STAGE 常量定义 leaveStage 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         static LEAVE_STAGE: string;
+        /**
+         * Event.SOUND_COMPLETE 常量定义 在声音完成播放后调度。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static SOUND_COMPLETE: string;
         /**
          * @language en_US
          * Creates an Event object to pass as a parameter to event listeners.
@@ -5132,76 +5122,6 @@ declare module egret {
          * @platform Web,Native
          */
         static dispatchIOErrorEvent(target: IEventDispatcher): boolean;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * Sound-related events.
-     * An event: SoundEvent.SOUND_COMPLETE
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/events/SoundEvent.ts
-     */
-    /**
-     * @language zh_CN
-     * 声音相关事件。
-     * 有事件：SoundEvent.SOUND_COMPLETE
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/events/SoundEvent.ts
-     */
-    class SoundEvent extends egret.Event {
-        /**
-         * @language en_US
-         * The sound has finished playing scheduling.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 在声音完成播放后调度。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static SOUND_COMPLETE: string;
-        /**
-         * @language en_US
-         * Creates an Event object to pass as a parameter to event listeners.
-         * @param type  The type of the event, accessible as Event.type.
-         * @param bubbles  Determines whether the Event object participates in the bubbling stage of the event flow. The default value is false.
-         * @param cancelable Determines whether the Event object can be canceled. The default values is false.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个作为参数传递给事件侦听器的 Event 对象。
-         * @param type  事件的类型，可以作为 Event.type 访问。
-         * @param bubbles  确定 Event 对象是否参与事件流的冒泡阶段。默认值为 false。
-         * @param cancelable 确定是否可以取消 Event 对象。默认值为 false。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean);
-        /**
-         * @language en_US
-         * EventDispatcher object using the specified event object thrown Event. The objects will be thrown in the object cache pool for the next round robin.
-         * @param target {egret.IEventDispatcher} Distribute event target
-         * @param type  The type of the event, accessible as Event.type.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
-         * @param target {egret.IEventDispatcher} 派发事件目标
-         * @param type  事件的类型，可以作为 Event.type 访问。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static dispatchSoundEvent(target: IEventDispatcher, type: string): boolean;
     }
 }
 
@@ -9434,7 +9354,10 @@ declare module egret {
 declare module egret {
     /**
      * @classdesc 影片剪辑，可以通过影片剪辑播放序列帧动画。MovieClip 类从以下类继承而来：DisplayObject 和 EventDispatcher。不同于 DisplayObject 对象，MovieClip 对象拥有一个时间轴。
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html  MovieClip序列帧动画
+     * @extends egret.DisplayObject
+     * @event egret.Event.COMPLETE 动画播放完成。
+     * @event egret.Event.LOOP_COMPLETE 动画循环播放完成。
+     * @see http://edn.egret.com/cn/index.php/article/index/id/151 MovieClip序列帧动画
      * @version Egret 2.0
      * @platform Web,Native
      * @includeExample egret/display/MovieClip.ts
@@ -9609,7 +9532,7 @@ declare module egret {
          * @param advancedTime
          * @returns
          */
-        private advanceTime(advancedTime);
+        private advanceTime(timeStamp);
         /**
          * @private
          *
@@ -10403,46 +10326,44 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * The URLRequestMethod class provides values that specify whether the
-     * URLRequest object should use the POST method or the GET method when sending data to a server.
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
-     * @version Egret 2.0
+     * The HttpMethod class provides values that specify whether the HttpRequest object should use the POST method
+     * or the GET method when sending data to a server.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLRequestMethod.ts
      */
     /**
      * @language zh_CN
-     * URLRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
-     * URLRequest 对象应使用 POST 方法还是 GET 方法。
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
-     * @version Egret 2.0
+     * HttpRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
+     * HttpRequest 对象应使用 POST 方法还是 GET 方法。
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLRequestMethod.ts
      */
-    class URLRequestMethod {
+    class HttpMethod {
         /**
          * @language en_US
-         * Specify that the URLRequest object is a GET.
-         * @version Egret 2.0
+         * Specifies that the HttpRequest object is a GET.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 表示 URLRequest 对象是一个 GET。
-         * @version Egret 2.0
+         * 表示 HttpRequest 对象是一个 GET。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static GET: string;
         /**
          * @language en_US
-         * Specify that the URLRequest object is a POST.
-         * @version Egret 2.0
+         * Specifies that the HttpRequest object is a POST.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 表示 URLRequest 对象是一个 POST。
-         * @version Egret 2.0
+         * 表示 HttpRequest 对象是一个 POST。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static POST: string;
@@ -10452,670 +10373,329 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * The URLLoaderDataFormat class provides values that specify how downloaded data is received.
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html Read different data format
-     * @version Egret 2.0
+     * The HttpResponseType class provides values that specify how downloaded data is received.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoaderDataFormat.ts
      */
     /**
      * @language zh_CN
      * URLLoaderDataFormat 类提供了一些用于指定如何接收已下载数据的值。
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html 读取不同数据格式
-     * @version Egret 2.0
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoaderDataFormat.ts
      */
-    class URLLoaderDataFormat {
+    class HttpResponseType {
         /**
          * @language en_US
-         * Specify that downloaded data is received as raw binary data.
-         * @version Egret 2.0
+         * Specifies that downloaded data is received as text. This is the default value of HttpRequest.responseType
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 指定以原始二进制数据形式接收下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static BINARY: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as text.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以文本形式接收已下载的数据。
-         * @version Egret 2.0
+         * 返回字符串。HttpRequest.responseType属性的默认值。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static TEXT: string;
         /**
          * @language en_US
-         * Specify that downloaded data is received as URL-encoded variables.
-         * @version Egret 2.0
+         * Specifies that downloaded data is received as raw binary data.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 指定以 URL 编码变量形式接收下载的数据。
-         * @version Egret 2.0
+         * 返回二进制的ArrayBuffer对象。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        static VARIABLES: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as bitmap texture.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以位图纹理形式接收已下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static TEXTURE: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as sound.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以声音形式接收已下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static SOUND: string;
+        static ARRAY_BUFFER: string;
     }
 }
 
 declare module egret {
     /**
      * @language en_US
-     * The URLVariables class allows you to transfer variables between an application and a server.
-     * Use URLVariables objects with methods of the URLLoader class and the data property of the URLRequest class.
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html Send the request with parameters
-     * @version Egret 2.0
+     * The HttpRequest class downloads data from a URL as text or binary data. It is useful for downloading text files,
+     * XML, or other information to be used in a dynamic, data-driven application. A HttpRequest object downloads all
+     * of the data from a URL before making it available to code in the applications. It sends out notifications about
+     * the progress of the download, which you can monitor through the bytesLoaded and bytesTotal properties,
+     * as well as through emitted events.
+     * @event lark.Event.COMPLETE Emitted when the net request is complete.
+     * @event lark.Event.IO_ERROR Emitted when the net request is failed.
+     * @event lark.ProgressEvent.PROGRESS Emitted when data is received as the download operation progresses.
+     * @see lark.HttpMethod
+     * @see lark.HttpResponseType
+     * @includeExample examples/Samples/src/lark/net/HttpRequestExample.ts
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLVariables.ts
      */
     /**
      * @language zh_CN
-     * 使用 URLVariables 类可以在应用程序和服务器之间传输变量。
-     * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html 发送带参数的请求
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLVariables.ts
-     */
-    class URLVariables extends HashObject {
-        /**
-         * @language en_US
-         * Create an egret.URLVariable object
-         * @param source {String} A URL-encoded string containing name/value pairs.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLVariables 对象
-         * @param source {String} 包含名称/值对的 URL 编码的字符串。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(source?: string);
-        /**
-         * @language en_US
-         * Key-value pair data object saved in this URLVariables object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 此 URLVariables 储存的键值对数据对象。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        variables: Object;
-        /**
-         * @language en_US
-         * Convert the variable string into the property of this URLVariables.variables object.
-         * @param source {string}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 将变量字符串转换为此 URLVariables.variables 对象的属性。
-         * @param source {string}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        decode(source: string): void;
-        /**
-         * @language en_US
-         * Return a string containing all enumerable variables using  the MIME content encoding format : application/x-www-form-urlencoded.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 以 MIME 内容编码格式 application/x-www-form-urlencoded 返回包含所有可枚举变量的字符串。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        toString(): string;
-        /**
-         * @private
-         *
-         * @param key
-         * @param value
-         */
-        private encodeValue(key, value);
-        /**
-         * @private
-         *
-         * @param key
-         * @param value
-         */
-        private encodeArray(key, value);
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * A URLRequestHeader object encapsulates a single HTTP request header and consists of a name/value pair.  URLRequestHeader objects are used in the requestHeaders property of the URLRequest class.
-     * Note: Because of browser compatibility, this property has not been achieved in html5
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestHeader.ts
-     */
-    /**
-     * @language zh_CN
-     * URLRequestHeader 对象封装了一个 HTTP 请求标头并由一个名称/值对组成。URLRequestHeader 对象在 URLRequest 类的 requestHeaders 属性中使用。
-     * 注意：由于浏览器兼容性原因，在 html5 中并未实现
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestHeader.ts
-     */
-    class URLRequestHeader {
-        /**
-         * @language en_US
-         * HTTP request header name, such as Content-Type
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * HTTP 请求标头名称，如 Content-Type
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        name: string;
-        /**
-         * @language en_US
-         * The values associated with the name property (such as text/plain).
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 与 name 属性相关联的值，如 text/plain
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        value: string;
-        /**
-         * @language en_US
-         * Create an egret.URLRequestHeader object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLRequestHeader 对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(name: string, value: string);
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * The URLRequest class captures all of the information in a single HTTP request.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequest.ts
-     */
-    /**
-     * @language zh_CN
-     * URLRequest 类可捕获单个 HTTP 请求中的所有信息。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequest.ts
-     */
-    class URLRequest extends HashObject {
-        /**
-         * @language en_US
-         * Create an egret.URLRequest object
-         * @param url {string} Addresses for URL requests
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLRequest 对象
-         * @param url {string} 进行网络请求的地址
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(url?: string);
-        /**
-         * @language en_US
-         * An object contains data to be transmitted with the URL request.
-         * This property is used in conjunction with the method property.  When the value of method is GET, the value of data is appended to the value of URLRequest.url, using HTTP query-string syntax.
-         * When the method value is POST (or any value other than GET), the value of data is transmitted in the body of the HTTP request.
-         * The URLRequest API supports  binary POST, URL-encoded variables, as well as strings. The data object can be a ByteArray, URLVariables, or String object. The way in which the data is used depends on the type of object used: If the object is a ByteArray object, the binary data of the ByteArray object is used as POST data. For GET, data of ByteArray type is not supported.
-         * If the object is a URLVariables object and the method is POST, then the variables are encoded using x-www-form-urlencoded format and the resulting string is used as POST data.
-         * If the object is a URLVariables object and the method is GET, the URLVariables object will define variables to be sent with the URLRequest object.
-         * Otherwise, the object is converted into a string, and the string is used as the POST or GET data.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 一个对象，它包含将随 URL 请求一起传输的数据。
-         * 该属性与 method 属性配合使用。当 method 值为 GET 时，将使用 HTTP 查询字符串语法将 data 值追加到 URLRequest.url 值。
-         * 当 method 值为 POST（或 GET 之外的任何值）时，将在 HTTP 请求体中传输 data 值。
-         * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ByteArray、URLVariables 或 String 对象。
-         * 该数据的使用方式取决于所用对象的类型：
-         * 如果该对象为 ByteArray 对象，则 ByteArray 对象的二进制数据用作 POST 数据。对于 GET，不支持 ByteArray 类型的数据。
-         * 如果该对象是 URLVariables 对象，并且该方法是 POST，则使用 x-www-form-urlencoded 格式对变量进行编码，并且生成的字符串会用作 POST 数据。
-         * 如果该对象是 URLVariables 对象，并且该方法是 GET，则 URLVariables 对象将定义要随 URLRequest 对象一起发送的变量。
-         * 否则，该对象会转换为字符串，并且该字符串会用作 POST 或 GET 数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        data: any;
-        /**
-         * @language en_US
-         * Request method, valid values are URLRequestMethod.GET or URLRequestMethod.POST.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 请求方式，有效值为URLRequestMethod.GET 或 URLRequestMethod.POST。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        method: string;
-        /**
-         * @language en_US
-         * The requested URL.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 所请求的 URL。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        url: string;
-        /**
-         * @language en_US
-         * The array of HTTP request headers to be appended to the HTTP request. The array is composed of URLRequestHeader objects.
-         * Each object in the array must be a URLRequestHeader object that contains a name string and a value string.
-         * Because of browser compatibility, this property has not been achieved in html5
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 要追加到 HTTP 请求的 HTTP 请求标头的数组。该数组由 URLRequestHeader 对象组成。
-         * 数组中的每一对象必须是包含一个名称字符串和一个值字符串的 URLRequestHeader 对象。
-         * 由于浏览器兼容性原因，该属性在 html5 中并未实现
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        requestHeaders: Array<URLRequestHeader>;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * UThe URLLoader class downloads data from a URL as text, binary data, or URL-encoded variables.  It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
-     * A URLLoader object downloads all of the data from a URL before making it available to code in the applications. It sends out notifications about the progress of the download,
-     * which you can monitor through bytesLoaded and bytesTotal properties, as well as through dispatched events.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
-     * @event egret.Event.COMPLETE Emitted when the net request is complete.
-     * @event egret.IOErrorEvent.IO_ERROR io error.
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLLoader.ts
-     */
-    /**
-     * @language zh_CN
-     * URLLoader 类以文本、二进制数据或 URL 编码变量的形式从 URL 下载数据。在下载文本文件、XML 或其他用于动态数据驱动应用程序的信息时，它很有用。
-     * URLLoader 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
+     * HttpRequest 类以文本或二进制数据的形式从 URL 下载数据。
+     * HttpRequest 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
      * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
-     * @event egret.Event.COMPLETE 加载完成后调度。
-     * @event egret.IOErrorEvent.IO_ERROR 加载错误后调度。
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE 加载完成
+     * @event lark.Event.IO_ERROR 加载失败
+     * @event lark.ProgressEvent.PROGRESS 加载进度，可通过event.bytesLoaded和event.bytesTotal统计进度信息。
+     * @see lark.HttpMethod
+     * @see lark.HttpResponseType
+     * @includeExample examples/Samples/src/lark/net/HttpRequestExample.ts
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoader.ts
      */
-    class URLLoader extends EventDispatcher {
+    interface HttpRequest extends EventDispatcher {
         /**
          * @language en_US
-         * Create an egret.URLLoader object
-         * @param request {URLRequest} A URLRequest object specifies the URL to be downloaded.
-         * If this parameter is omitted, no load operation begins. If a parameter is specified, the load operation begins immediately
-         * @version Egret 2.0
+         * The data received from the load operation.  The format of the data depends on the setting of the responseType property.
+         * @readOnly
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 创建 egret.URLLoader 对象
-         * @param request {URLRequest} 一个 URLRequest 对象，指定要下载的 URL。
-         * 如果省略该参数，则不开始加载操作。如果已指定参数，则立即开始加载操作
-         * @version Egret 2.0
+         * 本次请求返回的数据，数据类型根据 responseType 设置的值确定。
+         * @readOnly
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        constructor(request?: URLRequest);
+        response: any;
         /**
          * @language en_US
-         * Control whether the downloaded data is received as text (URLLoaderDataFormat.TEXT), raw binary data (URLLoaderDataFormat.BINARY), or URL-encoded variables (URLLoaderDataFormat.VARIABLES).
-         * If the value of the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
-         * If the value of the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
-         * If the value of the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
-         * If the value of the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
-         * The default value is URLLoaderDataFormat.TEXT.
-         * @default egret.URLLoaderDataFormat.TEXT
-         * @version Egret 2.0
+         * Controls whether the downloaded data is received as text (HttpResponseType.TEXT) or raw binary data (HttpResponseType.ArrayBuffer)<br/>
+         * Note:If you attempt to set this property to an invalid value, Lark runtime set the value to HttpResponseType.TEXT.
+         * @default lark.HttpResponseType.TEXT
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 控制是以文本 (URLLoaderDataFormat.TEXT)、原始二进制数据 (URLLoaderDataFormat.BINARY) 还是 URL 编码变量 (URLLoaderDataFormat.VARIABLES) 接收下载的数据。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
-         * @default egret.URLLoaderDataFormat.TEXT
-         * @version Egret 2.0
+         * 设置返回的数据格式为文本（HttpResponseType.TEXT）还是二进制数据（HttpResponseType.ArrayBuffer）<br/>
+         * 注意：若尝试设置此属性为一个非法的值，运行时将使用HttpResponseType.TEXT。
+         * @default lark.HttpResponseType.TEXT
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        dataFormat: string;
+        responseType: string;
         /**
          * @language en_US
-         * The data received from the load operation. This property is populated only when the load operation is complete. The format of the data depends on the setting of the dataFormat property:
-         * If the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
-         * If the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
-         * If the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
-         * If the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
-         * @version Egret 2.0
+         * indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies
+         * or authorization headers. (This never affects same-site requests.)
+         * @default false
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 从加载操作接收的数据。只有完成加载操作时，才会填充该属性。该数据的格式取决于 dataFormat 属性的设置：
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
-         * @version Egret 2.0
+         * 表明在进行跨站(cross-site)的访问控制(Access-Control)请求时，是否使用认证信息(例如cookie或授权的header)。(这个标志不会影响同站的请求)
+         * @default false
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        data: any;
-        /**
-         * @private
-         */
-        _request: URLRequest;
+        withCredentials: boolean;
         /**
          * @language en_US
-         * Send and load data from the specified URL. The data can be received as text, raw binary data, or URL-encoded variables, depending on the value you set for the dataFormat property.
-         * Note that the default value of the dataFormat property is text. If you want to send data to the specified URL, you can set the data property in the URLRequest object.
-         * @param request {URLRequest}  A URLRequest object specifies the URL to be downloaded.
-         * @version Egret 2.0
+         * Initializes a request.<br/>
+         * Note: Calling this method for an already active request (one for which open() or openRequest() has already been
+         * called) is the equivalent of calling abort().
+         * @param url The URL to send the request to.
+         * @param method The HTTP method to use, please use the const value in the HttpMethod class.
+         * @see lark.HttpMethod
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 从指定的 URL 发送和加载数据。可以以文本、原始二进制数据或 URL 编码变量格式接收数据，这取决于为 dataFormat 属性所设置的值。
-         * 请注意 dataFormat 属性的默认值为文本。如果想将数据发送至指定的 URL，则可以在 URLRequest 对象中设置 data 属性。
-         * @param request {URLRequest}  一个 URLRequest 对象，指定要下载的 URL。
-         * @version Egret 2.0
+         * 初始化一个请求.<br/>
+         * 注意: 若在已经发出请求的对象上调用此方法，相当于立即调用abort().
+         * @param url 该请求所要访问的URL该请求所要访问的URL
+         * @param method 请求所使用的HTTP方法， 请使用 HttpMethod 定义的枚举值.
+         * @see lark.HttpMethod
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        load(request: URLRequest): void;
+        open(url: string, method?: string): void;
         /**
-         * @private
-         */
-        _status: number;
-        /**
-         * @private
-         *
-         */
-        __recycle(): void;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    interface NetContext extends HashObject {
-        /**
-         *
-         * @param loader
-         * @version Egret 2.0
+         * @language en_US
+         * Sends the request.
+         * @param data the data to send.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        proceed(loader: URLLoader): void;
         /**
-         *
-         * @returns
-         * @version Egret 2.0
+         * @language zh_CN
+         * 发送请求.
+         * @param data 需要发送的数据
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getChangeList(): Array<any>;
+        send(data?: any): void;
         /**
-         *
-         * @param versionCtr
-         */
-        initVersion(versionCtr: egret.IVersionController): void;
-    }
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    var NetContext: {
-        new (): NetContext;
-        getNetContext(): NetContext;
-    };
-    /**
-     * @private
-     *
-     * @param request
-     * @returns
-     */
-    function $getUrl(request: URLRequest): string;
-}
-
-declare module egret {
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    interface IVersionController extends egret.IEventDispatcher {
-        /**
-         *
-         * @version Egret 2.0
+         * @language en_US
+         * Aborts the request if it has already been sent.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        fetchVersion(): void;
         /**
-         *
-         * @param url
-         * @returns
-         * @version Egret 2.0
+         * @language zh_CN
+         * 如果请求已经被发送,则立刻中止请求.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        checkIsNewVersion(url: string): boolean;
+        abort(): void;
         /**
-         *
-         * @param url
-         * @version Egret 2.0
+         * @language en_US
+         * Returns all the response headers as a string, or null if no response has been received.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        saveVersion(url: string): void;
         /**
-         * 获取所有有变化的文件
-         * @returns {Array<string>}
-         * @version Egret 2.0
+         * @language zh_CN
+         * 返回所有响应头信息(响应头名和值), 如果响应头还没接受,则返回"".
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getChangeList(): Array<string>;
+        getAllResponseHeaders(): string;
         /**
-         *
-         * @param url
-         * @returns
-         * @version Egret 2.0
+         * @language en_US
+         * Sets the value of an HTTP request header. You must call setRequestHeader() after open().
+         * @param header The name of the header whose value is to be set.
+         * @param value The value to set as the body of the header.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getVirtualUrl(url: string): string;
+        /**
+         * @language zh_CN
+         * 给指定的HTTP请求头赋值.在这之前,您必须确认已经调用 open() 方法打开了一个url.
+         * @param header 将要被赋值的请求头名称.
+         * @param value 给指定的请求头赋的值.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        setRequestHeader(header: string, value: string): void;
+        /**
+         * @language en_US
+         * Returns the string containing the text of the specified header, or null if either the response has not yet been
+         * received or the header doesn't exist in the response.
+         * @param header The name of the header whose value is to be get.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 返回指定的响应头的值, 如果响应头还没被接受,或该响应头不存在,则返回"".
+         * @param header 要返回的响应头名称
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        getResponseHeader(header: string): string;
     }
     /**
-     * @version Egret 2.0
+     * @language en_US
+     * Creates a HttpRequest object.
+     * @version Lark 1.0
      * @platform Web,Native
      */
-    interface VersionController extends IVersionController {
-    }
     /**
-     * @version Egret 2.0
+     * @language zh_CN
+     * 创建一个 HttpRequest 实例。
+     * @version Lark 1.0
      * @platform Web,Native
      */
-    var VersionController: {
-        new (stage: egret.Stage): VersionController;
+    var HttpRequest: {
+        new (): HttpRequest;
     };
 }
 
 declare module egret {
     /**
-     * @private
-     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class BaseImageLoader {
-        /**
-         * @private
-         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。
-         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static crossOrigin: string;
-        /**
-         * @private
-         *
-         * @param url
-         * @param bitmapData
-         */
-        protected _onLoad(url: any, bitmapData: any): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param bitmapData
-         */
-        protected _onError(url: any, bitmapData: any): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param callback
-         */
-        protected _addToCallbackList(url: any, callback: any): void;
-        /**
-         * @private
-         */
-        protected static _bitmapDataFactory: any;
-        /**
-         * @private
-         */
-        protected static _bitmapCallbackMap: any;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
      * @language en_US
      * The Loader class is used to load image (JPG, PNG, or GIF) files. Use the load() method to initiate loading.
      * The loaded image data is in the data property of ImageLoader.
-     * @event egret.Event.COMPLETE Emitted when the net request is complete.
-     * @event egret.Event.IO_ERROR Emitted when the net request is failed.
-     * @see egret.HttpRequest
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE Emitted when the net request is complete.
+     * @event lark.Event.IO_ERROR Emitted when the net request is failed.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/net/ImageLoaderExample.ts
      */
     /**
-     * @private
      * @language zh_CN
      * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
-     * @event egret.Event.COMPLETE 加载完成
-     * @event egret.Event.IO_ERROR 加载失败
-     * @see egret.HttpRequest
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE 加载完成
+     * @event lark.Event.IO_ERROR 加载失败
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/net/ImageLoaderExample.ts
      */
-    interface ImageLoader extends BaseImageLoader {
+    interface ImageLoader extends EventDispatcher {
         /**
-         *
-         * @param url
-         * @param callback
-         * @version Egret 2.0
+         * @language en_US
+         * The data received from the load operation.
+         * @default null
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        load(url: string, callback: (code: number, bitmapData: any) => void): void;
+        /**
+         * @language zh_CN
+         * 使用 load() 方法加载成功的 BitmapData 图像数据。
+         * @default null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        data: BitmapData;
+        /**
+         * @language en_US
+         * Specifies whether or not cross-site Access-Control requests should be made when loading a image from foreign origins.<br/>
+         * possible values are:"anonymous","use-credentials" or null.
+         * @default null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。<br/>
+         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        crossOrigin: string;
+        /**
+         * @language en_US
+         * start a load operation。<br/>
+         * Note: Calling this method for an already active request (one for which load() has already been
+         * called) will abort the last load operation immediately.
+         * @param url 要加载的图像文件的地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 启动一次图像加载。<br/>
+         * 注意：若之前已经调用过加载请求，重新调用 load() 将终止先前的请求，并开始新的加载。
+         * @param url 要加载的图像文件的地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        load(url: string): void;
     }
     /**
-     * @private
      * @language en_US
      * Creates a ImageLoader object
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     /**
-     * @private
      * @language zh_CN
      * 创建一个 ImageLoader 实例
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     var ImageLoader: {
         new (): ImageLoader;
-        disposeBitmapData(bitmapData: any): void;
     };
 }
 
@@ -11544,7 +11124,6 @@ declare module egret.sys {
          * 启动播放器
          */
         start(): void;
-        private loadVersion(completeCall);
         /**
          * @private
          *
@@ -11581,7 +11160,7 @@ declare module egret.sys {
          * @param stageWidth 舞台宽度（以像素为单位）
          * @param stageHeight 舞台高度（以像素为单位）
          */
-        updateStageSize(stageWidth: number, stageHeight: number): void;
+        updateStageSize(stageWidth: number, stageHeight: number, pixelRatio?: number): void;
         /**
          * @private
          * 显示FPS，仅在DEBUG模式下有效。
@@ -11768,8 +11347,6 @@ declare module egret.sys {
          * 与绘图上线文关联的画布实例
          */
         surface: Surface;
-        begin(): void;
-        end(): void;
         /**
          * @private
          * 设置新图像如何绘制到已有的图像上的规制
@@ -12275,55 +11852,7 @@ declare module egret.sys {
     }
 }
 
-declare module egret {
-    /**
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class Ticker extends EventDispatcher {
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         * 注册帧回调事件，同一函数的重复监听会被忽略。
-         * @method egret.Ticker#register
-         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
-         * @param thisObject {any} 帧回调函数的this对象
-         * @param priority {number} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        register(callBack: Function, thisObject: any, priority?: number): void;
-        /**
-         * 取消侦听enterFrame事件
-         * @method egret.Ticker#unregister
-         * @param listener {Function} 事件侦听函数
-         * @param thisObject {any} 侦听函数的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        unregister(callBack: Function, thisObject: any): void;
-        /**
-         * @private
-         */
-        private static instance;
-        /**
-         * @method egret.Ticker.getInstance
-         * @returns {Ticker}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getInstance(): egret.Ticker;
-    }
-}
 declare module egret.sys {
-    /**
-     * @private
-     * 心跳计时器单例
-     */
-    var $ticker: SystemTicker;
     /**
      * @private
      * 是否要广播Event.RENDER事件的标志。
@@ -12339,10 +11868,6 @@ declare module egret.sys {
      * Egret心跳计时器
      */
     class SystemTicker {
-        /**
-         * @private
-         */
-        private lastTime;
         /**
          * @private
          */
@@ -12425,6 +11950,11 @@ declare module egret.sys {
          */
         private broadcastRender();
     }
+    /**
+     * @private
+     * 心跳计时器单例
+     */
+    var $ticker: SystemTicker;
 }
 
 declare module egret.sys {
@@ -13441,7 +12971,6 @@ declare module egret {
          * If you need to enter characters \ ^, use two backslash "\\ -" "\\ ^": <br/>
          * Can be used anywhere in the string ^ to rule out including characters and switch between characters, but can only be used to exclude a ^. The following code includes only uppercase letters except uppercase Q: <br/>
          * My_txt.restrict = "A-Z ^ Q"; <br/>
-         * The usual Chinese and other double-byte characters are generated by the letters come, so if you want to be screened for such characters, please also add English characters.
          * @version Egret 2.4
          * @platform Web,Native
          * @default null
@@ -13457,7 +12986,6 @@ declare module egret {
          * 如果需要输入字符 \ ^，请使用2个反斜杠 "\\-" "\\^" ：<br/>
          * 可在字符串中的任何位置使用 ^，以在包含字符与排除字符之间进行切换，但是最多只能有一个 ^ 用来排除。下面的代码只包含除大写字母 Q 之外的大写字母：<br/>
          * my_txt.restrict = "A-Z^Q";<br/>
-         * 由于通常中文等双字节的字符都是通过英文字母生成而来，因此如果想对这样的字符进行筛选，请将英文字符也加上。
          * @version Egret 2.4
          * @platform Web,Native
          * @default null
@@ -13922,6 +13450,11 @@ declare module egret {
          *
          */
         $removeFromStage(): void;
+        /**
+         * @private
+         *
+         */
+        $onBlur(): void;
     }
     /**
      * @version Egret 2.0
@@ -14092,6 +13625,11 @@ declare module egret {
          * @platform Web,Native
          */
         href?: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        target?: string;
     }
     /**
      * @language en_US
@@ -15580,107 +15118,74 @@ declare module egret {
     }
 }
 
-/**
- * Created by yjtx on 15-5-18.
- */
 declare module egret {
     /**
-     * @private
-     * @version Egret 2.0
+     * @language en_US
+     * The SoundChannel class controls a sound in an application.
+     * Every sound is assigned to a sound channel, and the application
+     * can have multiple sound channels that are mixed together.
+     * The SoundChannel class contains a stop() method, properties for
+     * set the volume of the channel
+     *
+     * @event egret.Event.SOUND_COMPLETE Emit when a sound has finished playing
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
-    interface Audio {
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setCurrentTime(value: number): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getCurrentTime(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setVolume(value: number): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getVolume(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setLoop(value: boolean): void;
-        /**
-         * @private
-         *
-         * @param type
-         */
-        $play(type?: string): void;
-        /**
-         * @private
-         *
-         */
-        $pause(): void;
-        /**
-         * @private
-         *
-         */
-        $load(): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param callback
-         * @param thisObj
-         */
-        $preload(type: string, callback?: Function, thisObj?: any): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param listener
-         * @param useCapture
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param listener
-         * @param useCapture
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         *
-         */
-        $destroy(): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param callback
-         */
-        $loadByUrl(url: string, callback: (code: number) => void): void;
-    }
     /**
-     * @private
-     * @version Egret 2.0
+    * @language zh_CN
+     * SoundChannel 类控制应用程序中的声音。每个声音均分配给一个声道，而且应用程序可以具有混合在一起的多个声道。
+     * SoundChannel 类包含 stop() 方法、用于设置音量和监视播放进度的属性。
+     *
+     * @event egret.Event.SOUND_COMPLETE 音频播放完成时抛出
+     * @version Lark 1.0
      * @platform Web,Native
-     */
-    var Audio: {
-        new (): Audio;
-    };
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
+    */
+    interface SoundChannel extends IEventDispatcher {
+        /**
+         * @language en_US
+         * The volume, ranging from 0 (silent) to 1 (full volume).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音量范围从 0（静音）至 1（最大音量）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        volume: number;
+        /**
+         * @language en_US
+         *  When the sound is playing, the position property indicates
+         * in seconds the current point that is being played in the sound file.
+         * @version Lark 1.0
+         * @platform Web,Native
+         * @readOnly
+         */
+        /**
+         * @language zh_CN
+         * 当播放声音时，position 属性表示声音文件中当前播放的位置（以秒为单位）
+         * @version Lark 1.0
+         * @platform Web,Native
+         * @readOnly
+         */
+        position: number;
+        /**
+         * @language en_US
+         * Stops the sound playing in the channel.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 停止在该声道中播放声音。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        stop(): void;
+    }
 }
 
 declare module egret {
@@ -15691,10 +15196,10 @@ declare module egret {
      * More detailed control of the sound is performed through the SoundChannel
      *
      * @event egret.Event.COMPLETE Emit when the audio resource is loaded and ready to play
-     * @event egret.SoundEvent.SOUND_COMPLETE 在声音完成播放后调度。
-     * @version Egret 2.0
+     * @event egret.Event.IO_ERROR Emit when the audio resource is failed to load
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/media/Sound.ts
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
     /**
      * @language zh_CN
@@ -15702,228 +15207,27 @@ declare module egret {
      * 可通过 SoundChannel 对声音执行更精细的控制，如控制音量和监控播放进度。
      *
      * @event egret.Event.COMPLETE 音频加载完成时抛出
-     * @event egret.SoundEvent.SOUND_COMPLETE 在声音完成播放后调度。
-     * @version Egret 2.0
+     * @event egret.Event.IO_ERROR 音频加载失败时抛出
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/media/Sound.ts
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
-    class Sound extends egret.EventDispatcher {
+    interface Sound extends EventDispatcher {
         /**
          * @language en_US
-         * Background music
-         * @version Egret 2.0
+         * Initiates loading of an external audio file from the specified URL.
+         * @param url Audio file URL
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 背景音乐
-         * @version Egret 2.0
+         * 启动从指定 URL 加载外部音频文件的过程。
+         * @param url 需要加载的音频文件URL
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        static MUSIC: string;
-        /**
-         * @language en_US
-         * EFFECT
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 音效
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static EFFECT: string;
-        /**
-         * @language en_US
-         * Create egret.Sound objects
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建 egret.Sound 对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         * @private
-         * audio音频对象
-         * @member {any} egret.Sound#audio
-         */
-        private audio;
-        /**
-         * @language en_US
-         * Type, default is egret.Sound.EFFECT.
-         * In the native and runtime environment, while only play a background music, sound length so as not to be too long.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 类型，默认为 egret.Sound.EFFECT。
-         * 在 native 和 runtime 环境下，背景音乐同时只能播放一个，音效长度尽量不要太长。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        type: string;
-        /**
-         * @language en_US
-         * When playing sound, position property indicates the location of the sound file that is currently playing (in milliseconds).
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 当播放声音时，position 属性表示声音文件中当前播放的位置（以毫秒为单位）。
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        position: number;
-        /**
-         * @language en_US
-         * Generates a new SoundChannel object to play back the sound.
-         * @param loop Defines should play the audio again when the audio is ended. (default = false)
-         * @param position The initial position in Millisecond at which playback should start, (default = 0)
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 生成一个新的 SoundChannel 对象来播放该声音。此方法返回 SoundChannel 对象，访问该对象可停止声音调整音量。
-         * @param loop 是否需要循环播放，默认值是 false
-         * @param position 应开始播放的初始位置（以毫秒为单位），默认值是 0
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        play(loop?: boolean, position?: number): void;
-        /**
-         * @private
-         */
-        private pauseTime;
-        /**
-         * @language en_US
-         * Sound stops playing
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 声音停止播放
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        stop(): void;
-        /**
-         * @language en_US
-         * Pause sound
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停声音
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        pause(): void;
-        /**
-         * @language en_US
-         * Continue playback from the last pause position
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 继续从上次暂停的位置播放
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        resume(): void;
-        /**
-         * @language en_US
-         * Reload sound
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 重新加载声音
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        load(): void;
-        /**
-         * @private
-         */
-        private listeners;
-        /**
-         * @language en_US
-         * Adding event listeners
-         * @param type The type of event.
-         * @param listener The listener function that processes the event. This function must accept an event object as
-         * its only parameter and must return nothing, as this example shows: function(evt:Event):void  The function can
-         * have any name.
-         * @param thisObject the listener function's "this"
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 添加事件监听
-         * @param type 事件的类型。
-         * @param listener 处理事件的侦听器函数。此函数必须接受 Event 对象作为其唯一的参数，并且不能返回任何结果，
-         * 如下面的示例所示： function(evt:Event):void 函数可以有任何名称。
-         * @param thisObject 侦听函数绑定的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        addEventListener(type: string, listener: Function, thisObject: any): void;
-        /**
-         * @language en_US
-         * Remove Event Listeners
-         * @param type The type of event.
-         * @param listener The listener function that processes the event. This function must accept an event object as
-         * its only parameter and must return nothing, as this example shows: function(evt:Event):void  The function can
-         * have any name.
-         * @param thisObject the listener function's "this"
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 移除事件监听
-         * @param type 事件的类型。
-         * @param listener 处理事件的侦听器函数。此函数必须接受 Event 对象作为其唯一的参数，并且不能返回任何结果，
-         * 如下面的示例所示： function(evt:Event):void 函数可以有任何名称。
-         * @param thisObject 侦听函数绑定的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        removeEventListener(type: string, listener: Function, thisObject: any): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @returns
-         */
-        private getVirtualType(type);
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language en_US
-         * The volume, ranging from 0 (silent) to 1 (full volume).
-         */
-        /**
-         * @language zh_CN
-         * 音量范围从 0（静音）至 1（最大音量）。
-         */
-        volume: number;
+        load(url: string): void;
         /**
          * @language en_US
          * The sound file is loaded into memory，
@@ -15946,27 +15250,292 @@ declare module egret {
          */
         preload(type: string, callback?: Function, thisObj?: any): void;
         /**
-         * @private
-         *
-         * @param value
+         * @language en_US
+         * Generates a new SoundChannel object to play back the sound.
+         * @param startTime The initial position in seconds at which playback should start, (default = 0)
+         * @param loops Plays, the default value is 0. Greater than 0 to the number of plays, such as 1 to play 1, less than or equal to 0, to loop.
+         * @version Lark 1.0
+         * @platform Web,Native
          */
-        $setAudio(value: Audio): void;
+        /**
+         * @language zh_CN
+         * 生成一个新的 SoundChannel 对象来播放该声音。此方法返回 SoundChannel 对象，访问该对象可停止声音调整音量。
+         * @param startTime 应开始播放的初始位置（以秒为单位），默认值是 0
+         * @param loops 播放次数，默认值是 0，循环播放。 大于 0 为播放次数，如 1 为播放 1 次；小于等于 0，为循环播放。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        play(startTime?: number, loops?: number): SoundChannel;
+        /**
+         * @language en_US
+         * Closes the stream, causing any download of data to cease
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 关闭该流，从而停止所有数据的下载。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        close(): void;
         /**
          * @language en_US
          * The current audio release
-         * the use of native, html5 in empty achieve
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
          * 释放当前音频
-         * native中使用，html5里为空实现
          * @version Egret 2.0
          * @platform Web,Native
          */
         destroy(): void;
+        /**
+         * @language en_US
+         * Type, default is egret.Sound.EFFECT.
+         * In the native and runtime environment, while only play a background music, sound length so as not to be too long.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 类型，默认为 egret.Sound.EFFECT。
+         * 在 native 和 runtime 环境下，背景音乐同时只能播放一个，音效长度尽量不要太长。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        type: string;
     }
+    /**
+     * @copy egret.Sound
+     */
+    var Sound: {
+        /**
+         * @language en_US
+         * Create Sound object, load an external audio file and play
+         * @param url Audio file URL, Sound will start to load the media if url is not empty
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建 Sound 对象、将外部音频文件加载到该对象并播放该文件
+         * @param url 需要加载的音频文件URL,如果指定了 url, Sound会立即开始加载指定的媒体文件
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        new (): Sound;
+        /**
+         * @language en_US
+         * Background music
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 背景音乐
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        EFFECT: string;
+    };
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The Video class lets you work with video in an application.
+     * The Video class lets you create a Video object, load and play an external video file into that object.
+     * Note: On most mobile device, the video is playback in the full screen mode.<br/>
+     *
+     * @param url URL of the media to play, Video will start to load if the url is not empty
+     *
+     * @event lark.Event.COMPLETE Emit when the video resource is loaded and ready to play
+     * @event lark.Event.ENDED Emit when the video playback ended
+     * @event lark.Event.IO_ERROR when the video is failed to load
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/media/VideoExample.ts
+     */
+    /**
+     * @language zh_CN
+     * Video 允许您在应用程序中使用视频。使用 Video 类可以创建 Video 对象、将外部视频文件加载到该对象并播放该文件。<br/>
+     * 注意: 在大多数移动设备中，视频是强制全屏播放的，所以你可以直接调用 play() 方法全屏播放视频，不用将它绘制在Stage中。
+     *
+     * @param url 要播放的视频的URL，如果url不为空，Video会立即加载这个视频
+     *
+     * @event lark.Event.COMPLETE 视频加载完成时抛出
+     * @event lark.Event.ENDED 视频播放完成时抛出
+     * @event lark.Event.IO_ERROR 视频加载失败市触发
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/media/VideoExample.ts
+     */
+    interface Video extends DisplayObject {
+        /**
+         * @language en_US
+         * Initiates loading of an external video file from the specified URL.
+         * @param url Audio file URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 启动从指定 URL 加载外部视频文件的过程。
+         * @param url 需要加载的视频文件URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        load(url: string): void;
+        /**
+         * @language en_US
+         * Play back the video.
+         * @param startTime The initial position in seconds at which playback should start, (default = 0)
+         * @param loop Defines should play the video again when the video is ended. (default = false)
+         * @param fullscreen Defines should play the video in fullscreen mode. (default = false)
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 播放该视频
+         * @param startTime 应开始播放的初始位置（以秒为单位），默认值是视频上次结束的位置
+         * @param loop 是否需要循环播放，默认值是 false
+         * @param fullscreen 是否需要全屏播放，默认值是 false
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        play(startTime?: number, loop?: boolean): any;
+        /**
+         * @language en_US
+         * Closes the stream, causing any download of data to cease
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 关闭该流，从而停止所有数据的下载。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        close(): void;
+        /**
+         * @language en_US
+         * The URL of the video you want to play.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 想要播放的视频的URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        src: string;
+        /**
+         * @language en_US
+         * The URL of an image you want to display before the video is loaded or video cannot been draw on the canvas on some mobile device.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 视频加载前，或者在不支持将 video 画在 canvas 的设备上，想要显示的视频截图地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        poster: string;
+        /**
+         * @language en_US
+         * Should play the video in fullscreen mode (default = true).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 是否全屏播放这个视频（默认值是 true）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        fullscreen: boolean;
+        /**
+         * @language en_US
+         * The volume, ranging from 0 (silent) to 1 (full volume).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音量范围从 0（静音）至 1（最大音量）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        volume: number;
+        /**
+         * @language en_US
+         * When the video is playing, the position property indicates
+         * in seconds the current point that is being played in the video file.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当播放视频时，position 属性表示视频文件中当前播放的位置（以秒为单位）
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        position: number;
+        /**
+         * @language en_US
+         * Pause the video playing.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 暂停播放。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        pause(): void;
+        /**
+         * @language en_US
+         * Get bitmapData of the video file, you can use the video as bitmapData on the stage.
+         * Note: On most mobile device, the video is playback in the full screen mode.
+         * So you can just use the play() method instead of draw it on the Stage
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         *  获取视频的 bitmapData, 你可以将视频绘制到舞台上。
+         * 注意： 在大多数移动设备中，视频是全屏播放的，所以你可以直接调用 play() 方法全屏播放视频，不用将它绘制在Stage中。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        bitmapData: BitmapData;
+    }
+    /**
+     * @copy lark.Video
+     */
+    var Video: {
+        new (): Video;
+    };
 }
 
 declare module egret {
@@ -16044,6 +15613,634 @@ declare module egret {
          *
          */
         private destroy();
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLRequestMethod class provides values that specify whether the
+     * URLRequest object should use the POST method or the GET method when sending data to a server.
+     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestMethod.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
+     * URLRequest 对象应使用 POST 方法还是 GET 方法。
+     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestMethod.ts
+     */
+    class URLRequestMethod {
+        /**
+         * @language en_US
+         * Specify that the URLRequest object is a GET.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示 URLRequest 对象是一个 GET。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static GET: string;
+        /**
+         * @language en_US
+         * Specify that the URLRequest object is a POST.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示 URLRequest 对象是一个 POST。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static POST: string;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLLoaderDataFormat class provides values that specify how downloaded data is received.
+     * @see http://docs.egret-labs.org/post/manual/net/netformat.html Read different data format
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoaderDataFormat.ts
+     */
+    /**
+     * @language zh_CN
+     * URLLoaderDataFormat 类提供了一些用于指定如何接收已下载数据的值。
+     * @see http://docs.egret-labs.org/post/manual/net/netformat.html 读取不同数据格式
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoaderDataFormat.ts
+     */
+    class URLLoaderDataFormat {
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as raw binary data.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以原始二进制数据形式接收下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static BINARY: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as text.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以文本形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static TEXT: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as URL-encoded variables.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以 URL 编码变量形式接收下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static VARIABLES: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as bitmap texture.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以位图纹理形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static TEXTURE: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as sound.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以声音形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static SOUND: string;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLVariables class allows you to transfer variables between an application and a server.
+     * Use URLVariables objects with methods of the URLLoader class and the data property of the URLRequest class.
+     * @see http://docs.egret-labs.org/post/manual/net/senddata.html Send the request with parameters
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLVariables.ts
+     */
+    /**
+     * @language zh_CN
+     * 使用 URLVariables 类可以在应用程序和服务器之间传输变量。
+     * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
+     * @see http://docs.egret-labs.org/post/manual/net/senddata.html 发送带参数的请求
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLVariables.ts
+     */
+    class URLVariables extends HashObject {
+        /**
+         * @language en_US
+         * Create an egret.URLVariable object
+         * @param source {String} A URL-encoded string containing name/value pairs.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLVariables 对象
+         * @param source {String} 包含名称/值对的 URL 编码的字符串。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(source?: string);
+        /**
+         * @language en_US
+         * Key-value pair data object saved in this URLVariables object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 此 URLVariables 储存的键值对数据对象。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        variables: Object;
+        /**
+         * @language en_US
+         * Convert the variable string into the property of this URLVariables.variables object.
+         * @param source {string}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 将变量字符串转换为此 URLVariables.variables 对象的属性。
+         * @param source {string}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        decode(source: string): void;
+        /**
+         * @language en_US
+         * Return a string containing all enumerable variables using  the MIME content encoding format : application/x-www-form-urlencoded.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 以 MIME 内容编码格式 application/x-www-form-urlencoded 返回包含所有可枚举变量的字符串。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        toString(): string;
+        /**
+         * @private
+         *
+         * @param key
+         * @param value
+         */
+        private encodeValue(key, value);
+        /**
+         * @private
+         *
+         * @param key
+         * @param value
+         */
+        private encodeArray(key, value);
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * A URLRequestHeader object encapsulates a single HTTP request header and consists of a name/value pair.  URLRequestHeader objects are used in the requestHeaders property of the URLRequest class.
+     * Note: Because of browser compatibility, this property has not been achieved in html5
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestHeader.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequestHeader 对象封装了一个 HTTP 请求标头并由一个名称/值对组成。URLRequestHeader 对象在 URLRequest 类的 requestHeaders 属性中使用。
+     * 注意：由于浏览器兼容性原因，在 html5 中并未实现
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestHeader.ts
+     */
+    class URLRequestHeader {
+        /**
+         * @language en_US
+         * HTTP request header name, such as Content-Type
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * HTTP 请求标头名称，如 Content-Type
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        name: string;
+        /**
+         * @language en_US
+         * The values associated with the name property (such as text/plain).
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 与 name 属性相关联的值，如 text/plain
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        value: string;
+        /**
+         * @language en_US
+         * Create an egret.URLRequestHeader object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLRequestHeader 对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(name: string, value: string);
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLRequest class captures all of the information in a single HTTP request.
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequest.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequest 类可捕获单个 HTTP 请求中的所有信息。
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequest.ts
+     */
+    class URLRequest extends HashObject {
+        /**
+         * @language en_US
+         * Create an egret.URLRequest object
+         * @param url {string} Addresses for URL requests
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLRequest 对象
+         * @param url {string} 进行网络请求的地址
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(url?: string);
+        /**
+         * @language en_US
+         * An object contains data to be transmitted with the URL request.
+         * This property is used in conjunction with the method property.  When the value of method is GET, the value of data is appended to the value of URLRequest.url, using HTTP query-string syntax.
+         * When the method value is POST (or any value other than GET), the value of data is transmitted in the body of the HTTP request.
+         * The URLRequest API supports  binary POST, URL-encoded variables, as well as strings. The data object can be a ByteArray, URLVariables, or String object. The way in which the data is used depends on the type of object used: If the object is a ByteArray object, the binary data of the ByteArray object is used as POST data. For GET, data of ByteArray type is not supported.
+         * If the object is a URLVariables object and the method is POST, then the variables are encoded using x-www-form-urlencoded format and the resulting string is used as POST data.
+         * If the object is a URLVariables object and the method is GET, the URLVariables object will define variables to be sent with the URLRequest object.
+         * Otherwise, the object is converted into a string, and the string is used as the POST or GET data.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 一个对象，它包含将随 URL 请求一起传输的数据。
+         * 该属性与 method 属性配合使用。当 method 值为 GET 时，将使用 HTTP 查询字符串语法将 data 值追加到 URLRequest.url 值。
+         * 当 method 值为 POST（或 GET 之外的任何值）时，将在 HTTP 请求体中传输 data 值。
+         * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ByteArray、URLVariables 或 String 对象。
+         * 该数据的使用方式取决于所用对象的类型：
+         * 如果该对象为 ByteArray 对象，则 ByteArray 对象的二进制数据用作 POST 数据。对于 GET，不支持 ByteArray 类型的数据。
+         * 如果该对象是 URLVariables 对象，并且该方法是 POST，则使用 x-www-form-urlencoded 格式对变量进行编码，并且生成的字符串会用作 POST 数据。
+         * 如果该对象是 URLVariables 对象，并且该方法是 GET，则 URLVariables 对象将定义要随 URLRequest 对象一起发送的变量。
+         * 否则，该对象会转换为字符串，并且该字符串会用作 POST 或 GET 数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        data: any;
+        /**
+         * @language en_US
+         * Request method, valid values are URLRequestMethod.GET or URLRequestMethod.POST.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 请求方式，有效值为URLRequestMethod.GET 或 URLRequestMethod.POST。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        method: string;
+        /**
+         * @language en_US
+         * The requested URL.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 所请求的 URL。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        url: string;
+        /**
+         * @language en_US
+         * The array of HTTP request headers to be appended to the HTTP request. The array is composed of URLRequestHeader objects.
+         * Each object in the array must be a URLRequestHeader object that contains a name string and a value string.
+         * Because of browser compatibility, this property has not been achieved in html5
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 要追加到 HTTP 请求的 HTTP 请求标头的数组。该数组由 URLRequestHeader 对象组成。
+         * 数组中的每一对象必须是包含一个名称字符串和一个值字符串的 URLRequestHeader 对象。
+         * 由于浏览器兼容性原因，该属性在 html5 中并未实现
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        requestHeaders: Array<URLRequestHeader>;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * UThe URLLoader class downloads data from a URL as text, binary data, or URL-encoded variables.  It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
+     * A URLLoader object downloads all of the data from a URL before making it available to code in the applications. It sends out notifications about the progress of the download,
+     * which you can monitor through bytesLoaded and bytesTotal properties, as well as through dispatched events.
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @event egret.Event.COMPLETE Emitted when the net request is complete.
+     * @event egret.IOErrorEvent.IO_ERROR io error.
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoader.ts
+     */
+    /**
+     * @language zh_CN
+     * URLLoader 类以文本、二进制数据或 URL 编码变量的形式从 URL 下载数据。在下载文本文件、XML 或其他用于动态数据驱动应用程序的信息时，它很有用。
+     * URLLoader 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
+     * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @event egret.Event.COMPLETE 加载完成后调度。
+     * @event egret.IOErrorEvent.IO_ERROR 加载错误后调度。
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoader.ts
+     */
+    class URLLoader extends EventDispatcher {
+        /**
+         * @language en_US
+         * Create an egret.URLLoader object
+         * @param request {URLRequest} A URLRequest object specifies the URL to be downloaded.
+         * If this parameter is omitted, no load operation begins. If a parameter is specified, the load operation begins immediately
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建 egret.URLLoader 对象
+         * @param request {URLRequest} 一个 URLRequest 对象，指定要下载的 URL。
+         * 如果省略该参数，则不开始加载操作。如果已指定参数，则立即开始加载操作
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(request?: URLRequest);
+        /**
+         * @language en_US
+         * Control whether the downloaded data is received as text (URLLoaderDataFormat.TEXT), raw binary data (URLLoaderDataFormat.BINARY), or URL-encoded variables (URLLoaderDataFormat.VARIABLES).
+         * If the value of the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
+         * If the value of the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
+         * If the value of the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
+         * If the value of the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
+         * The default value is URLLoaderDataFormat.TEXT.
+         * @default egret.URLLoaderDataFormat.TEXT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 控制是以文本 (URLLoaderDataFormat.TEXT)、原始二进制数据 (URLLoaderDataFormat.BINARY) 还是 URL 编码变量 (URLLoaderDataFormat.VARIABLES) 接收下载的数据。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
+         * @default egret.URLLoaderDataFormat.TEXT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        dataFormat: string;
+        /**
+         * @language en_US
+         * The data received from the load operation. This property is populated only when the load operation is complete. The format of the data depends on the setting of the dataFormat property:
+         * If the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
+         * If the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
+         * If the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
+         * If the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 从加载操作接收的数据。只有完成加载操作时，才会填充该属性。该数据的格式取决于 dataFormat 属性的设置：
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        data: any;
+        /**
+         * @private
+         */
+        _request: URLRequest;
+        /**
+         * @language en_US
+         * Send and load data from the specified URL. The data can be received as text, raw binary data, or URL-encoded variables, depending on the value you set for the dataFormat property.
+         * Note that the default value of the dataFormat property is text. If you want to send data to the specified URL, you can set the data property in the URLRequest object.
+         * @param request {URLRequest}  A URLRequest object specifies the URL to be downloaded.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 从指定的 URL 发送和加载数据。可以以文本、原始二进制数据或 URL 编码变量格式接收数据，这取决于为 dataFormat 属性所设置的值。
+         * 请注意 dataFormat 属性的默认值为文本。如果想将数据发送至指定的 URL，则可以在 URLRequest 对象中设置 data 属性。
+         * @param request {URLRequest}  一个 URLRequest 对象，指定要下载的 URL。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        load(request: URLRequest): void;
+        /**
+         * @private
+         */
+        _status: number;
+        /**
+         * @private
+         *
+         */
+        __recycle(): void;
+    }
+}
+
+declare module egret {
+    /**
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    interface NetContext extends HashObject {
+        /**
+         *
+         * @param loader
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        proceed(loader: URLLoader): void;
+    }
+    /**
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    var NetContext: {
+        new (): NetContext;
+        getNetContext(): NetContext;
+    };
+    /**
+     * @private
+     *
+     * @param request
+     * @returns
+     */
+    function $getUrl(request: URLRequest): string;
+}
+
+declare module egret {
+    /**
+     * @deprecated
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class Ticker extends EventDispatcher {
+        /**
+         * @deprecated
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor();
+        private _timeScale;
+        private _paused;
+        private _callIndex;
+        private _callList;
+        private _lastTime;
+        private update(timeStamp);
+        private callBackList;
+        /**
+         * 注册帧回调事件，同一函数的重复监听会被忽略。
+         * @method egret.Ticker#register
+         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
+         * @param thisObject {any} 帧回调函数的this对象
+         * @param priority {number} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
+         * @version Egret 2.0
+         * @platform Web,Native
+         * @deprecated
+         */
+        register(listener: Function, thisObject: any, priority?: number): void;
+        /**
+         * 取消侦听enterFrame事件
+         * @method egret.Ticker#unregister
+         * @param listener {Function} 事件侦听函数
+         * @param thisObject {any} 侦听函数的this对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         * @deprecated
+         */
+        unregister(listener: Function, thisObject: any): void;
+        /**
+         * @deprecated
+         * @param timeScale {number}
+         * @private
+         */
+        setTimeScale(timeScale: number): void;
+        /**
+         * @deprecated
+         * @method egret.Ticker#getTimeScale
+         * @private
+         */
+        getTimeScale(): number;
+        /**
+         * 暂停
+         * @deprecated
+         * @method egret.Ticker#pause
+         */
+        pause(): void;
+        /**
+         * 继续
+         * @deprecated
+         * @method egret.Ticker#resume
+         */
+        resume(): void;
+        /**
+         * @private
+         */
+        private static instance;
+        /**
+         * @method egret.Ticker.getInstance
+         * @returns {Ticker}
+         * @version Egret 2.0
+         * @platform Web,Native
+         * @deprecated
+         */
+        static getInstance(): egret.Ticker;
     }
 }
 

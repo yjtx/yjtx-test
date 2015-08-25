@@ -1,14 +1,12 @@
 {
 	"file_list": [
 		"egret/text/native/NativeStageText.ts",
+		"egret/native/NativeDisplayList.ts",
 		"egret/localStorage/native/NativeLocalStorage.ts",
 		"egret/external/native/NativeExternalInterface.ts",
-		"egret/media/native/NativeAudio.ts",
 		"extension/version/NativeVersionController.ts",
 		"egret/native/NativeHideHandler.ts",
 		"egret/native/NativeTouchHandler.ts",
-		"egret/native/NativeImageLoader.ts",
-		"egret/native/NativeNetContext.ts",
 		"egret/native/OpenGLFactory.ts",
 		"egret/native/NativeResourceLoader.ts",
 		"egret/native/NativeTexture.ts",
@@ -16,6 +14,10 @@
 		"egret/native/NativeSurface.ts",
 		"egret/native/NativePlayer.ts",
 		"egret/native/NativeRenderContext.ts",
-		"egret/native/NativeGetOption.ts"
+		"egret/media/native/NativeSound.ts",
+		"egret/media/native/NativeSoundChannel.ts",
+		"egret/native/NativeGetOption.ts",
+		"egret/net/native/NativeImageLoader.ts",
+		"extension/game/native/NativeNetContext.ts"
 	]
 }

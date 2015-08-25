@@ -290,10 +290,7 @@ var egret;
          * @platform Web,Native
          */
         __egretProto__.dispose = function () {
-            if (this._bitmapData) {
-                Texture.$dispose(this);
-                egret.ImageLoader.disposeBitmapData(this._bitmapData);
-            }
+            throw new Error();
         };
         Texture.$addDisplayObject = function (displayObject, texture) {
             var hashCode = texture._bitmapData.$hashCode;

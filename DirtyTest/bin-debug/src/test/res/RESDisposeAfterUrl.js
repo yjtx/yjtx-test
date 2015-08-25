@@ -38,8 +38,8 @@ var RESDisposeAfterUrl = (function (_super) {
     };
     __egretProto__.testUrl = function () {
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
+            this._bitmap = new egret.Bitmap(texture);
+            this.addChild(this._bitmap);
             egret.setTimeout(function () {
                 this.destroy();
             }, this, 4000);
@@ -47,6 +47,7 @@ var RESDisposeAfterUrl = (function (_super) {
     };
     __egretProto__.load = function () {
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
+            this._bitmap.texture = texture;
             egret.setTimeout(function () {
                 this.destroy();
             }, this, 4000);

@@ -38,6 +38,7 @@ var RESDisposeAfterRenderTexture = (function (_super) {
     };
     __egretProto__.testUrl = function () {
         RES.getResAsync("run_down_png", function (texture) {
+            this._texture = texture;
             var c = new egret.DisplayObjectContainer();
             var icon = new egret.Bitmap(texture);
             c.addChild(icon);
@@ -52,17 +53,15 @@ var RESDisposeAfterRenderTexture = (function (_super) {
         }, this);
     };
     __egretProto__.load = function () {
-        RES.getResAsync("run_down_png", function (texture) {
-            var c = new egret.DisplayObjectContainer();
-            var icon = new egret.Bitmap(texture);
-            c.addChild(icon);
-            var renderTexture = new egret.RenderTexture();
-            renderTexture.drawToTexture(c);
-            this._bitmap.texture = renderTexture;
-            egret.setTimeout(function () {
-                this.destroy();
-            }, this, 4000);
-        }, this);
+        var c = new egret.DisplayObjectContainer();
+        var icon = new egret.Bitmap(this._texture);
+        c.addChild(icon);
+        var renderTexture = new egret.RenderTexture();
+        renderTexture.drawToTexture(c);
+        this._bitmap.texture = renderTexture;
+        egret.setTimeout(function () {
+            this.destroy();
+        }, this, 4000);
     };
     __egretProto__.destroy = function () {
         this._bitmap.texture.dispose();

@@ -38,7 +38,7 @@ var SoundNormal = (function (_super) {
     };
     __egretProto__.testSound = function () {
         var sound = RES.getRes("wf_mp3");
-        sound.play(true);
+        sound.play();
     };
     return SoundNormal;
 })(egret.DisplayObjectContainer);

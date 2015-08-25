@@ -43,7 +43,7 @@ class LoaderSound extends egret.DisplayObjectContainer {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             var sound:egret.Sound = loader.data;
-            sound.play(true);
+            sound.play();
 
         }, this);
 

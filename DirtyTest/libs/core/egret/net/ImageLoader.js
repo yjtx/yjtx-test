@@ -29,17 +29,15 @@
 var egret;
 (function (egret) {
     /**
-     * @private
      * @language en_US
      * Creates a ImageLoader object
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     /**
-     * @private
      * @language zh_CN
      * 创建一个 ImageLoader 实例
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     egret.ImageLoader;

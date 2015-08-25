@@ -29,7 +29,7 @@ var DBNormal = (function (_super) {
         armatureDisplay.y = 450;
         armatureDisplay.scaleX = armatureDisplay.scaleY = 0.5;
         armature.animation.gotoAndPlay("walk");
-        egret.startTick(function (advancedTime) {
+        egret.Ticker.getInstance().register(function (advancedTime) {
             dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
             return true;
         }, this);

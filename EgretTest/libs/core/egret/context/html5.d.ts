@@ -156,7 +156,6 @@ declare module egret {
         private getScissorRect(mask);
         popMask(): void;
         private scissor(x, y, w, h);
-        private colorTransformMatrix;
         private setGlobalColorTransform(colorTransformMatrix);
         private setBlurData(blurX, blurY);
         setGlobalFilters(filtersData: Array<Filter>): void;
@@ -348,7 +347,7 @@ declare module egret {
          * @param url
          * @returns {string}
          */
-        private getVirtualUrl(url);
+        getVirtualUrl(url: string): string;
     }
 }
 
@@ -396,6 +395,7 @@ declare module egret {
         _getText(): string;
         _setText(value: string): void;
         private resetText();
+        $onBlur(): void;
         _onInput(): void;
         private setAreaHeight();
         _onClickHandler(e: any): void;

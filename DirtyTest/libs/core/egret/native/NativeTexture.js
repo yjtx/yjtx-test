@@ -101,6 +101,11 @@ var egret;
             egret.$error(1035);
             return null;
         }
+        function dispose() {
+            if (this._bitmapData) {
+                egret.Texture.$dispose(this);
+            }
+        }
         egret.Texture.prototype.toDataURL = toDataURL;
         egret.Texture.prototype.saveToFile = saveToFile;
         egret.Texture.prototype.getPixel32 = getPixel32;

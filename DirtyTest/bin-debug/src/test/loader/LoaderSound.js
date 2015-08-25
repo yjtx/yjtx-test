@@ -40,7 +40,7 @@ var LoaderSound = (function (_super) {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event) {
             var sound = loader.data;
-            sound.play(true);
+            sound.play();
         }, this);
         loader.dataFormat = egret.URLLoaderDataFormat.SOUND;
         var request = new egret.URLRequest(ResourceUtils.getRoot(this.stage.textureScaleFactor) + "sound/wf.mp3");

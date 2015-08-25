@@ -46,19 +46,21 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setInterval.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
@@ -98,7 +100,7 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts"
 		],
@@ -115,7 +117,7 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TimerEvent.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts": [
@@ -123,7 +125,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Point.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/HTTPStatusEvent.ts": [
@@ -131,10 +133,6 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
 		],
@@ -185,7 +183,6 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts"
 		],
@@ -263,8 +260,8 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
@@ -292,7 +289,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/FrameLabel.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
@@ -301,7 +298,6 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollView.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollViewProperties.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Timer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
@@ -319,38 +315,14 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts"
 		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpMethod.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpResponseType.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpRequest.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
 		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/EgretEntry.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts": [],
@@ -372,10 +344,6 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
@@ -387,7 +355,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Sprite.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts": [],
@@ -409,12 +377,11 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts"
 		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts": [
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts": [],
@@ -489,9 +456,9 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/player/Ticker.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Ease.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts": [
@@ -516,14 +483,316 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/DropShadowFilter.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/GlowFilter.ts"
 		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts"
+		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Video.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestMethod.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLVariables.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestHeader.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequest.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestMethod.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestHeader.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/NetContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/NetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestMethod.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLVariables.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/player/Ticker.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/web/WebLocalStorage.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/EgretWeb.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSound.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSoundChannel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSoundChannel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSoundChannel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSoundChannel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSound.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSoundChannel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSoundChannel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSound.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebVideo.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Video.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/startTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/stopTick.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebGetOption.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTexture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/web/WebHttpRequest.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/web/WebImageLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/web/WebHttpRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/web/HTML5NetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/NetContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeDisplayList.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DisplayList.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Region.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Renderable.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/DirtyRegion.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/native/NativeLocalStorage.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/NativeVersionController.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts": [],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTexture.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/EgretNative.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSound.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeGetOption.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/native/NativeImageLoader.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestHeader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts"
+		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/socket/ISocket.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/socket/web/HTML5WebSocket.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts"
@@ -569,9 +838,9 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequest.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Recycler.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
@@ -582,26 +851,26 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/Resource.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/ImageAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/JsonAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/TextAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SheetAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/AnalyzerBase.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
@@ -616,13 +885,13 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/SoundAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/XMLAnalyzer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/analyzer/BinAnalyzer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/resource/core/ResourceItem.ts"
@@ -1130,6 +1399,10 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/dragonbones/core/fast/FastSlot.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/dragonbones/core/fast/FastArmature.ts"
 		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IEventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
+		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
@@ -1142,7 +1415,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/collections/ICollection.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/collections/ArrayCollection.ts": [
@@ -1495,7 +1768,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/core/IAssetAdapter.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/components/supportClasses/Theme.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedClassName.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getQualifiedSuperclassName.ts",
@@ -1962,208 +2235,6 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/managers/impl/PopUpManagerImpl.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/core/IVisualElement.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/events/PopUpEvent.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/web/WebLocalStorage.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/EgretWeb.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/i18n/tr.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/StageScaleMode.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/XML.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/HTML5NetContext.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebImageLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/setTimeout.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/Logger.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebGetOption.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTexture.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/TextField.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObjectContainer.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Shape.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/StageText.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/localStorage/native/NativeLocalStorage.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/NativeVersionController.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/DisplayObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts": [],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeImageLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/ProgressEvent.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTexture.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/EgretNative.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Surface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/PlayerOption.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Player.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/ScreenAdapter.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts"
-		],
-		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeGetOption.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts"
 		]
 	},
 	"classNameToPath": {
@@ -2234,7 +2305,6 @@
 		"egret.TouchEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TouchEvent.ts",
 		"egret.HTTPStatusEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/HTTPStatusEvent.ts",
 		"egret.IOErrorEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
-		"egret.SoundEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/SoundEvent.ts",
 		"egret.TextEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/TextEvent.ts",
 		"egret.FocusEvent": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/FocusEvent.ts",
 		"egret.BlendMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BlendMode.ts",
@@ -2265,17 +2335,9 @@
 		"egret.SpriteSheet": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/SpriteSheet.ts",
 		"egret.ScrollView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollView.ts",
 		"egret.ScrollViewProperties": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/ScrollViewProperties.ts",
-		"egret.URLRequestMethod": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestMethod.ts",
-		"egret.URLLoaderDataFormat": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoaderDataFormat.ts",
-		"egret.URLVariables": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLVariables.ts",
-		"egret.URLRequestHeader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequestHeader.ts",
-		"egret.URLRequest": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLRequest.ts",
-		"egret.URLLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/URLLoader.ts",
-		"egret.NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
-		"egret.$getUrl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/NetContext.ts",
-		"egret.IVersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-		"egret.VersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/IVersionController.ts",
-		"egret.BaseImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/BaseImageLoader.ts",
+		"egret.HttpMethod": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpMethod.ts",
+		"egret.HttpResponseType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpResponseType.ts",
+		"egret.HttpRequest": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpRequest.ts",
 		"egret.ImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/ImageLoader.ts",
 		"egret.sys.Screen": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Screen.ts",
 		"egret.sys.OrientationMode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/OrientationMode.ts",
@@ -2298,11 +2360,10 @@
 		"egret.sys.sharedRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
 		"egret.sys.surfaceFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
 		"egret.sys.SurfaceFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SurfaceFactory.ts",
-		"egret.Ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-		"egret.sys.$ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-		"egret.sys.$invalidateRenderFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-		"egret.sys.$requestRenderingFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
-		"egret.sys.SystemTicker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/Ticker.ts",
+		"egret.sys.$invalidateRenderFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+		"egret.sys.$requestRenderingFlag": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+		"egret.sys.SystemTicker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
+		"egret.sys.$ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts",
 		"egret.sys.TouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/TouchHandler.ts",
 		"egret.Capabilities": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/Capabilities.ts",
 		"egret.HorizontalAlign": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/HorizontalAlign.ts",
@@ -2337,9 +2398,68 @@
 		"egret.BlurFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/BlurFilter.ts",
 		"egret.ColorMatrixFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/ColorMatrixFilter.ts",
 		"egret.DropShadowFilter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/filters/DropShadowFilter.ts",
-		"egret.Audio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Audio.ts",
+		"egret.SoundChannel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/SoundChannel.ts",
 		"egret.Sound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Sound.ts",
+		"egret.Video": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/Video.ts",
 		"egret.PromiseObject": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
+		"egret.URLRequestMethod": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestMethod.ts",
+		"egret.URLLoaderDataFormat": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoaderDataFormat.ts",
+		"egret.URLVariables": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLVariables.ts",
+		"egret.URLRequestHeader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequestHeader.ts",
+		"egret.URLRequest": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLRequest.ts",
+		"egret.URLLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/URLLoader.ts",
+		"egret.NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/NetContext.ts",
+		"egret.$getUrl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/net/NetContext.ts",
+		"egret.Ticker": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/player/Ticker.ts",
+		"egret.web.HTML5StageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.HTMLInput": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.$getTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.$cacheTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
+		"egret.web.WebExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts",
+		"egret.web.CanvasFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts",
+		"egret.web.toBitmapData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts",
+		"egret.web.WebCapability": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts",
+		"egret.web.WebPlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
+		"egret.web.WebTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts",
+		"egret.web.XMLNode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.XML": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.XMLText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
+		"egret.web.WebHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
+		"egret.web.QQSound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSound.ts",
+		"egret.web.QQSoundChannel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQSoundChannel.ts",
+		"AudioBuffer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+		"AudioBufferSourceNodeEgret": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+		"egret.web.WebAudioDecode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+		"egret.web.WebAudioSound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSound.ts",
+		"egret.web.WebAudioSoundChannel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudioSoundChannel.ts",
+		"egret.web.HtmlSound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSound.ts",
+		"egret.web.HtmlSoundChannel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/HtmlSoundChannel.ts",
+		"egret.web.WebVideo": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebVideo.ts",
+		"egret.web.getOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebGetOption.ts",
+		"egret.web.AudioType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.SystemOSType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.Html5Capatibility": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.getPrefixStyleName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
+		"egret.web.WebHttpRequest": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/web/WebHttpRequest.ts",
+		"egret.web.WebImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/web/WebImageLoader.ts",
+		"egret.web.HTML5NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/web/HTML5NetContext.ts",
+		"egret.NativeStageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts",
+		"egret.sys.NativeDisplayList": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeDisplayList.ts",
+		"egret.native.NativeExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts",
+		"egret.NativeVersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/NativeVersionController.ts",
+		"egret.native.NativeHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts",
+		"egret.native.NativeTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
+		"egret.native.OpenGLFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
+		"egret.NativeResourceLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts",
+		"egret.native.NativeSurface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
+		"egret.native.NativePlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts",
+		"egret.native.NativeRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts",
+		"egret.native.NativeSound": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSound.ts",
+		"egret_native_sound.currentPath": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts",
+		"egret.native.NativeSoundChannel": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts",
+		"egret.native.getOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeGetOption.ts",
+		"egret.native.NativeImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/native/NativeImageLoader.ts",
+		"egret.native.NativeNetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts",
 		"egret.ISocket": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/socket/ISocket.ts",
 		"egret.web.HTML5WebSocket": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/socket/web/HTML5WebSocket.ts",
 		"egret.native.NativeSocket": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/socket/native/NativeSocket.ts",
@@ -2447,6 +2567,8 @@
 		"dragonBones.CurveData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/dragonbones/core/model/CurveData.ts",
 		"dragonBones.ColorTransformUtil": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/dragonbones/core/utils/ColorTransformUtil.ts",
 		"dragonBones.EgretFastSlot": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/dragonbones/egret/EgretFastSlot.ts",
+		"egret.IVersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts",
+		"egret.VersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts",
 		"egret.DefaultLoadingView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/DefaultLoadingView.ts",
 		"egret.ILoadingView": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/ILoadingView.ts",
 		"egret.Html5VersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/Html5VersionController.ts",
@@ -2620,47 +2742,6 @@
 		"egret.gui.UIStage": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/core/UIStage.ts",
 		"egret.gui.PopUpManagerImpl": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/managers/impl/PopUpManagerImpl.ts",
 		"egret.gui.PopUpData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/managers/impl/PopUpManagerImpl.ts",
-		"egret.gui.PopUpManager": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/managers/PopUpManager.ts",
-		"egret.web.HTML5StageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-		"egret.web.HTMLInput": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-		"egret.web.$getTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-		"egret.web.$cacheTextAdapter": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/web/HTML5StageText.ts",
-		"egret.web.WebExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/web/WebExternalInterface.ts",
-		"egret.web.CanvasFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/CanvasFactory.ts",
-		"egret.web.toBitmapData": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebBitmapData.ts",
-		"egret.web.WebCapability": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebCapability.ts",
-		"egret.web.WebPlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebPlayer.ts",
-		"egret.web.WebTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebTouchHandler.ts",
-		"egret.web.XMLNode": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
-		"egret.web.XML": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
-		"egret.web.XMLText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebXML.ts",
-		"egret.web.HTML5NetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/HTML5NetContext.ts",
-		"egret.web.WebHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebHideHandler.ts",
-		"egret.web.WebImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebImageLoader.ts",
-		"egret.web.Html5Audio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/Html5Audio.ts",
-		"egret.web.QQAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/QQAudio.ts",
-		"egret.web.WebAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
-		"AudioBuffer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
-		"AudioBufferSourceNodeEgret": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/web/WebAudio.ts",
-		"egret.web.getOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/WebGetOption.ts",
-		"egret.web.AudioType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-		"egret.web.SystemOSType": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-		"egret.web.Html5Capatibility": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-		"egret.web.getPrefixStyleName": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/web/Html5Capatibility.ts",
-		"egret.NativeStageText": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/text/native/NativeStageText.ts",
-		"egret.native.NativeExternalInterface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/external/native/NativeExternalInterface.ts",
-		"egret.native.NativeAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts",
-		"egret_native_sound.currentPath": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeAudio.ts",
-		"egret.NativeVersionController": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/NativeVersionController.ts",
-		"egret.native.NativeHideHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeHideHandler.ts",
-		"egret.native.NativeTouchHandler": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeTouchHandler.ts",
-		"egret.native.NativeImageLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeImageLoader.ts",
-		"egret.native.NativeNetContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeNetContext.ts",
-		"egret.native.OpenGLFactory": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/OpenGLFactory.ts",
-		"egret.NativeResourceLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeResourceLoader.ts",
-		"egret.native.NativeSurface": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
-		"egret.native.NativePlayer": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativePlayer.ts",
-		"egret.native.NativeRenderContext": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts",
-		"egret.native.getOption": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeGetOption.ts"
+		"egret.gui.PopUpManager": "/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/managers/PopUpManager.ts"
 	}
 }

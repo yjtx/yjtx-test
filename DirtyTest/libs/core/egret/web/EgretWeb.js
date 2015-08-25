@@ -55,7 +55,7 @@ var egret;
                 if (language in egret.$locale_strings)
                     egret.$language = language;
             }
-            var ticker = egret.sys.$ticker = new egret.sys.SystemTicker();
+            var ticker = egret.sys.$ticker;
             startTicker(ticker);
             var surfaceFactory = new web.CanvasFactory();
             egret.sys.surfaceFactory = surfaceFactory;

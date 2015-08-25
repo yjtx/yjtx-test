@@ -41,7 +41,7 @@ class SoundNormal extends egret.DisplayObjectContainer {
 
     private testSound():void {
         var sound:egret.Sound = RES.getRes("wf_mp3");
-        sound.play(true);
+        sound.play();
     }
 }
 

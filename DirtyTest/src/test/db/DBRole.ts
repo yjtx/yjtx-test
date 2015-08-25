@@ -39,10 +39,11 @@ class DBRole extends egret.DisplayObjectContainer {
         armature.getSlot("eyelidL").display.texture   = RES.getRes("role_1_eyelid_png");
         armature.getSlot("eyelidR").display.texture   = RES.getRes("role_1_eyelid_png");
 
-        egret.startTick(function (advancedTime):boolean {
+        egret.Ticker.getInstance().register(function (advancedTime):boolean {
             dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
             return true;
         }, this);
+
     }
 
 }

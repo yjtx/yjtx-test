@@ -38,6 +38,17 @@ var egret;
             __extends(NativeImageLoader, _super);
             function NativeImageLoader() {
                 _super.apply(this, arguments);
+                /**
+                 * @private
+                 * 使用 load() 方法加载成功的 BitmapData 图像数据。
+                 */
+                this.data = null;
+                /**
+                 * @private
+                 * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。
+                 * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
+                 */
+                this.crossOrigin = null;
             }
             var __egretProto__ = NativeImageLoader.prototype;
             /**
@@ -46,56 +57,66 @@ var egret;
              * @param url
              * @param callback
              */
-            __egretProto__.load = function (url, callback) {
+            __egretProto__.load = function (url) {
+                this.check(url);
+            };
+            __egretProto__.check = function (url) {
                 var self = this;
-                var bitmapData = egret.BaseImageLoader._bitmapDataFactory[url];
-                if (!bitmapData) {
-                    if (egret["Net" + "Context"].__use_asyn) {
-                        if (egret.BaseImageLoader._bitmapCallbackMap[url]) {
-                            self._addToCallbackList(url, callback);
-                        }
-                        else {
-                            self._addToCallbackList(url, callback);
-                            var promise = new egret.PromiseObject();
-                            promise.onSuccessFunc = function (bitmapData) {
-                                egret.BaseImageLoader._bitmapDataFactory[url] = bitmapData;
-                                self._onLoad(url, bitmapData);
-                            };
-                            promise.onErrorFunc = function () {
-                                self._onError(url, null);
-                            };
-                            egret_native.Texture.addTextureAsyn(url, promise);
-                        }
-                    }
-                    else {
-                        bitmapData = egret_native.Texture.addTexture(url);
-                        egret.BaseImageLoader._bitmapDataFactory[url] = bitmapData;
-                        bitmapData["avaliable"] = true;
-                        callback(0, bitmapData);
-                    }
+                if (self.isNetUrl(url)) {
+                    self.download(url);
                 }
-                else if (bitmapData["avaliable"]) {
-                    callback(0, bitmapData);
+                else if (!egret_native.isFileExists(url)) {
+                    self.download(url);
                 }
                 else {
-                    bitmapData.reload();
-                    bitmapData["avaliable"] = true;
-                    callback(0, bitmapData);
+                    self.loadTexture(url);
+                }
+            };
+            __egretProto__.download = function (url) {
+                var self = this;
+                var promise = egret.PromiseObject.create();
+                promise.onSuccessFunc = function () {
+                    self.loadTexture(url);
+                };
+                promise.onErrorFunc = function () {
+                    self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
+                };
+                egret_native.download(url, url, promise);
+            };
+            __egretProto__.loadTexture = function (url) {
+                var self = this;
+                if (egret["Net" + "Context"].__use_asyn) {
+                    var promise = new egret.PromiseObject();
+                    promise.onSuccessFunc = function (bitmapData) {
+                        self.data = bitmapData;
+                        self.dispatchEventWith(egret.Event.COMPLETE);
+                    };
+                    promise.onErrorFunc = function () {
+                        self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
+                    };
+                    egret_native.Texture.addTextureAsyn(url, promise);
+                }
+                else {
+                    var bitmapData = egret_native.Texture.addTexture(url);
+                    self.data = bitmapData;
+                    egret.$callAsync(function () {
+                        self.dispatchEventWith(egret.Event.COMPLETE);
+                    }, self);
                 }
             };
             /**
-             * @private
-             *
-             * @param bitmapData
+             * 是否是网络地址
+             * @param url
+             * @returns {boolean}
              */
-            NativeImageLoader.disposeBitmapData = function (bitmapData) {
+            __egretProto__.isNetUrl = function (url) {
+                return url.indexOf("http://") != -1;
             };
             return NativeImageLoader;
-        })(egret.BaseImageLoader);
+        })(egret.EventDispatcher);
         native.NativeImageLoader = NativeImageLoader;
         NativeImageLoader.prototype.__class__ = "egret.native.NativeImageLoader";
-        egret.registerClass(NativeImageLoader,"egret.native.NativeImageLoader");
+        egret.registerClass(NativeImageLoader,"egret.native.NativeImageLoader",["egret.ImageLoader"]);
         egret.ImageLoader = NativeImageLoader;
-        egret.ImageLoader.disposeBitmapData = NativeImageLoader.disposeBitmapData;
     })(native = egret.native || (egret.native = {}));
 })(egret || (egret = {}));

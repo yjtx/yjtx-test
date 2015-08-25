@@ -230,6 +230,7 @@ var dragonBones;
         __egretProto__.advanceTimelinesTime = function (passedTime) {
             this._time += passedTime;
             //计算是否已经播放完成isThisComplete
+            var startFlg = false;
             var loopCompleteFlg = false;
             var completeFlg = false;
             var isThisComplete = false;
@@ -263,6 +264,9 @@ var dragonBones;
                     }
                     this._currentPlayTimes = currentPlayTimes;
                 }
+                if (this._currentTime < 0) {
+                    startFlg = true;
+                }
                 if (this._isComplete) {
                     completeFlg = true;
                 }
@@ -272,6 +276,13 @@ var dragonBones;
             }
             //抛事件
             var event;
+            if (startFlg) {
+                if (this._armature.hasEventListener(dragonBones.AnimationEvent.START)) {
+                    event = new dragonBones.AnimationEvent(dragonBones.AnimationEvent.START);
+                    event.animationState = this;
+                    this._armature._addEvent(event);
+                }
+            }
             if (completeFlg) {
                 if (this._armature.hasEventListener(dragonBones.AnimationEvent.COMPLETE)) {
                     event = new dragonBones.AnimationEvent(dragonBones.AnimationEvent.COMPLETE);

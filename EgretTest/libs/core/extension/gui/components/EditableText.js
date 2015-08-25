@@ -47,6 +47,8 @@ var egret;
                 this.maxCharsChanged = false;
                 this._multiline = false;
                 this.multilineChanged = false;
+                this._restrict = null;
+                this.restrictChanged = false;
                 this._heightInLines = NaN;
                 this.heightInLinesChanged = false;
                 this._widthInChars = NaN;
@@ -182,6 +184,23 @@ var egret;
                         return;
                     this._multiline = value;
                     this.multilineChanged = true;
+                    this.invalidateProperties();
+                },
+                enumerable: true,
+                configurable: true
+            });
+            Object.defineProperty(__egretProto__, "restrict", {
+                /**
+                 * @inheritDoc
+                 */
+                get: function () {
+                    return this._restrict;
+                },
+                set: function (value) {
+                    if (value == this._restrict)
+                        return;
+                    this._restrict = value;
+                    this.restrictChanged = true;
                     this.invalidateProperties();
                 },
                 enumerable: true,
@@ -425,6 +444,7 @@ var egret;
                     this.displayAsPasswordChanged = true;
                     this.maxCharsChanged = true;
                     this.multilineChanged = true;
+                    this.restrictChanged = true;
                 }
                 _super.prototype.commitProperties.call(this);
                 if (this.editableChanged) {
@@ -443,6 +463,10 @@ var egret;
                     this._textField.multiline = this._multiline;
                     //this._textField.wordWrap = this._multiline;
                     this.multilineChanged = false;
+                }
+                if (this.restrictChanged) {
+                    //this._textField.restrict = this._restrict;
+                    this.restrictChanged = false;
                 }
                 if (this.heightInLinesChanged) {
                     this.heightInLinesChanged = false;

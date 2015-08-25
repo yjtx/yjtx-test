@@ -120,12 +120,30 @@ var egret;
                 this.inputElement.value = this.textValue;
             }
         };
+        __egretProto__.$onBlur = function () {
+            if (egret.Html5Capatibility._System_OS == egret.SystemOSType.WPHONE) {
+                egret.Event.dispatchEvent(this, "updateText", false);
+            }
+        };
         __egretProto__._onInput = function () {
             var self = this;
-            self.textValue = self.inputElement.value;
-            egret.Event.dispatchEvent(self, "updateText", false);
-            this._textfield._getLinesArr();
-            this.setAreaHeight();
+            if (egret.Html5Capatibility._System_OS == egret.SystemOSType.WPHONE) {
+                var values = this._textfield._TF_Props_;
+                if (values._restrictAnd == null && values._restrictNot == null) {
+                    self.textValue = self.inputElement.value;
+                    egret.Event.dispatchEvent(self, "updateText", false);
+                    this._textfield._getLinesArr();
+                    this.setAreaHeight();
+                }
+            }
+            else {
+                if (self.inputElement.selectionStart == self.inputElement.selectionEnd) {
+                    self.textValue = self.inputElement.value;
+                    egret.Event.dispatchEvent(self, "updateText", false);
+                    this._textfield._getLinesArr();
+                    this.setAreaHeight();
+                }
+            }
         };
         __egretProto__.setAreaHeight = function () {
             var textfield = this._textfield;

@@ -1119,6 +1119,7 @@ var egret;
                     if (displayList) {
                         this.$displayList = displayList;
                         if (this.$parentDisplayList) {
+                            displayList.setDevicePixelRatio(this.$parentDisplayList.$ratioMatrix.a);
                             this.$parentDisplayList.markDirty(displayList);
                         }
                         this.$cacheAsBitmapChanged();
@@ -1652,7 +1653,7 @@ var egret;
                 region.moved = false;
                 return false;
             }
-            if (!region.moved) {
+            if (!region.moved && !displayList.$ratioChanged) {
                 return false;
             }
             region.moved = false;
@@ -1662,6 +1663,7 @@ var egret;
             if (root !== this.$stage) {
                 this.$getConcatenatedMatrixAt(root, matrix);
             }
+            displayList.$ratioMatrix.$preMultiplyInto(matrix, matrix);
             region.updateRegion(bounds, matrix);
             return true;
         };

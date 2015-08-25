@@ -5,7 +5,7 @@
 		"name":"preload"
 	},
 	{
-		"keys":"ready_bg_music1_mp3,zuiquan_mp3,effect_mp3,wf_mp3,ready_bg_music2_mp3,ready_bg_music_mp3,guangyin_mp3",
+		"keys":"effect_mp3,wf_mp3,guangyin_mp3",
 		"name":"sounds"
 	},
 	{
@@ -27,6 +27,14 @@
 	{
 		"keys":"img_scale9_png,dot_png",
 		"name":"bitmap"
+	},
+	{
+		"keys":"effect_mp3,guangyin_mp3,ready_bg_music_mp3,ready_bg_music1_mp3,ready_bg_music2_mp3,zuiquan_mp3,ori_0_png,ori_1_json,copy_1_json,dot_png",
+		"name":"res1"
+	},
+	{
+		"keys":"ready_bg_music2_mp3,wf_mp3,zuiquan_mp3,ori_0_png,effect_mp3",
+		"name":"res2"
 	}],
 	"resources":[
 	{
@@ -126,36 +134,43 @@
 	},
 	{
 		"name":"effect_mp3",
+		"soundType":"effect",
 		"type":"sound",
 		"url":"sound/effect.mp3"
 	},
 	{
 		"name":"guangyin_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/guangyin.mp3"
 	},
 	{
 		"name":"ready_bg_music_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/ready_bg_music.mp3"
 	},
 	{
 		"name":"ready_bg_music1_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/ready_bg_music1.mp3"
 	},
 	{
 		"name":"ready_bg_music2_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/ready_bg_music2.mp3"
 	},
 	{
 		"name":"wf_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/wf.mp3"
 	},
 	{
 		"name":"zuiquan_mp3",
+		"soundType":"music",
 		"type":"sound",
 		"url":"sound/zuiquan.mp3"
 	},

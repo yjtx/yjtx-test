@@ -31,6 +31,7 @@ var egret;
     var setTimeoutCache = {};
     var setTimeoutIndex = 0;
     var setTimeoutCount = 0;
+    var lastTime = 0;
     /**
      * @language en_US
      * Run the designated function in specified delay (in milliseconds).
@@ -63,6 +64,7 @@ var egret;
         var data = { listener: listener, thisObject: thisObject, delay: delay, params: args };
         setTimeoutCount++;
         if (setTimeoutCount == 1 && egret.sys.$ticker) {
+            lastTime = egret.getTimer();
             egret.sys.$ticker.$startTick(timeoutUpdate, null);
         }
         setTimeoutIndex++;
@@ -99,7 +101,9 @@ var egret;
      *
      * @param dt
      */
-    function timeoutUpdate(dt) {
+    function timeoutUpdate(timeStamp) {
+        var dt = timeStamp - lastTime;
+        lastTime = timeStamp;
         for (var key in setTimeoutCache) {
             var data = setTimeoutCache[key];
             data.delay -= dt;

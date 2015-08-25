@@ -43,17 +43,8 @@ var egret;
              */
             function HTML5NetContext() {
                 _super.call(this);
-                this._imageLoader = new egret.ImageLoader();
             }
             var __egretProto__ = HTML5NetContext.prototype;
-            /**
-             * @private
-             *
-             * @param versionCtr
-             */
-            __egretProto__.initVersion = function (versionCtr) {
-                this._versionCtr = versionCtr;
-            };
             /**
              * @private
              *
@@ -70,53 +61,81 @@ var egret;
                     return;
                 }
                 var request = loader._request;
-                var xhr = this.getXHR();
-                xhr.onreadystatechange = onReadyStateChange;
                 var virtualUrl = self.getVirtualUrl(egret.$getUrl(request));
-                xhr.open(request.method, virtualUrl, true);
-                this.setResponseType(xhr, loader.dataFormat);
+                var httpLoader = new egret.HttpRequest();
+                httpLoader.addEventListener(egret.Event.COMPLETE, onLoadComplete, this);
+                httpLoader.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
+                httpLoader.addEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, this);
+                httpLoader.open(virtualUrl, request.method);
+                httpLoader.responseType = this.getResponseType(loader.dataFormat);
                 if (request.method == egret.URLRequestMethod.GET || !request.data) {
-                    xhr.send();
+                    httpLoader.send();
                 }
                 else if (request.data instanceof egret.URLVariables) {
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    httpLoader.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     var urlVars = request.data;
-                    xhr.send(urlVars.toString());
+                    httpLoader.send(urlVars.toString());
                 }
                 else {
-                    xhr.setRequestHeader("Content-Type", "multipart/form-data");
-                    xhr.send(request.data);
+                    httpLoader.setRequestHeader("Content-Type", "multipart/form-data");
+                    httpLoader.send(request.data);
                 }
-                function onReadyStateChange() {
-                    if (xhr.readyState == 4) {
-                        if (xhr.status != loader._status) {
-                            loader._status = xhr.status;
-                            egret.HTTPStatusEvent.dispatchHTTPStatusEvent(loader, xhr.status);
-                        }
-                        if (xhr.status >= 400 || xhr.status == 0) {
-                            egret.IOErrorEvent.dispatchIOErrorEvent(loader);
-                        }
-                        else {
-                            onLoadComplete();
-                        }
-                    }
+                /*function onReadyStateChange() {
+                 if (xhr.readyState == 4) {// 4 = "loaded"
+                 if (xhr.status != loader._status) {
+                 loader._status = xhr.status;
+                 HTTPStatusEvent.dispatchHTTPStatusEvent(loader, xhr.status);
+                 }
+    
+                 if (xhr.status >= 400 || xhr.status == 0) {//请求错误
+                 IOErrorEvent.dispatchIOErrorEvent(loader);
+                 }
+                 else {
+                 onLoadComplete();
+                 }
+                 }
+                 }*/
+                function onPostProgress(event) {
+                    loader.dispatchEvent(event);
+                }
+                function onError(event) {
+                    removeListeners();
+                    loader.dispatchEvent(event);
                 }
                 function onLoadComplete() {
+                    removeListeners();
                     switch (loader.dataFormat) {
-                        case egret.URLLoaderDataFormat.TEXT:
-                            loader.data = xhr.responseText;
-                            break;
                         case egret.URLLoaderDataFormat.VARIABLES:
-                            loader.data = new egret.URLVariables(xhr.responseText);
-                            break;
-                        case egret.URLLoaderDataFormat.BINARY:
-                            loader.data = xhr.response;
+                            loader.data = new egret.URLVariables(httpLoader.response);
                             break;
                         default:
-                            loader.data = xhr.responseText;
+                            loader.data = httpLoader.response;
                             break;
                     }
-                    egret.$callAsync(egret.Event.dispatchEvent, egret.Event, loader, egret.Event.COMPLETE);
+                    window.setTimeout(function () {
+                        egret.Event.dispatchEvent(loader, egret.Event.COMPLETE);
+                    }, 0);
+                }
+                function removeListeners() {
+                    httpLoader.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                    httpLoader.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+                    httpLoader.removeEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, self);
+                }
+            };
+            /**
+             * @private
+             *
+             * @param dataFormat
+             */
+            __egretProto__.getResponseType = function (dataFormat) {
+                switch (dataFormat) {
+                    case egret.URLLoaderDataFormat.TEXT:
+                    case egret.URLLoaderDataFormat.VARIABLES:
+                        return egret.URLLoaderDataFormat.TEXT;
+                    case egret.URLLoaderDataFormat.BINARY:
+                        return "arraybuffer";
+                    default:
+                        return dataFormat;
                 }
             };
             /**
@@ -126,49 +145,29 @@ var egret;
              */
             __egretProto__.loadSound = function (loader) {
                 var virtualUrl = this.getVirtualUrl(loader._request.url);
-                var audio = new egret.Audio();
-                audio.$loadByUrl(virtualUrl, function (code) {
-                    if (code != 0) {
-                        egret.IOErrorEvent.dispatchIOErrorEvent(loader);
-                        return;
-                    }
-                    var sound = new egret.Sound();
-                    sound.$setAudio(audio);
+                var sound = new egret.Sound();
+                sound.addEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                sound.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+                sound.addEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, self);
+                sound.load(virtualUrl);
+                function onPostProgress(event) {
+                    loader.dispatchEvent(event);
+                }
+                function onError(event) {
+                    removeListeners();
+                    loader.dispatchEvent(event);
+                }
+                function onLoadComplete(e) {
+                    removeListeners();
                     loader.data = sound;
-                    egret.$callAsync(egret.Event.dispatchEvent, egret.Event, loader, egret.Event.COMPLETE);
-                });
-            };
-            /**
-             * @private
-             *
-             * @returns
-             */
-            __egretProto__.getXHR = function () {
-                if (window["XMLHttpRequest"]) {
-                    return new window["XMLHttpRequest"]();
+                    window.setTimeout(function () {
+                        loader.dispatchEventWith(egret.Event.COMPLETE);
+                    }, self);
                 }
-                else {
-                    return new ActiveXObject("MSXML2.XMLHTTP");
-                }
-            };
-            /**
-             * @private
-             *
-             * @param xhr
-             * @param responseType
-             */
-            __egretProto__.setResponseType = function (xhr, responseType) {
-                switch (responseType) {
-                    case egret.URLLoaderDataFormat.TEXT:
-                    case egret.URLLoaderDataFormat.VARIABLES:
-                        xhr.responseType = egret.URLLoaderDataFormat.TEXT;
-                        break;
-                    case egret.URLLoaderDataFormat.BINARY:
-                        xhr.responseType = "arraybuffer";
-                        break;
-                    default:
-                        xhr.responseType = responseType;
-                        break;
+                function removeListeners() {
+                    sound.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                    sound.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+                    sound.removeEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, self);
                 }
             };
             /**
@@ -177,6 +176,7 @@ var egret;
              * @param loader
              */
             __egretProto__.loadTexture = function (loader) {
+                var self = this;
                 var virtualUrl = this.getVirtualUrl(loader._request.url);
                 if (web.Html5Capatibility._WebPSupport && virtualUrl.indexOf("http:") != 0) {
                     if (virtualUrl.indexOf(".png") != -1) {
@@ -186,17 +186,36 @@ var egret;
                         virtualUrl = virtualUrl.replace(".jpg", ".webp");
                     }
                 }
-                this._imageLoader.load(virtualUrl, function (code, bitmapData) {
-                    if (code != 0) {
-                        egret.IOErrorEvent.dispatchIOErrorEvent(loader);
-                        return;
-                    }
+                var imageLoader = new egret.ImageLoader();
+                imageLoader.addEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                imageLoader.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+                imageLoader.addEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, self);
+                imageLoader.load(virtualUrl);
+                function onPostProgress(event) {
+                    loader.dispatchEvent(event);
+                }
+                function onError(event) {
+                    removeListeners();
+                    loader.dispatchEvent(event);
+                }
+                function onLoadComplete(e) {
+                    removeListeners();
+                    var bitmapData = imageLoader.data;
+                    bitmapData.setAttribute("bitmapSrc", virtualUrl);
+                    bitmapData["avaliable"] = true;
                     var texture = new egret.Texture();
                     texture._setBitmapData(bitmapData);
                     egret.Texture.$loaded(texture);
                     loader.data = texture;
-                    egret.$callAsync(egret.Event.dispatchEvent, egret.Event, loader, egret.Event.COMPLETE);
-                });
+                    window.setTimeout(function () {
+                        loader.dispatchEventWith(egret.Event.COMPLETE);
+                    }, self);
+                }
+                function removeListeners() {
+                    imageLoader.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                    imageLoader.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+                    imageLoader.removeEventListener(egret.ProgressEvent.PROGRESS, onPostProgress, self);
+                }
             };
             /**
              * @private
@@ -213,9 +232,6 @@ var egret;
              * @returns {string}
              */
             __egretProto__.getVirtualUrl = function (url) {
-                if (this._versionCtr) {
-                    return this._versionCtr.getVirtualUrl(url);
-                }
                 return url;
             };
             HTML5NetContext.getNetContext = function () {

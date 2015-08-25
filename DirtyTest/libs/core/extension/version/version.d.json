@@ -1,5 +1,6 @@
 {
 	"file_list": [
+		"IVersionController.ts",
 		"DefaultLoadingView.ts",
 		"Html5VersionController.ts"
 	]

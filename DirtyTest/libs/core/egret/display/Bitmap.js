@@ -93,7 +93,9 @@ var egret;
                 0: NaN,
                 1: NaN,
                 2: 1,
-                3: 1 //explicitScaleY
+                3: 1,
+                4: 1,
+                5: 1 //explicitUnsignedScaleY
             };
             this.texture = bitmapData;
         }
@@ -315,7 +317,17 @@ var egret;
                 return false;
             }
             values[2 /* explicitScaleX */] = value;
-            return _super.prototype.$setScaleX.call(this, 1);
+            values[4 /* explicitUnsignedScaleX */] = Math.abs(value);
+            this.$invalidateContentBounds();
+            if (value < 0) {
+                return _super.prototype.$setScaleX.call(this, -1);
+            }
+            else if (value == 0) {
+                return _super.prototype.$setScaleX.call(this, 0);
+            }
+            else {
+                return _super.prototype.$setScaleX.call(this, 1);
+            }
         };
         /**
          * @private
@@ -333,7 +345,17 @@ var egret;
                 return false;
             }
             values[3 /* explicitScaleY */] = value;
-            return _super.prototype.$setScaleY.call(this, 1);
+            values[5 /* explicitUnsignedScaleY */] = Math.abs(value);
+            this.$invalidateContentBounds();
+            if (value < 0) {
+                return _super.prototype.$setScaleY.call(this, -1);
+            }
+            else if (value == 0) {
+                return _super.prototype.$setScaleY.call(this, 0);
+            }
+            else {
+                return _super.prototype.$setScaleY.call(this, 1);
+            }
         };
         /**
          * @private
@@ -344,7 +366,7 @@ var egret;
                 var w = !isNaN(this.$Bitmap[0 /* explicitBitmapWidth */]) ? this.$Bitmap[0 /* explicitBitmapWidth */] : (bitmapData.$getTextureWidth());
                 var h = !isNaN(this.$Bitmap[1 /* explicitBitmapHeight */]) ? this.$Bitmap[1 /* explicitBitmapHeight */] : (bitmapData.$getTextureHeight());
                 var values = this.$Bitmap;
-                bounds.setTo(0, 0, w * values[2 /* explicitScaleX */], h * values[3 /* explicitScaleY */]);
+                bounds.setTo(0, 0, w * values[4 /* explicitUnsignedScaleX */], h * values[5 /* explicitUnsignedScaleY */]);
             }
             else {
                 bounds.setEmpty();
@@ -359,9 +381,9 @@ var egret;
                 var destW = !isNaN(this.$Bitmap[0 /* explicitBitmapWidth */]) ? this.$Bitmap[0 /* explicitBitmapWidth */] : (bitmapData.$getTextureWidth());
                 var destH = !isNaN(this.$Bitmap[1 /* explicitBitmapHeight */]) ? this.$Bitmap[1 /* explicitBitmapHeight */] : (bitmapData.$getTextureHeight());
                 var values = this.$Bitmap;
-                destW *= values[2 /* explicitScaleX */];
-                destH *= values[3 /* explicitScaleY */];
-                Bitmap.$drawImage(context, bitmapData, destW, destH, this.scale9Grid, this.fillMode, this.$smoothing, bitmapData._offsetX * values[2 /* explicitScaleX */], bitmapData._offsetY * values[3 /* explicitScaleY */]);
+                destW *= values[4 /* explicitUnsignedScaleX */];
+                destH *= values[5 /* explicitUnsignedScaleY */];
+                Bitmap.$drawImage(context, bitmapData, destW, destH, this.scale9Grid, this.fillMode, this.$smoothing, bitmapData._offsetX * values[4 /* explicitUnsignedScaleX */], bitmapData._offsetY * values[5 /* explicitUnsignedScaleY */]);
             }
         };
         Object.defineProperty(__egretProto__, "pixelHitTest", {

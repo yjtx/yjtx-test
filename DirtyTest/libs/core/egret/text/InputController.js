@@ -109,10 +109,14 @@ var egret;
          */
         __egretProto__.focusHandler = function (event) {
             //不再显示竖线，并且输入框显示最开始
-            this._isFocus = true;
-            this._text._isTyping = true;
-            this._text.$invalidateContentBounds();
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN, true));
+            if (!this._isFocus) {
+                this._isFocus = true;
+                if (!event["showing"]) {
+                    this._text._isTyping = true;
+                }
+                this._text.$invalidateContentBounds();
+                this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN, true));
+            }
         };
         /**
          * @private
@@ -120,11 +124,15 @@ var egret;
          * @param event
          */
         __egretProto__.blurHandler = function (event) {
-            //不再显示竖线，并且输入框显示最开始
-            this._isFocus = false;
-            this._text._isTyping = false;
-            this._text.$invalidateContentBounds();
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT, true));
+            if (this._isFocus) {
+                //不再显示竖线，并且输入框显示最开始
+                this._isFocus = false;
+                this._text._isTyping = false;
+                this._text.$invalidateContentBounds();
+                //失去焦点后调用
+                this.stageText.$onBlur();
+                this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT, true));
+            }
         };
         //点中文本
         __egretProto__.onMouseDownHandler = function (event) {
@@ -136,7 +144,6 @@ var egret;
             if (this._isFocus) {
                 return;
             }
-            this._isFocus = true;
             //强制更新输入框位置
             this.stageText.$show();
         };
@@ -150,14 +157,12 @@ var egret;
          * @param event
          */
         __egretProto__.updateTextHandler = function (event) {
-            console.log("111");
             var values = this._text.$TextField;
             var textValue = this.stageText.$getText();
             var isChanged = false;
             if (values[35 /* restrictAnd */] != null) {
                 var reg = new RegExp("[" + values[35 /* restrictAnd */] + "]", "g");
                 var result = textValue.match(reg);
-                console.log(result);
                 if (result) {
                     textValue = result.join("");
                 }
@@ -169,7 +174,6 @@ var egret;
             if (values[36 /* restrictNot */] != null) {
                 reg = new RegExp("[^" + values[36 /* restrictNot */] + "]", "g");
                 result = textValue.match(reg);
-                console.log(result);
                 if (result) {
                     textValue = result.join("");
                 }
@@ -178,7 +182,7 @@ var egret;
                 }
                 isChanged = true;
             }
-            if (isChanged) {
+            if (isChanged && this.stageText.$getText() != textValue) {
                 this.stageText.$setText(textValue);
             }
             this.resetText();

@@ -7,16 +7,45 @@
     </style>
 </head>
 <body>
-<input id="egretTextarea" tabindex="-1"
-          style="resize: none; width: 200px; height: 30px; position: absolute; left: 10px; top: 10px; border: 0px solid; padding: 10px 0px 0px 0px; outline: thin; overflow: hidden;
-          word-break: break-all; opacity: 1; font-family: SimSun; font-style: normal; font-weight: normal; text-align: center; font-size: 30px; line-height: 30px;
-          color: rgb(239, 44, 44); vertical-align:text-bottom; background: none;">
+<div>
+    <input id="egretTextarea" tabindex="-1" onfocus=" this.style.imeMode='disabled' "
+           style="resize: none; width: 200px; height: 30px;">
 
-</input>
+    </input>
 
+
+    <input id="egretTextarea1" tabindex="-1"
+           style="resize: none; width: 200px; height: 30px;">
+
+    </input>
+
+</div>
+
+<button id="btn" style="width: 200px;height: 100px;" onclick="showSelect()"></button>
+
+<div id="text"></div>
 
 <script type="text/javascript">
-    egretTextarea.value = "sdfsfs"
+    egretTextarea.value = "sdfsfs";
+    egretTextarea1.value = "sdfsfs";
+
+
+    function showSelect() {
+        if ("innerText" in text) {
+            text.innerText = "selected:" + egretTextarea1.selected;
+            text.innerText += "\nselectedIndex:" + egretTextarea1.selectedIndex;
+            text.innerText += "\nselectionStart:" + egretTextarea1.selectionStart;
+            text.innerText += "\nselectionEnd:" + egretTextarea1.selectionEnd;
+            text.innerText += "\nimeMode:" + egretTextarea1.style.imeMode;
+        }
+        else if ("textContent" in text) {
+            text.textContent = "selected:" + egretTextarea1.selected;
+            text.textContent += "\nselectedIndex:" + egretTextarea1.selectedIndex;
+            text.textContent += "\nselectionStart:" + egretTextarea1.selectionStart;
+            text.textContent += "\nselectionEnd:" + egretTextarea1.selectionEnd;
+            text.textContent += "\nimeMode:" + egretTextarea1.style.imeMode;
+        }
+    }
 </script>
 </body>
 </html>

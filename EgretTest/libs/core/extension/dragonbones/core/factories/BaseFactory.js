@@ -484,6 +484,9 @@ var dragonBones;
                 }
                 for (var j = 0, jLen = displayList.length; j < jLen; j++) {
                     var displayObject = displayList[j];
+                    if (!displayObject) {
+                        continue;
+                    }
                     if (displayObject instanceof dragonBones.Armature) {
                         displayObject = displayObject.display;
                     }
@@ -547,6 +550,9 @@ var dragonBones;
                 var length1 = displayList.length;
                 for (var i1 = 0; i1 < length1; i1++) {
                     var displayObject = displayList[i1];
+                    if (!displayObject) {
+                        continue;
+                    }
                     if (displayObject instanceof dragonBones.FastArmature) {
                         displayObject = displayObject.display;
                     }

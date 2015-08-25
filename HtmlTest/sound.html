@@ -8,7 +8,10 @@
 </head>
 <body>
 
-长音频
+
+<input type="range" id="input"/>
+
+长音频  autoplay = true 不能少，再次播放 audio.load();不能少
 <div>
     <p>mp3</p>
     <audio id="bgMusic1" src="sound/wf.mp3" controls loop/>
@@ -31,6 +34,11 @@
 <!--<audio preload="auto" autoplay src="http://m5.file.xiami.com/110/3110/234360253/1774443830_16854211_l.mp3?auth_key=620cf4ac981764cc8ce122d13442760e-1435968000-0-null"></audio>-->
 <script>
 
+    input.onchange = function () {
+        console.log(input.value);
+
+        bgMusic1.volume = input.value / 100;
+    }
 
 //    var ad = new Audio;
 ////    ad.src = "http://10.0.4.63/yjtx/sound/wf.mp3";

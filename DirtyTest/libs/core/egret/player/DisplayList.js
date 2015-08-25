@@ -31,7 +31,7 @@ var egret;
     var sys;
     (function (sys) {
         var displayListPool = [];
-        var blendModes = ["source-over", "lighter", "destination-out", "destination-in"];
+        var blendModes = ["source-over", "lighter", "destination-out"];
         var defaultCompositeOp = "source-over";
         /**
          * @private
@@ -208,9 +208,7 @@ var egret;
             __egretProto__.$render = function (context) {
                 var data = this.surface;
                 if (data) {
-                    context.begin();
                     context.drawImage(data, this.offsetX, this.offsetY, data.width / this.$pixelRatio, data.height / this.$pixelRatio);
-                    context.end();
                 }
             };
             /**
@@ -284,7 +282,6 @@ var egret;
                     this.changeSurfaceSize();
                 }
                 var context = this.renderContext;
-                context.begin();
                 //绘制脏矩形区域
                 context.save();
                 context.beginPath();
@@ -303,13 +300,10 @@ var egret;
                 if (m) {
                     context.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
                 }
-                context.end();
                 //绘制显示对象
                 var drawCalls = this.drawDisplayObject(this.root, context, dirtyList, m, null, null);
                 //清除脏矩形区域
-                context.begin();
                 context.restore();
-                context.end();
                 this.dirtyRegion.clear();
                 this.needRedraw = false;
                 this.$ratioChanged = false;
@@ -350,7 +344,6 @@ var egret;
                     }
                     if (node.$isDirty) {
                         drawCalls++;
-                        context.begin();
                         context.globalAlpha = globalAlpha;
                         var m = node.$renderMatrix;
                         if (rootMatrix) {
@@ -362,7 +355,6 @@ var egret;
                             context.setTransform(m.a, m.b, m.c, m.d, m.tx, m.ty);
                             node.$render(context);
                         }
-                        context.end();
                         node.$isDirty = false;
                     }
                 }
@@ -480,17 +472,14 @@ var egret;
                     egret.Matrix.release(displayMatrix);
                     return drawCalls;
                 }
-                displayContext.begin();
                 if (scrollRect) {
                     var m = displayMatrix;
-                    displayContext.save();
                     displayContext.setTransform(m.a, m.b, m.c, m.d, m.tx - region.minX, m.ty - region.minY);
                     displayContext.beginPath();
                     displayContext.rect(scrollRect.x, scrollRect.y, scrollRect.width, scrollRect.height);
                     displayContext.clip();
                 }
                 displayContext.setTransform(1, 0, 0, 1, -region.minX, -region.minY);
-                displayContext.end();
                 var rootM = egret.Matrix.create().setTo(1, 0, 0, 1, -region.minX, -region.minY);
                 drawCalls += this.drawDisplayObject(displayObject, displayContext, dirtyList, rootM, displayObject.$displayList, region);
                 egret.Matrix.release(rootM);
@@ -504,30 +493,22 @@ var egret;
                         egret.Matrix.release(displayMatrix);
                         return drawCalls;
                     }
-                    maskContext.begin();
                     maskContext.setTransform(1, 0, 0, 1, -region.minX, -region.minY);
-                    maskContext.end();
                     rootM = egret.Matrix.create().setTo(1, 0, 0, 1, -region.minX, -region.minY);
                     var calls = this.drawDisplayObject(mask, maskContext, dirtyList, rootM, mask.$displayList, region);
                     egret.Matrix.release(rootM);
                     if (calls > 0) {
                         drawCalls += calls;
-                        displayContext.begin();
                         displayContext.globalCompositeOperation = "destination-in";
                         displayContext.setTransform(1, 0, 0, 1, 0, 0);
                         displayContext.globalAlpha = 1;
                         displayContext.drawImage(maskContext.surface, 0, 0);
-                        displayContext.end();
                     }
                     sys.surfaceFactory.release(maskContext.surface);
-                }
-                if (scrollRect) {
-                    displayContext.restore();
                 }
                 //绘制结果到屏幕
                 if (drawCalls > 0) {
                     drawCalls++;
-                    context.begin();
                     if (hasBlendMode) {
                         context.globalCompositeOperation = compositeOp;
                     }
@@ -543,7 +524,6 @@ var egret;
                     if (hasBlendMode) {
                         context.globalCompositeOperation = defaultCompositeOp;
                     }
-                    context.end();
                 }
                 sys.surfaceFactory.release(displayContext.surface);
                 sys.Region.release(region);
@@ -586,7 +566,6 @@ var egret;
                     return drawCalls;
                 }
                 //绘制显示对象自身
-                context.begin();
                 context.save();
                 if (rootMatrix) {
                     context.setTransform(rootMatrix.a, rootMatrix.b, rootMatrix.c, rootMatrix.d, rootMatrix.tx * this.$pixelRatio, rootMatrix.ty * this.$pixelRatio);
@@ -601,11 +580,8 @@ var egret;
                 if (rootMatrix) {
                     context.setTransform(rootMatrix.a, rootMatrix.b, rootMatrix.c, rootMatrix.d, rootMatrix.tx * this.$pixelRatio, rootMatrix.ty * this.$pixelRatio);
                 }
-                context.end();
                 drawCalls += this.drawDisplayObject(displayObject, context, dirtyList, rootMatrix, displayObject.$displayList, region);
-                context.begin();
                 context.restore();
-                context.end();
                 sys.Region.release(region);
                 egret.Matrix.release(m);
                 return drawCalls;
@@ -649,7 +625,7 @@ var egret;
                     oldSurface.width = bounds.width * scaleX;
                     oldSurface.height = bounds.height * scaleY;
                 }
-                else if (bounds.width !== oldSurface.width || bounds.height !== oldSurface.height) {
+                else {
                     var newContext = sys.sharedRenderContext;
                     var newSurface = newContext.surface;
                     sys.sharedRenderContext = oldContext;
@@ -658,18 +634,14 @@ var egret;
                     newSurface.width = bounds.width * scaleX;
                     newSurface.height = bounds.height * scaleY;
                     if (oldSurface.width !== 0 && oldSurface.height !== 0) {
-                        newContext.begin();
                         newContext.setTransform(1, 0, 0, 1, 0, 0);
                         newContext.drawImage(oldSurface, (oldOffsetX - this.offsetX) * scaleX, (oldOffsetY - this.offsetY) * scaleY);
-                        newContext.end();
                     }
                     oldSurface.height = 1;
                     oldSurface.width = 1;
                 }
                 this.rootMatrix.setTo(1, 0, 0, 1, -this.offsetX, -this.offsetY);
-                this.renderContext.begin();
                 this.renderContext.setTransform(1, 0, 0, 1, -bounds.x, -bounds.y);
-                this.renderContext.end();
             };
             __egretProto__.setDevicePixelRatio = function (ratio) {
                 if (ratio === void 0) { ratio = 1; }

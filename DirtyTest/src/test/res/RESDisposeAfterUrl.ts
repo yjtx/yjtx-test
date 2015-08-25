@@ -39,10 +39,11 @@ class RESDisposeAfterUrl extends egret.DisplayObjectContainer {
         this.testUrl();
     }
 
+    private _bitmap:egret.Bitmap;
     private testUrl():void {
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
+            this._bitmap = new egret.Bitmap(texture);
+            this.addChild(this._bitmap);
 
             egret.setTimeout(function () {
                 this.destroy();
@@ -53,6 +54,7 @@ class RESDisposeAfterUrl extends egret.DisplayObjectContainer {
 
     private load() {
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
+            this._bitmap.texture = texture;
             egret.setTimeout(function () {
 
                 this.destroy();

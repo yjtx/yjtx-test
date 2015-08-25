@@ -307,33 +307,11 @@ declare module egret {
          * @private
          */
         private textValue;
-        $textfield: egret.TextField;
-        /**
-         * @private
-         */
-        private container;
-        /**
-         * @private
-         */
-        private textBg;
-        /**
-         * @private
-         */
-        private textBorder;
-        /**
-         * @private
-         */
-        private textType;
         /**
          * @version Egret 2.0
          * @platform Web,Native
          */
         constructor();
-        /**
-         * @private
-         *
-         */
-        private createText();
         /**
          * @private
          *
@@ -349,20 +327,8 @@ declare module egret {
         /**
          * @private
          *
-         * @param type
          */
-        $setTextType(type: string): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getTextType(): string;
-        /**
-         * @private
-         *
-         */
-        private resetText();
+        $onBlur(): void;
         /**
          * @private
          */
@@ -372,17 +338,7 @@ declare module egret {
          * @private
          *
          */
-        private showPartKeyboard();
-        /**
-         * @private
-         *
-         */
         $show(): void;
-        /**
-         * @private
-         *
-         */
-        $remove(): void;
         /**
          * @private
          *
@@ -391,7 +347,164 @@ declare module egret {
         $resetStageText(): void;
         $addToStage(): void;
         $removeFromStage(): void;
+        /**
+         * @private
+         */
+        $textfield: egret.TextField;
         $setTextField(value: egret.TextField): void;
+    }
+}
+
+declare module egret.sys {
+    /**
+     * @private
+     * 显示列表
+     */
+    class NativeDisplayList extends HashObject implements Renderable {
+        /**
+         * @private
+         * 释放一个DisplayList实例到对象池
+         */
+        static release(displayList: DisplayList): void;
+        /**
+         * @private
+         * 从对象池中取出或创建一个新的DisplayList对象。
+         */
+        static create(target: DisplayObject): DisplayList;
+        /**
+         * @private
+         * 创建一个DisplayList对象
+         */
+        constructor(root: DisplayObject);
+        /**
+         * @private
+         * 是否需要重绘
+         */
+        $isDirty: boolean;
+        /**
+         * @private
+         * 在舞台上的透明度
+         */
+        $renderAlpha: number;
+        /**
+         * @private
+         * 相对于显示列表根节点或位图缓存根节点的矩阵对象
+         */
+        $renderMatrix: Matrix;
+        $ratioMatrix: Matrix;
+        $ratioChanged: boolean;
+        $pixelRatio: number;
+        /**
+         * @private
+         * 在显示列表根节点或位图缓存根节点上的显示区域
+         */
+        $renderRegion: Region;
+        /**
+         * @private
+         * 更新对象在舞台上的显示区域和透明度,返回显示区域是否发生改变。
+         */
+        $update(): boolean;
+        /**
+         * @private
+         * 呈现绘制结果的目标画布
+         */
+        surface: Surface;
+        /**
+         * @private
+         */
+        offsetX: number;
+        /**
+         * @private
+         */
+        offsetY: number;
+        /**
+         * @private
+         *
+         * @param context
+         */
+        $render(context: RenderContext): void;
+        /**
+         * @private
+         * 显示列表根节点
+         */
+        root: DisplayObject;
+        /**
+         * @private
+         */
+        needRedraw: boolean;
+        /**
+         * @private
+         */
+        private rootMatrix;
+        /**
+         * @private
+         * 绘图上下文
+         */
+        renderContext: RenderContext;
+        /**
+         * @private
+         * 设置剪裁边界，不再绘制完整目标对象，画布尺寸由外部决定，超过边界的节点将跳过绘制。
+         */
+        setClipRect(width: number, height: number): void;
+        /**
+         * @private
+         * 显示对象的渲染节点发生改变时，把自身的IRenderable对象注册到此列表上。
+         */
+        private dirtyNodes;
+        /**
+         * @private
+         */
+        private dirtyNodeList;
+        /**
+         * @private
+         * 标记一个节点需要重新渲染
+         */
+        markDirty(node: Renderable): void;
+        /**
+         * @private
+         */
+        private dirtyList;
+        /**
+         * @private
+         */
+        private dirtyRegion;
+        /**
+         * @private
+         * 更新节点属性并返回脏矩形列表。
+         */
+        updateDirtyRegions(): Region[];
+        /**
+         * @private
+         * 绘制根节点显示对象到目标画布，返回draw的次数。
+         */
+        drawToSurface(): number;
+        /**
+         * @private
+         * 绘制一个显示对象
+         */
+        private drawDisplayObject(displayObject, context, dirtyList, rootMatrix, displayList, clipRegion);
+        /**
+         * @private
+         */
+        private drawWithClip(displayObject, context, dirtyList, rootMatrix, clipRegion);
+        /**
+         * @private
+         */
+        private drawWithScrollRect(displayObject, context, dirtyList, rootMatrix, clipRegion);
+        /**
+         * @private
+         */
+        private createRenderContext(width, height);
+        /**
+         * @private
+         */
+        private sizeChanged;
+        /**
+         * @private
+         * 改变画布的尺寸，由于画布尺寸修改会清空原始画布。所以这里将原始画布绘制到一个新画布上，再与原始画布交换。
+         */
+        changeSurfaceSize(): void;
+        setDevicePixelRatio(ratio?: number): void;
     }
 }
 
@@ -406,71 +519,6 @@ declare module egret.native {
         static call(functionName: string, value: string): void;
         static addCallback(functionName: string, listener: (value) => void): void;
     }
-}
-
-declare module egret.native {
-    /**
-     * @private
-     */
-    class NativeAudio implements Audio {
-        /**
-         * audio音频对象
-         * @member {any} egret.Sound#audio
-         */
-        constructor();
-        private _loop;
-        private _type;
-        private _effectId;
-        private _path;
-        /**
-         * 播放声音
-         * @method egret.Sound#play
-         * @param loop {boolean} 是否循环播放，默认为false
-         */
-        $play(type?: string): void;
-        private paused;
-        /**
-         * 暂停声音
-         * @method egret.Sound#pause
-         */
-        $pause(): void;
-        /**
-         * 重新加载声音
-         * @method egret.Sound#load
-         */
-        $load(): void;
-        $preload(type: string, callback?: Function, thisObj?: any): void;
-        $setAudio(path: string): void;
-        private initStart();
-        private _listeners;
-        /**
-         * 添加事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**s
-         * 移除事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * 获取当前音量值
-         * @returns number
-         */
-        $getVolume(): number;
-        $setVolume(value: number): void;
-        $setLoop(value: boolean): void;
-        private _startTime;
-        $getCurrentTime(): number;
-        $setCurrentTime(value: number): void;
-        $destroy(): void;
-        $loadByUrl(virtualUrl: string, callback: (code: number) => void): void;
-    }
-}
-declare module egret_native_sound {
-    var currentPath: string;
 }
 
 declare module egret {
@@ -522,81 +570,6 @@ declare module egret.native {
          * 更新同时触摸点的数量
          */
         $updateMaxTouches(): void;
-    }
-}
-
-declare module egret.native {
-    /**
-     * @private
-     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
-     */
-    class NativeImageLoader extends BaseImageLoader {
-        /**
-         * @private
-         *
-         * @param url
-         * @param callback
-         */
-        load(url: string, callback: (code: number, bitmapData: any) => void): void;
-        /**
-         * @private
-         *
-         * @param bitmapData
-         */
-        static disposeBitmapData(bitmapData: any): void;
-    }
-}
-
-declare module egret.native {
-    /**
-     * @private
-     */
-    class NativeNetContext extends HashObject implements NetContext {
-        _versionCtr: egret.IVersionController;
-        static __use_asyn: boolean;
-        /**
-         * @private
-         */
-        private _imageLoader;
-        constructor();
-        initVersion(versionCtr: egret.IVersionController): void;
-        private urlData;
-        /**
-         * @method egret.HTML5NetContext#proceed
-         * @param loader {URLLoader}
-         */
-        proceed(loader: URLLoader): void;
-        private getHeaderString(request);
-        private loadSound(loader);
-        private loadTexture(loader);
-        /**
-         * 是否是网络地址
-         * @param url
-         * @returns {boolean}
-         */
-        private isNetUrl(url);
-        /**
-         * 获取虚拟url
-         * @param url
-         * @returns {string}
-         */
-        getVirtualUrl(url: string): string;
-        /**
-         * 检查文件是否是最新版本
-         */
-        private checkIsNewVersion(virtualUrl);
-        /**
-         * 保存本地版本信息文件
-         */
-        private saveVersion(virtualUrl);
-        /**
-         * 获取变化列表
-         * @deprecated
-         * @returns {any}
-         */
-        getChangeList(): Array<any>;
-        static _instance: NativeNetContext;
-        static getNetContext(): NativeNetContext;
     }
 }
 
@@ -1189,7 +1162,204 @@ declare module egret.native {
 declare module egret.native {
     /**
      * @private
+     * @inheritDoc
+     */
+    class NativeSound extends egret.EventDispatcher implements egret.Sound {
+        /**
+         * @language en_US
+         * Background music
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 背景音乐
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static EFFECT: string;
+        /**
+         * @private
+         */
+        type: string;
+        /**
+         * @private
+         */
+        private url;
+        /**
+         * @private
+         */
+        private originAudio;
+        /**
+         * @private
+         */
+        private loaded;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        constructor();
+        /**
+         * @inheritDoc
+         */
+        load(url: string): void;
+        preload(type: string, callback?: Function, thisObj?: any): void;
+        /**
+         * @inheritDoc
+         */
+        play(startTime?: number, loops?: number): SoundChannel;
+        /**
+         * @inheritDoc
+         */
+        close(): void;
+        destroy(): void;
+    }
+}
+
+declare module egret_native_sound {
+    var currentPath: string;
+}
+declare module egret.native {
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class NativeSoundChannel extends egret.EventDispatcher implements egret.SoundChannel {
+        /**
+         * @private
+         */
+        $url: string;
+        /**
+         * @private
+         */
+        $loops: number;
+        /**
+         * @private
+         */
+        $startTime: number;
+        $type: string;
+        private _effectId;
+        /**
+         * @private
+         */
+        constructor();
+        $play(): void;
+        /**
+         * @private
+         */
+        private onPlayEnd;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        stop(): void;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        volume: number;
+        /**
+         * @private
+         */
+        private _startTime;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        position: number;
+        $destroy(): void;
+    }
+}
+
+declare module egret.native {
+    /**
+     * @private
      */
     function getOption(key: string): string;
+}
+
+declare module egret.native {
+    /**
+     * @private
+     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
+     */
+    class NativeImageLoader extends EventDispatcher implements ImageLoader {
+        /**
+         * @private
+         * 使用 load() 方法加载成功的 BitmapData 图像数据。
+         */
+        data: BitmapData;
+        /**
+         * @private
+         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。
+         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
+         */
+        crossOrigin: string;
+        /**
+         * @private
+         *
+         * @param url
+         * @param callback
+         */
+        load(url: string): void;
+        private check(url);
+        private download(url);
+        private loadTexture(url);
+        /**
+         * 是否是网络地址
+         * @param url
+         * @returns {boolean}
+         */
+        private isNetUrl(url);
+    }
+}
+
+declare module egret.native {
+    /**
+     * @private
+     */
+    class NativeNetContext extends HashObject implements NetContext {
+        static __use_asyn: boolean;
+        constructor();
+        private urlData;
+        /**
+         * @method egret.HTML5NetContext#proceed
+         * @param loader {URLLoader}
+         */
+        proceed(loader: URLLoader): void;
+        private getHeaderString(request);
+        private loadSound(loader);
+        private loadTexture(loader);
+        /**
+         * 是否是网络地址
+         * @param url
+         * @returns {boolean}
+         */
+        private isNetUrl(url);
+        /**
+         * 获取虚拟url
+         * @param url
+         * @returns {string}
+         */
+        getVirtualUrl(url: string): string;
+        static _instance: NativeNetContext;
+        static getNetContext(): NativeNetContext;
+    }
 }
 

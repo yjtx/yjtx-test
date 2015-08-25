@@ -1,6 +1,3 @@
-/**
- * Created by yjtx on 15-5-18.
- */
 //////////////////////////////////////////////////////////////////////////////////////
 //
 //  Copyright (c) 2014-2015, Egret Technology Inc.
@@ -29,12 +26,51 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-var egret;
-(function (egret) {
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    egret.Audio;
-})(egret || (egret = {}));
+var BitmapScaleX = (function (_super) {
+    __extends(BitmapScaleX, _super);
+    function BitmapScaleX() {
+        _super.call(this);
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+    }
+    var __egretProto__ = BitmapScaleX.prototype;
+    __egretProto__.init = function () {
+        new LoadResources(this.testSimpleBitmap, this, "preload", this.stage.textureScaleFactor);
+    };
+    __egretProto__.testSimpleBitmap = function () {
+        var texture = RES.getRes("egret_icon_png");
+        var icon = new egret.Bitmap();
+        icon.texture = texture;
+        icon.scaleX = 0.5;
+        icon.scaleY = 0.5;
+        icon.x = 100;
+        this.addChild(icon);
+        var icon = new egret.Bitmap();
+        icon.texture = texture;
+        icon.scaleX = -0.5;
+        icon.scaleY = -0.5;
+        icon.x = 100;
+        icon.y = 200;
+        this.addChild(icon);
+        var c = new egret.DisplayObjectContainer();
+        c.scaleX = 0.5;
+        c.scaleY = 0.5;
+        c.x = 100;
+        c.y = 400;
+        this.addChild(c);
+        var icon = new egret.Bitmap();
+        icon.texture = texture;
+        c.addChild(icon);
+        var c = new egret.DisplayObjectContainer();
+        c.scaleX = -0.5;
+        c.scaleY = -0.5;
+        c.x = 100;
+        c.y = 600;
+        this.addChild(c);
+        var icon = new egret.Bitmap();
+        icon.texture = texture;
+        c.addChild(icon);
+    };
+    return BitmapScaleX;
+})(egret.DisplayObjectContainer);
+BitmapScaleX.prototype.__class__ = "BitmapScaleX";
+egret.registerClass(BitmapScaleX,"BitmapScaleX");

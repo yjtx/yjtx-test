@@ -3,6 +3,7 @@ var egret;
     var setIntervalCache = {};
     var setIntervalIndex = 0;
     var setIntervalCount = 0;
+    var lastTime = 0;
     /**
      * @language en_US
      * Specified function after a specified delay run (in milliseconds).
@@ -35,6 +36,7 @@ var egret;
         var data = { listener: listener, thisObject: thisObject, delay: delay, originDelay: delay, params: args };
         setIntervalCount++;
         if (setIntervalCount == 1) {
+            lastTime = egret.getTimer();
             egret.sys.$ticker.$startTick(intervalUpdate, null);
         }
         setIntervalIndex++;
@@ -73,7 +75,9 @@ var egret;
      *
      * @param dt
      */
-    function intervalUpdate(dt) {
+    function intervalUpdate(timeStamp) {
+        var dt = timeStamp - lastTime;
+        lastTime = timeStamp;
         for (var key in setIntervalCache) {
             var data = setIntervalCache[key];
             data.delay -= dt;
