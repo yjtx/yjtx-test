@@ -13,7 +13,7 @@
 		"name":"dbs"
 	},
 	{
-		"keys":"chunli_json,chunli_png,run_down_json,run_down_png",
+		"keys":"chunli_json,chunli_png,run_down_json,run_down_png,icon_win_png,icon_lose_png,run_up_json,run_up_png",
 		"name":"mcs"
 	},
 	{
@@ -195,5 +195,25 @@
 		"name":"dot_png",
 		"type":"image",
 		"url":"dot.png"
+	},
+	{
+		"name":"icon_win_png",
+		"type":"image",
+		"url":"mc/icon_win.png"
+	},
+	{
+		"name":"icon_lose_png",
+		"type":"image",
+		"url":"mc/icon_lose.png"
+	},
+	{
+		"name":"run_up_json",
+		"type":"json",
+		"url":"mc/run_up.json"
+	},
+	{
+		"name":"run_up_png",
+		"type":"image",
+		"url":"mc/run_up.png"
 	}]
 }

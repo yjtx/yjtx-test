@@ -91,3 +91,5 @@ var egret;
         egret.$markReadOnly(HashObject, "hashCode");
     }
 })(egret || (egret = {}));
+egret.registerClass(function () {
+}, "_______");

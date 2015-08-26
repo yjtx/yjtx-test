@@ -21,7 +21,8 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/extends.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NumberUtils.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/HashObject.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/Defines.debug.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/registerClass.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/ByteArray.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getDefinitionByName.ts": [
@@ -168,7 +169,6 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Bitmap.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Texture.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapFillMode.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/BitmapData.ts",
@@ -456,9 +456,10 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/geom/Rectangle.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Tween.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/player/Ticker.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getTimer.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/NONE.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/SystemTicker.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/tween/Ease.ts": [],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/system/MainContext.ts": [
@@ -758,8 +759,7 @@
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeRenderContext.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/player/RenderContext.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/native/NativeSurface.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSound.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
@@ -768,7 +768,6 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/media/native/NativeSoundChannel.ts"
@@ -783,8 +782,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/getOption.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/native/NativeImageLoader.ts": [
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/game/native/NativeNetContext.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/PromiseObject.ts",
@@ -1413,8 +1411,9 @@
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/Html5VersionController.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/EventDispatcher.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/display/Stage.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/utils/callLater.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/net/HttpRequest.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/Event.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/egret/events/IOErrorEvent.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/version/IVersionController.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core/src/extension/gui/collections/ICollection.ts": [],

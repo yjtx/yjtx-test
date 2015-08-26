@@ -35,12 +35,32 @@ var egret;
         __extends(Html5VersionController, _super);
         function Html5VersionController(stage) {
             _super.call(this);
+            this._versionInfo = {};
         }
         var __egretProto__ = Html5VersionController.prototype;
         __egretProto__.fetchVersion = function () {
-            egret.callLater(function () {
-                this.dispatchEvent(new egret.Event(egret.Event.COMPLETE));
-            }, this);
+            var self = this;
+            var virtualUrl = "all.manifest";
+            var httpLoader = new egret.HttpRequest();
+            httpLoader.addEventListener(egret.Event.COMPLETE, onLoadComplete, this);
+            httpLoader.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
+            httpLoader.open(virtualUrl, "get");
+            httpLoader.send();
+            function onError(event) {
+                removeListeners();
+                self.dispatchEvent(event);
+            }
+            function onLoadComplete() {
+                removeListeners();
+                self._versionInfo = JSON.parse(httpLoader.response);
+                window.setTimeout(function () {
+                    self.dispatchEvent(new egret.Event(egret.Event.COMPLETE));
+                }, 0);
+            }
+            function removeListeners() {
+                httpLoader.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+                httpLoader.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+            }
         };
         __egretProto__.checkIsNewVersion = function (virtualUrl) {
             return false;
@@ -55,7 +75,12 @@ var egret;
             return [];
         };
         __egretProto__.getVirtualUrl = function (url) {
-            return url;
+            if (this._versionInfo && this._versionInfo[url]) {
+                return "resource/" + this._versionInfo[url]["v"].substring(0, 2) + "/" + this._versionInfo[url]["v"] + "_" + this._versionInfo[url]["s"];
+            }
+            else {
+                return url;
+            }
         };
         return Html5VersionController;
     })(egret.EventDispatcher);

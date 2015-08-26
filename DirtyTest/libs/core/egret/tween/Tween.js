@@ -225,8 +225,10 @@ var egret;
          * @param delta
          * @param paused
          */
-        Tween.tick = function (delta, paused) {
+        Tween.tick = function (timeStamp, paused) {
             if (paused === void 0) { paused = false; }
+            var delta = timeStamp - Tween._lastTime;
+            Tween._lastTime = timeStamp;
             var tweens = Tween._tweens.concat();
             for (var i = tweens.length - 1; i >= 0; i--) {
                 var tween = tweens[i];
@@ -251,7 +253,8 @@ var egret;
                 }
                 tweens.push(tween);
                 if (!Tween._inited) {
-                    egret.Ticker.getInstance().register(Tween.tick, null);
+                    Tween._lastTime = egret.getTimer();
+                    egret.sys.$ticker.$startTick(Tween.tick, null);
                     Tween._inited = true;
                 }
             }
@@ -762,6 +765,7 @@ var egret;
          * @private
          */
         Tween._inited = false;
+        Tween._lastTime = 0;
         return Tween;
     })(egret.EventDispatcher);
     egret.Tween = Tween;

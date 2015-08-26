@@ -86,6 +86,7 @@ declare module egret {
      */
     class Html5VersionController extends egret.EventDispatcher implements VersionController {
         constructor(stage: egret.Stage);
+        private _versionInfo;
         fetchVersion(): void;
         checkIsNewVersion(virtualUrl: string): boolean;
         saveVersion(virtualUrl: string): void;

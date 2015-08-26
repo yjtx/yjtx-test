@@ -6626,22 +6626,6 @@ declare module egret {
         /**
          * @private
          */
-        $getScaleX(): number;
-        /**
-         * @private
-         */
-        $setScaleX(value: number): boolean;
-        /**
-         * @private
-         */
-        $getScaleY(): number;
-        /**
-         * @private
-         */
-        $setScaleY(value: number): boolean;
-        /**
-         * @private
-         */
         $measureContentBounds(bounds: Rectangle): void;
         /**
          * @private
@@ -14231,7 +14215,8 @@ declare module egret {
          * @param delta
          * @param paused
          */
-        private static tick(delta, paused?);
+        private static tick(timeStamp, paused?);
+        private static _lastTime;
         /**
          * @private
          *

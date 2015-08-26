@@ -85,24 +85,15 @@ var egret;
             };
             __egretProto__.loadTexture = function (url) {
                 var self = this;
-                if (egret["Net" + "Context"].__use_asyn) {
-                    var promise = new egret.PromiseObject();
-                    promise.onSuccessFunc = function (bitmapData) {
-                        self.data = bitmapData;
-                        self.dispatchEventWith(egret.Event.COMPLETE);
-                    };
-                    promise.onErrorFunc = function () {
-                        self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
-                    };
-                    egret_native.Texture.addTextureAsyn(url, promise);
-                }
-                else {
-                    var bitmapData = egret_native.Texture.addTexture(url);
+                var promise = new egret.PromiseObject();
+                promise.onSuccessFunc = function (bitmapData) {
                     self.data = bitmapData;
-                    egret.$callAsync(function () {
-                        self.dispatchEventWith(egret.Event.COMPLETE);
-                    }, self);
-                }
+                    self.dispatchEventWith(egret.Event.COMPLETE);
+                };
+                promise.onErrorFunc = function () {
+                    self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
+                };
+                egret_native.Texture.addTextureAsyn(url, promise);
             };
             /**
              * 是否是网络地址
