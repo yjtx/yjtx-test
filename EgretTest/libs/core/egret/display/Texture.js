@@ -192,6 +192,10 @@ var egret;
             if (!bitmapData || !bitmapData["avaliable"]) {
                 return;
             }
+            sourceX = Math.max(0, sourceX);
+            sourceY = Math.max(0, sourceY);
+            sourceWidth = Math.max(0, sourceWidth);
+            sourceHeight = Math.max(0, sourceHeight);
             if (renderType !== undefined) {
                 this._drawRepeatImageForNative(context, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight, renderType);
             }

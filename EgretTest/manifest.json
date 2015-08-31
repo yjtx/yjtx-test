@@ -49,6 +49,7 @@
     "test/textfield/TextFieldFamily.ts",
     "test/textfield/TextFieldFlow.ts",
     "test/textfield/TextFieldInput.ts",
+    "test/textfield/TextFieldInputRotation.ts",
     "test/textfield/TextFieldNormal.ts",
     "test/textfield/TextFieldRestrict.ts",
     "test/textfield/TextFieldTextArea.ts",

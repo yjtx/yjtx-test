@@ -2,7 +2,7 @@ var examples = {
     "Empty": ["HelloWorld"],
     "Function": ["Super", "DefaultValue"],
     "Loader": ["Bitmap", "Sound", "Text"],
-    "TextField": ["Normal", "AppendText", "Background", "Family", "Restrict", "Flow", "Input", "TextArea", "Wrap"],
+    "TextField": ["Normal", "AppendText", "Background", "Family", "Restrict", "Flow", "Input", "TextArea", "Wrap", "InputRotation"],
     "Sound": ["Normal"],
     "WebSocket": ["String", "Binary"],
     "Base64": ["FromTexture", "FromDisplayObject", "FromCrossUrl", "SaveFromTexture", "SaveFromDisplayObject"],

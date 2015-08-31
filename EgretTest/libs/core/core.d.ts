@@ -3245,7 +3245,7 @@ declare module egret {
         hitTest(x: number, y: number, ignoreTouchEnabled?: boolean): DisplayObject;
         /**
          * 计算显示对象，以确定它是否与 x 和 y 参数指定的点重叠或相交。x 和 y 参数指定舞台的坐标空间中的点，而不是包含显示对象的显示对象容器中的点（除非显示对象容器是舞台）。
-         * 注意，不要在大量物体中使用精确碰撞像素检测，这回带来巨大的性能开销
+         * 注意，不要在大量物体中使用精确碰撞像素检测，这会带来巨大的性能开销
          * @method egret.DisplayObject#hitTestPoint
          * @param x {number}  要测试的此对象的 x 坐标。
          * @param y {number}  要测试的此对象的 y 坐标。
@@ -6648,7 +6648,7 @@ declare module egret {
          * @param type 事件类型
          * @param listener 监听函数
          * @param thisObj 侦听函数绑定的this对象
-         * @platform Web
+         * @platform Web,Native
          */
         addEventListener(type: string, listener: Function, thisObject: any): void;
         /**
@@ -6657,7 +6657,7 @@ declare module egret {
          * @param type 事件类型
          * @param listener 监听函数
          * @param thisObj 侦听函数绑定的this对象
-         * @platform Web
+         * @platform Web,Native
          */
         removeEventListener(type: string, listener: Function, thisObject: any): void;
         private getVirtualType(type);

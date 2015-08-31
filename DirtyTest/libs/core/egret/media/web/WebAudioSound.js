@@ -135,16 +135,6 @@ var egret;
                     self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
                 }
             };
-            __egretProto__.preload = function (type, callback, thisObj) {
-                if (callback === void 0) { callback = null; }
-                if (thisObj === void 0) { thisObj = null; }
-                this.type = type;
-                if (callback) {
-                    window.setTimeout(function () {
-                        callback.call(thisObj);
-                    }, 0);
-                }
-            };
             /**
              * @inheritDoc
              */
@@ -166,9 +156,6 @@ var egret;
              * @inheritDoc
              */
             __egretProto__.close = function () {
-            };
-            __egretProto__.destroy = function () {
-                this.loaded = false;
             };
             /**
              * @language en_US

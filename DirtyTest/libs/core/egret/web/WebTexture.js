@@ -105,7 +105,7 @@ var egret;
         }
         function dispose() {
             if (this._bitmapData) {
-                egret.Texture.$dispose(this);
+                egret.Texture.$invalidate(this.hashCode);
                 disposeBitmapData(this._bitmapData);
             }
         }

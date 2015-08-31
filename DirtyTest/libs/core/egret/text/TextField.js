@@ -28,6 +28,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
+    var SplitRegex = new RegExp("(?=[\\u00BF-\\u1FFF\\u2C00-\\uD7FF]|\\b|\\s)(?![。，！、》…）)}”】\\.\\,\\!\\?\\]\\:])");
     /**
      * @language en_US
      * TextField is the text rendering class of egret. It conducts rendering by using the browser / device API. Due to different ways of font rendering in different browsers / devices, there may be differences in the rendering
@@ -409,7 +410,7 @@ var egret;
                     return;
                 }
                 values[2 /* textColor */] = value;
-                values[11 /* textColorString */] = egret.sys.toColorString(value);
+                values[11 /* textColorString */] = egret.toColorString(value);
                 this.$invalidate();
             },
             enumerable: true,
@@ -1452,7 +1453,7 @@ var egret;
                                 var ww = 0;
                                 var word = textArr[j];
                                 if (this.$TextField[19 /* wordWrap */]) {
-                                    var words = word.split(/\b/);
+                                    var words = word.split(SplitRegex);
                                 }
                                 else {
                                     words = word.match(/./g);
@@ -1706,22 +1707,6 @@ var egret;
             return font;
         }
         sys.toFontString = toFontString;
-        /**
-         * @private
-         * 返回字符串形式的颜色值
-         */
-        function toColorString(value) {
-            if (value < 0)
-                value = 0;
-            if (value > 16777215)
-                value = 16777215;
-            var color = value.toString(16).toUpperCase();
-            while (color.length < 6) {
-                color = "0" + color;
-            }
-            return "#" + color;
-        }
-        sys.toColorString = toColorString;
         if (DEBUG) {
             egret.$markReadOnly(egret.TextField, "numLines");
             egret.$markReadOnly(egret.TextField, "textWidth");

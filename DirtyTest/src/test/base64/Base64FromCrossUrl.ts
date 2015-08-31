@@ -40,11 +40,12 @@ class Base64FromCrossUrl extends egret.DisplayObjectContainer {
     }
 
     private testUrl():void {
-        RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
+        RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture:egret.Texture) {
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);
 
-            var base64 = bitmap.texture.toDataURL("image/png");
+
+            var base64 = texture.toDataURL("image/png");
 
         }, this, RES.ResourceItem.TYPE_IMAGE);
 

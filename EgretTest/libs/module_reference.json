@@ -705,6 +705,7 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/PromiseObject.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/net/URLRequestHeader.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/events/IOErrorEvent.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/getDefinitionByName.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/media/Sound.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/display/Texture.ts",
@@ -717,7 +718,8 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/net/URLVariables.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/Logger.ts",
-			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NativeAudio.ts"
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NativeAudio.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NaAudio.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/display/NativeStageText.ts": [
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/text/TextField.ts",
@@ -741,6 +743,10 @@
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/net/NativeNetContext.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/PromiseObject.ts",
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/media/IAudio.ts"
+		],
+		"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NaAudio.ts": [
+			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/utils/callLater.ts",
 			"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/media/IAudio.ts"
 		],
 		"/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/NativeTexture.ts": [
@@ -2405,6 +2411,7 @@
 		"egret.NativeResourceLoader": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/net/NativeResourceLoader.ts",
 		"egret.NativeAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NativeAudio.ts",
 		"egret_native_sound.currentPath": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NativeAudio.ts",
+		"egret.NaAudio": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/egret/context/audio/NaAudio.ts",
 		"egret.ISocket": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/extension/socket/ISocket.ts",
 		"egret.HTML5WebSocket": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/extension/socket/HTML5WebSocket.ts",
 		"egret.NativeSocket": "/Users/yjtx/Sites/Sites/Egret/egret-core_copy/src/extension/socket/NativeSocket.ts",

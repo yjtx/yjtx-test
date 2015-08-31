@@ -37,10 +37,10 @@ var Base64FromTexture = (function (_super) {
         new LoadResources(this.testBitmap, this, "mcs", this.stage.textureScaleFactor);
     };
     __egretProto__.testBitmap = function () {
-        var texture1 = RES.getRes("run_down_png");
-        var icon = new egret.Bitmap(texture1);
+        var texture = RES.getRes("run_down_png");
+        var icon = new egret.Bitmap(texture);
         this.addChild(icon);
-        var base64 = icon.texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
+        var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
         console.log(base64);
     };
     return Base64FromTexture;

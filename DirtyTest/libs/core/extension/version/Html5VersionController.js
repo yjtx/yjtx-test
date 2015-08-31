@@ -40,27 +40,34 @@ var egret;
         var __egretProto__ = Html5VersionController.prototype;
         __egretProto__.fetchVersion = function () {
             var self = this;
-            var virtualUrl = "all.manifest";
-            var httpLoader = new egret.HttpRequest();
-            httpLoader.addEventListener(egret.Event.COMPLETE, onLoadComplete, this);
-            httpLoader.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
-            httpLoader.open(virtualUrl, "get");
-            httpLoader.send();
-            function onError(event) {
-                removeListeners();
-                self.dispatchEvent(event);
-            }
-            function onLoadComplete() {
-                removeListeners();
-                self._versionInfo = JSON.parse(httpLoader.response);
-                window.setTimeout(function () {
-                    self.dispatchEvent(new egret.Event(egret.Event.COMPLETE));
-                }, 0);
-            }
-            function removeListeners() {
-                httpLoader.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
-                httpLoader.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
-            }
+            //var virtualUrl:string = "all.manifest";
+            //
+            //var httpLoader:egret.HttpRequest = new egret.HttpRequest();
+            //httpLoader.addEventListener(egret.Event.COMPLETE, onLoadComplete, this);
+            //httpLoader.addEventListener(egret.IOErrorEvent.IO_ERROR, onError, this);
+            //
+            //httpLoader.open(virtualUrl, "get");
+            //httpLoader.send();
+            //
+            //function onError(event:egret.IOErrorEvent) {
+            //    removeListeners();
+            //    self.dispatchEvent(event);
+            //}
+            //
+            //function onLoadComplete() {
+            //    removeListeners();
+            //
+            //    self._versionInfo = JSON.parse(httpLoader.response);
+            //
+            //    window.setTimeout(function () {
+            self.dispatchEvent(new egret.Event(egret.Event.COMPLETE));
+            //    }, 0);
+            //}
+            //
+            //function removeListeners():void {
+            //    httpLoader.removeEventListener(egret.Event.COMPLETE, onLoadComplete, self);
+            //    httpLoader.removeEventListener(egret.IOErrorEvent.IO_ERROR, onError, self);
+            //}
         };
         __egretProto__.checkIsNewVersion = function (virtualUrl) {
             return false;
@@ -87,5 +94,7 @@ var egret;
     egret.Html5VersionController = Html5VersionController;
     Html5VersionController.prototype.__class__ = "egret.Html5VersionController";
     egret.registerClass(Html5VersionController,"egret.Html5VersionController",["egret.VersionController","egret.IVersionController","egret.IEventDispatcher"]);
-    egret.VersionController = Html5VersionController;
+    if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
+        egret.VersionController = egret.NativeVersionController;
+    }
 })(egret || (egret = {}));

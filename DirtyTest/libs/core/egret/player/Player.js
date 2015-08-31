@@ -26,6 +26,7 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+/// <reference path="../display/Sprite.ts" />
 var egret;
 (function (egret) {
     var sys;
@@ -440,7 +441,7 @@ var egret;
                     if (this.showFPS) {
                         this.infoText.y = this.textField.height + 20;
                     }
-                    if (egret.MainContext.runtimeType == egret.MainContext.RUNTIME_NATIVE) {
+                    if (egret.Capabilities.runtimeType == egret.RuntimeType.NATIVE) {
                         return;
                     }
                     var g = this.shape.$graphics.$renderContext;

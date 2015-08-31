@@ -55,7 +55,7 @@ class SoundVolume extends egret.DisplayObjectContainer {
         this.addChild(text2);
 
 
-        var s1: egret.Sound = RES.getRes("effect_mp3");
+        var s1: egret.Sound = RES.getRes("wf_mp3");
         var schannel = s1.play();
 
         text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {

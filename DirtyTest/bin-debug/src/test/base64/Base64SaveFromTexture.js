@@ -37,10 +37,10 @@ var Base64SaveFromTexture = (function (_super) {
         new LoadResources(this.testBitmap, this, "mcs", this.stage.textureScaleFactor);
     };
     __egretProto__.testBitmap = function () {
-        var texture1 = RES.getRes("run_down_png");
-        var icon = new egret.Bitmap(texture1);
+        var texture = RES.getRes("run_down_png");
+        var icon = new egret.Bitmap(texture);
         this.addChild(icon);
-        icon.texture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
+        texture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
     };
     return Base64SaveFromTexture;
 })(egret.DisplayObjectContainer);

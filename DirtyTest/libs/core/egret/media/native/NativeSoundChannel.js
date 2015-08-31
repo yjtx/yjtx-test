@@ -26,14 +26,10 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-var egret_native_sound;
-(function (egret_native_sound) {
-    egret_native_sound.currentPath = "";
-})(egret_native_sound || (egret_native_sound = {}));
 var egret;
 (function (egret) {
-    var native;
-    (function (native) {
+    var web;
+    (function (web) {
         /**
          * @private
          * @inheritDoc
@@ -43,13 +39,19 @@ var egret;
             /**
              * @private
              */
-            function NativeSoundChannel() {
+            function NativeSoundChannel(audio) {
                 var _this = this;
                 _super.call(this);
                 /**
                  * @private
                  */
                 this.$startTime = 0;
+                /**
+                 * @private
+                 */
+                this.audio = null;
+                //声音是否已经播放完成
+                this.isStopped = false;
                 /**
                  * @private
                  */
@@ -63,23 +65,25 @@ var egret;
                         _this.$loops--;
                     }
                     /////////////
+                    _this.audio.load();
                     _this.$play();
                 };
-                /**
-                 * @private
-                 */
-                this._startTime = 0;
+                audio.addEventListener("ended", this.onPlayEnd);
+                this.audio = audio;
             }
             var __egretProto__ = NativeSoundChannel.prototype;
             __egretProto__.$play = function () {
-                var self = this;
-                this._startTime = Date.now();
-                if (this.$type == egret.Sound.MUSIC) {
-                    egret_native_sound.currentPath = this.$url;
-                    egret_native.Audio.playBackgroundMusic(this.$url, this.$loops > 0);
+                if (this.isStopped) {
+                    egret.$error(1036);
+                    return;
                 }
-                else if (this.$type == egret.Sound.EFFECT) {
-                    this._effectId = egret_native.Audio.playEffect(this.$url, this.$loops > 0);
+                try {
+                    this.audio.currentTime = this.$startTime;
+                }
+                catch (e) {
+                }
+                finally {
+                    this.audio.play();
                 }
             };
             /**
@@ -87,18 +91,13 @@ var egret;
              * @inheritDoc
              */
             __egretProto__.stop = function () {
-                if (this.$type == egret.Sound.MUSIC) {
-                    if (this.$url == egret_native_sound.currentPath) {
-                        egret_native.Audio.stopBackgroundMusic(false);
-                    }
-                }
-                else if (this.$type == egret.Sound.EFFECT) {
-                    if (this._effectId) {
-                        egret_native.Audio.stopEffect(this._effectId);
-                        this._effectId = null;
-                    }
-                }
-                this.dispatchEventWith(egret.Event.SOUND_COMPLETE);
+                if (!this.audio)
+                    return;
+                var audio = this.audio;
+                audio.pause();
+                audio.removeEventListener("ended", this.onPlayEnd);
+                this.audio = null;
+                web.NativeSound.$recycle(this.$url, audio);
             };
             Object.defineProperty(__egretProto__, "volume", {
                 /**
@@ -106,13 +105,21 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    return 1;
+                    if (!this.audio)
+                        return 1;
+                    return this.audio.volume;
                 },
                 /**
                  * @inheritDoc
                  */
                 set: function (value) {
-                    //this.audio.volume = value;
+                    if (this.isStopped) {
+                        egret.$error(1036);
+                        return;
+                    }
+                    if (!this.audio)
+                        return;
+                    this.audio.volume = value;
                 },
                 enumerable: true,
                 configurable: true
@@ -123,23 +130,17 @@ var egret;
                  * @inheritDoc
                  */
                 get: function () {
-                    return Math.floor((Date.now() - this._startTime));
+                    if (!this.audio)
+                        return 0;
+                    return this.audio.currentTime;
                 },
                 enumerable: true,
                 configurable: true
             });
-            __egretProto__.$destroy = function () {
-                if (this.$type == egret.Sound.EFFECT) {
-                    egret_native.Audio.unloadEffect(this.$url);
-                }
-                else if (egret_native_sound.currentPath == this.$url) {
-                    egret_native.Audio.stopBackgroundMusic(true);
-                }
-            };
             return NativeSoundChannel;
         })(egret.EventDispatcher);
-        native.NativeSoundChannel = NativeSoundChannel;
-        NativeSoundChannel.prototype.__class__ = "egret.native.NativeSoundChannel";
-        egret.registerClass(NativeSoundChannel,"egret.native.NativeSoundChannel",["egret.SoundChannel","egret.IEventDispatcher"]);
-    })(native = egret.native || (egret.native = {}));
+        web.NativeSoundChannel = NativeSoundChannel;
+        NativeSoundChannel.prototype.__class__ = "egret.web.NativeSoundChannel";
+        egret.registerClass(NativeSoundChannel,"egret.web.NativeSoundChannel",["egret.SoundChannel","egret.IEventDispatcher"]);
+    })(web = egret.web || (egret.web = {}));
 })(egret || (egret = {}));

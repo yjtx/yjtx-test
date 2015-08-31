@@ -28,31 +28,86 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
+    var ScrollEase = (function () {
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        function ScrollEase() {
+            egret.$error(1014);
+        }
+        var __egretProto__ = ScrollEase.prototype;
+        /**
+         *
+         * @param amount
+         * @returns
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        ScrollEase.get = function (amount) {
+            if (amount < -1) {
+                amount = -1;
+            }
+            if (amount > 1) {
+                amount = 1;
+            }
+            return function (t) {
+                if (amount == 0) {
+                    return t;
+                }
+                if (amount < 0) {
+                    return t * (t * -amount + 1 + amount);
+                }
+                return t * ((2 - t) * amount + (1 - amount));
+            };
+        };
+        /**
+         *
+         * @param pow
+         * @returns
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        ScrollEase.getPowOut = function (pow) {
+            return function (t) {
+                return 1 - Math.pow(1 - t, pow);
+            };
+        };
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        ScrollEase.quartOut = ScrollEase.getPowOut(4);
+        return ScrollEase;
+    })();
+    egret.ScrollEase = ScrollEase;
+    ScrollEase.prototype.__class__ = "egret.ScrollEase";
+    egret.registerClass(ScrollEase,"egret.ScrollEase");
     /**
      * @language en_US
-     * Tween is the animation easing class of Egret
+     * ScrollTween is the animation easing class of Egret
      * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween缓动动画
      * @version Egret 2.0
      * @platform Web,Native
-     * @includeExample egret/tween/Tween.ts
+     * @includeExample egret/tween/ScrollTween.ts
      */
     /**
      * @language zh_CN
      * Tween是Egret的动画缓动类
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween ease animation
+     * @see http://docs.egret-labs.org/post/manual/anim/tween.html ScrollTween ease animation
      * @version Egret 2.0
      * @platform Web,Native
-     * @includeExample egret/tween/Tween.ts
+     * @includeExample egret/tween/ScrollTween.ts
      */
-    var Tween = (function (_super) {
-        __extends(Tween, _super);
+    var ScrollTween = (function (_super) {
+        __extends(ScrollTween, _super);
         /**
-         * 创建一个 egret.Tween 对象
+         * 创建一个 egret.ScrollTween 对象
          * @private
          * @version Egret 2.0
          * @platform Web,Native
          */
-        function Tween(target, props, pluginData) {
+        function ScrollTween(target, props, pluginData) {
             _super.call(this);
             /**
              * @private
@@ -112,10 +167,10 @@ var egret;
             this.passive = false;
             this.initialize(target, props, pluginData);
         }
-        var __egretProto__ = Tween.prototype;
+        var __egretProto__ = ScrollTween.prototype;
         /**
          * @language en_US
-         * Activate an object and add a Tween animation to the object
+         * Activate an object and add a ScrollTween animation to the object
          * @param target {any} The object to be activated
          * @param props {any} Parameters, support loop onChange onChangeObj
          * @param pluginData {any} Write realized
@@ -125,42 +180,42 @@ var egret;
          */
         /**
          * @language zh_CN
-         * 激活一个对象，对其添加 Tween 动画
-         * @param target {any} 要激活 Tween 的对象
+         * 激活一个对象，对其添加 ScrollTween 动画
+         * @param target {any} 要激活 ScrollTween 的对象
          * @param props {any} 参数，支持loop(循环播放) onChange(变化函数) onChangeObj(变化函数作用域)
          * @param pluginData {any} 暂未实现
          * @param override {boolean} 是否移除对象之前添加的tween，默认值false
          * @version Egret 2.0
          * @platform Web,Native
          */
-        Tween.get = function (target, props, pluginData, override) {
+        ScrollTween.get = function (target, props, pluginData, override) {
             if (props === void 0) { props = null; }
             if (pluginData === void 0) { pluginData = null; }
             if (override === void 0) { override = false; }
             if (override) {
-                Tween.removeTweens(target);
+                ScrollTween.removeTweens(target);
             }
-            return new Tween(target, props, pluginData);
+            return new ScrollTween(target, props, pluginData);
         };
         /**
          * @language en_US
-         * Delete all Tween animations from an object
-         * @param target The object whose Tween to be deleted
+         * Delete all ScrollTween animations from an object
+         * @param target The object whose ScrollTween to be deleted
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 删除一个对象上的全部 Tween 动画
-         * @param target  需要移除 Tween 的对象
+         * 删除一个对象上的全部 ScrollTween 动画
+         * @param target  需要移除 ScrollTween 的对象
          * @version Egret 2.0
          * @platform Web,Native
          */
-        Tween.removeTweens = function (target) {
+        ScrollTween.removeTweens = function (target) {
             if (!target.tween_count) {
                 return;
             }
-            var tweens = Tween._tweens;
+            var tweens = ScrollTween._tweens;
             for (var i = tweens.length - 1; i >= 0; i--) {
                 if (tweens[i]._target == target) {
                     tweens[i].paused = true;
@@ -170,66 +225,16 @@ var egret;
             target.tween_count = 0;
         };
         /**
-         * @language en_US
-         * Pause all Tween animations of a certain object
-         * @param target The object whose Tween to be paused
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停某个对象的所有 Tween
-         * @param target 要暂停 Tween 的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        Tween.pauseTweens = function (target) {
-            if (!target.tween_count) {
-                return;
-            }
-            var tweens = egret.Tween._tweens;
-            for (var i = tweens.length - 1; i >= 0; i--) {
-                if (tweens[i]._target == target) {
-                    tweens[i].paused = true;
-                }
-            }
-        };
-        /**
-         * @language en_US
-         * Resume playing all easing of a certain object
-         * @param target The object whose Tween to be resumed
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 继续播放某个对象的所有缓动
-         * @param target 要继续播放 Tween 的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        Tween.resumeTweens = function (target) {
-            if (!target.tween_count) {
-                return;
-            }
-            var tweens = egret.Tween._tweens;
-            for (var i = tweens.length - 1; i >= 0; i--) {
-                if (tweens[i]._target == target) {
-                    tweens[i].paused = false;
-                }
-            }
-        };
-        /**
          * @private
          *
          * @param delta
          * @param paused
          */
-        Tween.tick = function (timeStamp, paused) {
+        ScrollTween.tick = function (timeStamp, paused) {
             if (paused === void 0) { paused = false; }
-            var delta = timeStamp - Tween._lastTime;
-            Tween._lastTime = timeStamp;
-            var tweens = Tween._tweens.concat();
+            var delta = timeStamp - ScrollTween._lastTime;
+            ScrollTween._lastTime = timeStamp;
+            var tweens = ScrollTween._tweens.concat();
             for (var i = tweens.length - 1; i >= 0; i--) {
                 var tween = tweens[i];
                 if ((paused && !tween.ignoreGlobalPause) || tween.paused) {
@@ -244,18 +249,18 @@ var egret;
          * @param tween
          * @param value
          */
-        Tween._register = function (tween, value) {
+        ScrollTween._register = function (tween, value) {
             var target = tween._target;
-            var tweens = Tween._tweens;
+            var tweens = ScrollTween._tweens;
             if (value) {
                 if (target) {
                     target.tween_count = target.tween_count > 0 ? target.tween_count + 1 : 1;
                 }
                 tweens.push(tween);
-                if (!Tween._inited) {
-                    Tween._lastTime = egret.getTimer();
-                    egret.sys.$ticker.$startTick(Tween.tick, null);
-                    Tween._inited = true;
+                if (!ScrollTween._inited) {
+                    ScrollTween._lastTime = egret.getTimer();
+                    egret.sys.$ticker.$startTick(ScrollTween.tick, null);
+                    ScrollTween._inited = true;
                 }
             }
             else {
@@ -272,27 +277,6 @@ var egret;
             }
         };
         /**
-         * @language en_US
-         * Delete all Tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 删除所有 Tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        Tween.removeAllTweens = function () {
-            var tweens = Tween._tweens;
-            for (var i = 0, l = tweens.length; i < l; i++) {
-                var tween = tweens[i];
-                tween.paused = true;
-                tween._target.tweenjs_count = 0;
-            }
-            tweens.length = 0;
-        };
-        /**
          * @private
          *
          * @param target
@@ -307,7 +291,7 @@ var egret;
                 this.loop = props.loop;
                 props.onChange && this.addEventListener("change", props.onChange, props.onChangeObj);
                 if (props.override) {
-                    Tween.removeTweens(target);
+                    ScrollTween.removeTweens(target);
                 }
             }
             this.pluginData = pluginData || {};
@@ -319,10 +303,10 @@ var egret;
                 this.paused = true;
             }
             else {
-                Tween._register(this, true);
+                ScrollTween._register(this, true);
             }
             if (props && props.position != null) {
-                this.setPosition(props.position, Tween.NONE);
+                this.setPosition(props.position);
             }
         };
         /**
@@ -332,8 +316,7 @@ var egret;
          * @param actionsMode
          * @returns
          */
-        __egretProto__.setPosition = function (value, actionsMode) {
-            if (actionsMode === void 0) { actionsMode = 1; }
+        __egretProto__.setPosition = function (value) {
             if (value < 0) {
                 value = 0;
             }
@@ -352,7 +335,6 @@ var egret;
             if (t == this._prevPos) {
                 return end;
             }
-            var prevPos = this._prevPos;
             this.position = this._prevPos = t;
             this._prevPosition = value;
             if (this._target) {
@@ -368,21 +350,6 @@ var egret;
                     }
                     var step = this._steps[i - 1];
                     this._updateTargetProps(step, (this._stepPosition = t - step.t) / step.d);
-                }
-            }
-            //执行actions
-            if (actionsMode != 0 && this._actions.length > 0) {
-                if (this._useTicks) {
-                    this._runActions(t, t);
-                }
-                else if (actionsMode == 1 && t < prevPos) {
-                    if (prevPos != this.duration) {
-                        this._runActions(prevPos, this.duration);
-                    }
-                    this._runActions(0, t, true);
-                }
-                else {
-                    this._runActions(prevPos, t);
                 }
             }
             if (end) {
@@ -459,10 +426,10 @@ var egret;
                     v = v0 + (v1 - v0) * ratio;
                 }
                 var ignore = false;
-                if (arr = Tween._plugins[n]) {
+                if (arr = ScrollTween._plugins[n]) {
                     for (var i = 0, l = arr.length; i < l; i++) {
                         var v2 = arr[i].tween(this, n, v, p0, p1, ratio, !!step && p0 == p1, !step);
-                        if (v2 == Tween.IGNORE) {
+                        if (v2 == ScrollTween.IGNORE) {
                             ignore = true;
                         }
                         else {
@@ -479,7 +446,7 @@ var egret;
          * @language en_US
          * Whether setting is paused
          * @param value {boolean} Whether to pause
-         * @returns Tween object itself
+         * @returns ScrollTween object itself
          * @version Egret 2.0
          * @platform Web,Native
          */
@@ -493,7 +460,7 @@ var egret;
          */
         __egretProto__.setPaused = function (value) {
             this.paused = value;
-            Tween._register(this, !value);
+            ScrollTween._register(this, !value);
             return this;
         };
         /**
@@ -535,7 +502,7 @@ var egret;
                 if (egret.isUndefined(this._initQueueProps[n])) {
                     oldValue = this._target[n];
                     //设置plugins
-                    if (arr = Tween._plugins[n]) {
+                    if (arr = ScrollTween._plugins[n]) {
                         for (i = 0, l = arr.length; i < l; i++) {
                             oldValue = arr[i].init(this, n, oldValue);
                         }
@@ -548,7 +515,7 @@ var egret;
             }
             for (var n in o) {
                 oldValue = this._curQueueProps[n];
-                if (arr = Tween._plugins[n]) {
+                if (arr = ScrollTween._plugins[n]) {
                     injectProps = injectProps || {};
                     for (i = 0, l = arr.length; i < l; i++) {
                         if (arr[i].step) {
@@ -575,48 +542,12 @@ var egret;
             return this;
         };
         /**
-         * @private
-         *
-         * @param props
-         * @param o
-         */
-        __egretProto__._set = function (props, o) {
-            for (var n in props) {
-                o[n] = props[n];
-            }
-        };
-        /**
-         * @language en_US
-         * Wait the specified milliseconds before the execution of the next animation
-         * @param duration {number} Waiting time, in milliseconds
-         * @param passive {boolean} Whether properties are updated during the waiting time
-         * @returns Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 等待指定毫秒后执行下一个动画
-         * @param duration {number} 要等待的时间，以毫秒为单位
-         * @param passive {boolean} 等待期间属性是否会更新
-         * @returns Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.wait = function (duration, passive) {
-            if (duration == null || duration <= 0) {
-                return this;
-            }
-            var o = this._cloneProps(this._curQueueProps);
-            return this._addStep({ d: duration, p0: o, p1: o, v: passive });
-        };
-        /**
          * @language en_US
          * Modify the property of the specified display object to a specified value
          * @param props {Object} Property set of an object
          * @param duration {number} Duration
-         * @param ease {egret.Ease} Easing algorithm
-         * @returns {egret.Tween} Tween object itself
+         * @param ease {egret.ScrollEase} Easing algorithm
+         * @returns {egret.ScrollTween} ScrollTween object itself
          * @version Egret 2.0
          * @platform Web,Native
          */
@@ -625,8 +556,8 @@ var egret;
          * 将指定显示对象的属性修改为指定值
          * @param props {Object} 对象的属性集合
          * @param duration {number} 持续时间
-         * @param ease {egret.Ease} 缓动算法
-         * @returns {egret.Tween} Tween对象本身
+         * @param ease {egret.ScrollEase} 缓动算法
+         * @returns {egret.ScrollTween} Tween对象本身
          * @version Egret 2.0
          * @platform Web,Native
          */
@@ -643,7 +574,7 @@ var egret;
          * @param callback {Function} Callback method
          * @param thisObj {any} this action scope of the callback method
          * @param params {Array<any>} Parameter of the callback method
-         * @returns {egret.Tween} Tween object itself
+         * @returns {egret.ScrollTween} ScrollTween object itself
          * @version Egret 2.0
          * @platform Web,Native
          */
@@ -653,7 +584,7 @@ var egret;
          * @param callback {Function} 回调方法
          * @param thisObj {any} 回调方法this作用域
          * @param params {Array<any>} 回调方法参数
-         * @returns {egret.Tween} Tween对象本身
+         * @returns {egret.ScrollTween} Tween对象本身
          * @version Egret 2.0
          * @platform Web,Native
          */
@@ -663,63 +594,7 @@ var egret;
             return this._addAction({ f: callback, p: params ? params : [], o: thisObj ? thisObj : this._target });
         };
         /**
-         *
-         * @param props
-         * @param target
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.set = function (props, target) {
-            if (target === void 0) { target = null; }
-            return this._addAction({ f: this._set, o: this, p: [props, target ? target : this._target] });
-        };
-        /**
-         * @language en_US
-         * Execute
-         * @param tween {egret.Tween} The Tween object to be operated. Default: this
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 执行
-         * @param tween {egret.Tween} 需要操作的 Tween 对象，默认this
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.play = function (tween) {
-            if (!tween) {
-                tween = this;
-            }
-            return this.call(tween.setPaused, tween, [false]);
-        };
-        /**
-         * @language en_US
-         * Pause
-         * @param tween {egret.Tween} The Tween object to be operated. Default: this
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停
-         * @param tween {egret.Tween} 需要操作的 Tween 对象，默认this
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        __egretProto__.pause = function (tween) {
-            if (!tween) {
-                tween = this;
-            }
-            return this.call(tween.setPaused, tween, [true]);
-        };
-        /**
-         * @method egret.Tween#tick
+         * @method egret.ScrollTween#tick
          * @param delta {number}
          * @private
          * @version Egret 2.0
@@ -732,43 +607,25 @@ var egret;
             this.setPosition(this._prevPosition + delta);
         };
         /**
-         * 不做特殊处理
-         * @constant {number} egret.Tween.NONE
          * @private
          */
-        Tween.NONE = 0;
-        /**
-         * 循环
-         * @constant {number} egret.Tween.LOOP
-         * @private
-         */
-        Tween.LOOP = 1;
-        /**
-         * 倒序
-         * @constant {number} egret.Tween.REVERSE
-         * @private
-         */
-        Tween.REVERSE = 2;
+        ScrollTween._tweens = [];
         /**
          * @private
          */
-        Tween._tweens = [];
+        ScrollTween.IGNORE = {};
         /**
          * @private
          */
-        Tween.IGNORE = {};
+        ScrollTween._plugins = {};
         /**
          * @private
          */
-        Tween._plugins = {};
-        /**
-         * @private
-         */
-        Tween._inited = false;
-        Tween._lastTime = 0;
-        return Tween;
+        ScrollTween._inited = false;
+        ScrollTween._lastTime = 0;
+        return ScrollTween;
     })(egret.EventDispatcher);
-    egret.Tween = Tween;
-    Tween.prototype.__class__ = "egret.Tween";
-    egret.registerClass(Tween,"egret.Tween");
+    egret.ScrollTween = ScrollTween;
+    ScrollTween.prototype.__class__ = "egret.ScrollTween";
+    egret.registerClass(ScrollTween,"egret.ScrollTween");
 })(egret || (egret = {}));

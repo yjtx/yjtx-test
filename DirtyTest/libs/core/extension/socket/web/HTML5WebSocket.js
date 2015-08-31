@@ -97,7 +97,7 @@ var egret;
         web.HTML5WebSocket = HTML5WebSocket;
         HTML5WebSocket.prototype.__class__ = "egret.web.HTML5WebSocket";
         egret.registerClass(HTML5WebSocket,"egret.web.HTML5WebSocket",["egret.ISocket"]);
-        if (egret.MainContext.runtimeType == egret.MainContext.RUNTIME_HTML5) {
+        if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
             egret.ISocket = HTML5WebSocket;
         }
     })(web = egret.web || (egret.web = {}));

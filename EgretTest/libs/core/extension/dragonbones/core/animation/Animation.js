@@ -182,6 +182,7 @@ var dragonBones;
             if (!animationData) {
                 return null;
             }
+            var needUpdate = this._isPlaying == false;
             this._isPlaying = true;
             this._isFading = true;
             //
@@ -249,6 +250,9 @@ var dragonBones;
                 if (slot.childArmature) {
                     slot.childArmature.animation.gotoAndPlay(animationName, fadeInTime);
                 }
+            }
+            if (needUpdate) {
+                this._armature.advanceTime(0);
             }
             return this._lastAnimationState;
         };

@@ -90,13 +90,9 @@ var egret;
             }
         };
         __egretProto__.checkIsNewVersion = function (virtualUrl) {
-            if (this._localFileArr.indexOf(virtualUrl) >= 0) {
-                return true;
-            }
-            return false;
+            return egret_native.isFileExists(virtualUrl);
         };
         __egretProto__.saveVersion = function (virtualUrl) {
-            this._localFileArr.push(virtualUrl);
         };
         /**
          * 获取所有有变化的文件
@@ -219,5 +215,7 @@ var egret;
     egret.NativeVersionController = NativeVersionController;
     NativeVersionController.prototype.__class__ = "egret.NativeVersionController";
     egret.registerClass(NativeVersionController,"egret.NativeVersionController",["egret.VersionController","egret.IVersionController","egret.IEventDispatcher"]);
-    egret.VersionController = NativeVersionController;
+    if (egret.Capabilities.runtimeType == egret.RuntimeType.NATIVE) {
+        egret.VersionController = NativeVersionController;
+    }
 })(egret || (egret = {}));

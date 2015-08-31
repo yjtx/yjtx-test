@@ -26,42 +26,33 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-var SoundVolume = (function (_super) {
-    __extends(SoundVolume, _super);
-    function SoundVolume() {
-        _super.call(this);
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-    var __egretProto__ = SoundVolume.prototype;
-    __egretProto__.init = function () {
-        new LoadResources(this.testSound, this, "sounds", this.stage.textureScaleFactor);
-    };
-    __egretProto__.testSound = function () {
-        var text1 = new egret.TextField();
-        text1.text = "增高声音";
-        text1.size = 60;
-        text1.y = 60;
-        this.addChild(text1);
-        text1.touchEnabled = true;
-        var text2 = new egret.TextField();
-        text2.text = "减少声音";
-        text2.size = 60;
-        text2.y = 160;
-        text2.touchEnabled = true;
-        this.addChild(text2);
-        var s1 = RES.getRes("effect_mp3");
-        var schannel = s1.play();
-        text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            schannel.volume += 0.1;
-        }, this);
-        text2.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            schannel.volume -= 0.1;
-        }, this);
-        s1.addEventListener(egret.Event.SOUND_COMPLETE, function () {
-            console.log("sfsf111");
-        }, this);
-    };
-    return SoundVolume;
-})(egret.DisplayObjectContainer);
-SoundVolume.prototype.__class__ = "SoundVolume";
-egret.registerClass(SoundVolume,"SoundVolume");
+var egret;
+(function (egret) {
+    /**
+     * @language en_US
+     * MotionEvent represents the device's movement
+     * Acceleration and accelerationIncludingGravity to represents the device's acceleration
+     * RotationRate to represents the device's rotation
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * MotionEvent 类呈现设备运动的具体信息
+     * Acceleration 和 accelerationIncludingGravity 呈现设备三个维度的加速度信息
+     * RotationRate 呈现设备的旋转状态信息
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    var MotionEvent = (function (_super) {
+        __extends(MotionEvent, _super);
+        function MotionEvent() {
+            _super.apply(this, arguments);
+        }
+        var __egretProto__ = MotionEvent.prototype;
+        return MotionEvent;
+    })(egret.Event);
+    egret.MotionEvent = MotionEvent;
+    MotionEvent.prototype.__class__ = "egret.MotionEvent";
+    egret.registerClass(MotionEvent,"egret.MotionEvent");
+})(egret || (egret = {}));

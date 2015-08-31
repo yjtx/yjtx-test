@@ -43,7 +43,7 @@ class RESDisposeAfterRenderTexture extends egret.DisplayObjectContainer {
 
     private _texture:egret.Texture;
     private testUrl():void {
-        RES.getResAsync("run_down_png", function (texture) {
+        RES.getResAsync("run_down_png", function (texture:egret.Texture) {
             this._texture = texture;
             var c = new egret.DisplayObjectContainer();
             var icon:egret.Bitmap = new egret.Bitmap(texture);
@@ -80,7 +80,7 @@ class RESDisposeAfterRenderTexture extends egret.DisplayObjectContainer {
     }
 
     private destroy() {
-        this._bitmap.texture.dispose();
+        (<egret.Texture>this._bitmap.texture).dispose();
 
         egret.setTimeout(function () {
 

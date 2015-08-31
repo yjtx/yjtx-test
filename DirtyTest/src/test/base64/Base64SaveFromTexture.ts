@@ -41,11 +41,11 @@ class Base64SaveFromTexture extends egret.DisplayObjectContainer {
     }
 
     private testBitmap():void {
-        var texture1:egret.Texture = RES.getRes("run_down_png");
-        var icon:egret.Bitmap = new egret.Bitmap(texture1);
+        var texture:egret.Texture = RES.getRes("run_down_png");
+        var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
 
-        icon.texture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
+        texture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
     }
 }
 

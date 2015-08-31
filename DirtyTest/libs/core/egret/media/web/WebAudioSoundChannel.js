@@ -54,6 +54,8 @@ var egret;
                  * @private
                  */
                 this.context = web.WebAudioDecode.ctx;
+                //声音是否已经播放完成
+                this.isStopped = false;
                 /**
                  * @private
                  */
@@ -90,6 +92,10 @@ var egret;
             }
             var __egretProto__ = WebAudioSoundChannel.prototype;
             __egretProto__.$play = function () {
+                if (this.isStopped) {
+                    egret.$error(1036);
+                    return;
+                }
                 if (this.bufferSource) {
                     this.bufferSource.onended = null;
                     this.bufferSource = null;
@@ -118,7 +124,9 @@ var egret;
                     }
                     this.bufferSource.disconnect();
                     this.bufferSource = null;
+                    this.$audioBuffer = null;
                 }
+                this.isStopped = true;
             };
             Object.defineProperty(__egretProto__, "volume", {
                 /**
@@ -132,6 +140,10 @@ var egret;
                  * @inheritDoc
                  */
                 set: function (value) {
+                    if (this.isStopped) {
+                        egret.$error(1036);
+                        return;
+                    }
                     this._volume = value;
                     this.gain.gain.value = value;
                 },

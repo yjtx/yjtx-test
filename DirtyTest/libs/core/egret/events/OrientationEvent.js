@@ -26,42 +26,33 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
-var BitmapClickMore = (function (_super) {
-    __extends(BitmapClickMore, _super);
-    function BitmapClickMore() {
-        _super.call(this);
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-    var __egretProto__ = BitmapClickMore.prototype;
-    __egretProto__.init = function () {
-        new LoadResources(this.testSimpleBitmap, this, "mcs", this.stage.textureScaleFactor);
-    };
-    __egretProto__.testSimpleBitmap = function () {
-        var c = new egret.DisplayObjectContainer();
-        c.touchEnabled = true;
-        this.addChild(c);
-        c.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            addMCs();
-        }, this);
-        function addMCs() {
-            var stageW = this.stage.stageWidth;
-            var stageH = this.stage.stageHeight;
-            var texture1 = RES.getRes("icon_win_png");
-            var texture2 = RES.getRes("icon_lose_png");
-            for (var i = 0; i < 50; i++) {
-                var role = new egret.Bitmap();
-                role.texture = (i % 2) ? texture1 : texture2;
-                role.x = 100;
-                role.y = 220;
-                c.addChild(role);
-                role.scaleX = 1;
-                role.x = Math.random() * (stageW + 50) - 50;
-                role.y = Math.random() * (stageH + 50) - 50;
-            }
+var egret;
+(function (egret) {
+    /**
+     * @language en_US
+     * The OrientationEvent provides information from the physical orientation of the device.
+     * Note: Currently, Browsers on the iOS and Android does not handle the coordinates the same way.
+     * Take care about this while using them.
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * OrientationEvent 提供设备的方向信息
+     * 注意: 目前各个浏览器和操作系统处理方向的方式不完全相同，请根据使用场景做相应的校正，
+     * 比如使用两次方向数据的变化而不是直接使用方向的值
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    var OrientationEvent = (function (_super) {
+        __extends(OrientationEvent, _super);
+        function OrientationEvent() {
+            _super.apply(this, arguments);
         }
-        addMCs();
-    };
-    return BitmapClickMore;
-})(egret.DisplayObjectContainer);
-BitmapClickMore.prototype.__class__ = "BitmapClickMore";
-egret.registerClass(BitmapClickMore,"BitmapClickMore");
+        var __egretProto__ = OrientationEvent.prototype;
+        return OrientationEvent;
+    })(egret.Event);
+    egret.OrientationEvent = OrientationEvent;
+    OrientationEvent.prototype.__class__ = "egret.OrientationEvent";
+    egret.registerClass(OrientationEvent,"egret.OrientationEvent");
+})(egret || (egret = {}));

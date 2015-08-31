@@ -71,16 +71,6 @@ var egret;
                     refresh: 1
                 });
             };
-            __egretProto__.preload = function (type, callback, thisObj) {
-                if (callback === void 0) { callback = null; }
-                if (thisObj === void 0) { thisObj = null; }
-                this.type = type;
-                if (callback) {
-                    window.setTimeout(function () {
-                        callback.call(thisObj);
-                    }, 0);
-                }
-            };
             /**
              * @inheritDoc
              */
@@ -102,15 +92,6 @@ var egret;
              * @inheritDoc
              */
             __egretProto__.close = function () {
-            };
-            __egretProto__.destroy = function () {
-                this.loaded = false;
-                if (this.type == egret.Sound.EFFECT) {
-                    QZAppExternal.stopSound();
-                }
-                else {
-                    QZAppExternal.stopBackSound();
-                }
             };
             /**
              * @language en_US

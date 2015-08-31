@@ -296,7 +296,7 @@ var egret;
          */
         __egretProto__.dispose = function () {
             if (this._bitmapData) {
-                egret.Texture.$dispose(this);
+                egret.Texture.$invalidate(this.hashCode);
                 this._bitmapData = null;
             }
         };

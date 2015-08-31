@@ -182,9 +182,8 @@ var egret;
                     bitmapData["avaliable"] = true;
                     var texture = new egret.Texture();
                     texture._setBitmapData(bitmapData);
-                    egret.Texture.$loaded(texture);
                     loader.data = texture;
-                    window.setTimeout(function () {
+                    egret.$callAsync(function () {
                         loader.dispatchEventWith(egret.Event.COMPLETE);
                     }, self);
                 }

@@ -101,16 +101,6 @@ var egret;
                 channel.$play();
                 return channel;
             };
-            __egretProto__.preload = function (type, callback, thisObj) {
-                if (callback === void 0) { callback = null; }
-                if (thisObj === void 0) { thisObj = null; }
-                this.type = type;
-                if (callback) {
-                    window.setTimeout(function () {
-                        callback.call(thisObj);
-                    }, 0);
-                }
-            };
             /**
              * @inheritDoc
              */
@@ -120,10 +110,6 @@ var egret;
                 if (this.originAudio)
                     this.originAudio = null;
                 HtmlSound.$clear(this.url);
-            };
-            __egretProto__.destroy = function () {
-                this.originAudio = null;
-                this.loaded = false;
             };
             HtmlSound.$clear = function (url) {
                 var array = HtmlSound.audios[url];

@@ -29,8 +29,7 @@
 <body>
 <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;" class="egret-player"
      data-entry-class="Main"
-     data-scale-mode="noScale"
-     data-orientation="auto"
+     data-scale-mode="showAll"
      texture-scale-factor="1"
      data-orientation="portrait"
      data-content-width="480"
@@ -53,8 +52,6 @@
 <script src="libs/core/egret/utils/getDefinitionByName.js"></script>
 <script src="libs/core/egret/utils/getQualifiedClassName.js"></script>
 <script src="libs/core/egret/utils/getQualifiedSuperclassName.js"></script>
-<script src="libs/core/egret/utils/Injector.js"></script>
-<script src="libs/core/egret/utils/Recycler.js"></script>
 <script src="libs/core/egret/utils/getTimer.js"></script>
 <script src="libs/core/egret/utils/toColorString.js"></script>
 <script src="libs/core/egret/utils/is.js"></script>
@@ -63,8 +60,6 @@
 <script src="libs/core/egret/utils/stopTick.js"></script>
 <script src="libs/core/egret/utils/XML.js"></script>
 <script src="libs/core/egret/utils/callLater.js"></script>
-<script src="libs/core/egret/utils/setTimeout.js"></script>
-<script src="libs/core/egret/utils/setInterval.js"></script>
 <script src="libs/core/egret/utils/Logger.js"></script>
 <script src="libs/core/egret/utils/hasDefinition.js"></script>
 <script src="libs/core/egret/utils/getOption.js"></script>
@@ -81,6 +76,9 @@
 <script src="libs/core/egret/events/IOErrorEvent.js"></script>
 <script src="libs/core/egret/events/TextEvent.js"></script>
 <script src="libs/core/egret/events/FocusEvent.js"></script>
+<script src="libs/core/egret/events/GeolocationEvent.js"></script>
+<script src="libs/core/egret/events/MotionEvent.js"></script>
+<script src="libs/core/egret/events/OrientationEvent.js"></script>
 <script src="libs/core/egret/display/BlendMode.js"></script>
 <script src="libs/core/egret/display/DisplayObject.js"></script>
 <script src="libs/core/egret/display/Bitmap.js"></script>
@@ -93,13 +91,7 @@
 <script src="libs/core/egret/display/Shape.js"></script>
 <script src="libs/core/egret/display/Sprite.js"></script>
 <script src="libs/core/egret/display/Stage.js"></script>
-<script src="libs/core/egret/display/FrameLabel.js"></script>
-<script src="libs/core/egret/display/MovieClipData.js"></script>
-<script src="libs/core/egret/display/MovieClipDataFactory.js"></script>
-<script src="libs/core/egret/display/MovieClip.js"></script>
 <script src="libs/core/egret/display/SpriteSheet.js"></script>
-<script src="libs/core/egret/display/ScrollView.js"></script>
-<script src="libs/core/egret/display/ScrollViewProperties.js"></script>
 <script src="libs/core/egret/net/HttpMethod.js"></script>
 <script src="libs/core/egret/net/HttpResponseType.js"></script>
 <script src="libs/core/egret/net/HttpRequest.js"></script>
@@ -117,6 +109,9 @@
 <script src="libs/core/egret/player/TouchHandler.js"></script>
 <script src="libs/core/egret/system/Capabilities.js"></script>
 <script src="libs/core/egret/system/Console.js"></script>
+<script src="libs/core/egret/sensor/Geolocation.js"></script>
+<script src="libs/core/egret/sensor/Motion.js"></script>
+<script src="libs/core/egret/sensor/Orientation.js"></script>
 <script src="libs/core/egret/text/HorizontalAlign.js"></script>
 <script src="libs/core/egret/text/TextFieldType.js"></script>
 <script src="libs/core/egret/text/TextField.js"></script>
@@ -127,9 +122,6 @@
 <script src="libs/core/egret/text/HtmlTextParser.js"></script>
 <script src="libs/core/egret/text/BitmapFont.js"></script>
 <script src="libs/core/egret/text/BitmapText.js"></script>
-<script src="libs/core/egret/tween/Tween.js"></script>
-<script src="libs/core/egret/tween/Ease.js"></script>
-<script src="libs/core/egret/system/MainContext.js"></script>
 <script src="libs/core/egret/localStorage/localStorage.js"></script>
 <script src="libs/core/egret/external/ExternalInterface.js"></script>
 <script src="libs/core/egret/filters/Filter.js"></script>
@@ -139,7 +131,18 @@
 <script src="libs/core/egret/filters/DropShadowFilter.js"></script>
 <script src="libs/core/egret/media/Sound.js"></script>
 <script src="libs/core/egret/media/Video.js"></script>
-<script src="libs/core/egret/utils/PromiseObject.js"></script>
+<script src="libs/core/extension/game/utils/setTimeout.js"></script>
+<script src="libs/core/extension/game/utils/setInterval.js"></script>
+<script src="libs/core/extension/game/utils/Injector.js"></script>
+<script src="libs/core/extension/game/utils/Recycler.js"></script>
+<script src="libs/core/extension/game/system/MainContext.js"></script>
+<script src="libs/core/extension/game/display/FrameLabel.js"></script>
+<script src="libs/core/extension/game/display/MovieClipData.js"></script>
+<script src="libs/core/extension/game/display/MovieClipDataFactory.js"></script>
+<script src="libs/core/extension/game/display/MovieClip.js"></script>
+<script src="libs/core/extension/game/display/ScrollTween.js"></script>
+<script src="libs/core/extension/game/display/ScrollView.js"></script>
+<script src="libs/core/extension/game/display/ScrollViewProperties.js"></script>
 <script src="libs/core/extension/game/net/URLRequestMethod.js"></script>
 <script src="libs/core/extension/game/net/URLLoaderDataFormat.js"></script>
 <script src="libs/core/extension/game/net/URLVariables.js"></script>
@@ -159,6 +162,9 @@
 <script src="libs/core/egret/web/WebTouchHandler.js"></script>
 <script src="libs/core/egret/web/WebXML.js"></script>
 <script src="libs/core/egret/web/WebHideHandler.js"></script>
+<script src="libs/core/egret/sensor/web/WebGeolocation.js"></script>
+<script src="libs/core/egret/sensor/web/WebMotion.js"></script>
+<script src="libs/core/egret/sensor/web/WebOrientation.js"></script>
 <script src="libs/core/egret/media/web/QQSound.js"></script>
 <script src="libs/core/egret/media/web/QQSoundChannel.js"></script>
 <script src="libs/core/egret/media/web/WebAudioSound.js"></script>
@@ -257,6 +263,7 @@
 <script src="libs/core/extension/version/IVersionController.js"></script>
 <script src="libs/core/extension/version/DefaultLoadingView.js"></script>
 <script src="libs/core/extension/version/Html5VersionController.js"></script>
+<script src="libs/core/extension/version/NativeVersionController.js"></script>
 <script src="libs/core/extension/gui/collections/ICollection.js"></script>
 <script src="libs/core/extension/gui/collections/ArrayCollection.js"></script>
 <script src="libs/core/extension/gui/collections/ITreeCollection.js"></script>
@@ -425,6 +432,8 @@
 <script src="libs/core/extension/gui/core/UIStage.js"></script>
 <script src="libs/core/extension/gui/managers/impl/PopUpManagerImpl.js"></script>
 <script src="libs/core/extension/gui/managers/PopUpManager.js"></script>
+<script src="libs/core/extension/tween/Tween.js"></script>
+<script src="libs/core/extension/tween/Ease.js"></script>
 <script src="bin-debug/src/libs/ResourceUtils.js"></script>
 <script src="bin-debug/src/LoadingUI.js"></script>
 <script src="bin-debug/src/libs/LoadResources.js"></script>
@@ -479,11 +488,6 @@
 <script src="bin-debug/src/test/res/RESLoaded.js"></script>
 <script src="bin-debug/src/test/res/RESRenderTextureDouble.js"></script>
 <script src="bin-debug/src/test/scrollview/ScrollViewNormal.js"></script>
-<script src="bin-debug/src/test/sound/SoundClickLoop.js"></script>
-<script src="bin-debug/src/test/sound/SoundClickPlay.js"></script>
-<script src="bin-debug/src/test/sound/SoundNormal.js"></script>
-<script src="bin-debug/src/test/sound/SoundTimeout.js"></script>
-<script src="bin-debug/src/test/sound/SoundVolume.js"></script>
 <script src="bin-debug/src/test/spritesheet/SpriteSheetDiff.js"></script>
 <script src="bin-debug/src/test/spritesheet/SpriteSheetSubKey.js"></script>
 <script src="bin-debug/src/test/textfield/TextFieldAppendText.js"></script>

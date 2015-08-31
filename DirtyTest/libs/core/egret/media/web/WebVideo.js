@@ -39,7 +39,7 @@ var egret;
             /**
              * @inheritDoc
              */
-            function WebVideo() {
+            function WebVideo(url) {
                 var _this = this;
                 _super.call(this);
                 /**
@@ -82,7 +82,10 @@ var egret;
                     _this.dispatchEventWith(egret.Event.COMPLETE);
                 };
                 this.$renderRegion = new egret.sys.Region();
+                this.src = url;
                 this.once(egret.Event.ADDED_TO_STAGE, this.loadPoster, this);
+                if (url)
+                    this.load();
             }
             var __egretProto__ = WebVideo.prototype;
             /**
@@ -90,6 +93,7 @@ var egret;
              */
             __egretProto__.load = function (url) {
                 var _this = this;
+                url = url || this.src;
                 this.src = url;
                 if (DEBUG && !url) {
                     egret.$error(3002);
@@ -97,14 +101,25 @@ var egret;
                 if (this.video && this.video.src == url)
                     return;
                 var video = document.createElement("video");
-                video.src = url;
-                video.setAttribute("webkit-playsinline", "webkit-playsinline");
+                video.controls = null;
+                video.src = url; //
+                //video["autoplay"] = "autoplay";
+                video.setAttribute("autoplay", "autoplay");
+                video.setAttribute("webkit-playsinline", "true");
                 video.addEventListener("canplay", this.onVideoLoaded);
+                egret.setTimeout(this.onVideoLoaded.bind(this), this, 100);
                 video.addEventListener("error", function () { return _this.onVideoError(); });
                 video.addEventListener("ended", function () { return _this.onVideoEnded(); });
                 video.load();
                 video.play();
-                egret.setTimeout(function () { return video.pause(); }, this, 16);
+                video.style.position = "absolute";
+                video.style.top = "0px";
+                video.style.zIndex = "-88888";
+                video.style.left = "0px";
+                video.height = 1;
+                video.width = 1;
+                document.body.appendChild(video);
+                window.setTimeout(function () { return video.pause(); }, 16);
                 this.video = video;
             };
             /**
@@ -122,19 +137,20 @@ var egret;
                 if (startTime != undefined)
                     video.currentTime = +startTime || 0;
                 video.loop = !!loop;
-                video.play();
+                video.style.zIndex = "9999";
                 video.style.position = "absolute";
                 video.style.top = "0px";
                 video.style.left = "0px";
-                video.style.height = "0";
-                video.style.width = "0";
+                video.height = this.heightSet;
+                video.width = this.widthSet;
                 document.body.appendChild(video);
+                video.play();
                 var fullscreen = false;
                 if (this._fullscreen) {
                     fullscreen = this.goFullscreen();
                 }
                 if (fullscreen == false) {
-                    video.setAttribute("webkit-playsinline", "webkit-playsinline");
+                    video.setAttribute("webkit-playsinline", "true");
                     egret.startTick(this.markDirty, this);
                 }
             };
@@ -167,15 +183,18 @@ var egret;
              * @inheritDoc
              */
             __egretProto__.close = function () {
+                var _this = this;
+                this.closed = true;
+                this.video.removeEventListener("canplay", this.onVideoLoaded);
+                this.video.removeEventListener("error", function () { return _this.onVideoError(); });
+                this.video.removeEventListener("ended", function () { return _this.onVideoEnded(); });
                 this.pause();
                 if (this.loaded == false && this.video)
                     this.video.src = "";
                 if (this.video) {
-                    if (this.video['remove'])
-                        this.video['remove']();
+                    this.video.parentElement.removeChild(this.video);
                     this.video = null;
                 }
-                this.closed = true;
                 this.loaded = false;
             };
             /**
@@ -184,7 +203,9 @@ var egret;
             __egretProto__.pause = function () {
                 if (this.video) {
                     this.video.pause();
-                    this.onVideoEnded();
+                    if (!this.closed) {
+                        this.onVideoEnded();
+                    }
                 }
                 egret.stopTick(this.markDirty, this);
             };

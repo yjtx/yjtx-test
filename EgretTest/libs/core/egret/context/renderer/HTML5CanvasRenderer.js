@@ -63,7 +63,7 @@ var egret;
                         break;
                     }
                 }
-                Object.defineProperty(context, "imageSmoothingEnabled", {
+                context["imageSmoothingEnabled"] = {
                     get: function () {
                         return this[key];
                     },
@@ -72,7 +72,7 @@ var egret;
                     },
                     enumerable: true,
                     configurable: true
-                });
+                };
             }
             this.onResize();
             var f = this.drawCanvasContext.setTransform;

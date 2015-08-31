@@ -77,17 +77,23 @@ var egret;
         };
         __egretProto__.focusHandler = function (event) {
             //不再显示竖线，并且输入框显示最开始
-            this._isFocus = true;
-            this._text._isTyping = true;
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN, true));
+            if (!this._isFocus) {
+                this._isFocus = true;
+                if (!event["showing"]) {
+                    this._text._isTyping = true;
+                }
+                this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_IN, true));
+            }
         };
         __egretProto__.blurHandler = function (event) {
-            //不再显示竖线，并且输入框显示最开始
-            this._isFocus = false;
-            this._text._isTyping = false;
-            //失去焦点后调用
-            this.stageText.$onBlur();
-            this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT, true));
+            if (this._isFocus) {
+                //不再显示竖线，并且输入框显示最开始
+                this._isFocus = false;
+                this._text._isTyping = false;
+                //失去焦点后调用
+                this.stageText.$onBlur();
+                this._text.dispatchEvent(new egret.FocusEvent(egret.FocusEvent.FOCUS_OUT, true));
+            }
         };
         //点中文本
         __egretProto__.onMouseDownHandler = function (event) {
@@ -99,7 +105,6 @@ var egret;
             if (this._isFocus) {
                 return;
             }
-            this._isFocus = true;
             //强制更新输入框位置
             this.stageText._show(this._text._TF_Props_._multiline, this._text.size, this._text.width, this._text.height);
             var point = this._text.localToGlobal();

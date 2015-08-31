@@ -77,7 +77,6 @@ var egret;
                 this.updateScreenSize();
                 this.updateMaxTouches();
                 player.start();
-                egret.MainContext.instance.stage = stage;
             };
             __egretProto__.updateScreenSize = function () {
                 var option = this.playerOption;

@@ -28,6 +28,7 @@ var egret;
     locale_strings[1033] = "Photos can not be used across domains toDataURL to convert base64";
     locale_strings[1034] = "Music file decoding failed: \"{0}\", please use the standard conversion tool reconversion under mp3.";
     locale_strings[1035] = "Native does not support this feature!";
+    locale_strings[1036] = "Sound has stopped, please recall Sound.play () to play the sound!";
     //RES
     locale_strings[2000] = "RES.createGroup() passed in non-existed key value in configuration: {0}";
     locale_strings[2001] = "RES loaded non-existed or empty resource group:\"{0}\"";

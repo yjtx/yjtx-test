@@ -577,6 +577,90 @@ declare module egret.web {
     }
 }
 
+interface BrowerGeolocation extends Geolocation {
+}
+declare module egret.web {
+    /**
+     * @private
+     */
+    class WebGeolocation extends EventDispatcher implements Geolocation {
+        /**
+         * @private
+         */
+        private geolocation;
+        /**
+         * @private
+         */
+        private watchId;
+        /**
+         * @private
+         */
+        constructor(option?: PositionOptions);
+        /**
+         * @private
+         *
+         */
+        start(): void;
+        /**
+         * @private
+         *
+         */
+        stop(): void;
+        /**
+         * @private
+         */
+        private onUpdate;
+        /**
+         * @private
+         */
+        private onError;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     */
+    class WebMotion extends EventDispatcher implements Motion {
+        /**
+         * @private
+         *
+         */
+        start(): void;
+        /**
+         * @private
+         *
+         */
+        stop(): void;
+        /**
+         * @private
+         */
+        protected onChange: (e: DeviceMotionEvent) => void;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     */
+    class WebOrientation extends EventDispatcher implements Orientation {
+        /**
+         * @private
+         *
+         */
+        start(): void;
+        /**
+         * @private
+         *
+         */
+        stop(): void;
+        /**
+         * @private
+         */
+        protected onChange: (e: DeviceOrientationEvent) => void;
+    }
+}
+
 declare module QZAppExternal {
     function playLocalSound(call: any, data: any): any;
     function playLocalBackSound(call: any, data: any): any;
@@ -637,7 +721,6 @@ declare module egret.web {
          * @inheritDoc
          */
         load(url: string): void;
-        preload(type: string, callback?: Function, thisObj?: any): void;
         /**
          * @inheritDoc
          */
@@ -646,7 +729,6 @@ declare module egret.web {
          * @inheritDoc
          */
         close(): void;
-        destroy(): void;
     }
 }
 
@@ -669,6 +751,7 @@ declare module egret.web {
          * @private
          */
         $startTime: number;
+        private isStopped;
         /**
          * @private
          */
@@ -802,7 +885,6 @@ declare module egret.web {
          * @inheritDoc
          */
         load(url: string): void;
-        preload(type: string, callback?: Function, thisObj?: any): void;
         /**
          * @inheritDoc
          */
@@ -811,7 +893,6 @@ declare module egret.web {
          * @inheritDoc
          */
         close(): void;
-        destroy(): void;
     }
 }
 
@@ -851,6 +932,7 @@ declare module egret.web {
          * @private
          */
         private context;
+        private isStopped;
         /**
          * @private
          */
@@ -950,12 +1032,10 @@ declare module egret.web {
          * @inheritDoc
          */
         play(startTime?: number, loops?: number): SoundChannel;
-        preload(type: string, callback?: Function, thisObj?: any): void;
         /**
          * @inheritDoc
          */
         close(): void;
-        destroy(): void;
         /**
          * @private
          */
@@ -988,6 +1068,7 @@ declare module egret.web {
          * @private
          */
         private audio;
+        private isStopped;
         /**
          * @private
          */
@@ -1059,11 +1140,11 @@ declare module egret.web {
         /**
          * @inheritDoc
          */
-        constructor();
+        constructor(url?: string);
         /**
          * @inheritDoc
          */
-        load(url: string): void;
+        load(url?: string): void;
         /**
          * @inheritDoc
          */

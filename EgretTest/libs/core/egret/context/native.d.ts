@@ -396,7 +396,7 @@ declare module egret_native {
 
     module TextInputOp {
 
-        function setKeybordOpen(isOpen:boolean):void
+        function setKeybordOpen(isOpen:boolean, jsonConfig?:Object):void
 
         function isFullScreenKeyBoard():boolean
 
@@ -601,6 +601,70 @@ declare module egret {
 }
 declare module egret_native_sound {
     var currentPath: string;
+}
+
+declare module egret {
+    /**
+     * @private
+     */
+    class NaAudio implements IAudio {
+        /**
+         * audio音频对象
+         * @member {any} egret.Sound#audio
+         */
+        constructor();
+        private _audio;
+        private _loop;
+        /**
+         * 播放声音
+         * @method egret.Sound#play
+         * @param loop {boolean} 是否循环播放，默认为false
+         */
+        _play(type?: string): void;
+        private func;
+        private clear();
+        private paused;
+        /**
+         * 暂停声音
+         * @method egret.Sound#pause
+         */
+        _pause(): void;
+        /**
+         * 重新加载声音
+         * @method egret.Sound#load
+         */
+        _load(): void;
+        _setAudio(audio: any): void;
+        private initStart();
+        private _listeners;
+        private _onEndedCall;
+        /**
+         * 添加事件监听
+         * @param type 事件类型
+         * @param listener 监听函数
+         */
+        _addEventListener(type: string, listener: Function, useCapture?: boolean): void;
+        private removeListeners();
+        /**
+         * 移除事件监听
+         * @param type 事件类型
+         * @param listener 监听函数
+         */
+        _removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
+        _preload(type: string, callback?: Function, thisObj?: any): void;
+        _destroy(): void;
+        private _volume;
+        /**
+         * 获取当前音量值
+         * @returns number
+         */
+        _getVolume(): number;
+        _setVolume(value: number): void;
+        _setLoop(value: boolean): void;
+        private _startTime;
+        _getCurrentTime(): number;
+        _setCurrentTime(value: number): void;
+    }
 }
 
 declare module egret.native {

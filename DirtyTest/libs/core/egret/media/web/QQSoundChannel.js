@@ -46,6 +46,8 @@ var egret;
                  * @private
                  */
                 this.$startTime = 0;
+                //声音是否已经播放完成
+                this.isStopped = false;
                 /**
                  * @private
                  */
@@ -68,6 +70,10 @@ var egret;
             }
             var __egretProto__ = QQSoundChannel.prototype;
             __egretProto__.$play = function () {
+                if (this.isStopped) {
+                    egret.$error(1036);
+                    return;
+                }
                 var self = this;
                 this._startTime = Date.now();
                 var loop = 0;
@@ -122,6 +128,10 @@ var egret;
                  * @inheritDoc
                  */
                 set: function (value) {
+                    if (this.isStopped) {
+                        egret.$error(1036);
+                        return;
+                    }
                 },
                 enumerable: true,
                 configurable: true

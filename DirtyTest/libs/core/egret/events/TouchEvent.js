@@ -26,6 +26,7 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+/// <reference path="../geom/point.ts" />
 var egret;
 (function (egret) {
     var localPoint = new egret.Point();

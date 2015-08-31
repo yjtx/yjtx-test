@@ -47,6 +47,10 @@ var egret;
      * @includeExample egret/utils/toColorString.ts
      */
     function toColorString(value) {
+        if (value < 0)
+            value = 0;
+        if (value > 16777215)
+            value = 16777215;
         var color = value.toString(16).toUpperCase();
         while (color.length > 6) {
             color = color.slice(1, color.length);

@@ -196,7 +196,7 @@ declare module egret_native {
 
     module TextInputOp {
 
-        function setKeybordOpen(isOpen:boolean):void
+        function setKeybordOpen(isOpen:boolean, jsonConfig?:Object):void
 
         function isFullScreenKeyBoard():boolean
 
@@ -294,6 +294,84 @@ declare module egret_native {
         function listUpdate(root, promise);
     }
 }
+declare module egret {
+    /**
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class PromiseObject {
+        /**
+         * @private
+         */
+        private static promiseObjectList;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        onSuccessFunc: Function;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        onSuccessThisObject: any;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        onErrorFunc: Function;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        onErrorThisObject: any;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        downloadingSizeFunc: Function;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        downloadingSizeThisObject: any;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor();
+        /**
+         *
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static create(): any;
+        /**
+         * @private
+         *
+         * @param args
+         */
+        private onSuccess(...args);
+        /**
+         * @private
+         *
+         * @param args
+         */
+        private onError(...args);
+        /**
+         * @private
+         *
+         * @param args
+         */
+        private downloadingSize(...args);
+        /**
+         * @private
+         *
+         */
+        private destroy();
+    }
+}
+
 declare module egret {
     /**
      * @classdesc
@@ -518,33 +596,6 @@ declare module egret.native {
     class NativeExternalInterface implements ExternalInterface {
         static call(functionName: string, value: string): void;
         static addCallback(functionName: string, listener: (value) => void): void;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
-     */
-    class NativeVersionController extends egret.EventDispatcher implements VersionController {
-        private _versionInfo;
-        private _versionPath;
-        private _localFileArr;
-        private _stage;
-        constructor(stage: egret.Stage);
-        fetchVersion(): void;
-        private getList(callback, type, root?);
-        checkIsNewVersion(virtualUrl: string): boolean;
-        saveVersion(virtualUrl: string): void;
-        /**
-         * 获取所有有变化的文件
-         * @returns {Array<string>}
-         */
-        getChangeList(): Array<string>;
-        getVirtualUrl(url: string): string;
-        private _iLoadingView;
-        private loadAllChange();
-        private getLocalData(filePath);
-        private getLocalDataByOld(filePath);
     }
 }
 
@@ -1159,7 +1210,7 @@ declare module egret.native {
     }
 }
 
-declare module egret.native {
+declare module egret.web {
     /**
      * @private
      * @inheritDoc
@@ -1216,7 +1267,6 @@ declare module egret.native {
          * @inheritDoc
          */
         load(url: string): void;
-        preload(type: string, callback?: Function, thisObj?: any): void;
         /**
          * @inheritDoc
          */
@@ -1225,14 +1275,17 @@ declare module egret.native {
          * @inheritDoc
          */
         close(): void;
-        destroy(): void;
+        /**
+         * @private
+         */
+        private static audios;
+        static $clear(url: string): void;
+        static $pop(url: string): HTMLAudioElement;
+        static $recycle(url: string, audio: HTMLAudioElement): void;
     }
 }
 
-declare module egret_native_sound {
-    var currentPath: string;
-}
-declare module egret.native {
+declare module egret.web {
     /**
      * @private
      * @inheritDoc
@@ -1250,12 +1303,15 @@ declare module egret.native {
          * @private
          */
         $startTime: number;
-        $type: string;
-        private _effectId;
         /**
          * @private
          */
-        constructor();
+        private audio;
+        private isStopped;
+        /**
+         * @private
+         */
+        constructor(audio: any);
         $play(): void;
         /**
          * @private
@@ -1276,14 +1332,9 @@ declare module egret.native {
         volume: number;
         /**
          * @private
-         */
-        private _startTime;
-        /**
-         * @private
          * @inheritDoc
          */
         position: number;
-        $destroy(): void;
     }
 }
 

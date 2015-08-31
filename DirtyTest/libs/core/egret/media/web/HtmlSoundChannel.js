@@ -50,6 +50,8 @@ var egret;
                  * @private
                  */
                 this.audio = null;
+                //声音是否已经播放完成
+                this.isStopped = false;
                 /**
                  * @private
                  */
@@ -71,6 +73,10 @@ var egret;
             }
             var __egretProto__ = HtmlSoundChannel.prototype;
             __egretProto__.$play = function () {
+                if (this.isStopped) {
+                    egret.$error(1036);
+                    return;
+                }
                 try {
                     this.audio.currentTime = this.$startTime;
                 }
@@ -107,6 +113,10 @@ var egret;
                  * @inheritDoc
                  */
                 set: function (value) {
+                    if (this.isStopped) {
+                        egret.$error(1036);
+                        return;
+                    }
                     if (!this.audio)
                         return;
                     this.audio.volume = value;

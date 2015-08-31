@@ -452,9 +452,10 @@ var egret;
             if (this._ScrV_Props_._isHTweenPlaying || this._ScrV_Props_._isVTweenPlaying) {
                 this._onScrollFinished();
             }
-            this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this._onTouchMove, this);
-            this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this._onTouchEnd, this);
-            this.stage.addEventListener(egret.TouchEvent.LEAVE_STAGE, this._onTouchEnd, this);
+            this._tempStage = this.stage;
+            this._tempStage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this._onTouchMove, this);
+            this._tempStage.addEventListener(egret.TouchEvent.TOUCH_END, this._onTouchEnd, this);
+            this._tempStage.addEventListener(egret.TouchEvent.LEAVE_STAGE, this._onTouchEnd, this);
             this.addEventListener(egret.Event.ENTER_FRAME, this._onEnterFrame, this);
             this._logTouchEvent(e);
             e.preventDefault();
@@ -573,9 +574,9 @@ var egret;
         __egretProto__._onTouchEnd = function (event) {
             this.touchChildren = true;
             this._ScrV_Props_._scrollStarted = false;
-            egret.MainContext.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this._onTouchMove, this);
-            egret.MainContext.instance.stage.removeEventListener(egret.TouchEvent.TOUCH_END, this._onTouchEnd, this);
-            egret.MainContext.instance.stage.removeEventListener(egret.TouchEvent.LEAVE_STAGE, this._onTouchEnd, this);
+            this._tempStage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this._onTouchMove, this);
+            this._tempStage.removeEventListener(egret.TouchEvent.TOUCH_END, this._onTouchEnd, this);
+            this._tempStage.removeEventListener(egret.TouchEvent.LEAVE_STAGE, this._onTouchEnd, this);
             this.removeEventListener(egret.Event.ENTER_FRAME, this._onEnterFrame, this);
             this._moveAfterTouchEnd();
         };
@@ -749,7 +750,7 @@ var egret;
          * @returns
          */
         __egretProto__._onScrollFinished = function () {
-            egret.Tween.removeTweens(this);
+            egret.ScrollTween.removeTweens(this);
             this._ScrV_Props_._hScrollTween = null;
             this._ScrV_Props_._vScrollTween = null;
             this._ScrV_Props_._isHTweenPlaying = false;
@@ -779,11 +780,11 @@ var egret;
             var finalPosition = Math.min(this.getMaxScrollTop(), Math.max(scrollTop, 0));
             if (duration == 0) {
                 this.scrollTop = finalPosition;
-                return null;
+                return;
             }
             if (this._ScrV_Props_._bounces == false)
                 scrollTop = finalPosition;
-            var vtween = egret.Tween.get(this).to({ scrollTop: scrollTop }, duration, egret.Ease.quartOut);
+            var vtween = egret.ScrollTween.get(this).to({ scrollTop: scrollTop }, duration, egret.ScrollEase.quartOut);
             if (finalPosition != scrollTop) {
                 vtween.to({ scrollTop: finalPosition }, 300, egret.Ease.quintOut);
             }
@@ -792,7 +793,6 @@ var egret;
             vtween.call(this._onTweenFinished, this, [vtween]);
             if (!this._ScrV_Props_._isHTweenPlaying)
                 this._onScrollStarted();
-            return vtween;
         };
         /**
          * @language en_US
@@ -817,11 +817,11 @@ var egret;
             var finalPosition = Math.min(this.getMaxScrollLeft(), Math.max(scrollLeft, 0));
             if (duration == 0) {
                 this.scrollLeft = finalPosition;
-                return null;
+                return;
             }
             if (this._ScrV_Props_._bounces == false)
                 scrollLeft = finalPosition;
-            var htween = egret.Tween.get(this).to({ scrollLeft: scrollLeft }, duration, egret.Ease.quartOut);
+            var htween = egret.ScrollTween.get(this).to({ scrollLeft: scrollLeft }, duration, egret.ScrollEase.quartOut);
             if (finalPosition != scrollLeft) {
                 htween.to({ scrollLeft: finalPosition }, 300, egret.Ease.quintOut);
             }
@@ -830,7 +830,6 @@ var egret;
             htween.call(this._onTweenFinished, this, [htween]);
             if (!this._ScrV_Props_._isVTweenPlaying)
                 this._onScrollStarted();
-            return htween;
         };
         /**
          * @private

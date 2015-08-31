@@ -105,6 +105,7 @@ var egret_file_list = [
 	"core/egret/context/display/NativeStageText.js",
 	"core/egret/context/net/NativeResourceLoader.js",
 	"core/egret/context/audio/NativeAudio.js",
+	"core/egret/context/audio/NaAudio.js",
 	"core/egret/context/NativeTexture.js",
 	"core/extension/socket/HTML5WebSocket.js",
 	"core/extension/socket/NativeSocket.js",

@@ -614,7 +614,7 @@ var egret;
                 if (!surface) {
                     return null;
                 }
-                if (egret.MainContext.runtimeType == egret.MainContext.RUNTIME_HTML5) {
+                if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
                     //在chrome里，小等于256*256的canvas会不启用GPU加速。
                     surface.width = Math.max(257, width);
                     surface.height = Math.max(257, height);

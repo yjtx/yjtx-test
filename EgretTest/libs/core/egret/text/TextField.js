@@ -28,6 +28,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
+    var SplitRegex = new RegExp("(?=[\\u00BF-\\u1FFF\\u2C00-\\uD7FF]|\\b|\\s)(?![。，！、》…）)}”】\\.\\,\\!\\?\\]\\:])");
     /**
      * @class egret.TextField
      * @classdesc
@@ -976,7 +977,7 @@ var egret;
                                 var ww = 0;
                                 var word = textArr[j];
                                 if (this._TF_Props_._wordWrap) {
-                                    var words = word.split(/\b/);
+                                    var words = word.split(SplitRegex);
                                 }
                                 else {
                                     words = word.match(/./g);

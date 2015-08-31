@@ -39,8 +39,8 @@ var Base64SaveFromDisplayObject = (function (_super) {
     __egretProto__.testDisplayObject = function () {
         var c = new egret.DisplayObjectContainer();
         this.addChild(c);
-        var texture1 = RES.getRes("run_down_png");
-        var icon = new egret.Bitmap(texture1);
+        var texture = RES.getRes("run_down_png");
+        var icon = new egret.Bitmap(texture);
         c.addChild(icon);
         var renderTexture = new egret.RenderTexture();
         renderTexture.drawToTexture(c);

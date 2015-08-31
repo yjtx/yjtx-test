@@ -147,7 +147,7 @@ var egret;
          * @param type 事件类型
          * @param listener 监听函数
          * @param thisObj 侦听函数绑定的this对象
-         * @platform Web
+         * @platform Web,Native
          */
         __egretProto__.addEventListener = function (type, listener, thisObject) {
             _super.prototype.addEventListener.call(this, type, listener, thisObject);
@@ -158,9 +158,10 @@ var egret;
             }
             if (this._eventsMap[type].length == 1) {
                 var func;
-                if (type == egret.SoundEvent.SOUND_COMPLETE) {
+                if (type == egret.SoundEvent.SOUND_COMPLETE || type == "ended") {
                     func = function (e) {
                         egret.Event._dispatchByTarget(egret.SoundEvent, self, egret.SoundEvent.SOUND_COMPLETE);
+                        egret.Event._dispatchByTarget(egret.Event, self, "ended");
                     };
                 }
                 else {
@@ -179,7 +180,7 @@ var egret;
          * @param type 事件类型
          * @param listener 监听函数
          * @param thisObj 侦听函数绑定的this对象
-         * @platform Web
+         * @platform Web,Native
          */
         __egretProto__.removeEventListener = function (type, listener, thisObject) {
             _super.prototype.removeEventListener.call(this, type, listener, thisObject);

@@ -175,6 +175,25 @@ var egret;
         __egretProto__.$getScaleBitmapHeight = function () {
             return this._bitmapHeight * egret.$TextureScaleFactor;
         };
+        Object.defineProperty(__egretProto__, "bitmapData", {
+            /**
+             * @language en_US
+             * The BitmapData object being referenced.
+             * @version Lark 1.0
+             * @platform Web,Native
+             */
+            /**
+             * @language zh_CN
+             * 被引用的 BitmapData 对象。
+             * @version Lark 1.0
+             * @platform Web,Native
+             */
+            get: function () {
+                return this._bitmapData;
+            },
+            enumerable: true,
+            configurable: true
+        });
         /**
          * @private
          *
@@ -292,8 +311,8 @@ var egret;
         __egretProto__.dispose = function () {
             throw new Error();
         };
-        Texture.$addDisplayObject = function (displayObject, texture) {
-            var hashCode = texture._bitmapData.$hashCode;
+        Texture.$addDisplayObject = function (displayObject, bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
             if (!Texture._displayList[hashCode]) {
                 Texture._displayList[hashCode] = [displayObject];
                 return;
@@ -303,8 +322,8 @@ var egret;
                 tempList.push(displayObject);
             }
         };
-        Texture.$removeDisplayObject = function (displayObject, texture) {
-            var hashCode = texture._bitmapData.$hashCode;
+        Texture.$removeDisplayObject = function (displayObject, bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
             if (!Texture._displayList[hashCode]) {
                 return;
             }
@@ -314,18 +333,8 @@ var egret;
                 tempList.splice(index);
             }
         };
-        Texture.$dispose = function (texture) {
-            var hashCode = texture._bitmapData.$hashCode;
-            if (!Texture._displayList[hashCode]) {
-                return;
-            }
-            var tempList = Texture._displayList[hashCode];
-            for (var i = 0; i < tempList.length; i++) {
-                tempList[i].$invalidateContentBounds();
-            }
-        };
-        Texture.$loaded = function (texture) {
-            var hashCode = texture._bitmapData.$hashCode;
+        Texture.$invalidate = function (bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
             if (!Texture._displayList[hashCode]) {
                 return;
             }

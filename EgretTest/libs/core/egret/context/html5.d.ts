@@ -451,6 +451,7 @@ declare module egret {
          * @param loop {boolean} 是否循环播放，默认为false
          */
         _play(type?: string): void;
+        private func;
         private clear();
         private paused;
         /**

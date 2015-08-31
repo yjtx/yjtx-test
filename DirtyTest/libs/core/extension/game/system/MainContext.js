@@ -45,6 +45,9 @@ var egret;
          */
         function MainContext() {
             _super.call(this);
+        }
+        var __egretProto__ = MainContext.prototype;
+        Object.defineProperty(__egretProto__, "stage", {
             /**
              * 渲染Context
              * @member egret.MainContext#rendererContext
@@ -79,9 +82,12 @@ var egret;
              * @version Egret 2.0
              * @platform Web,Native
              */
-            this.stage = null;
-        }
-        var __egretProto__ = MainContext.prototype;
+            get: function () {
+                return egret.sys.$TempStage;
+            },
+            enumerable: true,
+            configurable: true
+        });
         /**
          * 游戏启动，开启主循环，参考Flash的滑动跑道模型
          * @method egret.MainContext#run
@@ -137,20 +143,20 @@ var egret;
     MainContext.prototype.__class__ = "egret.MainContext";
     egret.registerClass(MainContext,"egret.MainContext");
 })(egret || (egret = {}));
-var testDeviceType = function () {
+var testDeviceType1 = function () {
     if (!this["navigator"]) {
         return true;
     }
     var ua = navigator.userAgent.toLowerCase();
     return (ua.indexOf('mobile') != -1 || ua.indexOf('android') != -1);
 };
-var testRuntimeType = function () {
+var testRuntimeType1 = function () {
     if (this["navigator"]) {
         return true;
     }
     return false;
 };
-egret.MainContext.deviceType = testDeviceType() ? egret.MainContext.DEVICE_MOBILE : egret.MainContext.DEVICE_PC;
-egret.MainContext.runtimeType = testRuntimeType() ? egret.MainContext.RUNTIME_HTML5 : egret.MainContext.RUNTIME_NATIVE;
-delete testDeviceType;
-delete testRuntimeType;
+egret.MainContext.deviceType = testDeviceType1() ? egret.MainContext.DEVICE_MOBILE : egret.MainContext.DEVICE_PC;
+egret.MainContext.runtimeType = testRuntimeType1() ? egret.MainContext.RUNTIME_HTML5 : egret.MainContext.RUNTIME_NATIVE;
+delete testDeviceType1;
+delete testRuntimeType1;

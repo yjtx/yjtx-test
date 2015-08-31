@@ -92,7 +92,7 @@ var egret;
         native.NativeSocket = NativeSocket;
         NativeSocket.prototype.__class__ = "egret.native.NativeSocket";
         egret.registerClass(NativeSocket,"egret.native.NativeSocket",["egret.ISocket"]);
-        if (egret.MainContext.runtimeType == egret.MainContext.RUNTIME_NATIVE) {
+        if (egret.Capabilities.runtimeType == egret.RuntimeType.NATIVE) {
             egret.ISocket = NativeSocket;
         }
     })(native = egret.native || (egret.native = {}));

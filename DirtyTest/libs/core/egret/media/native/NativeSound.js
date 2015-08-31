@@ -28,8 +28,8 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
-    var native;
-    (function (native) {
+    var web;
+    (function (web) {
         /**
          * @private
          * @inheritDoc
@@ -53,6 +53,7 @@ var egret;
              */
             __egretProto__.load = function (url) {
                 var self = this;
+                this.url = url;
                 if (DEBUG && !url) {
                     egret.$error(3002);
                 }
@@ -60,32 +61,26 @@ var egret;
                 promise.onSuccessFunc = onAudioLoaded;
                 promise.onErrorFunc = onAudioError;
                 egret_native.download(url, url, promise);
+                var audio = new Audio(url);
+                audio.addEventListener("canplaythrough", onCanPlay);
+                audio.addEventListener("error", onAudioError);
+                this.originAudio = audio;
                 function onAudioLoaded() {
+                    audio.load();
+                    NativeSound.$recycle(this.url, audio);
+                }
+                function onCanPlay() {
+                    removeListeners();
                     self.loaded = true;
                     self.dispatchEventWith(egret.Event.COMPLETE);
                 }
                 function onAudioError() {
+                    removeListeners();
                     self.dispatchEventWith(egret.IOErrorEvent.IO_ERROR);
                 }
-            };
-            __egretProto__.preload = function (type, callback, thisObj) {
-                if (callback === void 0) { callback = null; }
-                if (thisObj === void 0) { thisObj = null; }
-                this.type = type;
-                if (this.type == egret.Sound.MUSIC) {
-                    egret_native.Audio.preloadBackgroundMusic(this.url);
-                    if (callback) {
-                        egret.callLater(callback, thisObj);
-                    }
-                }
-                else if (this.type == egret.Sound.EFFECT) {
-                    var promise = new egret.PromiseObject();
-                    promise.onSuccessFunc = function (soundId) {
-                        if (callback) {
-                            callback.call(thisObj);
-                        }
-                    };
-                    egret_native.Audio.preloadEffectAsync(this.url, promise);
+                function removeListeners() {
+                    audio.removeEventListener("canplaythrough", onAudioLoaded);
+                    audio.removeEventListener("error", onAudioError);
                 }
             };
             /**
@@ -97,11 +92,18 @@ var egret;
                 if (DEBUG && this.loaded == false) {
                     egret.$error(3001);
                 }
-                var channel = new native.NativeSoundChannel();
+                var audio = NativeSound.$pop(this.url);
+                if (audio == null) {
+                    audio = new Audio(this.url);
+                }
+                else {
+                    audio.load();
+                }
+                audio.autoplay = true;
+                var channel = new web.NativeSoundChannel(audio);
                 channel.$url = this.url;
                 channel.$loops = loops;
                 channel.$startTime = startTime;
-                channel.$type = this.type;
                 channel.$play();
                 return channel;
             };
@@ -109,15 +111,31 @@ var egret;
              * @inheritDoc
              */
             __egretProto__.close = function () {
+                if (this.loaded == false && this.originAudio)
+                    this.originAudio.src = "";
+                if (this.originAudio)
+                    this.originAudio = null;
+                NativeSound.$clear(this.url);
             };
-            __egretProto__.destroy = function () {
-                this.loaded = false;
-                if (this.type == egret.Sound.EFFECT) {
-                    egret_native.Audio.unloadEffect(this.url);
+            NativeSound.$clear = function (url) {
+                var array = NativeSound.audios[url];
+                if (array) {
+                    array.length = 0;
                 }
-                else if (egret_native_sound.currentPath == this.url) {
-                    egret_native.Audio.stopBackgroundMusic(true);
+            };
+            NativeSound.$pop = function (url) {
+                var array = NativeSound.audios[url];
+                if (array && array.length > 0) {
+                    return array.pop();
                 }
+                return null;
+            };
+            NativeSound.$recycle = function (url, audio) {
+                var array = NativeSound.audios[url];
+                if (NativeSound.audios[url] == null) {
+                    array = NativeSound.audios[url] = [];
+                }
+                array.push(audio);
             };
             /**
              * @language en_US
@@ -145,11 +163,14 @@ var egret;
              * @platform Web,Native
              */
             NativeSound.EFFECT = "effect";
+            /**
+             * @private
+             */
+            NativeSound.audios = {};
             return NativeSound;
         })(egret.EventDispatcher);
-        native.NativeSound = NativeSound;
-        NativeSound.prototype.__class__ = "egret.native.NativeSound";
-        egret.registerClass(NativeSound,"egret.native.NativeSound",["egret.Sound"]);
-        egret.Sound = NativeSound;
-    })(native = egret.native || (egret.native = {}));
+        web.NativeSound = NativeSound;
+        NativeSound.prototype.__class__ = "egret.web.NativeSound";
+        egret.registerClass(NativeSound,"egret.web.NativeSound",["egret.Sound"]);
+    })(web = egret.web || (egret.web = {}));
 })(egret || (egret = {}));

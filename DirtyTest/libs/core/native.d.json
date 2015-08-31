@@ -1,10 +1,10 @@
 {
 	"file_list": [
+		"egret/native/PromiseObject.ts",
 		"egret/text/native/NativeStageText.ts",
 		"egret/native/NativeDisplayList.ts",
 		"egret/localStorage/native/NativeLocalStorage.ts",
 		"egret/external/native/NativeExternalInterface.ts",
-		"extension/version/NativeVersionController.ts",
 		"egret/native/NativeHideHandler.ts",
 		"egret/native/NativeTouchHandler.ts",
 		"egret/native/OpenGLFactory.ts",

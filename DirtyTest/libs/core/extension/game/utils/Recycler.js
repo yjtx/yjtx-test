@@ -75,6 +75,15 @@ var egret;
             this.frameCount = 0;
         }
         var __egretProto__ = Recycler.prototype;
+        Recycler.$init = function () {
+            egret.sys.$ticker.$startTick(Recycler.onUpdate, Recycler);
+        };
+        Recycler.onUpdate = function (timeStamp) {
+            var list = Recycler._callBackList;
+            for (var i = list.length - 1; i >= 0; i--) {
+                list[i].$checkFrame();
+            }
+        };
         /**
          * @private
          *
@@ -185,4 +194,5 @@ var egret;
     egret.Recycler = Recycler;
     Recycler.prototype.__class__ = "egret.Recycler";
     egret.registerClass(Recycler,"egret.Recycler");
+    Recycler.$init();
 })(egret || (egret = {}));
