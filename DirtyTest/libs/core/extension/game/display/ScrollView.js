@@ -786,7 +786,7 @@ var egret;
                 scrollTop = finalPosition;
             var vtween = egret.ScrollTween.get(this).to({ scrollTop: scrollTop }, duration, egret.ScrollEase.quartOut);
             if (finalPosition != scrollTop) {
-                vtween.to({ scrollTop: finalPosition }, 300, egret.Ease.quintOut);
+                vtween.to({ scrollTop: finalPosition }, 300, egret.ScrollEase.quintOut);
             }
             this._ScrV_Props_._isVTweenPlaying = true;
             this._ScrV_Props_._vScrollTween = vtween;
@@ -823,7 +823,7 @@ var egret;
                 scrollLeft = finalPosition;
             var htween = egret.ScrollTween.get(this).to({ scrollLeft: scrollLeft }, duration, egret.ScrollEase.quartOut);
             if (finalPosition != scrollLeft) {
-                htween.to({ scrollLeft: finalPosition }, 300, egret.Ease.quintOut);
+                htween.to({ scrollLeft: finalPosition }, 300, egret.ScrollEase.quintOut);
             }
             this._ScrV_Props_._isHTweenPlaying = true;
             this._ScrV_Props_._hScrollTween = htween;

@@ -77,6 +77,11 @@ var egret;
          * @version Egret 2.0
          * @platform Web,Native
          */
+        ScrollEase.quintOut = ScrollEase.getPowOut(5);
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
         ScrollEase.quartOut = ScrollEase.getPowOut(4);
         return ScrollEase;
     })();
