@@ -26,6 +26,7 @@
 //  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
 //////////////////////////////////////////////////////////////////////////////////////
+/// <reference path="../display/Sprite.ts" />
 var egret;
 (function (egret) {
     var sys;
@@ -72,6 +73,7 @@ var egret;
                 var displayList = new sys.DisplayList(stage);
                 displayList.renderContext = context;
                 stage.$displayList = displayList;
+                displayList.setClipRect(stage.$stageWidth, stage.$stageHeight);
                 return displayList;
             };
             /**
@@ -150,7 +152,7 @@ var egret;
                     drawCalls = stage.$displayList.drawToSurface();
                 }
                 if (DEBUG) {
-                    if (triggerByFrame && this._showPaintRect) {
+                    if (this._showPaintRect) {
                         this.drawPaintRect(dirtyList);
                     }
                     var t2 = egret.getTimer();
@@ -217,16 +219,20 @@ var egret;
              * @param stageWidth 舞台宽度（以像素为单位）
              * @param stageHeight 舞台高度（以像素为单位）
              */
-            __egretProto__.updateStageSize = function (stageWidth, stageHeight) {
+            __egretProto__.updateStageSize = function (stageWidth, stageHeight, pixelRatio) {
+                if (pixelRatio === void 0) { pixelRatio = 1; }
                 var stage = this.stage;
-                if (stageWidth !== stage.$stageWidth || stageHeight !== stage.$stageHeight) {
+                if (stageWidth !== stage.$stageWidth || stageHeight !== stage.$stageHeight || this.screenDisplayList.$pixelRatio !== pixelRatio) {
                     stage.$stageWidth = stageWidth;
                     stage.$stageHeight = stageHeight;
+                    this.screenDisplayList.setDevicePixelRatio(pixelRatio);
                     this.screenDisplayList.setClipRect(stageWidth, stageHeight);
                     if (DEBUG && this.stageDisplayList) {
+                        this.stageDisplayList.setDevicePixelRatio(pixelRatio);
                         this.stageDisplayList.setClipRect(stageWidth, stageHeight);
                     }
                     stage.dispatchEventWith(egret.Event.RESIZE);
+                    stage.$invalidate(true);
                 }
             };
             return Player;
@@ -435,7 +441,7 @@ var egret;
                     if (this.showFPS) {
                         this.infoText.y = this.textField.height + 20;
                     }
-                    if (egret.MainContext.runtimeType == egret.MainContext.RUNTIME_NATIVE) {
+                    if (egret.Capabilities.runtimeType == egret.RuntimeType.NATIVE) {
                         return;
                     }
                     var g = this.shape.$graphics.$renderContext;

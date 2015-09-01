@@ -11,7 +11,7 @@ class ImageExample extends egret.DisplayObjectContainer {
     public constructor() {
         super();
 
-        var image = new swan.Image();
+        var image = new eui.Image();
         image.source = "resource/examples/egret.png";
         this.addChild(image);
         image.x = 100;

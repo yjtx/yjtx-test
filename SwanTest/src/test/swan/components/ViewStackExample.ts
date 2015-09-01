@@ -4,7 +4,7 @@ class ViewStackExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:TabBar dataProvider="{viewStack}">
                     <s:layout>
                         <s:HorizontalLayout gap="20"/>
@@ -17,7 +17,7 @@ class ViewStackExample extends egret.DisplayObjectContainer {
                 </s:TabBar>
                 <s:ViewStack y="50" id="viewStack">
                     <s:Group name="页面1">
-                        <s:Panel width="400" height="300" title="title panel" xmlns:s="http://ns.egret.com/swan" y="50">
+                        <s:Panel width="400" height="300" title="title panel" xmlns:s="http://ns.egret.com/eui" y="50">
                             <s:Skin>
                                 <s:Image width="100%" height="100%" source="resource/examples/track.png" scale9Grid="1,1,4,4"/>
                                 <s:Group id="moveArea" width="100%" height="40">

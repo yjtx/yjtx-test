@@ -5,7 +5,7 @@
             "name": "core"
         },
         {
-            "name": "version_old"
+            "name": "version"
         },
         {
             "name": "res"
@@ -19,5 +19,5 @@
 
         ]
     },
-    "egret_version":"2.4.0"
+    "egret_version":"2.4.2"
 }

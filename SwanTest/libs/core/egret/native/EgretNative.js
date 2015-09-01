@@ -31,7 +31,7 @@ var egret;
     var native;
     (function (native) {
         function runEgret() {
-            var ticker = egret.sys.$ticker = new egret.sys.SystemTicker();
+            var ticker = egret.sys.$ticker;
             var mainLoop = function () {
                 ticker.update();
             };

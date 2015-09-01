@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -14,7 +14,7 @@ var LabelNormalDelay = (function (_super) {
         this.testUrl();
     };
     __egretProto__.testUrl = function () {
-        var ui = new swan.Label();
+        var ui = new eui.Label();
         ui.text = "11";
         this.addChild(ui);
         egret.setTimeout(function () {
@@ -22,6 +22,6 @@ var LabelNormalDelay = (function (_super) {
         }, this, 1000);
     };
     return LabelNormalDelay;
-})(swan.Group);
+})(eui.Group);
 LabelNormalDelay.prototype.__class__ = "LabelNormalDelay";
 egret.registerClass(LabelNormalDelay,"LabelNormalDelay");

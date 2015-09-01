@@ -26,9 +26,13 @@ var egret;
     locale_strings[1028] = ". called injection is not configured rule: {0}, please specify configuration during its initial years of injection rule, and then call the corresponding single case.";
     locale_strings[1029] = "Function.prototype.bind - what is trying to be bound is not callable";
     locale_strings[1033] = "Photos can not be used across domains toDataURL to convert base64";
+    locale_strings[1034] = "Music file decoding failed: \"{0}\", please use the standard conversion tool reconversion under mp3.";
+    locale_strings[1035] = "Native does not support this feature!";
+    locale_strings[1036] = "Sound has stopped, please recall Sound.play () to play the sound!";
     //RES
     locale_strings[2000] = "RES.createGroup() passed in non-existed key value in configuration: {0}";
     locale_strings[2001] = "RES loaded non-existed or empty resource group:\"{0}\"";
+    locale_strings[2002] = "Do not use the different types of ways to load the same material!";
     //gui
     locale_strings[3000] = "Theme configuration file failed to load: {0}";
     locale_strings[3001] = "Cannot find the skin name which is configured in Theme: {0}";

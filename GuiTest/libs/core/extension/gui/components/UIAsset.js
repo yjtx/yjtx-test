@@ -253,7 +253,7 @@ var egret;
                         destW = bitmapData.$getTextureWidth();
                         destH = bitmapData.$getTextureHeight();
                     }
-                    egret.Bitmap.$drawImage(context, bitmapData, destW, destH, this.scale9Grid || bitmapData["scale9Grid"], this.fillMode, true);
+                    egret.Bitmap.$drawImage(context, bitmapData._bitmapData, bitmapData._bitmapX, bitmapData._bitmapY, bitmapData._bitmapWidth, bitmapData._bitmapHeight, bitmapData._offsetX, bitmapData._offsetY, bitmapData.$getTextureWidth(), bitmapData.$getTextureHeight(), destW, destH, this.scale9Grid || bitmapData["scale9Grid"], this.fillMode, true);
                 }
                 _super.prototype.$render.call(this, context);
             };

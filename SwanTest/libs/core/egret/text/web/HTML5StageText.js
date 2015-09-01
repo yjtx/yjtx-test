@@ -203,14 +203,30 @@ var egret;
                     this.inputElement.value = this.textValue;
                 }
             };
+            __egretProto__.$onBlur = function () {
+                if (web.Html5Capatibility._System_OS == web.SystemOSType.WPHONE) {
+                    egret.Event.dispatchEvent(this, "updateText", false);
+                }
+            };
             /**
              * @private
              *
              */
             __egretProto__._onInput = function () {
                 var self = this;
-                self.textValue = self.inputElement.value;
-                egret.Event.dispatchEvent(self, "updateText", false);
+                if (web.Html5Capatibility._System_OS == web.SystemOSType.WPHONE) {
+                    var values = this.$textfield.$TextField;
+                    if (values[35 /* restrictAnd */] == null && values[36 /* restrictNot */] == null) {
+                        self.textValue = self.inputElement.value;
+                        egret.Event.dispatchEvent(self, "updateText", false);
+                    }
+                }
+                else {
+                    if (self.inputElement.selectionStart == self.inputElement.selectionEnd) {
+                        self.textValue = self.inputElement.value;
+                        egret.Event.dispatchEvent(self, "updateText", false);
+                    }
+                }
             };
             __egretProto__.setAreaHeight = function () {
                 var textfield = this.$textfield;
@@ -287,7 +303,7 @@ var egret;
                     this.setElementStyle("fontWeight", textfield.bold ? "bold" : "normal");
                     this.setElementStyle("textAlign", textfield.textAlign);
                     this.setElementStyle("fontSize", textfield.size * this._gscaleY + "px");
-                    this.setElementStyle("color", egret.sys.toColorString(textfield.textColor));
+                    this.setElementStyle("color", egret.toColorString(textfield.textColor));
                     this.setElementStyle("width", textfield.width * this._gscaleX + "px");
                     this.setElementStyle("verticalAlign", textfield.verticalAlign);
                     if (textfield.multiline) {

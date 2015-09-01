@@ -1,4 +1,4 @@
-﻿class ListNormal extends swan.Group {
+﻿class ListNormal extends eui.Group {
     public constructor() {
         super();
 

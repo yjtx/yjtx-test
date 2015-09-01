@@ -28,6 +28,7 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
+    var SplitRegex = new RegExp("(?=[\\u00BF-\\u1FFF\\u2C00-\\uD7FF]|\\b|\\s)(?![。，！、》…）)}”】\\.\\,\\!\\?\\]\\:])");
     /**
      * @language en_US
      * TextField is the text rendering class of egret. It conducts rendering by using the browser / device API. Due to different ways of font rendering in different browsers / devices, there may be differences in the rendering
@@ -122,7 +123,9 @@ var egret;
                 31: false,
                 32: 0x000000,
                 33: false,
-                34: 0xffffff //backgroundColor
+                34: 0xffffff,
+                35: null,
+                36: null //restrictNot
             };
         }
         var __egretProto__ = TextField.prototype;
@@ -407,7 +410,7 @@ var egret;
                     return;
                 }
                 values[2 /* textColor */] = value;
-                values[11 /* textColorString */] = egret.sys.toColorString(value);
+                values[11 /* textColorString */] = egret.toColorString(value);
                 this.$invalidate();
             },
             enumerable: true,
@@ -853,10 +856,6 @@ var egret;
             configurable: true
         });
         Object.defineProperty(__egretProto__, "multiline", {
-            /**
-             * @version Egret 2.0
-             * @platform Web,Native
-             */
             get: function () {
                 return this.$TextField[30 /* multiline */];
             },
@@ -887,6 +886,91 @@ var egret;
             this.$TextField[30 /* multiline */] = value;
             this.$invalidateTextField();
         };
+        Object.defineProperty(__egretProto__, "restrict", {
+            get: function () {
+                var values = this.$TextField;
+                var str = null;
+                if (values[35 /* restrictAnd */] != null) {
+                    str = values[35 /* restrictAnd */];
+                }
+                if (values[36 /* restrictNot */] != null) {
+                    if (str == null) {
+                        str = "";
+                    }
+                    str += "^" + values[36 /* restrictNot */];
+                }
+                return str;
+            },
+            /**
+             * @language en_US
+             * Indicates a user can enter into the text field character set. If you restrict property is null, you can enter any character. If you restrict property is an empty string, you can not enter any character. If you restrict property is a string of characters, you can enter only characters in the string in the text field. The string is scanned from left to right. You can use a hyphen (-) to specify a range. Only restricts user interaction; a script may put any text into the text field. <br/>
+             * If the string of characters caret (^) at the beginning, all characters are initially accepted, then the string are excluded from receiving ^ character. If the string does not begin with a caret (^) to, any characters are initially accepted and then a string of characters included in the set of accepted characters. <br/>
+             * The following example allows only uppercase characters, spaces, and numbers in the text field: <br/>
+             * My_txt.restrict = "A-Z 0-9"; <br/>
+             * The following example includes all characters except lowercase letters: <br/>
+             * My_txt.restrict = "^ a-z"; <br/>
+             * If you need to enter characters \ ^, use two backslash "\\ -" "\\ ^": <br/>
+             * Can be used anywhere in the string ^ to rule out including characters and switch between characters, but can only be used to exclude a ^. The following code includes only uppercase letters except uppercase Q: <br/>
+             * My_txt.restrict = "A-Z ^ Q"; <br/>
+             * @version Egret 2.4
+             * @platform Web,Native
+             * @default null
+             */
+            /**
+             * @language zh_CN
+             * 表示用户可输入到文本字段中的字符集。如果 restrict 属性的值为 null，则可以输入任何字符。如果 restrict 属性的值为空字符串，则不能输入任何字符。如果 restrict 属性的值为一串字符，则只能在文本字段中输入该字符串中的字符。从左向右扫描该字符串。可以使用连字符 (-) 指定一个范围。只限制用户交互；脚本可将任何文本放入文本字段中。<br/>
+             * 如果字符串以尖号 (^) 开头，则先接受所有字符，然后从接受字符集中排除字符串中 ^ 之后的字符。如果字符串不以尖号 (^) 开头，则最初不接受任何字符，然后将字符串中的字符包括在接受字符集中。<br/>
+             * 下例仅允许在文本字段中输入大写字符、空格和数字：<br/>
+             * my_txt.restrict = "A-Z 0-9";<br/>
+             * 下例包含除小写字母之外的所有字符：<br/>
+             * my_txt.restrict = "^a-z";<br/>
+             * 如果需要输入字符 \ ^，请使用2个反斜杠 "\\-" "\\^" ：<br/>
+             * 可在字符串中的任何位置使用 ^，以在包含字符与排除字符之间进行切换，但是最多只能有一个 ^ 用来排除。下面的代码只包含除大写字母 Q 之外的大写字母：<br/>
+             * my_txt.restrict = "A-Z^Q";<br/>
+             * @version Egret 2.4
+             * @platform Web,Native
+             * @default null
+             */
+            set: function (value) {
+                var values = this.$TextField;
+                if (value == null) {
+                    values[35 /* restrictAnd */] = null;
+                    values[36 /* restrictNot */] = null;
+                }
+                else {
+                    var index = -1;
+                    while (index < value.length) {
+                        index = value.indexOf("^", index);
+                        if (index == 0) {
+                            break;
+                        }
+                        else if (index > 0) {
+                            if (value.charAt(index - 1) != "\\") {
+                                break;
+                            }
+                            index++;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    if (index == 0) {
+                        values[35 /* restrictAnd */] = null;
+                        values[36 /* restrictNot */] = value.substring(index + 1);
+                    }
+                    else if (index > 0) {
+                        values[35 /* restrictAnd */] = value.substring(0, index);
+                        values[36 /* restrictNot */] = value.substring(index + 1);
+                    }
+                    else {
+                        values[35 /* restrictAnd */] = value;
+                        values[36 /* restrictNot */] = null;
+                    }
+                }
+            },
+            enumerable: true,
+            configurable: true
+        });
         /**
          * @private
          *
@@ -1156,6 +1240,7 @@ var egret;
             /**
              * @language zh_CN
              * 设置富文本
+             * @see http://edn.egret.com/cn/index.php/article/index/id/146
              */
             set: function (textArr) {
                 this._isFlow = true;
@@ -1368,7 +1453,7 @@ var egret;
                                 var ww = 0;
                                 var word = textArr[j];
                                 if (this.$TextField[19 /* wordWrap */]) {
-                                    var words = word.split(/\b/);
+                                    var words = word.split(SplitRegex);
                                 }
                                 else {
                                     words = word.match(/./g);
@@ -1442,29 +1527,31 @@ var egret;
          */
         __egretProto__.drawText = function (renderContext) {
             var self = this;
+            var values = this.$TextField;
             //先算出需要的数值
             var lines = self._getLinesArr();
-            if (this.$TextField[5 /* textWidth */] == 0) {
+            if (values[5 /* textWidth */] == 0) {
                 return;
             }
-            var maxWidth = !isNaN(this.$TextField[3 /* textFieldWidth */]) ? this.$TextField[3 /* textFieldWidth */] : this.$TextField[5 /* textWidth */];
+            var maxWidth = !isNaN(values[3 /* textFieldWidth */]) ? values[3 /* textFieldWidth */] : values[5 /* textWidth */];
             var textHeight = egret.TextFieldUtils._getTextHeight(self);
             var drawY = 0;
             var startLine = egret.TextFieldUtils._getStartLine(self);
-            var textFieldHeight = this.$TextField[4 /* textFieldHeight */];
+            var textFieldHeight = values[4 /* textFieldHeight */];
             if (!isNaN(textFieldHeight) && textFieldHeight > textHeight) {
                 var valign = egret.TextFieldUtils._getValign(self);
                 drawY += valign * (textFieldHeight - textHeight);
             }
             drawY = Math.round(drawY);
             var halign = egret.TextFieldUtils._getHalign(self);
+            var underLines = [];
             var drawX = 0;
-            for (var i = startLine, numLinesLength = this.$TextField[29 /* numLines */]; i < numLinesLength; i++) {
+            for (var i = startLine, numLinesLength = values[29 /* numLines */]; i < numLinesLength; i++) {
                 var line = lines[i];
                 var h = line.height;
                 drawY += h / 2;
                 if (i != startLine) {
-                    if (this.$TextField[24 /* type */] == egret.TextFieldType.INPUT && !this.$TextField[30 /* multiline */]) {
+                    if (values[24 /* type */] == egret.TextFieldType.INPUT && !values[30 /* multiline */]) {
                         break;
                     }
                     if (!isNaN(textFieldHeight) && drawY > textFieldHeight) {
@@ -1474,11 +1561,27 @@ var egret;
                 drawX = Math.round((maxWidth - line.width) * halign);
                 for (var j = 0, elementsLength = line.elements.length; j < elementsLength; j++) {
                     var element = line.elements[j];
-                    var size = element.style.size || this.$TextField[0 /* fontSize */];
+                    var size = element.style.size || values[0 /* fontSize */];
                     drawText(renderContext, self, element.text, drawX, drawY + (h - size) / 2, element.width, element.style);
+                    if (element.style.href) {
+                        underLines.push({ "x": drawX, "y": drawY + (h) / 2, "w": element.width, "c": element.style.textColor });
+                    }
                     drawX += element.width;
                 }
-                drawY += h / 2 + this.$TextField[1 /* lineSpacing */];
+                drawY += h / 2 + values[1 /* lineSpacing */];
+            }
+            if (underLines.length > 0) {
+                renderContext.save();
+                renderContext.lineWidth = 1;
+                renderContext.beginPath(); //清理之前的缓存的路径
+                for (var i1 = 0; i1 < underLines.length; i1++) {
+                    var underInfo = underLines[i1];
+                    renderContext.strokeStyle = egret.toColorString(underInfo["c"]) || values[11 /* textColorString */];
+                    renderContext.rect(underInfo["x"], underInfo["y"], underInfo["w"], 1);
+                }
+                renderContext.closePath();
+                renderContext.stroke();
+                renderContext.restore();
             }
         };
         //增加点击事件
@@ -1505,6 +1608,7 @@ var egret;
                     egret.TextEvent.dispatchTextEvent(this, egret.TextEvent.LINK, style.href.substring(type.length));
                 }
                 else {
+                    open(style.href, style.target || "_blank");
                 }
             }
         };
@@ -1603,22 +1707,6 @@ var egret;
             return font;
         }
         sys.toFontString = toFontString;
-        /**
-         * @private
-         * 返回字符串形式的颜色值
-         */
-        function toColorString(value) {
-            if (value < 0)
-                value = 0;
-            if (value > 16777215)
-                value = 16777215;
-            var color = value.toString(16).toUpperCase();
-            while (color.length < 6) {
-                color = "0" + color;
-            }
-            return "#" + color;
-        }
-        sys.toColorString = toColorString;
         if (DEBUG) {
             egret.$markReadOnly(egret.TextField, "numLines");
             egret.$markReadOnly(egret.TextField, "textWidth");

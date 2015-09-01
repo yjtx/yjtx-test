@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -14,13 +14,13 @@ var EditableTextNormal = (function (_super) {
         this.testUrl();
     };
     __egretProto__.testUrl = function () {
-        var ui = new swan.EditableText();
+        var ui = new eui.EditableText();
         ui.width = 300;
         ui.height = 100;
         ui.border = true;
         this.addChild(ui);
     };
     return EditableTextNormal;
-})(swan.Group);
+})(eui.Group);
 EditableTextNormal.prototype.__class__ = "EditableTextNormal";
 egret.registerClass(EditableTextNormal,"EditableTextNormal");

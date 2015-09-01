@@ -12,7 +12,7 @@ class PanelExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-                `<s:Panel title="title panel" xmlns:s="http://ns.egret.com/swan">
+                `<s:Panel title="title panel" xmlns:s="http://ns.egret.com/eui">
                     <s:Skin>
                         <s:Image width="100%" height="100%" source="resource/examples/track.png" scale9Grid="1,1,4,4"/>
                         <s:Group id="moveArea" width="100%" height="40">

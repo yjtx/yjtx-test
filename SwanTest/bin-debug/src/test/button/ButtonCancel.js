@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -18,6 +18,6 @@ var ButtonCancel = (function (_super) {
         this.addChild(ui);
     };
     return ButtonCancel;
-})(swan.Group);
+})(eui.Group);
 ButtonCancel.prototype.__class__ = "ButtonCancel";
 egret.registerClass(ButtonCancel,"ButtonCancel");

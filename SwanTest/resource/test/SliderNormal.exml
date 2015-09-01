@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<s:Group class="components.SliderNormal" width = "100%" height = "100%" xmlns:s="http://ns.egret.com/swan">
+<s:Group class="components.SliderNormal" width = "100%" height = "100%" xmlns:s="http://ns.egret.com/eui">
             <s:HSlider id="hSlider" x="0" verticalCenter="0" width="200"  maximum="100"/>
             <s:Label text="{hSlider.value}" verticalCenter="30" x="0" textColor="0x727070"  fontFamily="Tahoma"/>
 </s:Group>

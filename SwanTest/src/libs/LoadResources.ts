@@ -21,7 +21,7 @@ class LoadResources {
     }
 
     loaded() {
-        new swan.Theme("resource/theme/blue-theme.json", this._stage);
+        new eui.Theme("resource/theme/blue-theme.json", this._stage);
 
         this._callback.call(this._thisObj);
     }

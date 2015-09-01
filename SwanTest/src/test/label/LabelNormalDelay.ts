@@ -1,10 +1,10 @@
 ﻿//declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
 
-class LabelNormalDelay extends swan.Group {
+class LabelNormalDelay extends eui.Group {
     public constructor() {
         super();
 
@@ -16,7 +16,7 @@ class LabelNormalDelay extends swan.Group {
     }
 
     private testUrl():void {
-        var ui = new swan.Label();
+        var ui = new eui.Label();
         ui.text = "11";
         this.addChild(ui);
 

@@ -3,7 +3,7 @@ class ToggleSwitchExample extends egret.DisplayObjectContainer{
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:ToggleButton x="100" y="100">
                     <s:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected">
                         <s:Image source="resource/examples/ToggleSwitch/toggle_switch_off.png" includeIn="up,down"/>

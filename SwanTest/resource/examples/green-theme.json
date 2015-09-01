@@ -1,7 +1,7 @@
 {
   "skins":{
-    "swan.ProgressBar":"resources/ProgressBarSkin.exml",
-    "swan.Panel":"resources/PanelSkin.exml",
-    "swan.Button":"resources/ButtonSkin.exml"
+    "eui.ProgressBar":"resource/examples/ProgressBarSkin.exml",
+    "eui.Panel":"resource/examples/PanelSkin.exml",
+    "eui.Button":"resource/examples/ButtonSkin.exml"
   }
 }

@@ -1,4 +1,4 @@
-﻿class AllExamples extends swan.Group {
+﻿class AllExamples extends eui.Group {
     public constructor() {
         super();
 

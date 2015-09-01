@@ -28,6 +28,17 @@
 //////////////////////////////////////////////////////////////////////////////////////
 var egret;
 (function (egret) {
+    var RuntimeType = (function () {
+        function RuntimeType() {
+        }
+        var __egretProto__ = RuntimeType.prototype;
+        RuntimeType.WEB = "web";
+        RuntimeType.NATIVE = "native";
+        return RuntimeType;
+    })();
+    egret.RuntimeType = RuntimeType;
+    RuntimeType.prototype.__class__ = "egret.RuntimeType";
+    egret.registerClass(RuntimeType,"egret.RuntimeType");
     /**
      * @language en_US
      * The Capabilities class provides properties that describe the system and runtime that are hosting the application.
@@ -136,6 +147,23 @@ var egret;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(Capabilities, "runtimeType", {
+            /**
+             * @language zh_CN
+             * 指示当前的运行类型。runtimeType 属性返回下列字符串：
+             * <ul>
+             * <li>运行在Web上     egret.RuntimeType.WEB</li>
+             * <li>运行在Native上     egret.RuntimeType.NATIVE</li>
+             * </ul>
+             * @version Egret 2.0
+             * @platform Web,Native
+             */
+            get: function () {
+                return Capabilities.$runtimeType;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(Capabilities, "hasGeolocation", {
             /**
              * @language en_US
@@ -201,6 +229,10 @@ var egret;
          * @private
          */
         Capabilities.$os = "Unknown";
+        /**
+         * @private
+         */
+        Capabilities.$runtimeType = "Unknown";
         return Capabilities;
     })();
     egret.Capabilities = Capabilities;
@@ -215,3 +247,18 @@ var egret;
         egret.$markReadOnly(Capabilities, "os", false);
     }
 })(egret || (egret = {}));
+var testDeviceType = function () {
+    if (!this["navigator"]) {
+        return true;
+    }
+    var ua = navigator.userAgent.toLowerCase();
+    return (ua.indexOf('mobile') != -1 || ua.indexOf('android') != -1);
+};
+var testRuntimeType = function () {
+    if (this["navigator"]) {
+        return true;
+    }
+    return false;
+};
+egret.Capabilities.$isMobile = testDeviceType();
+egret.Capabilities.$runtimeType = testRuntimeType() ? egret.RuntimeType.WEB : egret.RuntimeType.NATIVE;

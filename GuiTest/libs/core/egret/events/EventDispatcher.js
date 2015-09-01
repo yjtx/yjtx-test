@@ -136,13 +136,16 @@ var egret;
             else if (values[3 /* notifyLevel */] !== 0) {
                 eventMap[type] = list = list.concat();
             }
+            this.$insertEventBin(list, type, listener, thisObject, useCapture, priority, emitOnce);
+        };
+        __egretProto__.$insertEventBin = function (list, type, listener, thisObject, useCapture, priority, emitOnce) {
             priority = +priority | 0;
             var insertIndex = -1;
             var length = list.length;
             for (var i = 0; i < length; i++) {
                 var bin = list[i];
                 if (bin.listener == listener && bin.thisObject == thisObject && bin.target == this) {
-                    return;
+                    return false;
                 }
                 if (insertIndex == -1 && bin.priority < priority) {
                     insertIndex = i;
@@ -163,6 +166,7 @@ var egret;
             else {
                 list.push(eventBin);
             }
+            return true;
         };
         /**
          * @inheritDoc
@@ -179,17 +183,21 @@ var egret;
             if (values[3 /* notifyLevel */] !== 0) {
                 eventMap[type] = list = list.concat();
             }
+            this.$removeEventBin(list, listener, thisObject);
+            if (list.length == 0) {
+                eventMap[type] = null;
+            }
+        };
+        __egretProto__.$removeEventBin = function (list, listener, thisObject) {
             var length = list.length;
             for (var i = 0; i < length; i++) {
                 var bin = list[i];
                 if (bin.listener == listener && bin.thisObject == thisObject && bin.target == this) {
                     list.splice(i, 1);
-                    break;
+                    return true;
                 }
             }
-            if (list.length == 0) {
-                eventMap[type] = null;
-            }
+            return false;
         };
         /**
          * @inheritDoc

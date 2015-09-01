@@ -4,7 +4,7 @@ class EditablTextExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>
@@ -19,7 +19,7 @@ class EditablTextExample extends egret.DisplayObjectContainer {
             </s:Group>`;
 
         var clazz = EXML.parse(exml);
-        var group:swan.Group = new clazz();
+        var group:eui.Group = new clazz();
         this.addChild(group);
 
     }

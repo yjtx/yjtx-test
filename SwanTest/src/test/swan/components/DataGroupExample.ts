@@ -15,10 +15,10 @@ class DataGroupExample extends egret.DisplayObjectContainer {
     }
 
     private createDataGroupByTypeScript():void {
-        var dataGroup = new swan.DataGroup();
-        dataGroup.layout = new swan.VerticalLayout();
+        var dataGroup = new eui.DataGroup();
+        dataGroup.layout = new eui.VerticalLayout();
         dataGroup.itemRenderer = LabelRender;
-        var collection = new swan.ArrayCollection();
+        var collection = new eui.ArrayCollection();
         collection.addItem({"label": "1", "color": 0xcc9999});
         collection.addItem({"label": "2", "color": 0xff9966});
         collection.addItem({"label": "3", "color": 0xcc3333});
@@ -31,7 +31,7 @@ class DataGroupExample extends egret.DisplayObjectContainer {
 
     private createDataGroupByEXML():void {
         var exml =
-            `<s:DataGroup class="Example.DataGroup" xmlns:s="http://ns.egret.com/swan" x="300" y="50">
+            `<s:DataGroup class="Example.DataGroup" xmlns:s="http://ns.egret.com/eui" x="300" y="50">
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>
@@ -50,18 +50,18 @@ class DataGroupExample extends egret.DisplayObjectContainer {
                 </s:ArrayCollection>
             </s:DataGroup>`;
         var clazz = EXML.parse(exml);
-        var dataGroup2:swan.DataGroup = new clazz();
+        var dataGroup2:eui.DataGroup = new clazz();
         this.addChild(dataGroup2);
     }
 }
 
-class LabelRender extends swan.ItemRenderer {
+class LabelRender extends eui.ItemRenderer {
 
-    private label:swan.Label;
+    private label:eui.Label;
 
     public constructor() {
         super();
-        this.label = new swan.Label();
+        this.label = new eui.Label();
         this.addChild(this.label);
     }
 

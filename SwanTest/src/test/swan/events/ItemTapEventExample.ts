@@ -9,22 +9,22 @@
 class ItemTapEventExample extends egret.DisplayObjectContainer {
     constructor() {
         super();
-        var list = new swan.List();
-        var arr = new swan.ArrayCollection(["a1", "a2", "a3", "a4", "a5", "a6"]);
+        var list = new eui.List();
+        var arr = new eui.ArrayCollection(["a1", "a2", "a3", "a4", "a5", "a6"]);
         list.dataProvider = arr;
         list.itemRenderer = IR_ItemTapEvent;
         this.addChild(list);
-        list.addEventListener(swan.ItemTapEvent.ITEM_TAP, this.onItemTapHandler, this);
+        list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onItemTapHandler, this);
     }
-    private onItemTapHandler(e: swan.ItemTapEvent): void {
+    private onItemTapHandler(e: eui.ItemTapEvent): void {
         console.log(e.item, e.itemRenderer, e.itemIndex)
     }
 }
-class IR_ItemTapEvent extends swan.ItemRenderer {
-    private label: swan.Label;
+class IR_ItemTapEvent extends eui.ItemRenderer {
+    private label: eui.Label;
     constructor() {
         super();
-        this.label = new swan.Label();
+        this.label = new eui.Label();
         this.addChild(this.label);
     }
     protected dataChanged(): void {

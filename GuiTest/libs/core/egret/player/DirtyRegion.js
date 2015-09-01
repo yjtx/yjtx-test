@@ -144,7 +144,7 @@ var egret;
                 var dirtyList = this.dirtyList;
                 if (this.clipRectChanged) {
                     //todo 现在为全部dirty
-                    if (egret.MainContext.runtimeType != egret.MainContext.RUNTIME_NATIVE) {
+                    if (egret.Capabilities.runtimeType != egret.RuntimeType.NATIVE) {
                         this.clipRectChanged = false;
                     }
                     this.clear();

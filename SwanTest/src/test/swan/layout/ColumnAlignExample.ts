@@ -14,13 +14,13 @@ class ColumnAlignExample extends egret.Sprite {
     }
 
     private init(): void {
-        var arrAlign = [swan.ColumnAlign.LEFT, swan.ColumnAlign.JUSTIFY_USING_GAP, swan.ColumnAlign.JUSTIFY_USING_WIDTH];
+        var arrAlign = [eui.ColumnAlign.LEFT, eui.ColumnAlign.JUSTIFY_USING_GAP, eui.ColumnAlign.JUSTIFY_USING_WIDTH];
         for (var i = 0, max = arrAlign.length; i < max; i++) {
-            var group = new swan.Group();
+            var group = new eui.Group();
             group.width = 500;
             group.y = i*120;
             this.addChild(group);
-            var layout = new swan.TileLayout();
+            var layout = new eui.TileLayout();
             layout.columnAlign = arrAlign[i];
             group.layout = layout;
             var txt = this.getTxt(arrAlign[i]);
@@ -39,14 +39,14 @@ class ColumnAlignExample extends egret.Sprite {
         txt.textColor = 0xffffff;
         return txt;
     }
-    private getButton(): swan.Button {
+    private getButton(): eui.Button {
         var exml =
-        `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:s="http://ns.egret.com/swan">
+        `<s:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:s="http://ns.egret.com/eui">
             <s:Image source="resource/examples/button_up.png" source.down="resource/examples/button_down.png" scale9Grid="1,3,8,8" width="100%" height="100%"/>
             <s:Label id="labelDisplay" top="8" bottom="8" left="8" right="8" size="20" fontFamily="Tahoma" textColor="0xFFFFFF" verticalAlign="middle" textAlign="center"/>
         </s:Skin>`;
         var clazz = EXML.parse(exml);
-        var btn = new swan.Button();
+        var btn = new eui.Button();
         btn.skinName = "skins.ButtonSkin";
         return btn;
     }

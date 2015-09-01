@@ -12,7 +12,7 @@ class ItemRendererExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:DataGroup class="Example.DataGroup" xmlns:s="http://ns.egret.com/swan" x="300" y="50">
+            `<s:DataGroup class="Example.DataGroup" xmlns:s="http://ns.egret.com/eui" x="300" y="50">
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>
@@ -32,7 +32,7 @@ class ItemRendererExample extends egret.DisplayObjectContainer {
             </s:DataGroup>`;
 
         var clazz = EXML.parse(exml);
-        var dataGroup:swan.DataGroup = new clazz();
+        var dataGroup:eui.DataGroup = new clazz();
         this.addChild(dataGroup);
     }
 }

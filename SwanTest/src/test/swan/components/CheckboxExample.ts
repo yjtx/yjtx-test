@@ -1,11 +1,11 @@
 ﻿
 
-class CheckboxExample extends swan.Group {
+class CheckboxExample extends eui.Group {
     constructor() {
         super();
 
         var checkboxSkin = 
-            `<s:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:s="http://ns.egret.com/swan">
+            `<s:Skin states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:s="http://ns.egret.com/eui">
                 <s:Group width="100%" height="100%">
                     <s:layout>
                         <s:HorizontalLayout verticalAlign="middle"/>
@@ -21,7 +21,7 @@ class CheckboxExample extends swan.Group {
                 </s:Group>
             </s:Skin>`;
 
-        var checkbox = new swan.CheckBox();
+        var checkbox = new eui.CheckBox();
 
         //组件可以接受：皮肤类定义,皮肤类名,皮肤实例,EXML文件内容,或外部EXML文件路径作为 skinName 的值
         //这里我们直接用 EXML 内容作为 skinName

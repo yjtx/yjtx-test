@@ -132,8 +132,7 @@ var egret;
                 return child;
             }
             if (host) {
-                var lastIdx = host.$children.indexOf(child);
-                host.$doRemoveChild(lastIdx);
+                host.removeChild(child);
             }
             this.$children.splice(index, 0, child);
             child.$setParent(this);

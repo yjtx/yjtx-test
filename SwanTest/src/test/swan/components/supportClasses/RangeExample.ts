@@ -1,18 +1,18 @@
 ﻿
 /**
  * @language en_US
- * The following example shows how to extend swan.Range to a instrumentation style Component
+ * The following example shows how to extend eui.Range to a instrumentation style Component
  */
 /**
  * @language zh_CN
- * 下面的例子显示了如何实现一个仪表效果的 swan.Range 组件
+ * 下面的例子显示了如何实现一个仪表效果的 eui.Range 组件
  */
-class RangeViewer extends swan.Range {
-    pointer: swan.Image;
+class RangeViewer extends eui.Range {
+    pointer: eui.Image;
     constructor() {
         super();
         this.skinName =
-        `<s:Skin class="skins.RangeViewerSkin" minWidth="30" minHeight="18" xmlns:s="http://ns.egret.com/swan">
+        `<s:Skin class="skins.RangeViewerSkin" minWidth="30" minHeight="18" xmlns:s="http://ns.egret.com/eui">
 	        <s:Image x="0" y="0" source="resource/examples/range-background.png"/>
 	        <s:Image id="pointer" x="60" y="60" source="resource/examples/pointer.png"/>
         </s:Skin>`;
@@ -25,7 +25,7 @@ class RangeViewer extends swan.Range {
     }
 }
 
-class RangeExample extends swan.Group {
+class RangeExample extends eui.Group {
     constructor() {
         super();
         

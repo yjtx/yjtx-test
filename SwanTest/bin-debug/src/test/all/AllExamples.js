@@ -20,6 +20,6 @@ var AllExamples = (function (_super) {
         this.addChild(ui);
     };
     return AllExamples;
-})(swan.Group);
+})(eui.Group);
 AllExamples.prototype.__class__ = "AllExamples";
 egret.registerClass(AllExamples,"AllExamples");

@@ -1,10 +1,10 @@
 ﻿//declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
 
-class LabelNormal extends swan.Group {
+class LabelNormal extends eui.Group {
     public constructor() {
         super();
 
@@ -16,7 +16,7 @@ class LabelNormal extends swan.Group {
     }
 
     private testUrl():void {
-        var ui = new swan.Label();
+        var ui = new eui.Label();
         ui.text = "sdfsdf";
         this.addChild(ui);
     }

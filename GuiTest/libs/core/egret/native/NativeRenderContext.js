@@ -566,7 +566,8 @@ var egret;
              */
             __egretProto__.fillText = function (text, x, y, maxWidth) {
                 //console.log("drawText" + text);
-                egret_native.Label.createLabel(egret.TextField.default_fontFamily, this.$fontSize, "", this.$hasStrokeText ? this.$lineWidth : 0);
+                var font = egret.TextField.default_fontFamily;
+                egret_native.Label.createLabel(font, this.$fontSize, "", this.$hasStrokeText ? this.$lineWidth : 0);
                 this.$hasStrokeText = false;
                 egret_native.Label.drawText(text, x, y);
             };
@@ -580,7 +581,8 @@ var egret;
              * @platform Web,Native
              */
             __egretProto__.measureText = function (text) {
-                egret_native.Label.createLabel(egret.TextField.default_fontFamily, this.$fontSize, "", this.$hasStrokeText ? this.$lineWidth : 0);
+                var font = egret.TextField.default_fontFamily;
+                egret_native.Label.createLabel(font, this.$fontSize, "", this.$hasStrokeText ? this.$lineWidth : 0);
                 return { width: egret_native.Label.getTextSize(text)[0] };
             };
             /**

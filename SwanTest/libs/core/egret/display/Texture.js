@@ -175,6 +175,25 @@ var egret;
         __egretProto__.$getScaleBitmapHeight = function () {
             return this._bitmapHeight * egret.$TextureScaleFactor;
         };
+        Object.defineProperty(__egretProto__, "bitmapData", {
+            /**
+             * @language en_US
+             * The BitmapData object being referenced.
+             * @version Lark 1.0
+             * @platform Web,Native
+             */
+            /**
+             * @language zh_CN
+             * 被引用的 BitmapData 对象。
+             * @version Lark 1.0
+             * @platform Web,Native
+             */
+            get: function () {
+                return this._bitmapData;
+            },
+            enumerable: true,
+            configurable: true
+        });
         /**
          * @private
          *
@@ -229,11 +248,10 @@ var egret;
          * @param y {number} 像素点的Y轴坐标
          * @returns {number} 指定像素点的颜色值
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         __egretProto__.getPixel32 = function (x, y) {
-            var result = this._bitmapData.getContext("2d").getImageData(x, y, 1, 1);
-            return result.data;
+            throw new Error();
         };
         /**
          * @language en_US
@@ -291,8 +309,41 @@ var egret;
          * @platform Web,Native
          */
         __egretProto__.dispose = function () {
-            egret.ImageLoader.disposeBitmapData(this._bitmapData);
+            throw new Error();
         };
+        Texture.$addDisplayObject = function (displayObject, bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
+            if (!Texture._displayList[hashCode]) {
+                Texture._displayList[hashCode] = [displayObject];
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            if (tempList.indexOf(displayObject) < 0) {
+                tempList.push(displayObject);
+            }
+        };
+        Texture.$removeDisplayObject = function (displayObject, bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
+            if (!Texture._displayList[hashCode]) {
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            var index = tempList.indexOf(displayObject);
+            if (index >= 0) {
+                tempList.splice(index);
+            }
+        };
+        Texture.$invalidate = function (bitmapDataHashCode) {
+            var hashCode = bitmapDataHashCode;
+            if (!Texture._displayList[hashCode]) {
+                return;
+            }
+            var tempList = Texture._displayList[hashCode];
+            for (var i = 0; i < tempList.length; i++) {
+                tempList[i].$invalidateContentBounds();
+            }
+        };
+        Texture._displayList = {};
         return Texture;
     })(egret.HashObject);
     egret.Texture = Texture;

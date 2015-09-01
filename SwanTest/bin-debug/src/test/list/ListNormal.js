@@ -13,6 +13,6 @@ var ListNormal = (function (_super) {
         this.addChild(ui);
     };
     return ListNormal;
-})(swan.Group);
+})(eui.Group);
 ListNormal.prototype.__class__ = "ListNormal";
 egret.registerClass(ListNormal,"ListNormal");

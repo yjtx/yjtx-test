@@ -73,7 +73,6 @@ var egret;
                 this.updateScreenSize();
                 this.updateMaxTouches();
                 player.start();
-                egret.MainContext.instance.stage = stage;
             };
             /**
              * 读取初始化参数

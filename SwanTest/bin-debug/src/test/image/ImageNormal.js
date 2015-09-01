@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -18,6 +18,6 @@ var ImageNormal = (function (_super) {
         this.addChild(ui);
     };
     return ImageNormal;
-})(swan.Group);
+})(eui.Group);
 ImageNormal.prototype.__class__ = "ImageNormal";
 egret.registerClass(ImageNormal,"ImageNormal");

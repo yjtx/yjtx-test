@@ -113,12 +113,13 @@ var egret;
          */
         __egretProto__.$onAddToStage = function (stage, nestLevel) {
             _super.prototype.$onAddToStage.call(this, stage, nestLevel);
-            if (this.$bitmapData) {
-                if (this.$bitmapData instanceof egret.Texture) {
-                    egret.Texture.$addDisplayObject(this, this.$bitmapData._bitmapData.hashCode);
+            var bitmapData = this.$Bitmap[0 /* bitmapData */];
+            if (bitmapData) {
+                if (bitmapData instanceof egret.Texture) {
+                    egret.Texture.$addDisplayObject(this, bitmapData._bitmapData.hashCode);
                 }
                 else {
-                    egret.Texture.$addDisplayObject(this, this.$bitmapData.hashCode);
+                    egret.Texture.$addDisplayObject(this, bitmapData.hashCode);
                 }
             }
         };
@@ -128,12 +129,13 @@ var egret;
          */
         __egretProto__.$onRemoveFromStage = function () {
             _super.prototype.$onRemoveFromStage.call(this);
-            if (this.$bitmapData) {
-                if (this.$bitmapData instanceof egret.Texture) {
-                    egret.Texture.$removeDisplayObject(this, this.$bitmapData._bitmapData.hashCode);
+            var bitmapData = this.$Bitmap[0 /* bitmapData */];
+            if (bitmapData) {
+                if (bitmapData instanceof egret.Texture) {
+                    egret.Texture.$removeDisplayObject(this, bitmapData._bitmapData.hashCode);
                 }
                 else {
-                    egret.Texture.$removeDisplayObject(this, this.$bitmapData.hashCode);
+                    egret.Texture.$removeDisplayObject(this, bitmapData.hashCode);
                 }
             }
         };
@@ -365,8 +367,8 @@ var egret;
          * @private
          */
         __egretProto__.$measureContentBounds = function (bounds) {
-            var bitmapData = this.$bitmapData;
-            if (bitmapData) {
+            var values = this.$Bitmap;
+            if (values[1 /* image */]) {
                 var values = this.$Bitmap;
                 var w = !isNaN(values[11 /* explicitBitmapWidth */]) ? values[11 /* explicitBitmapWidth */] : values[8 /* width */];
                 var h = !isNaN(values[12 /* explicitBitmapHeight */]) ? values[12 /* explicitBitmapHeight */] : values[9 /* height */];
@@ -380,12 +382,11 @@ var egret;
          * @private
          */
         __egretProto__.$render = function (context) {
-            var bitmapData = this.$bitmapData;
-            if (bitmapData) {
-                var values = this.$Bitmap;
+            var values = this.$Bitmap;
+            if (values[1 /* image */]) {
                 var destW = !isNaN(values[11 /* explicitBitmapWidth */]) ? values[11 /* explicitBitmapWidth */] : values[8 /* width */];
                 var destH = !isNaN(values[12 /* explicitBitmapHeight */]) ? values[12 /* explicitBitmapHeight */] : values[9 /* height */];
-                Bitmap.$drawImage(context, bitmapData._bitmapData, bitmapData._bitmapX, bitmapData._bitmapY, bitmapData._bitmapWidth, bitmapData._bitmapHeight, bitmapData._offsetX, bitmapData._offsetY, bitmapData.$getTextureWidth(), bitmapData.$getTextureHeight(), destW, destH, this.scale9Grid, this.fillMode, this.$smoothing);
+                Bitmap.$drawImage(context, values[1 /* image */], values[2 /* clipX */], values[3 /* clipY */], values[4 /* clipWidth */], values[5 /* clipHeight */], values[6 /* offsetX */], values[7 /* offsetY */], values[8 /* width */], values[9 /* height */], destW, destH, this.scale9Grid, this.fillMode, this.$smoothing);
             }
         };
         Object.defineProperty(__egretProto__, "pixelHitTest", {

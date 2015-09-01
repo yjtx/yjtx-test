@@ -1,10 +1,10 @@
 ﻿//declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
 
-class EditableTextSkinNormal extends swan.Group {
+class EditableTextSkinNormal extends eui.Group {
     public constructor() {
         super();
 

@@ -4,7 +4,7 @@ class ListExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Scroller xmlns:s="http://ns.egret.com/swan">
+            `<s:Scroller xmlns:s="http://ns.egret.com/eui">
                 <s:List id="list" width="200" height="400">
                     <s:itemRenderer>
                         <s:ItemRenderer states="up,down,disabled" height="50">
@@ -17,8 +17,8 @@ class ListExample extends egret.DisplayObjectContainer {
         var clazz = EXML.parse(exml);
         var scroller = new clazz();
         this.addChild(scroller);
-        var list:swan.List = scroller.list;
-        var collection = new swan.ArrayCollection();
+        var list:eui.List = scroller.list;
+        var collection = new eui.ArrayCollection();
         for(var i = 0; i < 20; i ++)
         {
             collection.addItem({"label":"文本" + i});

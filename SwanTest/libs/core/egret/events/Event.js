@@ -645,19 +645,6 @@ var egret;
         Event.LOOP_COMPLETE = "loopComplete";
         /**
          * @language en_US
-         * Emitted when the net request is failed.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 网络请求加载失败
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        Event.IO_ERROR = "ioError";
-        /**
-         * @language en_US
          * Emitted when the TextInput instance gets focus.
          * @version Egret 2.0
          * @platform Web,Native
@@ -697,39 +684,40 @@ var egret;
         Event.ENDED = "ended";
         /**
          * 游戏激活
-         * @constant {string} egret.Event.ACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         Event.ACTIVATE = "activate";
         /**
          * 取消激活
-         * @constant {string} egret.Event.DEACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         Event.DEACTIVATE = "deactivate";
         /**
          * Event.CLOSE 常量定义 close 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CLOSE
          * @version Egret 2.0
          * @platform Web,Native
          */
         Event.CLOSE = "close";
         /**
          * Event.CONNECT 常量定义 connect 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         Event.CONNECT = "connect";
         /**
          * Event.LEAVE_STAGE 常量定义 leaveStage 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         Event.LEAVE_STAGE = "leaveStage";
+        /**
+         * Event.SOUND_COMPLETE 常量定义 在声音完成播放后调度。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        Event.SOUND_COMPLETE = "soundComplete";
         return Event;
     })(egret.HashObject);
     egret.Event = Event;

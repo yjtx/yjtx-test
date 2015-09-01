@@ -4,7 +4,7 @@ class HScrollBarExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:Image width="400" height="100" source="resource/examples/selected.png" scale9Grid="1,1,4,4"/>
                 <s:Scroller >
                     <s:Skin>

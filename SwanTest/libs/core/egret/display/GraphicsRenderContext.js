@@ -198,7 +198,7 @@ var egret;
             },
             set: function (value) {
                 if (typeof value == "number") {
-                    value = egret.sys.toColorString(value);
+                    value = egret.toColorString(value);
                 }
                 this._fillStyle = value;
                 this.pushCommand(5 /* fillStyle */, arguments);
@@ -287,7 +287,7 @@ var egret;
             },
             set: function (value) {
                 if (typeof value == "number") {
-                    value = egret.sys.toColorString(value);
+                    value = egret.toColorString(value);
                 }
                 this._strokeStyle = value;
                 this.pushCommand(4 /* strokeStyle */, arguments);

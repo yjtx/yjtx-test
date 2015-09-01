@@ -12,7 +12,7 @@ class ScrollerExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:Image width="200" height="400" source="resource/examples/selected.png" scale9Grid="1,1,4,4"/>
                 <s:Scroller >
                     <s:Skin>

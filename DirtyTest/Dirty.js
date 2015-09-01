@@ -12,7 +12,7 @@ var examples = {
     "CacheAsBitmap": ["ParentSizeZero"],
     "DB": ["Normal", "Role"],
     "MovieClip": ["Normal", "ClickSimpleMore", "ClickCrossMore"],
-    "Event": ["StageADDAndREMOVE"],
+    "Event": ["StageADDAndREMOVE", "StageRESIZE"],
     "Touch": ["Bitmap", "Graphics", "Container", "ReleaseOutSide", "HideClick"],
     "Graphics": ["DrawArc"],
     "Mask": ["MaskRect", "ScrollRect", "DisplayObject", "CircleGraphics"],

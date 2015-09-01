@@ -31,6 +31,9 @@ var egret;
     var native;
     (function (native) {
         var callBackDic = {};
+        /**
+         * @private
+         */
         var NativeExternalInterface = (function () {
             function NativeExternalInterface() {
             }
@@ -66,7 +69,6 @@ var egret;
             }
         }
         egret.ExternalInterface = NativeExternalInterface;
-        //todo
         egret_native.receivedPluginInfo = onReceivedPluginInfo;
     })(native = egret.native || (egret.native = {}));
 })(egret || (egret = {}));

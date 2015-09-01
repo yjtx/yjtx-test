@@ -226,7 +226,7 @@ var egret;
          * @private
          * Ticker以60FPS频率刷新此方法
          */
-        __egretProto__.$update = function (advancedTime) {
+        __egretProto__.$update = function (timeStamp) {
             this.lastCount -= 1000;
             if (this.lastCount > 0) {
                 return true;

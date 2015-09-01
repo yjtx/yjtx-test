@@ -29,28 +29,66 @@
 var RES;
 (function (RES) {
     /**
-     * @class RES.ResourceItem
-     * @classdesc
+     * @language en_US
+     * Resource term. One of the resources arrays in resource.json.
+     * @version Egret 2.4
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * 资源项。对应 resource.json 中 resources 数组中的一项。
+     * @version Egret 2.4
+     * @platform Web,Native
      */
     var ResourceItem = (function () {
         /**
-         * 构造函数
-         * @method RES.ResourceItem#constructor
-         * @param name {string} 加载项名称
-         * @param url {string} 要加载的文件地址
-         * @param type {string} 加载项文件类型
+         * @language en_US
+         * Constructor.
+         * @param name Name of resource term.
+         * @param url URL of resource term.
+         * @param type Type of resource term.
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @private
+         */
+        /**
+         * @language zh_CN
+         * 构造函数。
+         * @param name 加载项名称。
+         * @param url 要加载的文件地址。
+         * @param type 加载项文件类型。
+         * @version Egret 2.4
+         * @platform Web,Native
          * @private
          */
         function ResourceItem(name, url, type) {
             /**
-             * 所属组名
-             * @member {string} RES.ResourceItem#groupName
+             * @language en_US
+             * Name of the resource term group.
+             * @version Egret 2.4
+             * @platform Web,Native
+             * @private
+             */
+            /**
+             * @language zh_CN
+             * 资源所属的组名。
+             * @version Egret 2.4
+             * @platform Web,Native
              * @private
              */
             this.groupName = "";
             /**
-             * 被引用的原始数据对象
-             * @member {any} RES.ResourceItem#data
+             * @language en_US
+             * The raw data object to be referenced.
+             * @version Egret 2.4
+             * @platform Web,Native
+             * @private
+             */
+            /**
+             * @language zh_CN
+             * 被引用的原始数据对象。
+             * @version Egret 2.4
+             * @platform Web,Native
              * @private
              */
             this.data = null;
@@ -62,8 +100,17 @@ var RES;
         var __egretProto__ = ResourceItem.prototype;
         Object.defineProperty(__egretProto__, "loaded", {
             /**
-             * 加载完成的标志
-             * @member {boolean} RES.ResourceItem#loaded
+             * @language en_US
+             * Load complete flag.
+             * @version Egret 2.4
+             * @platform Web,Native
+             * @private
+             */
+            /**
+             * @language zh_CN
+             * 加载完成的标志。
+             * @version Egret 2.4
+             * @platform Web,Native
              * @private
              */
             get: function () {
@@ -78,52 +125,126 @@ var RES;
             configurable: true
         });
         /**
-         * 转成字符串
-         * @method RES.ResourceItem#toString
-         * @returns {string}
+         * @language en_US
+         * Turn into a string.
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @private
+         */
+        /**
+         * @language zh_CN
+         * 转成字符串。
+         * @version Egret 2.4
+         * @platform Web,Native
          * @private
          */
         __egretProto__.toString = function () {
             return "[ResourceItem name=\"" + this.name + "\" url=\"" + this.url + "\" type=\"" + this.type + "\"]";
         };
         /**
-         * XML文件
-         * @constant {string} RES.ResourceItem.TYPE_XML
+         * @language en_US
+         * XML file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * XML 文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_XML = "xml";
         /**
-         * 图片文件
-         * @constant {string} RES.ResourceItem.TYPE_IMAGE
+         * @language en_US
+         * Picture file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 图片文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_IMAGE = "image";
         /**
-         * 二进制流文件
-         * @constant {string} RES.ResourceItem.TYPE_BIN
+         * @language en_US
+         * Binary file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 二进制文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_BIN = "bin";
         /**
-         * 文本文件(解析为字符串)
-         * @constant {string} RES.ResourceItem.TYPE_TEXT
+         * @language en_US
+         * Text file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 文本文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_TEXT = "text";
         /**
-         * JSON文件
-         * @constant {string} RES.ResourceItem.TYPE_JSON
+         * @language en_US
+         * JSON file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * JSON 文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_JSON = "json";
         /**
-         * SpriteSheet文件
-         * @constant {string} RES.ResourceItem.TYPE_SHEET
+         * @language en_US
+         * SpriteSheet file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * SpriteSheet 文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_SHEET = "sheet";
         /**
-         * BitmapTextSpriteSheet文件
-         * @constant {string} RES.ResourceItem.TYPE_FONT
+         * @private
+         * @language en_US
+         * BitmapTextSpriteSheet file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @private
+         * @language zh_CN
+         * BitmapTextSpriteSheet 文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_FONT = "font";
         /**
-         * 声音文件
-         * @constant {string} RES.ResourceItem.TYPE_SOUND
+         * @language en_US
+         * Sound file.
+         * @version Egret 2.4
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 声音文件。
+         * @version Egret 2.4
+         * @platform Web,Native
          */
         ResourceItem.TYPE_SOUND = "sound";
         return ResourceItem;

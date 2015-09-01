@@ -12,26 +12,26 @@ class DirectionExample extends egret.DisplayObjectContainer {
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
 
     }
-    private progress_LTR: swan.ProgressBar;
-    private progress_RTL: swan.ProgressBar;
-    private progress_TTB: swan.ProgressBar;
-    private progress_BTT: swan.ProgressBar;
+    private progress_LTR: eui.ProgressBar;
+    private progress_RTL: eui.ProgressBar;
+    private progress_TTB: eui.ProgressBar;
+    private progress_BTT: eui.ProgressBar;
     private init(): void {
         this.progress_LTR = this.getProgressBar();
-        this.progress_LTR.direction = swan.Direction.LTR;
+        this.progress_LTR.direction = eui.Direction.LTR;
         this.progress_LTR.width = 200;
         this.addChild(this.progress_LTR);
 
         this.progress_RTL = this.getProgressBar();
         this.progress_RTL.y = 50;
-        this.progress_RTL.direction = swan.Direction.RTL;
+        this.progress_RTL.direction = eui.Direction.RTL;
         this.progress_RTL.width = 200;
         this.addChild(this.progress_RTL);
 
         this.progress_TTB = this.getProgressBar();
         this.progress_TTB.width = 60;
         this.progress_TTB.y = 100;
-        this.progress_TTB.direction = swan.Direction.TTB;
+        this.progress_TTB.direction = eui.Direction.TTB;
         this.progress_TTB.height = 200;
         this.addChild(this.progress_TTB);
 
@@ -39,7 +39,7 @@ class DirectionExample extends egret.DisplayObjectContainer {
         this.progress_BTT.width = 60;
         this.progress_BTT.x = 100;
         this.progress_BTT.y = 100;
-        this.progress_BTT.direction = swan.Direction.BTT;
+        this.progress_BTT.direction = eui.Direction.BTT;
         this.progress_BTT.height = 200;
         this.addChild(this.progress_BTT);
 
@@ -59,15 +59,15 @@ class DirectionExample extends egret.DisplayObjectContainer {
         if (this.progress_BTT.value >= 100) this.progress_BTT.value = 0;
         //this.getProgressBar();
     }
-    private getProgressBar(): swan.ProgressBar {
+    private getProgressBar(): eui.ProgressBar {
         var exml =
-        `<s:Skin class="skins.ProgressBarSkin" xmlns:s="http://ns.egret.com/swan" minWidth="30" minHeight="18">
+        `<s:Skin class="skins.ProgressBarSkin" xmlns:s="http://ns.egret.com/eui" minWidth="30" minHeight="18">
             <s:Image source="resource/examples/track.png" scale9Grid="1,1,4,4" width="100%" height="100%" verticalCenter="0"/>
             <s:Image id="thumb" height="100%" width="100%" source="resource/examples/thumb.png"/>
             <s:Label id="labelDisplay" textAlign="center" verticalAlign="middle" size="15" fontFamily="Tahoma" textColor="0x707070" horizontalCenter="0" verticalCenter="0"/>
         </s:Skin>`;
         var clazz = EXML.parse(exml);
-        var bar = new swan.ProgressBar();
+        var bar = new eui.ProgressBar();
         bar.skinName = "skins.ProgressBarSkin";
         return bar;
     }

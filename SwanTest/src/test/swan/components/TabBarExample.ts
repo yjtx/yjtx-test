@@ -4,7 +4,7 @@ class TabBarExample extends egret.DisplayObjectContainer {
         super();
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:TabBar dataProvider="{viewStack}">
                     <s:layout>
                         <s:HorizontalLayout gap="20"/>

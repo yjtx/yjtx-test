@@ -178,7 +178,7 @@ var egret;
          * @returns
          */
         __egretProto__.getHeadReg = function () {
-            return /^(color|textcolor|strokecolor|stroke|b|bold|i|italic|size|fontfamily|href)(\s)*=/;
+            return /^(color|textcolor|strokecolor|stroke|b|bold|i|italic|size|fontfamily|href|target)(\s)*=/;
         };
         /**
          * @private
@@ -217,6 +217,9 @@ var egret;
                     break;
                 case "href":
                     info.href = this.replaceSpecial(value);
+                    break;
+                case "target":
+                    info.target = this.replaceSpecial(value);
                     break;
             }
         };

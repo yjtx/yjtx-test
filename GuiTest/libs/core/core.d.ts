@@ -45,7 +45,7 @@ declare module egret {
      * @param classDefinition the class definition to be registered.
      * @param className  a unique identification string of the specific class
      * @param interfaceNames a list of unique identification string of the specific interfaces.
-     * @version Lark 1.0
+     * @version Egret 2.4
      * @platform Web,Native
      */
     /**
@@ -66,7 +66,7 @@ declare module egret {
      * @param classDefinition 要注册的类定义。
      * @param className 要注册的类名。
      * @param interfaceNames 要注册的类所实现的接口名列表。
-     * @version Lark 1.0
+     * @version Egret 2.4
      * @platform Web,Native
      */
     function registerClass(classDefinition: any, className: string, interfaceNames?: string[]): void;
@@ -191,6 +191,7 @@ declare var egret_sin_map: {};
 declare var egret_cos_map: {};
 declare var DEG_TO_RAD: number;
 
+/// <reference path="registerClass.d.ts" />
 declare module egret {
     /**
      * @private
@@ -379,7 +380,6 @@ declare module egret {
         constructor(buffer?: ArrayBuffer);
         /**
          * @private
-         *
          * @param buffer
          */
         private _setArrayBuffer(buffer);
@@ -401,6 +401,9 @@ declare module egret {
          * @private
          */
         dataView: DataView;
+        /**
+         * @private
+         */
         bufferOffset: number;
         /**
          * @language en_US
@@ -809,11 +812,11 @@ declare module egret {
          */
         _writeUint8Array(bytes: Uint8Array, validateBuffer?: boolean): void;
         /**
-         *
          * @param len
          * @returns
          * @version Egret 2.0
          * @platform Web,Native
+         * @private
          */
         validate(len: number): boolean;
         /**********************/
@@ -963,231 +966,6 @@ declare module egret {
      * @includeExample egret/utils/getQualifiedSuperclassName.ts
      */
     function getQualifiedSuperclassName(value: any): string;
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * Injector
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/Injector.ts
-     */
-    /**
-     * @language zh_CN
-     * 注入器
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/Injector.ts
-     */
-    class Injector {
-        /**
-         * @private
-         * 储存类的映射规则
-         */
-        private static mapClassDic;
-        /**
-         * @language en_US
-         * Conduct mapping injection with class definition as the value. It will be instantiated only when it's singleton is requested for the first time by using getInstance ().
-         * @param whenAskedFor {any} whenAskedFor passes class definition or fully qualified name of the class as the key to map.
-         * @param instantiateClass {any} instantiateClass passes the class as a value to be mapped, and its constructor function must be empty. If not empty, use Injector.mapValue () method to directly inject the instance.
-         * @param named {string} named, optional parameter. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings. Import the same parameters when calling getInstance () method.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 以类定义为值进行映射注入，当第一次用getInstance()请求它的单例时才会被实例化。
-         * @param whenAskedFor {any} whenAskedFor 传递类定义或类完全限定名作为需要映射的键。
-         * @param instantiateClass {any} instantiateClass 传递类作为需要映射的值，它的构造函数必须为空。若不为空，请使用Injector.mapValue()方法直接注入实例。
-         * @param named {string} named 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。在调用getInstance()方法时要传入同样的参数。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static mapClass(whenAskedFor: any, instantiateClass: any, named?: string): void;
-        /**
-         * @private
-         * 获取完全限定类名
-         */
-        private static getKey(hostComponentKey);
-        /**
-         * @private
-         */
-        private static mapValueDic;
-        /**
-         * @language en_US
-         * Conduct mapping injection with instance as the value, and always return this injected instance when a singleton is requested by using getInstance ().
-         * @param whenAskedFor {any} Pass class definition or fully qualified name of the class as the key to map.
-         * @param useValue {any} Pass object instance as a value to be mapped.
-         * @param named {string} Optional. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings. Import the same parameters when calling getInstance () method.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 以实例为值进行映射注入,当用getInstance()请求单例时始终返回注入的这个实例。
-         * @param whenAskedFor {any} 传递类定义或类的完全限定名作为需要映射的键。
-         * @param useValue {any} 传递对象实例作为需要映射的值。
-         * @param named {string} 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。在调用getInstance()方法时要传入同样的参数。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static mapValue(whenAskedFor: any, useValue: any, named?: string): void;
-        /**
-         * @language en_US
-         * Check whether there is any specified mapping rule
-         * @param whenAskedFor {any} Pass class definition or fully qualified name of the class as the key to map.
-         * @param named {string} Optional. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings.
-         * @returns {boolean} Whether there is any specified mapping rule
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 检查指定的映射规则是否存在
-         * @param whenAskedFor {any} 传递类定义或类的完全限定名作为需要映射的键。
-         * @param named {string} 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。
-         * @returns {boolean} 指定的映射规则是否存在
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static hasMapRule(whenAskedFor: any, named?: string): boolean;
-        /**
-         * @language en_US
-         * Get a singleton mapped by the specified class. Note: This method always returns a globally unique instance, and will not create repeatedly.
-         * @param clazz {any} Class definition or fully qualified name of the class
-         * @param named {string} Optional. If this value is set when calling mapClass () mapping, the same character string needs to be import ed in order to obtain the corresponding singleton
-         * @returns {any} Get a singleton mapped by the specified class
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 获取指定类映射的单例，注意:这个方法总是返回全局唯一的实例，不会重复创建。
-         * @param clazz {any} 类定义或类的完全限定名
-         * @param named {string} 可选参数，若在调用mapClass()映射时设置了这个值，则要传入同样的字符串才能获取对应的单例
-         * @returns {any} 获取指定类映射的单例
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getInstance(clazz: any, named?: string): any;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * Tool class for object cache repeat use, which can be used to construct an object pool. Objects are automatically recycled after a certain duration.
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/Recycler.ts
-     */
-    /**
-     * @language zh_CN
-     * 对象缓存复用工具类，可用于构建对象池，一段时间后会自动回收对象。
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/Recycler.ts
-     */
-    class Recycler extends HashObject {
-        /**
-         * @language en_US
-         * Create an egret.Recycler object
-         * @param autoDisposeTime {number} Number of frames when objects are destroyed automatically. Default value: 300
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.Recycler 对象
-         * @param autoDisposeTime {number} 多少帧后自动销毁对象，默认值300
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(autoDisposeTime?: number);
-        /**
-         * @private
-         */
-        static _callBackList: Array<any>;
-        /**
-         * @private
-         * 多少帧后自动销毁对象。
-         */
-        private autoDisposeTime;
-        /**
-         * @private
-         */
-        private frameCount;
-        /**
-         * @private
-         *
-         */
-        $checkFrame(): void;
-        /**
-         * @private
-         */
-        private objectPool;
-        /**
-         * @private
-         */
-        private _length;
-        /**
-         * @language en_US
-         * Number of cached objects"
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 缓存的对象数量
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        length: number;
-        /**
-         * @language en_US
-         * Cache an object for repeat use
-         * @param object {any} The object to be cached
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 缓存一个对象以复用
-         * @param object {any} 需要缓存的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        push(object: any): void;
-        /**
-         * @language en_US
-         * Obtain a cached object
-         * @returns {any} The obtained cached object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 获取一个缓存的对象
-         * @returns {any} 获得的缓存对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        pop(): any;
-        /**
-         * @language en_US
-         * Immediately clear all cached objects.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 立即清空所有缓存的对象。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        dispose(): void;
-    }
 }
 
 declare module egret {
@@ -1589,94 +1367,6 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * Run the designated function in specified delay (in milliseconds).
-     * @param listener {Function} Listener function
-     * @param thisObject {any} this object
-     * @param delay {number} Delay time, in milliseconds
-     * @param ...args {any} Parameter list
-     * @returns {number} Return index which can be used for clearTimeout
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setTimeout.ts
-     */
-    /**
-     * @language zh_CN
-     * 在指定的延迟（以毫秒为单位）后运行指定的函数。
-     * @param listener {Function} 侦听函数
-     * @param thisObject {any} this对象
-     * @param delay {number} 延迟时间，以毫秒为单位
-     * @param ...args {any} 参数列表
-     * @returns {number} 返回索引，可以用于 clearTimeout
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setTimeout.ts
-     */
-    function setTimeout(listener: Function, thisObject: any, delay: number, ...args: any[]): number;
-    /**
-     * @language en_US
-     * Function run after the specified delay is cleared.
-     * @param key {number} Index that egret.setTimeout returns
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    /**
-     * @language zh_CN
-     * 清除指定延迟后运行的函数。
-     * @param key {number} egret.setTimeout所返回的索引
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    function clearTimeout(key: number): void;
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * Specified function after a specified delay run (in milliseconds).
-     * @param listener {Function} Listener function
-     * @param thisObject {any} this object
-     * @param delay {number} Delay time, in milliseconds
-     * @param ...args {any} Parameter list
-     * @returns {number} Return index which can be used for clearInterval
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setInterval.ts
-     */
-    /**
-     * @language zh_CN
-     * 在指定的延迟（以毫秒为单位）后运行指定的函数。
-     * @param listener {Function} 侦听函数
-     * @param thisObject {any} this对象
-     * @param delay {number} 延迟时间，以毫秒为单位
-     * @param ...args {any} 参数列表
-     * @returns {number} 返回索引，可以用于 clearInterval
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setInterval.ts
-     */
-    function setInterval(listener: Function, thisObject: any, delay: number, ...args: any[]): number;
-    /**
-     * @language en_US
-     * Clear function to run after a specified delay.
-     * @param key {number} Index that egret.setInterval returns
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setInterval.ts
-     */
-    /**
-     * @language zh_CN
-     * 清除指定延迟后运行的函数。
-     * @param key {number} egret.setInterval所返回的索引
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/utils/setInterval.ts
-     */
-    function clearInterval(key: number): void;
-}
-
-declare module egret {
-    /**
-     * @language en_US
      * Logger is an entrance for the log processing module of the engine
      * @version Egret 2.0
      * @platform Web,Native
@@ -1809,7 +1499,7 @@ declare module egret {
      * @version Egret 2.0
      * @platform Web,Native
      */
-    function getOption(key: string): string;
+    var getOption: (key: string) => string;
 }
 
 declare module egret {
@@ -3505,12 +3195,14 @@ declare module egret {
          * @private
          */
         $addListener(type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number, emitOnce?: boolean): void;
+        $insertEventBin(list: Array<any>, type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number, emitOnce?: boolean): boolean;
         /**
          * @inheritDoc
          * @version Egret 2.0
          * @platform Web,Native
          */
         removeEventListener(type: string, listener: Function, thisObject: any, useCapture?: boolean): void;
+        $removeEventBin(list: Array<any>, listener: Function, thisObject: any): boolean;
         /**
          * @inheritDoc
          * @version Egret 2.0
@@ -3741,7 +3433,7 @@ declare module egret {
          * @private
          * Ticker以60FPS频率刷新此方法
          */
-        $update(advancedTime: number): boolean;
+        $update(timeStamp: number): boolean;
     }
 }
 
@@ -3988,19 +3680,6 @@ declare module egret {
         static LOOP_COMPLETE: string;
         /**
          * @language en_US
-         * Emitted when the net request is failed.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 网络请求加载失败
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static IO_ERROR: string;
-        /**
-         * @language en_US
          * Emitted when the TextInput instance gets focus.
          * @version Egret 2.0
          * @platform Web,Native
@@ -4040,39 +3719,40 @@ declare module egret {
         static ENDED: string;
         /**
          * 游戏激活
-         * @constant {string} egret.Event.ACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static ACTIVATE: string;
         /**
          * 取消激活
-         * @constant {string} egret.Event.DEACTIVATE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static DEACTIVATE: string;
         /**
          * Event.CLOSE 常量定义 close 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CLOSE
          * @version Egret 2.0
          * @platform Web,Native
          */
         static CLOSE: string;
         /**
          * Event.CONNECT 常量定义 connect 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         static CONNECT: string;
         /**
          * Event.LEAVE_STAGE 常量定义 leaveStage 事件对象的 type 属性的值。
-         * @constant {string} egret.Event.CONNECT
          * @version Egret 2.0
          * @platform Web,Native
          */
         static LEAVE_STAGE: string;
+        /**
+         * Event.SOUND_COMPLETE 常量定义 在声音完成播放后调度。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static SOUND_COMPLETE: string;
         /**
          * @language en_US
          * Creates an Event object to pass as a parameter to event listeners.
@@ -4695,6 +4375,7 @@ declare module egret {
     }
 }
 
+/// <reference path="../geom/Point.d.ts" />
 declare module egret {
     /**
      * @language en_US
@@ -5136,76 +4817,6 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * Sound-related events.
-     * An event: SoundEvent.SOUND_COMPLETE
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/events/SoundEvent.ts
-     */
-    /**
-     * @language zh_CN
-     * 声音相关事件。
-     * 有事件：SoundEvent.SOUND_COMPLETE
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/events/SoundEvent.ts
-     */
-    class SoundEvent extends egret.Event {
-        /**
-         * @language en_US
-         * The sound has finished playing scheduling.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 在声音完成播放后调度。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static SOUND_COMPLETE: string;
-        /**
-         * @language en_US
-         * Creates an Event object to pass as a parameter to event listeners.
-         * @param type  The type of the event, accessible as Event.type.
-         * @param bubbles  Determines whether the Event object participates in the bubbling stage of the event flow. The default value is false.
-         * @param cancelable Determines whether the Event object can be canceled. The default values is false.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个作为参数传递给事件侦听器的 Event 对象。
-         * @param type  事件的类型，可以作为 Event.type 访问。
-         * @param bubbles  确定 Event 对象是否参与事件流的冒泡阶段。默认值为 false。
-         * @param cancelable 确定是否可以取消 Event 对象。默认值为 false。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(type: string, bubbles?: boolean, cancelable?: boolean);
-        /**
-         * @language en_US
-         * EventDispatcher object using the specified event object thrown Event. The objects will be thrown in the object cache pool for the next round robin.
-         * @param target {egret.IEventDispatcher} Distribute event target
-         * @param type  The type of the event, accessible as Event.type.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 使用指定的EventDispatcher对象来抛出Event事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
-         * @param target {egret.IEventDispatcher} 派发事件目标
-         * @param type  事件的类型，可以作为 Event.type 访问。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static dispatchSoundEvent(target: IEventDispatcher, type: string): boolean;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
      * When a user clicks a hyperlink rich text object dispatches TextEvent object. Text Event Type: TextEvent.LINK.
      * @version Egret 2.0
      * @platform Web,Native
@@ -5349,6 +4960,306 @@ declare module egret {
          * @platform Web,Native
          */
         constructor(type: string, bubbles?: boolean, cancelable?: boolean);
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The GeolocationEvent represents the position and altitude of the device on Earth,
+     * and show errors occurred while getting the location of the device.
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * GeolocationEvent 提供设备的地理位置信息和获取位置时发生的错误信息
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    class GeolocationEvent extends Event {
+        /**
+         * @language en_US
+         * The acquisition of the location information failed because of app don't have permission.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 由于用户拒绝访问位置信息，获取位置信息失败
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        static PERMISSION_DENIED: string;
+        /**
+         * @language en_US
+         * The acquisition of the location failed because at least one internal source of position returned an internal error.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设备位置服务不可用或者超时等原因没有得到位置信息
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        static UNAVAILABLE: string;
+        /**
+         * @language en_US
+         * The position's longitude in decimal degrees.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当前位置的经度信息
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        longitude: number;
+        /**
+         * @language en_US
+         * The position's latitude in decimal degrees.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当前位置的纬度信息
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        latitude: number;
+        /**
+         * @language en_US
+         * The velocity of the device in meters per second. This value can be null.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当前设备的速度 单位是 米/秒，这个值可能为 null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        speed: number;
+        /**
+         * @language en_US
+         * The direction in which the device is traveling. This value, specified in degrees,
+         * indicates how far off from heading due north the device is. 0 degrees represents
+         * true true north, and the direction is determined clockwise (which means that east
+         * is 90 degrees and west is 270 degrees). If speed is 0, heading is NaN. If the
+         * device is unable to provide heading information, this value is null.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示设备正在前进的方向，单位是度。heading 表示从正北开始顺时针旋转到当前方向的角度，
+         * 比如正东是 90 度，正西是 270 度，如果 speed 是 0，heading 为 NaN。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        heading: number;
+        /**
+         * @language en_US
+         * The position's altitude in metres, relative to sea level.
+         * This value can be null if the implementation cannot provide the data.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 该位置的海拔信息，如果设备没有实现这个属性时，这个值有可能为 null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        altitude: number;
+        /**
+         * @language en_US
+         * The accuracy of the latitude and longitude properties, expressed in meters.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 经纬度的准确性，单位是米
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        accuracy: number;
+        /**
+         * @language en_US
+         * The accuracy of the altitude expressed in meters. This value can be null.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 该位置海拔信息的准确性，单位是米，这个值有可能为 null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        altitudeAccuracy: number;
+        /**
+         * @language en_US
+         * The type of error occurred while get the location of the device. The value could be:
+         * @see egret.GeolocationEvent.PERMISSION_DENIED
+         * @see egret.GeolocationEvent.UNAVAILABLE
+         *
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取位置信息错误时的错误类型。值可能为：
+         * @see egret.GeolocationEvent.PERMISSION_DENIED
+         * @see egret.GeolocationEvent.UNAVAILABLE
+         *
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        errorType: string;
+        /**
+         * @language en_US
+         * The error message occurred while get the location of the device.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取位置信息错误的错误信息
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        errorMessage: string;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * MotionEvent represents the device's movement
+     * Acceleration and accelerationIncludingGravity to represents the device's acceleration
+     * RotationRate to represents the device's rotation
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * MotionEvent 类呈现设备运动的具体信息
+     * Acceleration 和 accelerationIncludingGravity 呈现设备三个维度的加速度信息
+     * RotationRate 呈现设备的旋转状态信息
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    class MotionEvent extends Event {
+        /**
+         * @language en_US
+         * An object giving the acceleration of the device on the three axis X, Y and Z. Acceleration is expressed in m/s2.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * acceleration 表示设备在 X Y Z 轴方将的加速度信息，单位是  m/s2，不包含重力
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        acceleration: DeviceAcceleration;
+        /**
+         * @language en_US
+         * An object giving the acceleration of the device on the three axis X, Y and Z with the effect of gravity. Acceleration is expressed in m/s2.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * acceleration 表示设备在 X Y Z 轴方将的加速度信息，单位是  m/s2，包含重力
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        accelerationIncludingGravity: DeviceAcceleration;
+        /**
+         * @language en_US
+         * An object giving the rate of change of the device's orientation on the three orientation axis alpha, beta and gamma. Rotation rate is express in degrees per seconds.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * rotationRate 表示设备在 alpha、 beta 和 gamma 三个轴向的角速度信息，单位是 角度每秒
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        rotationRate: DeviceRotationRate;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The OrientationEvent provides information from the physical orientation of the device.
+     * Note: Currently, Browsers on the iOS and Android does not handle the coordinates the same way.
+     * Take care about this while using them.
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * OrientationEvent 提供设备的方向信息
+     * 注意: 目前各个浏览器和操作系统处理方向的方式不完全相同，请根据使用场景做相应的校正，
+     * 比如使用两次方向数据的变化而不是直接使用方向的值
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    class OrientationEvent extends Event {
+        /**
+         * @language en_US
+         * A number representing the motion of the device around the z axis,
+         * express in degrees with values ranging from 0 to 360
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示设备绕 Z 轴的角度，单位是 角度 范围是 0 到 360
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        alpha: number;
+        /**
+         * @language en_US
+         * A number representing the motion of the device around the x axis,
+         * express in degrees with values ranging from -180 to 180.
+         * This represents a front to back motion of the device.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示设备绕 X 轴的角度，单位是 角度 范围是 -180 到 180.
+         * 这个值表示设备从前向后的旋转状态
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        beta: number;
+        /**
+         * @language en_US
+         * A number representing the motion of the device around the y axis,
+         * express in degrees with values ranging from -90 to 90.
+         * This represents a left to right motion of the device.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 表示设备绕 Y 轴的角度，单位是 角度 范围是 -90 到 90.
+         * 这个值表示设备从前向后的旋转状态
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        gamma: number;
     }
 }
 
@@ -6522,6 +6433,26 @@ declare module egret {
     }
 }
 
+declare module egret.sys {
+    /**
+     * @private
+     */
+    const enum BitmapKeys {
+        bitmapData = 0,
+        image = 1,
+        clipX = 2,
+        clipY = 3,
+        clipWidth = 4,
+        clipHeight = 5,
+        offsetX = 6,
+        offsetY = 7,
+        width = 8,
+        height = 9,
+        smoothing = 10,
+        explicitBitmapWidth = 11,
+        explicitBitmapHeight = 12,
+    }
+}
 declare module egret {
     /**
      * @language en_US
@@ -6567,28 +6498,43 @@ declare module egret {
          * @version Egret 2.0
          * @platform Web,Native
          */
-        constructor(bitmapData?: Texture);
+        constructor(bitmapData?: BitmapData | Texture);
         /**
          * @private
          */
         $Bitmap: Object;
         /**
          * @private
+         * 显示对象添加到舞台
          */
-        $bitmapData: Texture;
+        $onAddToStage(stage: Stage, nestLevel: number): void;
+        /**
+         * @private
+         * 显示对象从舞台移除
+         */
+        $onRemoveFromStage(): void;
         /**
          * @language en_US
-         * bitmapData The Texture object being referenced.
-         * @version Egret 2.0
+         * The BitmapData object being referenced.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 被引用的 Texture 对象。
-         * @version Egret 2.0
+         * 被引用的 BitmapData 对象。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        texture: Texture;
+        bitmapData: BitmapData | Texture;
+        texture: BitmapData | Texture;
+        /**
+         * @private
+         */
+        $setBitmapData(value: BitmapData | Texture): void;
+        /**
+         * @private
+         */
+        private setImageData(image, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, width, height);
         /**
          * @private
          */
@@ -6627,9 +6573,9 @@ declare module egret {
          *
          * @default <code>BitmapFillMode.SCALE</code>
          *
-         * @version Lark 1.0
+         * @version Egret 2.0
          * @version Swan 1.0
-         * @platform Web,Native
+         * @platform Web
          */
         /**
          * @language zh_CN
@@ -6640,16 +6586,12 @@ declare module egret {
          *
          * @default <code>BitmapFillMode.SCALE</code>
          *
-         * @version Lark 1.0
+         * @version Egret 2.0
          * @version Swan 1.0
-         * @platform Web,Native
+         * @platform Web
          */
         fillMode: string;
         $setFillMode(value: string): void;
-        /**
-         * @private
-         */
-        $setBitmapData(value: Texture): void;
         /**
          * @private
          */
@@ -6659,14 +6601,14 @@ declare module egret {
          * Whether or not the bitmap is smoothed when scaled.
          * @default true。
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         /**
          * @language zh_CN
          * 控制在缩放时是否对位图进行平滑处理。
          * @default true。
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         smoothing: boolean;
         /**
@@ -6691,22 +6633,6 @@ declare module egret {
          * 获取显示宽度
          */
         $getHeight(): number;
-        /**
-         * @private
-         */
-        $getScaleX(): number;
-        /**
-         * @private
-         */
-        $setScaleX(value: number): boolean;
-        /**
-         * @private
-         */
-        $getScaleY(): number;
-        /**
-         * @private
-         */
-        $setScaleY(value: number): boolean;
         /**
          * @private
          */
@@ -6751,12 +6677,12 @@ declare module egret {
          * @param fillMode
          * @param smoothing
          */
-        static $drawImage(context: sys.RenderContext, texture: egret.Texture, destW: number, destH: number, scale9Grid: egret.Rectangle, fillMode: string, smoothing: boolean, offsetX?: number, offsetY?: number): void;
+        static $drawImage(context: sys.RenderContext, image: any, clipX: number, clipY: number, clipWidth: number, clipHeight: number, offsetX: number, offsetY: number, textureWidth: number, textureHeight: number, destW: number, destH: number, scale9Grid: egret.Rectangle, fillMode: string, smoothing: boolean): void;
         /**
          * @private
          * 绘制九宫格位图
          */
-        private static $drawScale9GridImage(context, texture, scale9Grid, surfaceWidth?, surfaceHeight?);
+        private static $drawScale9GridImage(context, image, scale9Grid, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, textureWidth, textureHeight, surfaceWidth, surfaceHeight);
     }
 }
 
@@ -6784,13 +6710,13 @@ declare module egret {
          * @language en_US
          * Repeat the bitmap to fill area.
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         /**
          * @language zh_CN
          * 重复位图以填充区域。
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         static REPEAT: string;
         /**
@@ -6934,6 +6860,19 @@ declare module egret {
          */
         _bitmapData: any;
         /**
+         * @language en_US
+         * The BitmapData object being referenced.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 被引用的 BitmapData 对象。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        bitmapData: BitmapData;
+        /**
          * @private
          *
          * @param value
@@ -6970,7 +6909,7 @@ declare module egret {
          * @param y {number} 像素点的Y轴坐标
          * @returns {number} 指定像素点的颜色值
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         getPixel32(x: number, y: number): number[];
         /**
@@ -7025,6 +6964,10 @@ declare module egret {
          * @platform Web,Native
          */
         dispose(): void;
+        private static _displayList;
+        static $addDisplayObject(displayObject: DisplayObject, bitmapDataHashCode: number): void;
+        static $removeDisplayObject(displayObject: DisplayObject, bitmapDataHashCode: number): void;
+        static $invalidate(bitmapDataHashCode: number): void;
     }
 }
 
@@ -7071,6 +7014,11 @@ declare module egret {
         private drawWithClip(displayObject, context);
         private drawWithScrollRect(displayObject, context);
         private createRenderContext(width, height);
+        /**
+         * 销毁 RenderTexture 对象
+         * @method egret.RenderTexture#dispose
+         */
+        dispose(): void;
     }
 }
 
@@ -9127,548 +9075,6 @@ declare module egret {
 
 declare module egret {
     /**
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class FrameLabel extends EventDispatcher {
-        /**
-         * @private
-         */
-        private _name;
-        /**
-         * @private
-         */
-        private _frame;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(name: string, frame: number);
-        /**
-         * @language en_US
-         * Frame number
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 标签名
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        name: string;
-        /**
-         * @language en_US
-         * Frame serial number of the label
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 标签所在帧序号
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        frame: number;
-        /**
-         * @language en_US
-         * Duplicate the current frame label object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 复制当前帧标签对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        clone(): FrameLabel;
-    }
-}
-
-declare module egret {
-    /**
-     * @classdesc 使用 MovieClipData 类，您可以创建 MovieClip 对象和处理 MovieClip 对象的数据。MovieClipData 一般由MovieClipDataFactory生成
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class MovieClipData extends HashObject {
-        /**
-         * @private
-         * MovieClip数据
-         */
-        $mcData: any;
-        /**
-         * 总帧数
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        numFrames: number;
-        /**
-         * 帧数据列表
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        frames: any[];
-        /**
-         * 帧标签列表
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        labels: any[];
-        /**
-         * 帧率
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        frameRate: number;
-        /**
-         * 纹理数据
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        textureData: any;
-        /**
-         * 纹理集
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        spriteSheet: SpriteSheet;
-        /**
-         * 创建一个 egret.MovieClipData 对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         * @private
-         *
-         * @param mcData
-         * @param textureData
-         * @param spriteSheet
-         */
-        $init(mcData: any, textureData: any, spriteSheet: SpriteSheet): void;
-        /**
-         * 根据指定帧序号获取该帧对应的关键帧数据
-         * @param frame {number} 帧序号
-         * @returns {any} 帧数据对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        getKeyFrameData(frame: number): any;
-        /**
-         * 根据指定帧序号获取该帧对应的Texture对象
-         * @param frame {number} 帧序号
-         * @returns {egret.Texture} Texture对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        getTextureByFrame(frame: number): Texture;
-        /**
-         * @private
-         *
-         * @param resName
-         * @returns
-         */
-        private getTextureByResName(resName);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $isDataValid(): boolean;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $isTextureValid(): boolean;
-        /**
-         * @private
-         *
-         * @param mcData
-         */
-        $fillMCData(mcData: any): void;
-        /**
-         * @private
-         *
-         * @param framesData
-         */
-        private fillFramesData(framesData);
-        /**
-         * @private
-         *
-         * @param frameLabelsData
-         */
-        private fillFrameLabelsData(frameLabelsData);
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * MovieClip数据源
-         */
-        mcData: MovieClipData;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        private setMCData(value);
-    }
-}
-
-declare module egret {
-    /**
-     * @classdesc 使用 MovieClipDataFactory 类，可以生成 MovieClipData 对象用于创建MovieClip
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class MovieClipDataFactory extends EventDispatcher {
-        /**
-         * 是否开启缓存
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        enableCache: boolean;
-        /**
-         * @private
-         */
-        $mcDataSet: any;
-        /**
-         * @private
-         */
-        $spriteSheet: SpriteSheet;
-        /**
-         * @private
-         */
-        $mcDataCache: any;
-        /**
-         * 创建一个 egret.MovieClipDataFactory 对象
-         * @param movieClipDataSet {any} MovieClip数据集，该数据集必须由Egret官方工具生成
-         * @param texture {Texture} 纹理
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(movieClipDataSet?: any, texture?: Texture);
-        /**
-         * 清空缓存
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        clearCache(): void;
-        /**
-         * 根据名字生成一个MovieClipData实例。可以用于创建MovieClip。
-         * @param movieClipName {string} MovieClip名字. 可选参数，默认为"", 相当于取第一个MovieClip数据
-         * @returns {MovieClipData} 生成的MovieClipData对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        generateMovieClipData(movieClipName?: string): MovieClipData;
-        /**
-         * @private
-         *
-         * @param movieClipName
-         * @param cache
-         * @returns
-         */
-        private findFromCache(movieClipName, cache);
-        /**
-         * @private
-         *
-         * @param movieClipName
-         * @param movieClip
-         * @param cache
-         */
-        private fillData(movieClipName, movieClip, cache);
-        /**
-         * MovieClip数据集
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        mcDataSet: any;
-        /**
-         * MovieClip需要使用的纹理图
-         */
-        texture: Texture;
-        /**
-         * 由纹理图生成的精灵表
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        spriteSheet: SpriteSheet;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        private setTexture(value);
-    }
-}
-
-declare module egret {
-    /**
-     * @classdesc 影片剪辑，可以通过影片剪辑播放序列帧动画。MovieClip 类从以下类继承而来：DisplayObject 和 EventDispatcher。不同于 DisplayObject 对象，MovieClip 对象拥有一个时间轴。
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html  MovieClip序列帧动画
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/display/MovieClip.ts
-     */
-    class MovieClip extends DisplayObject {
-        $bitmapData: Texture;
-        $movieClipData: MovieClipData;
-        /**
-         * @private
-         */
-        private frames;
-        /**
-         * @private
-         */
-        $totalFrames: number;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        frameLabels: any[];
-        /**
-         * @private
-         */
-        private frameIntervalTime;
-        /**
-         * @private
-         */
-        $eventPool: string[];
-        $isPlaying: boolean;
-        /**
-         * @private
-         */
-        private isStopped;
-        /**
-         * @private
-         */
-        private playTimes;
-        /**
-         * @private
-         */
-        $currentFrameNum: number;
-        /**
-         * @private
-         */
-        $nextFrameNum: number;
-        /**
-         * @private
-         */
-        private displayedKeyFrameNum;
-        /**
-         * @private
-         */
-        private passedTime;
-        /**
-         * 创建新的 MovieClip 实例。创建 MovieClip 之后，调用舞台上的显示对象容器的addElement方法。
-         * @param movieClipData {movieClipData} 被引用的 movieClipData 对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(movieClipData?: MovieClipData);
-        /**
-         * @private
-         *
-         */
-        $init(): void;
-        /**
-         * @private
-         *
-         */
-        $reset(): void;
-        /**
-         * @private
-         *
-         */
-        private _initFrame();
-        /**
-         * @private
-         */
-        $render(context: sys.RenderContext): void;
-        /**
-         * @private
-         */
-        $measureContentBounds(bounds: Rectangle): void;
-        /**
-         * @private
-         *
-         * @param stage
-         * @param nestLevel
-         */
-        $onAddToStage(stage: Stage, nestLevel: number): void;
-        /**
-         * @private
-         *
-         */
-        $onRemoveFromStage(): void;
-        /**
-         * @private
-         * 返回帧标签为指定字符串的FrameLabel对象
-         * @param labelName {string} 帧标签名
-         * @param ignoreCase {boolean} 是否忽略大小写，可选参数，默认false
-         * @returns {egret.FrameLabel} FrameLabel对象
-         */
-        private getFrameLabelByName(labelName, ignoreCase?);
-        /**
-         * @private
-         * 返回指定序号的帧的FrameLabel对象
-         * @param frame {number} 帧序号
-         * @returns {egret.FrameLabel} FrameLabel对象
-         */
-        private getFrameLabelByFrame(frame);
-        /**
-         * @private
-         * 返回指定序号的帧对应的FrameLabel对象，如果当前帧没有标签，则返回前面最近的有标签的帧的FrameLabel对象
-         * @method egret.MovieClip#getFrameLabelForFrame
-         * @param frame {number} 帧序号
-         * @returns {egret.FrameLabel} FrameLabel对象
-         */
-        private getFrameLabelForFrame(frame);
-        /**
-         * 继续播放当前动画
-         * @param playTimes {number} 播放次数。 参数为整数，可选参数，>=1：设定播放次数，<0：循环播放，默认值 0：不改变播放次数(MovieClip初始播放次数设置为1)，
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        play(playTimes?: number): void;
-        /**
-         * 暂停播放动画
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        stop(): void;
-        /**
-         * 将播放头移到前一帧并停止
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        prevFrame(): void;
-        /**
-         * 跳到后一帧并停止
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        nextFrame(): void;
-        /**
-         * 将播放头移到指定帧并播放
-         * @param frame {any} 指定帧的帧号或帧标签
-         * @param playTimes {number} 播放次数。 参数为整数，可选参数，>=1：设定播放次数，<0：循环播放，默认值 0：不改变播放次数，
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        gotoAndPlay(frame: any, playTimes?: number): void;
-        /**
-         * 将播放头移到指定帧并停止
-         * @param frame {any} 指定帧的帧号或帧标签
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        gotoAndStop(frame: any): void;
-        /**
-         * @private
-         *
-         * @param frame
-         */
-        private gotoFrame(frame);
-        /**
-         * @private
-         */
-        private lastTime;
-        /**
-         * @private
-         *
-         * @param advancedTime
-         * @returns
-         */
-        private advanceTime(advancedTime);
-        /**
-         * @private
-         *
-         */
-        private advanceFrame();
-        /**
-         * @private
-         *
-         */
-        private constructFrame();
-        /**
-         * @private
-         *
-         */
-        private handlePendingEvent();
-        /**
-         * MovieClip 实例中帧的总数
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        totalFrames: number;
-        /**
-         * MovieClip 实例当前播放的帧的序号
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        currentFrame: number;
-        /**
-         * MovieClip 实例当前播放的帧的标签。如果当前帧没有标签，则 currentFrameLabel返回null。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        currentFrameLabel: string;
-        /**
-         * 当前播放的帧对应的标签，如果当前帧没有标签，则currentLabel返回包含标签的先前帧的标签。如果当前帧和先前帧都不包含标签，currentLabel返回null。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        currentLabel: string;
-        /**
-         * MovieClip 实例的帧频
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        frameRate: number;
-        /**
-         * MovieClip 实例当前是否正在播放
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        isPlaying: boolean;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * MovieClip数据源
-         */
-        movieClipData: MovieClipData;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        private setMovieClipData(value);
-        /**
-         * @private
-         *
-         * @param value
-         */
-        private setPlayTimes(value);
-        /**
-         * @private
-         *
-         * @param value
-         */
-        private setIsStopped(value);
-    }
-}
-
-declare module egret {
-    /**
      * @language en_US
      * SpriteSheet is a mosaic of multiple sub-bitmaps, comprising a plurality of Texture objects.
      * Each Texture object shares the set bitmap of SpriteSheet, but it points to its different areas.
@@ -9797,629 +9203,44 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * ScrollView auxiliary classes for slides, you will pass a display object constructor. It can display more than the range display object within the specified size range. And can easily drag in this range.
-     * @version Egret 2.0
+     * The HttpMethod class provides values that specify whether the HttpRequest object should use the POST method
+     * or the GET method when sending data to a server.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/display/ScrollView.ts
      */
     /**
      * @language zh_CN
-     * ScrollView 是用于滑动的辅助类，将一个显示对象传入构造函数即可。可以在指定的尺寸范围内显示超过该范围的显示对象。并可以在此范围内随意拖动。
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/display/ScrollView.ts
-     */
-    class ScrollView extends DisplayObjectContainer {
-        /**
-         * @private
-         */
-        _ScrV_Props_: ScrollViewProperties;
-        /**
-         * @language en_US
-         * Start rolling threshold when the touch point from the initial touch point at a distance exceeding this value will trigger roll
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 开始滚动的阈值，当触摸点偏离初始触摸点的距离超过这个值时才会触发滚动
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        scrollBeginThreshold: number;
-        /**
-         * @language en_US
-         * Scrolling speed, the speed is required and the default speed ratio.
-         * The range of scrollSpeed> 0 assigned to 2:00, the speed is 2 times the default speed
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 滚动速度，这个值为需要的速度与默认速度的比值。
-         * 取值范围为 scrollSpeed > 0 赋值为 2 时，速度是默认速度的 2 倍
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        scrollSpeed: number;
-        /**
-         * @language en_US
-         * Whether to enable rebound, rebound When enabled, ScrollView contents allowed to continue to drag the border after arriving at the end user drag operation, and then bounce back boundary position
-         * @default true
-         * @version Egret 2.0
-         */
-        /**
-         * @language zh_CN
-         * 是否启用回弹，当启用回弹后，ScrollView中内容在到达边界后允许继续拖动，在用户拖动操作结束后，再反弹回边界位置
-         * @default true
-         * @version Egret 2.0
-         */
-        bounces: boolean;
-        /**
-         * @language en_US
-         * Create a egret.ScrollView objects
-         * @param content {egret.DisplayObject} You need to scroll object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.ScrollView 对象
-         * @param content {egret.DisplayObject} 需要滚动的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(content?: DisplayObject);
-        /**
-         * @private
-         */
-        _content: DisplayObject;
-        /**
-         * @language en_US
-         * Set to scroll object
-         * @param content {egret.DisplayObject} You need to scroll object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 设置需要滚动的对象
-         * @param content {egret.DisplayObject} 需要滚动的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setContent(content: DisplayObject): void;
-        /**
-         * @language en_US
-         * Remove rolling objects
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 移除滚动的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        removeContent(): void;
-        /**
-         * @language en_US
-         * Vertical scroll bar display policy, on / off / auto.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 垂直滚动条显示策略，on/off/auto。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        verticalScrollPolicy: string;
-        /**
-         * @language en_US
-         * The horizontal scroll bar display policy, on / off / auto.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 水平滚动条显示策略，on/off/auto。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        horizontalScrollPolicy: string;
-        /**
-         * @language en_US
-         * Gets or sets the horizontal scroll position
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 获取或设置水平滚动位置,
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        scrollLeft: number;
-        /**
-         * @language en_US
-         * Gets or sets the vertical scroll position
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 获取或设置垂直滚动位置,
-         * @returns {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        scrollTop: number;
-        /**
-         * @language en_US
-         * Set scroll position
-         * @param top {number} The vertical scroll position
-         * @param left {number} The horizontal scroll position
-         * @param isOffset {boolean} Optional parameter, the default is false, whether it is the amount of scrolling increase as top = 1 on behalf of one pixel scroll up
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 设置滚动位置
-         * @param top {number} 垂直滚动位置
-         * @param left {number} 水平滚动位置
-         * @param isOffset {boolean} 可选参数，默认是false，是否是滚动增加量，如 top=1 代表往上滚动1像素
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setScrollPosition(top: number, left: number, isOffset?: boolean): void;
-        /**
-         * @private
-         *
-         * @param top
-         * @param left
-         */
-        private _validatePosition(top?, left?);
-        /**
-         * @private
-         * @inheritDoc
-         */
-        $setWidth(value: number): void;
-        /**
-         * @private
-         * @inheritDoc
-         */
-        $setHeight(value: number): void;
-        /**
-         * @private
-         *
-         */
-        _updateContentPosition(): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _checkScrollPolicy(): boolean;
-        /**
-         * @private
-         *
-         * @param policy
-         * @param contentLength
-         * @param viewLength
-         * @returns
-         */
-        private __checkScrollPolicy(policy, contentLength, viewLength);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _addEvents(): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _removeEvents(): void;
-        /**
-         * @private
-         *
-         * @param e
-         */
-        _onTouchBegin(e: TouchEvent): void;
-        /**
-         * @private
-         */
-        private delayTouchBeginEvent;
-        /**
-         * @private
-         */
-        private touchBeginTimer;
-        /**
-         * @private
-         *
-         * @param event
-         */
-        _onTouchBeginCapture(event: TouchEvent): void;
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        private _onTouchEndCapture(event);
-        /**
-         * @private
-         *
-         */
-        private _onTouchBeginTimer();
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        private dispatchPropagationEvent(event);
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        _onTouchMove(event: TouchEvent): void;
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        _onTouchEnd(event: TouchEvent): void;
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        _onEnterFrame(event: Event): void;
-        /**
-         * @private
-         *
-         * @param e
-         * @returns
-         */
-        private _logTouchEvent(e);
-        /**
-         * @private
-         *
-         * @param e
-         * @returns
-         */
-        private _getPointChange(e);
-        /**
-         * @private
-         *
-         * @param e
-         * @returns
-         */
-        private _calcVelocitys(e);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _getContentWidth(): number;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _getContentHeight(): number;
-        /**
-         * @language en_US
-         * The left side of the maximum distance
-         * @returns The left side of the maximum distance
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 距离左侧的最大值
-         * @returns 距离左侧最大值
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        getMaxScrollLeft(): number;
-        /**
-         * @language en_US
-         * Above the maximum distance
-         * @returns Above the maximum distance
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 距离上方最大值
-         * @returns 距离上方最大值
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        getMaxScrollTop(): number;
-        /**
-         * @private
-         */
-        private static weight;
-        /**
-         * @private
-         *
-         */
-        private _moveAfterTouchEnd();
-        /**
-         * @private
-         *
-         * @param tw
-         */
-        _onTweenFinished(tw: Tween): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _onScrollStarted(): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        _onScrollFinished(): void;
-        /**
-         * @language en_US
-         * Set the scroll position above the distance
-         * @param scrollTop Position above distance
-         * @param duration Easing of time, in milliseconds
-         * @returns Get tween vertical scrolling
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 设置滚动距离上方的位置
-         * @param scrollTop 距离上方的位置
-         * @param duration 缓动时间，毫秒单位
-         * @returns 获取垂直滚动的tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setScrollTop(scrollTop: number, duration?: number): egret.Tween;
-        /**
-         * @language en_US
-         * Set the scroll position from the left side
-         * @param scrollLeft From the position on the left side
-         * @param duration Get tween vertical scrolling
-         * @returns Gets the horizontal scroll tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 设置滚动距离左侧的位置
-         * @param scrollLeft 距离左侧的位置
-         * @param duration 缓动时间，毫秒单位
-         * @returns 获取水平滚动的tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setScrollLeft(scrollLeft: number, duration?: number): egret.Tween;
-        /**
-         * @private
-         *
-         * @param pixelsPerMS
-         * @param curPos
-         * @param maxPos
-         * @returns
-         */
-        private getAnimationDatas(pixelsPerMS, curPos, maxPos);
-        /**
-         * @private
-         *
-         * @param event
-         * @returns
-         */
-        private cloneTouchEvent(event);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        private throwNotSupportedError();
-        /**
-         * @deprecated
-         * @param child {DisplayObject}
-         * @returns {DisplayObject}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        addChild(child: DisplayObject): DisplayObject;
-        /**
-         * @deprecated
-         * @param child {DisplayObject}
-         * @param index {number}
-         * @returns {DisplayObject}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        addChildAt(child: DisplayObject, index: number): DisplayObject;
-        /**
-         * @deprecated
-         * @param child {DisplayObject}
-         * @returns {DisplayObject}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        removeChild(child: DisplayObject): DisplayObject;
-        /**
-         * @deprecated
-         * @param index {number}
-         * @returns {DisplayObject}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        removeChildAt(index: number): DisplayObject;
-        /**
-         * @deprecated
-         * @param child {DisplayObject}
-         * @param index {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setChildIndex(child: DisplayObject, index: number): void;
-        /**
-         * @deprecated
-         * @param child1 {DisplayObject}
-         * @param child2 {DisplayObject}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        swapChildren(child1: DisplayObject, child2: DisplayObject): void;
-        /**
-         * @deprecated
-         * @param index1 {number}
-         * @param index2 {number}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        swapChildrenAt(index1: number, index2: number): void;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
-     * @version Egret 2.0
+     * HttpRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
+     * HttpRequest 对象应使用 POST 方法还是 GET 方法。
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
      */
-    class ScrollViewProperties {
-        /**
-         * @private
-         */
-        _verticalScrollPolicy: string;
-        /**
-         * @private
-         */
-        _horizontalScrollPolicy: string;
-        /**
-         * @private
-         */
-        _scrollLeft: number;
-        /**
-         * @private
-         */
-        _scrollTop: number;
-        /**
-         * @private
-         */
-        _hCanScroll: boolean;
-        /**
-         * @private
-         */
-        _vCanScroll: boolean;
-        /**
-         * @private
-         */
-        _lastTouchPosition: egret.Point;
-        /**
-         * @private
-         */
-        _touchStartPosition: egret.Point;
-        /**
-         * @private
-         */
-        _scrollStarted: boolean;
-        /**
-         * @private
-         */
-        _lastTouchTime: number;
-        /**
-         * @private
-         */
-        _lastTouchEvent: TouchEvent;
-        /**
-         * @private
-         */
-        _velocitys: Array<{
-            x: number;
-            y: number;
-        }>;
-        /**
-         * @private
-         */
-        _isHTweenPlaying: boolean;
-        /**
-         * @private
-         */
-        _isVTweenPlaying: boolean;
-        /**
-         * @private
-         */
-        _hScrollTween: Tween;
-        /**
-         * @private
-         */
-        _vScrollTween: Tween;
-        /**
-         * @private
-         */
-        _bounces: boolean;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * The URLRequestMethod class provides values that specify whether the
-     * URLRequest object should use the POST method or the GET method when sending data to a server.
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestMethod.ts
-     */
-    /**
-     * @language zh_CN
-     * URLRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
-     * URLRequest 对象应使用 POST 方法还是 GET 方法。
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestMethod.ts
-     */
-    class URLRequestMethod {
+    class HttpMethod {
         /**
          * @language en_US
-         * Specify that the URLRequest object is a GET.
-         * @version Egret 2.0
+         * Specifies that the HttpRequest object is a GET.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 表示 URLRequest 对象是一个 GET。
-         * @version Egret 2.0
+         * 表示 HttpRequest 对象是一个 GET。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static GET: string;
         /**
          * @language en_US
-         * Specify that the URLRequest object is a POST.
-         * @version Egret 2.0
+         * Specifies that the HttpRequest object is a POST.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 表示 URLRequest 对象是一个 POST。
-         * @version Egret 2.0
+         * 表示 HttpRequest 对象是一个 POST。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static POST: string;
@@ -10429,661 +9250,329 @@ declare module egret {
 declare module egret {
     /**
      * @language en_US
-     * The URLLoaderDataFormat class provides values that specify how downloaded data is received.
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html Read different data format
-     * @version Egret 2.0
+     * The HttpResponseType class provides values that specify how downloaded data is received.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoaderDataFormat.ts
      */
     /**
      * @language zh_CN
      * URLLoaderDataFormat 类提供了一些用于指定如何接收已下载数据的值。
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html 读取不同数据格式
-     * @version Egret 2.0
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoaderDataFormat.ts
      */
-    class URLLoaderDataFormat {
+    class HttpResponseType {
         /**
          * @language en_US
-         * Specify that downloaded data is received as raw binary data.
-         * @version Egret 2.0
+         * Specifies that downloaded data is received as text. This is the default value of HttpRequest.responseType
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 指定以原始二进制数据形式接收下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static BINARY: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as text.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以文本形式接收已下载的数据。
-         * @version Egret 2.0
+         * 返回字符串。HttpRequest.responseType属性的默认值。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         static TEXT: string;
         /**
          * @language en_US
-         * Specify that downloaded data is received as URL-encoded variables.
-         * @version Egret 2.0
+         * Specifies that downloaded data is received as raw binary data.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 指定以 URL 编码变量形式接收下载的数据。
-         * @version Egret 2.0
+         * 返回二进制的ArrayBuffer对象。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        static VARIABLES: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as bitmap texture.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以位图纹理形式接收已下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static TEXTURE: string;
-        /**
-         * @language en_US
-         * Specify that downloaded data is received as sound.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 指定以声音形式接收已下载的数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static SOUND: string;
+        static ARRAY_BUFFER: string;
     }
 }
 
 declare module egret {
     /**
      * @language en_US
-     * The URLVariables class allows you to transfer variables between an application and a server.
-     * Use URLVariables objects with methods of the URLLoader class and the data property of the URLRequest class.
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html Send the request with parameters
-     * @version Egret 2.0
+     * The HttpRequest class downloads data from a URL as text or binary data. It is useful for downloading text files,
+     * XML, or other information to be used in a dynamic, data-driven application. A HttpRequest object downloads all
+     * of the data from a URL before making it available to code in the applications. It sends out notifications about
+     * the progress of the download, which you can monitor through the bytesLoaded and bytesTotal properties,
+     * as well as through emitted events.
+     * @event lark.Event.COMPLETE Emitted when the net request is complete.
+     * @event lark.Event.IO_ERROR Emitted when the net request is failed.
+     * @event lark.ProgressEvent.PROGRESS Emitted when data is received as the download operation progresses.
+     * @see lark.HttpMethod
+     * @see lark.HttpResponseType
+     * @includeExample examples/Samples/src/lark/net/HttpRequestExample.ts
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLVariables.ts
      */
     /**
      * @language zh_CN
-     * 使用 URLVariables 类可以在应用程序和服务器之间传输变量。
-     * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html 发送带参数的请求
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLVariables.ts
-     */
-    class URLVariables extends HashObject {
-        /**
-         * @language en_US
-         * Create an egret.URLVariable object
-         * @param source {String} A URL-encoded string containing name/value pairs.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLVariables 对象
-         * @param source {String} 包含名称/值对的 URL 编码的字符串。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(source?: string);
-        /**
-         * @language en_US
-         * Key-value pair data object saved in this URLVariables object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 此 URLVariables 储存的键值对数据对象。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        variables: Object;
-        /**
-         * @language en_US
-         * Convert the variable string into the property of this URLVariables.variables object.
-         * @param source {string}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 将变量字符串转换为此 URLVariables.variables 对象的属性。
-         * @param source {string}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        decode(source: string): void;
-        /**
-         * @language en_US
-         * Return a string containing all enumerable variables using  the MIME content encoding format : application/x-www-form-urlencoded.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 以 MIME 内容编码格式 application/x-www-form-urlencoded 返回包含所有可枚举变量的字符串。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        toString(): string;
-        /**
-         * @private
-         *
-         * @param key
-         * @param value
-         */
-        private encodeValue(key, value);
-        /**
-         * @private
-         *
-         * @param key
-         * @param value
-         */
-        private encodeArray(key, value);
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * A URLRequestHeader object encapsulates a single HTTP request header and consists of a name/value pair.  URLRequestHeader objects are used in the requestHeaders property of the URLRequest class.
-     * Note: Because of browser compatibility, this property has not been achieved in html5
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestHeader.ts
-     */
-    /**
-     * @language zh_CN
-     * URLRequestHeader 对象封装了一个 HTTP 请求标头并由一个名称/值对组成。URLRequestHeader 对象在 URLRequest 类的 requestHeaders 属性中使用。
-     * 注意：由于浏览器兼容性原因，在 html5 中并未实现
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequestHeader.ts
-     */
-    class URLRequestHeader {
-        /**
-         * @language en_US
-         * HTTP request header name, such as Content-Type
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * HTTP 请求标头名称，如 Content-Type
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        name: string;
-        /**
-         * @language en_US
-         * The values associated with the name property (such as text/plain).
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 与 name 属性相关联的值，如 text/plain
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        value: string;
-        /**
-         * @language en_US
-         * Create an egret.URLRequestHeader object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLRequestHeader 对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(name: string, value: string);
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * The URLRequest class captures all of the information in a single HTTP request.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequest.ts
-     */
-    /**
-     * @language zh_CN
-     * URLRequest 类可捕获单个 HTTP 请求中的所有信息。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLRequest.ts
-     */
-    class URLRequest extends HashObject {
-        /**
-         * @language en_US
-         * Create an egret.URLRequest object
-         * @param url {string} Addresses for URL requests
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 创建一个 egret.URLRequest 对象
-         * @param url {string} 进行网络请求的地址
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(url?: string);
-        /**
-         * @language en_US
-         * An object contains data to be transmitted with the URL request.
-         * This property is used in conjunction with the method property.  When the value of method is GET, the value of data is appended to the value of URLRequest.url, using HTTP query-string syntax.
-         * When the method value is POST (or any value other than GET), the value of data is transmitted in the body of the HTTP request.
-         * The URLRequest API supports  binary POST, URL-encoded variables, as well as strings. The data object can be a ByteArray, URLVariables, or String object. The way in which the data is used depends on the type of object used: If the object is a ByteArray object, the binary data of the ByteArray object is used as POST data. For GET, data of ByteArray type is not supported.
-         * If the object is a URLVariables object and the method is POST, then the variables are encoded using x-www-form-urlencoded format and the resulting string is used as POST data.
-         * If the object is a URLVariables object and the method is GET, the URLVariables object will define variables to be sent with the URLRequest object.
-         * Otherwise, the object is converted into a string, and the string is used as the POST or GET data.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 一个对象，它包含将随 URL 请求一起传输的数据。
-         * 该属性与 method 属性配合使用。当 method 值为 GET 时，将使用 HTTP 查询字符串语法将 data 值追加到 URLRequest.url 值。
-         * 当 method 值为 POST（或 GET 之外的任何值）时，将在 HTTP 请求体中传输 data 值。
-         * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ByteArray、URLVariables 或 String 对象。
-         * 该数据的使用方式取决于所用对象的类型：
-         * 如果该对象为 ByteArray 对象，则 ByteArray 对象的二进制数据用作 POST 数据。对于 GET，不支持 ByteArray 类型的数据。
-         * 如果该对象是 URLVariables 对象，并且该方法是 POST，则使用 x-www-form-urlencoded 格式对变量进行编码，并且生成的字符串会用作 POST 数据。
-         * 如果该对象是 URLVariables 对象，并且该方法是 GET，则 URLVariables 对象将定义要随 URLRequest 对象一起发送的变量。
-         * 否则，该对象会转换为字符串，并且该字符串会用作 POST 或 GET 数据。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        data: any;
-        /**
-         * @language en_US
-         * Request method, valid values are URLRequestMethod.GET or URLRequestMethod.POST.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 请求方式，有效值为URLRequestMethod.GET 或 URLRequestMethod.POST。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        method: string;
-        /**
-         * @language en_US
-         * The requested URL.
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 所请求的 URL。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        url: string;
-        /**
-         * @language en_US
-         * The array of HTTP request headers to be appended to the HTTP request. The array is composed of URLRequestHeader objects.
-         * Each object in the array must be a URLRequestHeader object that contains a name string and a value string.
-         * Because of browser compatibility, this property has not been achieved in html5
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 要追加到 HTTP 请求的 HTTP 请求标头的数组。该数组由 URLRequestHeader 对象组成。
-         * 数组中的每一对象必须是包含一个名称字符串和一个值字符串的 URLRequestHeader 对象。
-         * 由于浏览器兼容性原因，该属性在 html5 中并未实现
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        requestHeaders: Array<URLRequestHeader>;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * UThe URLLoader class downloads data from a URL as text, binary data, or URL-encoded variables.  It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
-     * A URLLoader object downloads all of the data from a URL before making it available to code in the applications. It sends out notifications about the progress of the download,
-     * which you can monitor through bytesLoaded and bytesTotal properties, as well as through dispatched events.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/net/URLLoader.ts
-     */
-    /**
-     * @language zh_CN
-     * URLLoader 类以文本、二进制数据或 URL 编码变量的形式从 URL 下载数据。在下载文本文件、XML 或其他用于动态数据驱动应用程序的信息时，它很有用。
-     * URLLoader 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
+     * HttpRequest 类以文本或二进制数据的形式从 URL 下载数据。
+     * HttpRequest 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
      * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE 加载完成
+     * @event lark.Event.IO_ERROR 加载失败
+     * @event lark.ProgressEvent.PROGRESS 加载进度，可通过event.bytesLoaded和event.bytesTotal统计进度信息。
+     * @see lark.HttpMethod
+     * @see lark.HttpResponseType
+     * @includeExample examples/Samples/src/lark/net/HttpRequestExample.ts
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/net/URLLoader.ts
      */
-    class URLLoader extends EventDispatcher {
+    interface HttpRequest extends EventDispatcher {
         /**
          * @language en_US
-         * Create an egret.URLLoader object
-         * @param request {URLRequest} A URLRequest object specifies the URL to be downloaded.
-         * If this parameter is omitted, no load operation begins. If a parameter is specified, the load operation begins immediately
-         * @version Egret 2.0
+         * The data received from the load operation.  The format of the data depends on the setting of the responseType property.
+         * @readOnly
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 创建 egret.URLLoader 对象
-         * @param request {URLRequest} 一个 URLRequest 对象，指定要下载的 URL。
-         * 如果省略该参数，则不开始加载操作。如果已指定参数，则立即开始加载操作
-         * @version Egret 2.0
+         * 本次请求返回的数据，数据类型根据 responseType 设置的值确定。
+         * @readOnly
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        constructor(request?: URLRequest);
+        response: any;
         /**
          * @language en_US
-         * Control whether the downloaded data is received as text (URLLoaderDataFormat.TEXT), raw binary data (URLLoaderDataFormat.BINARY), or URL-encoded variables (URLLoaderDataFormat.VARIABLES).
-         * If the value of the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
-         * If the value of the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
-         * If the value of the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
-         * If the value of the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
-         * The default value is URLLoaderDataFormat.TEXT.
-         * @default egret.URLLoaderDataFormat.TEXT
-         * @version Egret 2.0
+         * Controls whether the downloaded data is received as text (HttpResponseType.TEXT) or raw binary data (HttpResponseType.ArrayBuffer)<br/>
+         * Note:If you attempt to set this property to an invalid value, Lark runtime set the value to HttpResponseType.TEXT.
+         * @default lark.HttpResponseType.TEXT
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 控制是以文本 (URLLoaderDataFormat.TEXT)、原始二进制数据 (URLLoaderDataFormat.BINARY) 还是 URL 编码变量 (URLLoaderDataFormat.VARIABLES) 接收下载的数据。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
-         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
-         * @default egret.URLLoaderDataFormat.TEXT
-         * @version Egret 2.0
+         * 设置返回的数据格式为文本（HttpResponseType.TEXT）还是二进制数据（HttpResponseType.ArrayBuffer）<br/>
+         * 注意：若尝试设置此属性为一个非法的值，运行时将使用HttpResponseType.TEXT。
+         * @default lark.HttpResponseType.TEXT
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        dataFormat: string;
+        responseType: string;
         /**
          * @language en_US
-         * The data received from the load operation. This property is populated only when the load operation is complete. The format of the data depends on the setting of the dataFormat property:
-         * If the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
-         * If the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
-         * If the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
-         * If the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
-         * @version Egret 2.0
+         * indicates whether or not cross-site Access-Control requests should be made using credentials such as cookies
+         * or authorization headers. (This never affects same-site requests.)
+         * @default false
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 从加载操作接收的数据。只有完成加载操作时，才会填充该属性。该数据的格式取决于 dataFormat 属性的设置：
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
-         * 如果 dataFormat 属性是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
-         * @version Egret 2.0
+         * 表明在进行跨站(cross-site)的访问控制(Access-Control)请求时，是否使用认证信息(例如cookie或授权的header)。(这个标志不会影响同站的请求)
+         * @default false
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        data: any;
-        /**
-         * @private
-         */
-        _request: URLRequest;
+        withCredentials: boolean;
         /**
          * @language en_US
-         * Send and load data from the specified URL. The data can be received as text, raw binary data, or URL-encoded variables, depending on the value you set for the dataFormat property.
-         * Note that the default value of the dataFormat property is text. If you want to send data to the specified URL, you can set the data property in the URLRequest object.
-         * @param request {URLRequest}  A URLRequest object specifies the URL to be downloaded.
-         * @version Egret 2.0
+         * Initializes a request.<br/>
+         * Note: Calling this method for an already active request (one for which open() or openRequest() has already been
+         * called) is the equivalent of calling abort().
+         * @param url The URL to send the request to.
+         * @param method The HTTP method to use, please use the const value in the HttpMethod class.
+         * @see lark.HttpMethod
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 从指定的 URL 发送和加载数据。可以以文本、原始二进制数据或 URL 编码变量格式接收数据，这取决于为 dataFormat 属性所设置的值。
-         * 请注意 dataFormat 属性的默认值为文本。如果想将数据发送至指定的 URL，则可以在 URLRequest 对象中设置 data 属性。
-         * @param request {URLRequest}  一个 URLRequest 对象，指定要下载的 URL。
-         * @version Egret 2.0
+         * 初始化一个请求.<br/>
+         * 注意: 若在已经发出请求的对象上调用此方法，相当于立即调用abort().
+         * @param url 该请求所要访问的URL该请求所要访问的URL
+         * @param method 请求所使用的HTTP方法， 请使用 HttpMethod 定义的枚举值.
+         * @see lark.HttpMethod
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        load(request: URLRequest): void;
+        open(url: string, method?: string): void;
         /**
-         * @private
-         */
-        _status: number;
-        /**
-         * @private
-         *
-         */
-        __recycle(): void;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    interface NetContext extends HashObject {
-        /**
-         *
-         * @param loader
-         * @version Egret 2.0
+         * @language en_US
+         * Sends the request.
+         * @param data the data to send.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        proceed(loader: URLLoader): void;
         /**
-         *
-         * @returns
-         * @version Egret 2.0
+         * @language zh_CN
+         * 发送请求.
+         * @param data 需要发送的数据
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getChangeList(): Array<any>;
-    }
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    var NetContext: {
-        new (): NetContext;
-        getNetContext(): NetContext;
-    };
-    /**
-     * @private
-     *
-     * @param request
-     * @returns
-     */
-    function $getUrl(request: URLRequest): string;
-}
-
-declare module egret {
-    /**
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    interface IVersionController {
+        send(data?: any): void;
         /**
-         *
-         * @version Egret 2.0
+         * @language en_US
+         * Aborts the request if it has already been sent.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        fetchVersion(): void;
         /**
-         *
-         * @param url
-         * @returns
-         * @version Egret 2.0
+         * @language zh_CN
+         * 如果请求已经被发送,则立刻中止请求.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        checkIsNewVersion(url: string): boolean;
+        abort(): void;
         /**
-         *
-         * @param url
-         * @version Egret 2.0
+         * @language en_US
+         * Returns all the response headers as a string, or null if no response has been received.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        saveVersion(url: string): void;
         /**
-         * 获取所有有变化的文件
-         * @returns {Array<string>}
-         * @version Egret 2.0
+         * @language zh_CN
+         * 返回所有响应头信息(响应头名和值), 如果响应头还没接受,则返回"".
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getChangeList(): Array<string>;
+        getAllResponseHeaders(): string;
         /**
-         *
-         * @param url
-         * @returns
-         * @version Egret 2.0
+         * @language en_US
+         * Sets the value of an HTTP request header. You must call setRequestHeader() after open().
+         * @param header The name of the header whose value is to be set.
+         * @param value The value to set as the body of the header.
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        getVirtualUrl(url: string): string;
+        /**
+         * @language zh_CN
+         * 给指定的HTTP请求头赋值.在这之前,您必须确认已经调用 open() 方法打开了一个url.
+         * @param header 将要被赋值的请求头名称.
+         * @param value 给指定的请求头赋的值.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        setRequestHeader(header: string, value: string): void;
+        /**
+         * @language en_US
+         * Returns the string containing the text of the specified header, or null if either the response has not yet been
+         * received or the header doesn't exist in the response.
+         * @param header The name of the header whose value is to be get.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 返回指定的响应头的值, 如果响应头还没被接受,或该响应头不存在,则返回"".
+         * @param header 要返回的响应头名称
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        getResponseHeader(header: string): string;
     }
     /**
-     * @version Egret 2.0
+     * @language en_US
+     * Creates a HttpRequest object.
+     * @version Lark 1.0
      * @platform Web,Native
      */
-    interface VersionController extends IVersionController {
-    }
     /**
-     * @version Egret 2.0
+     * @language zh_CN
+     * 创建一个 HttpRequest 实例。
+     * @version Lark 1.0
      * @platform Web,Native
      */
-    var VersionController: {
-        new (): VersionController;
+    var HttpRequest: {
+        new (): HttpRequest;
     };
 }
 
 declare module egret {
     /**
-     * @private
-     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class BaseImageLoader {
-        /**
-         * @private
-         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。
-         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static crossOrigin: string;
-        /**
-         * @private
-         *
-         * @param url
-         * @param bitmapData
-         */
-        protected _onLoad(url: any, bitmapData: any): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param bitmapData
-         */
-        protected _onError(url: any, bitmapData: any): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param callback
-         */
-        protected _addToCallbackList(url: any, callback: any): void;
-        /**
-         * @private
-         */
-        protected static _bitmapDataFactory: any;
-        /**
-         * @private
-         */
-        protected static _bitmapCallbackMap: any;
-    }
-}
-
-declare module egret {
-    /**
-     * @private
      * @language en_US
      * The Loader class is used to load image (JPG, PNG, or GIF) files. Use the load() method to initiate loading.
      * The loaded image data is in the data property of ImageLoader.
-     * @event egret.Event.COMPLETE Emitted when the net request is complete.
-     * @event egret.Event.IO_ERROR Emitted when the net request is failed.
-     * @see egret.HttpRequest
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE Emitted when the net request is complete.
+     * @event lark.Event.IO_ERROR Emitted when the net request is failed.
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/net/ImageLoaderExample.ts
      */
     /**
-     * @private
      * @language zh_CN
      * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
-     * @event egret.Event.COMPLETE 加载完成
-     * @event egret.Event.IO_ERROR 加载失败
-     * @see egret.HttpRequest
-     * @version Egret 2.0
+     * @event lark.Event.COMPLETE 加载完成
+     * @event lark.Event.IO_ERROR 加载失败
+     * @see lark.HttpRequest
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/net/ImageLoaderExample.ts
      */
-    interface ImageLoader extends BaseImageLoader {
+    interface ImageLoader extends EventDispatcher {
         /**
-         *
-         * @param url
-         * @param callback
-         * @version Egret 2.0
+         * @language en_US
+         * The data received from the load operation.
+         * @default null
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        load(url: string, callback: (code: number, bitmapData: any) => void): void;
+        /**
+         * @language zh_CN
+         * 使用 load() 方法加载成功的 BitmapData 图像数据。
+         * @default null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        data: BitmapData;
+        /**
+         * @language en_US
+         * Specifies whether or not cross-site Access-Control requests should be made when loading a image from foreign origins.<br/>
+         * possible values are:"anonymous","use-credentials" or null.
+         * @default null
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。<br/>
+         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        crossOrigin: string;
+        /**
+         * @language en_US
+         * start a load operation。<br/>
+         * Note: Calling this method for an already active request (one for which load() has already been
+         * called) will abort the last load operation immediately.
+         * @param url 要加载的图像文件的地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 启动一次图像加载。<br/>
+         * 注意：若之前已经调用过加载请求，重新调用 load() 将终止先前的请求，并开始新的加载。
+         * @param url 要加载的图像文件的地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        load(url: string): void;
     }
     /**
-     * @private
      * @language en_US
      * Creates a ImageLoader object
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     /**
-     * @private
      * @language zh_CN
      * 创建一个 ImageLoader 实例
-     * @version Egret 2.0
+     * @version Lark 1.0
      * @platform Web,Native
      */
     var ImageLoader: {
         new (): ImageLoader;
-        disposeBitmapData(bitmapData: any): void;
     };
 }
 
@@ -11249,6 +9738,9 @@ declare module egret.sys {
          * 相对于显示列表根节点或位图缓存根节点的矩阵对象
          */
         $renderMatrix: Matrix;
+        $ratioMatrix: Matrix;
+        $ratioChanged: boolean;
+        $pixelRatio: number;
         /**
          * @private
          * 在显示列表根节点或位图缓存根节点上的显示区域
@@ -11359,6 +9851,7 @@ declare module egret.sys {
          * 改变画布的尺寸，由于画布尺寸修改会清空原始画布。所以这里将原始画布绘制到一个新画布上，再与原始画布交换。
          */
         changeSurfaceSize(): void;
+        setDevicePixelRatio(ratio?: number): void;
     }
 }
 
@@ -11465,6 +9958,7 @@ interface PlayerOption {
     textureScaleFactor?: number;
 }
 
+/// <reference path="../display/Sprite.d.ts" />
 declare module egret.sys {
     /**
      * @private
@@ -11544,7 +10038,7 @@ declare module egret.sys {
          * @param stageWidth 舞台宽度（以像素为单位）
          * @param stageHeight 舞台高度（以像素为单位）
          */
-        updateStageSize(stageWidth: number, stageHeight: number): void;
+        updateStageSize(stageWidth: number, stageHeight: number, pixelRatio?: number): void;
         /**
          * @private
          * 显示FPS，仅在DEBUG模式下有效。
@@ -11731,8 +10225,6 @@ declare module egret.sys {
          * 与绘图上线文关联的画布实例
          */
         surface: Surface;
-        begin(): void;
-        end(): void;
         /**
          * @private
          * 设置新图像如何绘制到已有的图像上的规制
@@ -12238,55 +10730,7 @@ declare module egret.sys {
     }
 }
 
-declare module egret {
-    /**
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class Ticker extends EventDispatcher {
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         * 注册帧回调事件，同一函数的重复监听会被忽略。
-         * @method egret.Ticker#register
-         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
-         * @param thisObject {any} 帧回调函数的this对象
-         * @param priority {number} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        register(callBack: Function, thisObject: any, priority?: number): void;
-        /**
-         * 取消侦听enterFrame事件
-         * @method egret.Ticker#unregister
-         * @param listener {Function} 事件侦听函数
-         * @param thisObject {any} 侦听函数的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        unregister(callBack: Function, thisObject: any): void;
-        /**
-         * @private
-         */
-        private static instance;
-        /**
-         * @method egret.Ticker.getInstance
-         * @returns {Ticker}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getInstance(): egret.Ticker;
-    }
-}
 declare module egret.sys {
-    /**
-     * @private
-     * 心跳计时器单例
-     */
-    var $ticker: SystemTicker;
     /**
      * @private
      * 是否要广播Event.RENDER事件的标志。
@@ -12302,10 +10746,6 @@ declare module egret.sys {
      * Egret心跳计时器
      */
     class SystemTicker {
-        /**
-         * @private
-         */
-        private lastTime;
         /**
          * @private
          */
@@ -12388,6 +10828,12 @@ declare module egret.sys {
          */
         private broadcastRender();
     }
+    /**
+     * @private
+     * 心跳计时器单例
+     */
+    var $ticker: SystemTicker;
+    var $TempStage: egret.Stage;
 }
 
 declare module egret.sys {
@@ -12456,6 +10902,10 @@ declare module egret.sys {
 }
 
 declare module egret {
+    class RuntimeType {
+        static WEB: string;
+        static NATIVE: string;
+    }
     /**
      * @language en_US
      * The Capabilities class provides properties that describe the system and runtime that are hosting the application.
@@ -12558,6 +11008,21 @@ declare module egret {
         /**
          * @private
          */
+        static $runtimeType: string;
+        /**
+         * @language zh_CN
+         * 指示当前的运行类型。runtimeType 属性返回下列字符串：
+         * <ul>
+         * <li>运行在Web上     egret.RuntimeType.WEB</li>
+         * <li>运行在Native上     egret.RuntimeType.NATIVE</li>
+         * </ul>
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static runtimeType: string;
+        /**
+         * @private
+         */
         static $hasGeolocation: boolean;
         /**
          * @language en_US
@@ -12608,6 +11073,8 @@ declare module egret {
         static hasMotion: boolean;
     }
 }
+declare var testDeviceType: () => boolean;
+declare var testRuntimeType: () => boolean;
 
 declare module egret {
     /**
@@ -12664,6 +11131,294 @@ declare module egret {
      * @param optionalParams 要输出到控制台的额外信息
      */
     function log(message?: any, ...optionalParams: any[]): void;
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The Geolocation able to obtain the position of the device.
+     * Geolocation will emit CHANGE event when the device's location is changed.
+     * It will emit IO_ERROR event if the location request is denied
+     * or there is no location service on the device.
+     *
+     * @event egret.Event.CHANGE The device's location is changed
+     * @event egret.Event.IO_ERROR Error occurred while getting the location
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/GeolocationExample.ts
+     */
+    /**
+     * @language zh_CN
+     * Geolocation 能够从设备的定位服务获取设备的当前位置。
+     * 当设备的位置发生改变时 Geolocation 会派发 CHANGE 事件。
+     * 当定位请求被拒绝或该设备没有定位服务时 Geolocation 会派发 IO_ERROR 事件。
+     *
+     * @event egret.Event.CHANGE 设备位置发生改变
+     * @event egret.Event.IO_ERROR 获取设备位置时发生错误
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/GeolocationExample.ts
+     */
+    interface Geolocation extends EventDispatcher {
+        /**
+         * @language en_US
+         * Start to monitor the device's location
+         * @returns
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 开始监听设备位置信息
+         * @returns
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        start(): void;
+        /**
+         * @language en_US
+         * Stop monitor the device's location
+         * @returns
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 停止监听设备位置信息
+         * @returns
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        stop(): void;
+    }
+    /**
+     * @copy egret.Geolocation
+     */
+    var Geolocation: {
+        new (): Geolocation;
+    };
+}
+
+declare module egret {
+    /**
+     * @copy egret.Motion
+     */
+    var Motion: {
+        new (): Motion;
+    };
+    /**
+     * @language en_US
+     * The Motion class emits events based on activity detected by the device's motion sensor.
+     * This data represents the device's movement along a 3-dimensional axis. When the device moves,
+     * the sensor detects this movement and emit the CHANGE event. @see egret.MotionEvent
+     *
+     * @event egret.Event.CHANGE device is moved
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/MotionExample.ts
+     */
+    /**
+     * @language zh_CN
+     * Motion 类从用户设备读取运动状态信息并派发 CHANGE 事件。
+     * 当设备移动时，传感器会检测到此移动并返回设备加速度，重力和旋转数据。@see egret.MotionEvent
+     * Motion 类提供了 start 和 stop 方法，来启动和停止运动信息检查
+     *
+     * @event egret.Event.CHANGE 运动状态发生改变
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/MotionExample.ts
+     */
+    interface Motion extends EventDispatcher {
+        /**
+         * @language en_US
+         * Start to monitor device movement
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 开始监听设备运动状态
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        start(): void;
+        /**
+         * @language en_US
+         * Stop monitor device movement
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 停止监听设备运动状态
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        stop(): void;
+    }
+    /**
+     * @language en_US
+     * A DeviceRotationRate object provides information about the rate at which
+     * the device is rotating around all three axes.
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * DeviceRotationRate 提供设备围绕三个轴旋转的角速度信息，单位是 角度/秒
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    interface DeviceRotationRate {
+        /**
+         * @language en_US
+         * The amount of rotation around the Z axis, in degrees per second.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设备绕 Z 轴旋转的角速度信息，单位是 度/秒
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        alpha: number;
+        /**
+         * @language en_US
+         * The amount of rotation around the X axis, in degrees per second.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设备绕 X 轴旋转的角速度信息，单位是 度/秒
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        beta: number;
+        /**
+         * @language en_US
+         * The amount of rotation around the Y axis, in degrees per second.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设备绕 Y 轴旋转的角速度信息，单位是 度/秒
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        gamma: number;
+    }
+    /**
+     * @language en_US
+     * A DeviceAcceleration object provides information about the amount
+     * of acceleration the device is experiencing along all three axes.
+     * Acceleration is expressed in m/s2.
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * DeviceAcceleration 提供设备在三个维度的加速度信息，加速度值的单位是 m/s2
+     * @version Lark 1.0
+     * @platform Web,Native
+     */
+    interface DeviceAcceleration {
+        /**
+         * @language en_US
+         * The amount of acceleration along the X axis
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * X 轴方向的加速度值
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        x: number;
+        /**
+         * @language en_US
+         * The amount of acceleration along the Y axis
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * Y 轴方向的加速度值
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        y: number;
+        /**
+         * @language en_US
+         * The amount of acceleration along the Z axis
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * Z 轴方向的加速度值
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        z: number;
+    }
+}
+
+declare module egret {
+    /**
+     * @copy egret.Orientation
+     */
+    var Orientation: {
+        new (): Orientation;
+    };
+    /**
+     * @language en_US
+     * Orientation monitor the orientation of the device, send CHANGE event when the orientation is changed
+     *
+     * @event egret.Event.CHANGE device's orientation is changed
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/OrientationExample.ts
+     */
+    /**
+     * @language zh_CN
+     * Orientation 监听设备方向的变化，当方向变化时派发 CHANGE 事件
+     * @event egret.Event.CHANGE 设备方向改变时派发
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/sensor/OrientationExample.ts
+     */
+    interface Orientation extends EventDispatcher {
+        /**
+         * @language en_US
+         * Start to monitor the device's orientation
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 开始监听设备方向变化
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        start(): void;
+        /**
+         * @language en_US
+         * Stop monitor the device's orientation
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 停止监听设备方向变化
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        stop(): void;
+    }
 }
 
 declare module egret {
@@ -12948,6 +11703,14 @@ declare module egret.sys {
          * @private
          */
         backgroundColor = 34,
+        /**
+         * @private
+         */
+        restrictAnd = 35,
+        /**
+         * @private
+         */
+        restrictNot = 36,
     }
 }
 declare module egret {
@@ -13367,10 +12130,6 @@ declare module egret {
          */
         numLines: number;
         /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
          * @language en_US
          * Indicate whether field is a multiline text field. Note that this property is valid only when the type is TextFieldType.INPUT.
          * If the value is true, the text field is multiline; if the value is false, the text field is a single-line text field. In a field of type TextFieldType.INPUT, the multiline value determines whether the Enter key creates a new line (a value of false, and the Enter key is ignored).
@@ -13389,6 +12148,37 @@ declare module egret {
          * @param value
          */
         _setMultiline(value: boolean): void;
+        /**
+         * @language en_US
+         * Indicates a user can enter into the text field character set. If you restrict property is null, you can enter any character. If you restrict property is an empty string, you can not enter any character. If you restrict property is a string of characters, you can enter only characters in the string in the text field. The string is scanned from left to right. You can use a hyphen (-) to specify a range. Only restricts user interaction; a script may put any text into the text field. <br/>
+         * If the string of characters caret (^) at the beginning, all characters are initially accepted, then the string are excluded from receiving ^ character. If the string does not begin with a caret (^) to, any characters are initially accepted and then a string of characters included in the set of accepted characters. <br/>
+         * The following example allows only uppercase characters, spaces, and numbers in the text field: <br/>
+         * My_txt.restrict = "A-Z 0-9"; <br/>
+         * The following example includes all characters except lowercase letters: <br/>
+         * My_txt.restrict = "^ a-z"; <br/>
+         * If you need to enter characters \ ^, use two backslash "\\ -" "\\ ^": <br/>
+         * Can be used anywhere in the string ^ to rule out including characters and switch between characters, but can only be used to exclude a ^. The following code includes only uppercase letters except uppercase Q: <br/>
+         * My_txt.restrict = "A-Z ^ Q"; <br/>
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @default null
+         */
+        /**
+         * @language zh_CN
+         * 表示用户可输入到文本字段中的字符集。如果 restrict 属性的值为 null，则可以输入任何字符。如果 restrict 属性的值为空字符串，则不能输入任何字符。如果 restrict 属性的值为一串字符，则只能在文本字段中输入该字符串中的字符。从左向右扫描该字符串。可以使用连字符 (-) 指定一个范围。只限制用户交互；脚本可将任何文本放入文本字段中。<br/>
+         * 如果字符串以尖号 (^) 开头，则先接受所有字符，然后从接受字符集中排除字符串中 ^ 之后的字符。如果字符串不以尖号 (^) 开头，则最初不接受任何字符，然后将字符串中的字符包括在接受字符集中。<br/>
+         * 下例仅允许在文本字段中输入大写字符、空格和数字：<br/>
+         * my_txt.restrict = "A-Z 0-9";<br/>
+         * 下例包含除小写字母之外的所有字符：<br/>
+         * my_txt.restrict = "^a-z";<br/>
+         * 如果需要输入字符 \ ^，请使用2个反斜杠 "\\-" "\\^" ：<br/>
+         * 可在字符串中的任何位置使用 ^，以在包含字符与排除字符之间进行切换，但是最多只能有一个 ^ 用来排除。下面的代码只包含除大写字母 Q 之外的大写字母：<br/>
+         * my_txt.restrict = "A-Z^Q";<br/>
+         * @version Egret 2.4
+         * @platform Web,Native
+         * @default null
+         */
+        restrict: string;
         /**
          * @private
          *
@@ -13539,6 +12329,7 @@ declare module egret {
         /**
          * @language zh_CN
          * 设置富文本
+         * @see http://edn.egret.com/cn/index.php/article/index/id/146
          */
         textFlow: Array<egret.ITextElement>;
         /**
@@ -13634,11 +12425,6 @@ declare module egret.sys {
         bold?: boolean;
         italic?: boolean;
     }): string;
-    /**
-     * @private
-     * 返回字符串形式的颜色值
-     */
-    function toColorString(value: number): string;
 }
 
 declare module egret {
@@ -13847,6 +12633,11 @@ declare module egret {
          *
          */
         $removeFromStage(): void;
+        /**
+         * @private
+         *
+         */
+        $onBlur(): void;
     }
     /**
      * @version Egret 2.0
@@ -14017,6 +12808,11 @@ declare module egret {
          * @platform Web,Native
          */
         href?: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        target?: string;
     }
     /**
      * @language en_US
@@ -14430,789 +13226,6 @@ declare module egret {
     }
 }
 
-declare module egret {
-    /**
-     * @language en_US
-     * Tween is the animation easing class of Egret
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween缓动动画
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/tween/Tween.ts
-     */
-    /**
-     * @language zh_CN
-     * Tween是Egret的动画缓动类
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween ease animation
-     * @version Egret 2.0
-     * @platform Web,Native
-     * @includeExample egret/tween/Tween.ts
-     */
-    class Tween extends EventDispatcher {
-        /**
-         * 不做特殊处理
-         * @constant {number} egret.Tween.NONE
-         * @private
-         */
-        private static NONE;
-        /**
-         * 循环
-         * @constant {number} egret.Tween.LOOP
-         * @private
-         */
-        private static LOOP;
-        /**
-         * 倒序
-         * @constant {number} egret.Tween.REVERSE
-         * @private
-         */
-        private static REVERSE;
-        /**
-         * @private
-         */
-        private static _tweens;
-        /**
-         * @private
-         */
-        private static IGNORE;
-        /**
-         * @private
-         */
-        private static _plugins;
-        /**
-         * @private
-         */
-        private static _inited;
-        /**
-         * @private
-         */
-        private _target;
-        /**
-         * @private
-         */
-        private _useTicks;
-        /**
-         * @private
-         */
-        private ignoreGlobalPause;
-        /**
-         * @private
-         */
-        private loop;
-        /**
-         * @private
-         */
-        private pluginData;
-        /**
-         * @private
-         */
-        private _curQueueProps;
-        /**
-         * @private
-         */
-        private _initQueueProps;
-        /**
-         * @private
-         */
-        private _steps;
-        /**
-         * @private
-         */
-        private _actions;
-        /**
-         * @private
-         */
-        private paused;
-        /**
-         * @private
-         */
-        private duration;
-        /**
-         * @private
-         */
-        private _prevPos;
-        /**
-         * @private
-         */
-        private position;
-        /**
-         * @private
-         */
-        private _prevPosition;
-        /**
-         * @private
-         */
-        private _stepPosition;
-        /**
-         * @private
-         */
-        private passive;
-        /**
-         * @language en_US
-         * Activate an object and add a Tween animation to the object
-         * @param target {any} The object to be activated
-         * @param props {any} Parameters, support loop onChange onChangeObj
-         * @param pluginData {any} Write realized
-         * @param override {boolean} Whether to remove the object before adding a tween, the default value false
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 激活一个对象，对其添加 Tween 动画
-         * @param target {any} 要激活 Tween 的对象
-         * @param props {any} 参数，支持loop(循环播放) onChange(变化函数) onChangeObj(变化函数作用域)
-         * @param pluginData {any} 暂未实现
-         * @param override {boolean} 是否移除对象之前添加的tween，默认值false
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static get(target: any, props?: any, pluginData?: any, override?: boolean): Tween;
-        /**
-         * @language en_US
-         * Delete all Tween animations from an object
-         * @param target The object whose Tween to be deleted
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 删除一个对象上的全部 Tween 动画
-         * @param target  需要移除 Tween 的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static removeTweens(target: any): void;
-        /**
-         * @language en_US
-         * Pause all Tween animations of a certain object
-         * @param target The object whose Tween to be paused
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停某个对象的所有 Tween
-         * @param target 要暂停 Tween 的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static pauseTweens(target: any): void;
-        /**
-         * @language en_US
-         * Resume playing all easing of a certain object
-         * @param target The object whose Tween to be resumed
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 继续播放某个对象的所有缓动
-         * @param target 要继续播放 Tween 的对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static resumeTweens(target: any): void;
-        /**
-         * @private
-         *
-         * @param delta
-         * @param paused
-         */
-        private static tick(delta, paused?);
-        /**
-         * @private
-         *
-         * @param tween
-         * @param value
-         */
-        private static _register(tween, value);
-        /**
-         * @language en_US
-         * Delete all Tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 删除所有 Tween
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static removeAllTweens(): void;
-        /**
-         * 创建一个 egret.Tween 对象
-         * @private
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor(target: any, props: any, pluginData: any);
-        /**
-         * @private
-         *
-         * @param target
-         * @param props
-         * @param pluginData
-         */
-        private initialize(target, props, pluginData);
-        /**
-         * @private
-         *
-         * @param value
-         * @param actionsMode
-         * @returns
-         */
-        private setPosition(value, actionsMode?);
-        /**
-         * @private
-         *
-         * @param startPos
-         * @param endPos
-         * @param includeStart
-         */
-        private _runActions(startPos, endPos, includeStart?);
-        /**
-         * @private
-         *
-         * @param step
-         * @param ratio
-         */
-        private _updateTargetProps(step, ratio);
-        /**
-         * @language en_US
-         * Whether setting is paused
-         * @param value {boolean} Whether to pause
-         * @returns Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 设置是否暂停
-         * @param value {boolean} 是否暂停
-         * @returns Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        setPaused(value: boolean): Tween;
-        /**
-         * @private
-         *
-         * @param props
-         * @returns
-         */
-        private _cloneProps(props);
-        /**
-         * @private
-         *
-         * @param o
-         * @returns
-         */
-        private _addStep(o);
-        /**
-         * @private
-         *
-         * @param o
-         * @returns
-         */
-        private _appendQueueProps(o);
-        /**
-         * @private
-         *
-         * @param o
-         * @returns
-         */
-        private _addAction(o);
-        /**
-         * @private
-         *
-         * @param props
-         * @param o
-         */
-        private _set(props, o);
-        /**
-         * @language en_US
-         * Wait the specified milliseconds before the execution of the next animation
-         * @param duration {number} Waiting time, in milliseconds
-         * @param passive {boolean} Whether properties are updated during the waiting time
-         * @returns Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 等待指定毫秒后执行下一个动画
-         * @param duration {number} 要等待的时间，以毫秒为单位
-         * @param passive {boolean} 等待期间属性是否会更新
-         * @returns Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        wait(duration: number, passive?: boolean): Tween;
-        /**
-         * @language en_US
-         * Modify the property of the specified display object to a specified value
-         * @param props {Object} Property set of an object
-         * @param duration {number} Duration
-         * @param ease {egret.Ease} Easing algorithm
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 将指定显示对象的属性修改为指定值
-         * @param props {Object} 对象的属性集合
-         * @param duration {number} 持续时间
-         * @param ease {egret.Ease} 缓动算法
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        to(props: any, duration?: number, ease?: Function): Tween;
-        /**
-         * @language en_US
-         * Execute callback function
-         * @param callback {Function} Callback method
-         * @param thisObj {any} this action scope of the callback method
-         * @param params {Array<any>} Parameter of the callback method
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 执行回调函数
-         * @param callback {Function} 回调方法
-         * @param thisObj {any} 回调方法this作用域
-         * @param params {Array<any>} 回调方法参数
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        call(callback: Function, thisObj?: any, params?: Array<any>): Tween;
-        /**
-         *
-         * @param props
-         * @param target
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        set(props: any, target?: any): Tween;
-        /**
-         * @language en_US
-         * Execute
-         * @param tween {egret.Tween} The Tween object to be operated. Default: this
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 执行
-         * @param tween {egret.Tween} 需要操作的 Tween 对象，默认this
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        play(tween?: Tween): Tween;
-        /**
-         * @language en_US
-         * Pause
-         * @param tween {egret.Tween} The Tween object to be operated. Default: this
-         * @returns {egret.Tween} Tween object itself
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停
-         * @param tween {egret.Tween} 需要操作的 Tween 对象，默认this
-         * @returns {egret.Tween} Tween对象本身
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        pause(tween?: Tween): Tween;
-        /**
-         * @method egret.Tween#tick
-         * @param delta {number}
-         * @private
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        tick(delta: number): void;
-    }
-}
-
-declare module egret {
-    /**
-     * @language en_US
-     * Easing function set. Different easing functions are used to make an animation proceed according to the corresponding equation
-     * @see http://bbs.egret-labs.org/thread-392-1-1.html Tween and Ease
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    /**
-     * @language zh_CN
-     * 缓动函数集合，使用不同的缓动函数使得动画按照对应的方程进行
-     * @see http://bbs.egret-labs.org/thread-392-1-1.html Tween和Ease
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class Ease {
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         *
-         * @param amount
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static get(amount: any): Function;
-        /**
-         *
-         * @param pow
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getPowIn(pow: any): Function;
-        /**
-         *
-         * @param pow
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getPowOut(pow: any): Function;
-        /**
-         *
-         * @param pow
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getPowInOut(pow: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quadIn: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quadOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quadInOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static cubicIn: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static cubicOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static cubicInOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quartIn: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quartOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quartInOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quintIn: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quintOut: Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static quintInOut: Function;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static sineIn(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static sineOut(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static sineInOut(t: any): number;
-        /**
-         *
-         * @param amount
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getBackIn(amount: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static backIn: Function;
-        /**
-         *
-         * @param amount
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getBackOut(amount: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static backOut: Function;
-        /**
-         *
-         * @param amount
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getBackInOut(amount: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static backInOut: Function;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static circIn(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static circOut(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static circInOut(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static bounceIn(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static bounceOut(t: any): number;
-        /**
-         *
-         * @param t
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static bounceInOut(t: any): number;
-        /**
-         *
-         * @param amplitude
-         * @param period
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getElasticIn(amplitude: any, period: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static elasticIn: Function;
-        /**
-         *
-         * @param amplitude
-         * @param period
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getElasticOut(amplitude: any, period: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static elasticOut: Function;
-        /**
-         *
-         * @param amplitude
-         * @param period
-         * @returns
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static getElasticInOut(amplitude: any, period: any): Function;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static elasticInOut: Function;
-    }
-}
-
-declare module egret {
-    /**
-     * @class egret.MainContext
-     * @classdesc
-     * MainContext是游戏的核心跨平台接口，组合了多个功能Context，并是游戏启动的主入口
-     * @extends egret.EventDispatcher
-     * @private
-     * @version Egret 2.0
-     * @platform Web,Native
-     */
-    class MainContext extends EventDispatcher {
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        constructor();
-        /**
-         * 渲染Context
-         * @member egret.MainContext#rendererContext
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * 触摸Context
-         * @member egret.MainContext#touchContext
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * 网络Context
-         * @member egret.MainContext#netContext
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * 设备divice
-         * @member egret.MainContext#deviceContext
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * 舞台
-         * @member egret.MainContext#stage
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        stage: Stage;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static deviceType: string;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static DEVICE_PC: string;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static DEVICE_MOBILE: string;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static runtimeType: string;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static RUNTIME_HTML5: string;
-        /**
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static RUNTIME_NATIVE: string;
-        /**
-         * 游戏启动，开启主循环，参考Flash的滑动跑道模型
-         * @method egret.MainContext#run
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        run(): void;
-        /**
-         * @private
-         */
-        private static _instance;
-        /**
-         * @method egret.Ticker.getInstance
-         * @returns {Ticker}
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        static instance: egret.MainContext;
-    }
-}
-declare var testDeviceType: () => boolean;
-declare var testRuntimeType: () => boolean;
-
 declare module egret.localStorage {
     /**
      * @language en_US
@@ -15505,107 +13518,74 @@ declare module egret {
     }
 }
 
-/**
- * Created by yjtx on 15-5-18.
- */
 declare module egret {
     /**
-     * @private
-     * @version Egret 2.0
+     * @language en_US
+     * The SoundChannel class controls a sound in an application.
+     * Every sound is assigned to a sound channel, and the application
+     * can have multiple sound channels that are mixed together.
+     * The SoundChannel class contains a stop() method, properties for
+     * set the volume of the channel
+     *
+     * @event egret.Event.SOUND_COMPLETE Emit when a sound has finished playing
+     * @version Lark 1.0
      * @platform Web,Native
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
-    interface Audio {
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setCurrentTime(value: number): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getCurrentTime(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setVolume(value: number): void;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getVolume(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setLoop(value: boolean): void;
-        /**
-         * @private
-         *
-         * @param type
-         */
-        $play(type?: string): void;
-        /**
-         * @private
-         *
-         */
-        $pause(): void;
-        /**
-         * @private
-         *
-         */
-        $load(): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param callback
-         * @param thisObj
-         */
-        $preload(type: string, callback?: Function, thisObj?: any): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param listener
-         * @param useCapture
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param listener
-         * @param useCapture
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         *
-         */
-        $destroy(): void;
-        /**
-         * @private
-         *
-         * @param url
-         * @param callback
-         */
-        $loadByUrl(url: string, callback: (code: number) => void): void;
-    }
     /**
-     * @private
-     * @version Egret 2.0
+    * @language zh_CN
+     * SoundChannel 类控制应用程序中的声音。每个声音均分配给一个声道，而且应用程序可以具有混合在一起的多个声道。
+     * SoundChannel 类包含 stop() 方法、用于设置音量和监视播放进度的属性。
+     *
+     * @event egret.Event.SOUND_COMPLETE 音频播放完成时抛出
+     * @version Lark 1.0
      * @platform Web,Native
-     */
-    var Audio: {
-        new (): Audio;
-    };
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
+    */
+    interface SoundChannel extends IEventDispatcher {
+        /**
+         * @language en_US
+         * The volume, ranging from 0 (silent) to 1 (full volume).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音量范围从 0（静音）至 1（最大音量）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        volume: number;
+        /**
+         * @language en_US
+         *  When the sound is playing, the position property indicates
+         * in seconds the current point that is being played in the sound file.
+         * @version Lark 1.0
+         * @platform Web,Native
+         * @readOnly
+         */
+        /**
+         * @language zh_CN
+         * 当播放声音时，position 属性表示声音文件中当前播放的位置（以秒为单位）
+         * @version Lark 1.0
+         * @platform Web,Native
+         * @readOnly
+         */
+        position: number;
+        /**
+         * @language en_US
+         * Stops the sound playing in the channel.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 停止在该声道中播放声音。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        stop(): void;
+    }
 }
 
 declare module egret {
@@ -15616,10 +13596,10 @@ declare module egret {
      * More detailed control of the sound is performed through the SoundChannel
      *
      * @event egret.Event.COMPLETE Emit when the audio resource is loaded and ready to play
-     * @event egret.SoundEvent.SOUND_COMPLETE 在声音完成播放后调度。
-     * @version Egret 2.0
+     * @event egret.IOErrorEvent.IO_ERROR Emit when the audio resource is failed to load
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/media/Sound.ts
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
     /**
      * @language zh_CN
@@ -15627,57 +13607,57 @@ declare module egret {
      * 可通过 SoundChannel 对声音执行更精细的控制，如控制音量和监控播放进度。
      *
      * @event egret.Event.COMPLETE 音频加载完成时抛出
-     * @event egret.SoundEvent.SOUND_COMPLETE 在声音完成播放后调度。
-     * @version Egret 2.0
+     * @event egret.IOErrorEvent.IO_ERROR 音频加载失败时抛出
+     * @version Lark 1.0
      * @platform Web,Native
-     * @includeExample egret/media/Sound.ts
+     * @includeExample examples/Samples/src/egret/media/SoundExample.ts
      */
-    class Sound extends egret.EventDispatcher {
+    interface Sound extends EventDispatcher {
         /**
          * @language en_US
-         * Background music
-         * @version Egret 2.0
+         * Initiates loading of an external audio file from the specified URL.
+         * @param url Audio file URL
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 背景音乐
-         * @version Egret 2.0
+         * 启动从指定 URL 加载外部音频文件的过程。
+         * @param url 需要加载的音频文件URL
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        static MUSIC: string;
+        load(url: string): void;
         /**
          * @language en_US
-         * EFFECT
-         * @version Egret 2.0
+         * Generates a new SoundChannel object to play back the sound.
+         * @param startTime The initial position in seconds at which playback should start, (default = 0)
+         * @param loops Plays, the default value is 0. Greater than 0 to the number of plays, such as 1 to play 1, less than or equal to 0, to loop.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 音效
-         * @version Egret 2.0
+         * 生成一个新的 SoundChannel 对象来播放该声音。此方法返回 SoundChannel 对象，访问该对象可停止声音调整音量。
+         * @param startTime 应开始播放的初始位置（以秒为单位），默认值是 0
+         * @param loops 播放次数，默认值是 0，循环播放。 大于 0 为播放次数，如 1 为播放 1 次；小于等于 0，为循环播放。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        static EFFECT: string;
+        play(startTime?: number, loops?: number): SoundChannel;
         /**
          * @language en_US
-         * Create egret.Sound objects
-         * @version Egret 2.0
+         * Closes the stream, causing any download of data to cease
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 创建 egret.Sound 对象
-         * @version Egret 2.0
+         * 关闭该流，从而停止所有数据的下载。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        constructor();
-        /**
-         * @private
-         * audio音频对象
-         * @member {any} egret.Sound#audio
-         */
-        private audio;
+        close(): void;
         /**
          * @language en_US
          * Type, default is egret.Sound.EFFECT.
@@ -15693,204 +13673,2016 @@ declare module egret {
          * @platform Web,Native
          */
         type: string;
+    }
+    /**
+     * @copy egret.Sound
+     */
+    var Sound: {
         /**
          * @language en_US
-         * When playing sound, position property indicates the location of the sound file that is currently playing (in milliseconds).
-         * @returns {number}
+         * Create Sound object, load an external audio file and play
+         * @param url Audio file URL, Sound will start to load the media if url is not empty
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建 Sound 对象、将外部音频文件加载到该对象并播放该文件
+         * @param url 需要加载的音频文件URL,如果指定了 url, Sound会立即开始加载指定的媒体文件
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        new (): Sound;
+        /**
+         * @language en_US
+         * Background music
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 当播放声音时，position 属性表示声音文件中当前播放的位置（以毫秒为单位）。
-         * @returns {number}
+         * 背景音乐
          * @version Egret 2.0
+         * @platform Web,Native
+         */
+        MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        EFFECT: string;
+    };
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The Video class lets you work with video in an application.
+     * The Video class lets you create a Video object, load and play an external video file into that object.
+     * Note: On most mobile device, the video is playback in the full screen mode.<br/>
+     *
+     * @param url URL of the media to play, Video will start to load if the url is not empty
+     *
+     * @event lark.Event.COMPLETE Emit when the video resource is loaded and ready to play
+     * @event lark.Event.ENDED Emit when the video playback ended
+     * @event lark.Event.IO_ERROR when the video is failed to load
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/media/VideoExample.ts
+     */
+    /**
+     * @language zh_CN
+     * Video 允许您在应用程序中使用视频。使用 Video 类可以创建 Video 对象、将外部视频文件加载到该对象并播放该文件。<br/>
+     * 注意: 在大多数移动设备中，视频是强制全屏播放的，所以你可以直接调用 play() 方法全屏播放视频，不用将它绘制在Stage中。
+     *
+     * @param url 要播放的视频的URL，如果url不为空，Video会立即加载这个视频
+     *
+     * @event lark.Event.COMPLETE 视频加载完成时抛出
+     * @event lark.Event.ENDED 视频播放完成时抛出
+     * @event lark.Event.IO_ERROR 视频加载失败市触发
+     * @version Lark 1.0
+     * @platform Web,Native
+     * @includeExample examples/Samples/src/lark/media/VideoExample.ts
+     */
+    interface Video extends DisplayObject {
+        /**
+         * @language en_US
+         * Initiates loading of an external video file from the specified URL.
+         * @param url Audio file URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 启动从指定 URL 加载外部视频文件的过程。
+         * @param url 需要加载的视频文件URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        load(url: string): void;
+        /**
+         * @language en_US
+         * Play back the video.
+         * @param startTime The initial position in seconds at which playback should start, (default = 0)
+         * @param loop Defines should play the video again when the video is ended. (default = false)
+         * @param fullscreen Defines should play the video in fullscreen mode. (default = false)
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 播放该视频
+         * @param startTime 应开始播放的初始位置（以秒为单位），默认值是视频上次结束的位置
+         * @param loop 是否需要循环播放，默认值是 false
+         * @param fullscreen 是否需要全屏播放，默认值是 false
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        play(startTime?: number, loop?: boolean): any;
+        /**
+         * @language en_US
+         * Closes the stream, causing any download of data to cease
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 关闭该流，从而停止所有数据的下载。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        close(): void;
+        /**
+         * @language en_US
+         * The URL of the video you want to play.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 想要播放的视频的URL
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        src: string;
+        /**
+         * @language en_US
+         * The URL of an image you want to display before the video is loaded or video cannot been draw on the canvas on some mobile device.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 视频加载前，或者在不支持将 video 画在 canvas 的设备上，想要显示的视频截图地址。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        poster: string;
+        /**
+         * @language en_US
+         * Should play the video in fullscreen mode (default = true).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 是否全屏播放这个视频（默认值是 true）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        fullscreen: boolean;
+        /**
+         * @language en_US
+         * The volume, ranging from 0 (silent) to 1 (full volume).
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音量范围从 0（静音）至 1（最大音量）。
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        volume: number;
+        /**
+         * @language en_US
+         * When the video is playing, the position property indicates
+         * in seconds the current point that is being played in the video file.
+         * @version Lark 1.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 当播放视频时，position 属性表示视频文件中当前播放的位置（以秒为单位）
+         * @version Lark 1.0
          * @platform Web,Native
          */
         position: number;
         /**
          * @language en_US
-         * Generates a new SoundChannel object to play back the sound.
-         * @param loop Defines should play the audio again when the audio is ended. (default = false)
-         * @param position The initial position in Millisecond at which playback should start, (default = 0)
-         * @version Egret 2.0
+         * Pause the video playing.
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 生成一个新的 SoundChannel 对象来播放该声音。此方法返回 SoundChannel 对象，访问该对象可停止声音调整音量。
-         * @param loop 是否需要循环播放，默认值是 false
-         * @param position 应开始播放的初始位置（以毫秒为单位），默认值是 0
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        play(loop?: boolean, position?: number): void;
-        /**
-         * @private
-         */
-        private pauseTime;
-        /**
-         * @language en_US
-         * Sound stops playing
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 声音停止播放
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        stop(): void;
-        /**
-         * @language en_US
-         * Pause sound
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 暂停声音
-         * @version Egret 2.0
+         * 暂停播放。
+         * @version Lark 1.0
          * @platform Web,Native
          */
         pause(): void;
         /**
          * @language en_US
-         * Continue playback from the last pause position
-         * @version Egret 2.0
+         * Get bitmapData of the video file, you can use the video as bitmapData on the stage.
+         * Note: On most mobile device, the video is playback in the full screen mode.
+         * So you can just use the play() method instead of draw it on the Stage
+         * @version Lark 1.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 继续从上次暂停的位置播放
-         * @version Egret 2.0
+         *  获取视频的 bitmapData, 你可以将视频绘制到舞台上。
+         * 注意： 在大多数移动设备中，视频是全屏播放的，所以你可以直接调用 play() 方法全屏播放视频，不用将它绘制在Stage中。
+         * @version Lark 1.0
          * @platform Web,Native
          */
-        resume(): void;
+        bitmapData: BitmapData;
+    }
+    /**
+     * @copy lark.Video
+     */
+    var Video: {
+        new (): Video;
+    };
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * Run the designated function in specified delay (in milliseconds).
+     * @param listener {Function} Listener function
+     * @param thisObject {any} this object
+     * @param delay {number} Delay time, in milliseconds
+     * @param ...args {any} Parameter list
+     * @returns {number} Return index which can be used for clearTimeout
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setTimeout.ts
+     */
+    /**
+     * @language zh_CN
+     * 在指定的延迟（以毫秒为单位）后运行指定的函数。
+     * @param listener {Function} 侦听函数
+     * @param thisObject {any} this对象
+     * @param delay {number} 延迟时间，以毫秒为单位
+     * @param ...args {any} 参数列表
+     * @returns {number} 返回索引，可以用于 clearTimeout
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setTimeout.ts
+     */
+    function setTimeout(listener: Function, thisObject: any, delay: number, ...args: any[]): number;
+    /**
+     * @language en_US
+     * Function run after the specified delay is cleared.
+     * @param key {number} Index that egret.setTimeout returns
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    /**
+     * @language zh_CN
+     * 清除指定延迟后运行的函数。
+     * @param key {number} egret.setTimeout所返回的索引
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    function clearTimeout(key: number): void;
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * Specified function after a specified delay run (in milliseconds).
+     * @param listener {Function} Listener function
+     * @param thisObject {any} this object
+     * @param delay {number} Delay time, in milliseconds
+     * @param ...args {any} Parameter list
+     * @returns {number} Return index which can be used for clearInterval
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setInterval.ts
+     */
+    /**
+     * @language zh_CN
+     * 在指定的延迟（以毫秒为单位）后运行指定的函数。
+     * @param listener {Function} 侦听函数
+     * @param thisObject {any} this对象
+     * @param delay {number} 延迟时间，以毫秒为单位
+     * @param ...args {any} 参数列表
+     * @returns {number} 返回索引，可以用于 clearInterval
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setInterval.ts
+     */
+    function setInterval(listener: Function, thisObject: any, delay: number, ...args: any[]): number;
+    /**
+     * @language en_US
+     * Clear function to run after a specified delay.
+     * @param key {number} Index that egret.setInterval returns
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setInterval.ts
+     */
+    /**
+     * @language zh_CN
+     * 清除指定延迟后运行的函数。
+     * @param key {number} egret.setInterval所返回的索引
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/setInterval.ts
+     */
+    function clearInterval(key: number): void;
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * Injector
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/Injector.ts
+     */
+    /**
+     * @language zh_CN
+     * 注入器
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/Injector.ts
+     */
+    class Injector {
+        /**
+         * @private
+         * 储存类的映射规则
+         */
+        private static mapClassDic;
         /**
          * @language en_US
-         * Reload sound
+         * Conduct mapping injection with class definition as the value. It will be instantiated only when it's singleton is requested for the first time by using getInstance ().
+         * @param whenAskedFor {any} whenAskedFor passes class definition or fully qualified name of the class as the key to map.
+         * @param instantiateClass {any} instantiateClass passes the class as a value to be mapped, and its constructor function must be empty. If not empty, use Injector.mapValue () method to directly inject the instance.
+         * @param named {string} named, optional parameter. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings. Import the same parameters when calling getInstance () method.
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 重新加载声音
+         * 以类定义为值进行映射注入，当第一次用getInstance()请求它的单例时才会被实例化。
+         * @param whenAskedFor {any} whenAskedFor 传递类定义或类完全限定名作为需要映射的键。
+         * @param instantiateClass {any} instantiateClass 传递类作为需要映射的值，它的构造函数必须为空。若不为空，请使用Injector.mapValue()方法直接注入实例。
+         * @param named {string} named 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。在调用getInstance()方法时要传入同样的参数。
          * @version Egret 2.0
          * @platform Web,Native
          */
-        load(): void;
+        static mapClass(whenAskedFor: any, instantiateClass: any, named?: string): void;
+        /**
+         * @private
+         * 获取完全限定类名
+         */
+        private static getKey(hostComponentKey);
         /**
          * @private
          */
-        private listeners;
+        private static mapValueDic;
         /**
          * @language en_US
-         * Adding event listeners
-         * @param type The type of event.
-         * @param listener The listener function that processes the event. This function must accept an event object as
-         * its only parameter and must return nothing, as this example shows: function(evt:Event):void  The function can
-         * have any name.
-         * @param thisObject the listener function's "this"
+         * Conduct mapping injection with instance as the value, and always return this injected instance when a singleton is requested by using getInstance ().
+         * @param whenAskedFor {any} Pass class definition or fully qualified name of the class as the key to map.
+         * @param useValue {any} Pass object instance as a value to be mapped.
+         * @param named {string} Optional. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings. Import the same parameters when calling getInstance () method.
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 添加事件监听
-         * @param type 事件的类型。
-         * @param listener 处理事件的侦听器函数。此函数必须接受 Event 对象作为其唯一的参数，并且不能返回任何结果，
-         * 如下面的示例所示： function(evt:Event):void 函数可以有任何名称。
-         * @param thisObject 侦听函数绑定的this对象
+         * 以实例为值进行映射注入,当用getInstance()请求单例时始终返回注入的这个实例。
+         * @param whenAskedFor {any} 传递类定义或类的完全限定名作为需要映射的键。
+         * @param useValue {any} 传递对象实例作为需要映射的值。
+         * @param named {string} 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。在调用getInstance()方法时要传入同样的参数。
          * @version Egret 2.0
          * @platform Web,Native
          */
-        addEventListener(type: string, listener: Function, thisObject: any): void;
+        static mapValue(whenAskedFor: any, useValue: any, named?: string): void;
         /**
          * @language en_US
-         * Remove Event Listeners
-         * @param type The type of event.
-         * @param listener The listener function that processes the event. This function must accept an event object as
-         * its only parameter and must return nothing, as this example shows: function(evt:Event):void  The function can
-         * have any name.
-         * @param thisObject the listener function's "this"
+         * Check whether there is any specified mapping rule
+         * @param whenAskedFor {any} Pass class definition or fully qualified name of the class as the key to map.
+         * @param named {string} Optional. When the same class serves as the key to map multiple rules, this parameter can be imported to distinguish different mappings.
+         * @returns {boolean} Whether there is any specified mapping rule
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 移除事件监听
-         * @param type 事件的类型。
-         * @param listener 处理事件的侦听器函数。此函数必须接受 Event 对象作为其唯一的参数，并且不能返回任何结果，
-         * 如下面的示例所示： function(evt:Event):void 函数可以有任何名称。
-         * @param thisObject 侦听函数绑定的this对象
+         * 检查指定的映射规则是否存在
+         * @param whenAskedFor {any} 传递类定义或类的完全限定名作为需要映射的键。
+         * @param named {string} 可选参数，在同一个类作为键需要映射多条规则时，可以传入此参数区分不同的映射。
+         * @returns {boolean} 指定的映射规则是否存在
          * @version Egret 2.0
          * @platform Web,Native
          */
-        removeEventListener(type: string, listener: Function, thisObject: any): void;
+        static hasMapRule(whenAskedFor: any, named?: string): boolean;
+        /**
+         * @language en_US
+         * Get a singleton mapped by the specified class. Note: This method always returns a globally unique instance, and will not create repeatedly.
+         * @param clazz {any} Class definition or fully qualified name of the class
+         * @param named {string} Optional. If this value is set when calling mapClass () mapping, the same character string needs to be import ed in order to obtain the corresponding singleton
+         * @returns {any} Get a singleton mapped by the specified class
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取指定类映射的单例，注意:这个方法总是返回全局唯一的实例，不会重复创建。
+         * @param clazz {any} 类定义或类的完全限定名
+         * @param named {string} 可选参数，若在调用mapClass()映射时设置了这个值，则要传入同样的字符串才能获取对应的单例
+         * @returns {any} 获取指定类映射的单例
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static getInstance(clazz: any, named?: string): any;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * Tool class for object cache repeat use, which can be used to construct an object pool. Objects are automatically recycled after a certain duration.
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/Recycler.ts
+     */
+    /**
+     * @language zh_CN
+     * 对象缓存复用工具类，可用于构建对象池，一段时间后会自动回收对象。
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/utils/Recycler.ts
+     */
+    class Recycler extends HashObject {
+        /**
+         * @language en_US
+         * Create an egret.Recycler object
+         * @param autoDisposeTime {number} Number of frames when objects are destroyed automatically. Default value: 300
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.Recycler 对象
+         * @param autoDisposeTime {number} 多少帧后自动销毁对象，默认值300
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(autoDisposeTime?: number);
+        /**
+         * @private
+         */
+        static _callBackList: Array<any>;
+        static $init(): void;
+        static onUpdate(timeStamp: number): void;
+        /**
+         * @private
+         * 多少帧后自动销毁对象。
+         */
+        private autoDisposeTime;
+        /**
+         * @private
+         */
+        private frameCount;
         /**
          * @private
          *
-         * @param type
+         */
+        $checkFrame(): void;
+        /**
+         * @private
+         */
+        private objectPool;
+        /**
+         * @private
+         */
+        private _length;
+        /**
+         * @language en_US
+         * Number of cached objects"
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 缓存的对象数量
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        length: number;
+        /**
+         * @language en_US
+         * Cache an object for repeat use
+         * @param object {any} The object to be cached
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 缓存一个对象以复用
+         * @param object {any} 需要缓存的对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        push(object: any): void;
+        /**
+         * @language en_US
+         * Obtain a cached object
+         * @returns {any} The obtained cached object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取一个缓存的对象
+         * @returns {any} 获得的缓存对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        pop(): any;
+        /**
+         * @language en_US
+         * Immediately clear all cached objects.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 立即清空所有缓存的对象。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        dispose(): void;
+    }
+}
+
+declare module egret {
+    /**
+     * @class egret.MainContext
+     * @classdesc
+     * MainContext是游戏的核心跨平台接口，组合了多个功能Context，并是游戏启动的主入口
+     * @extends egret.EventDispatcher
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class MainContext extends EventDispatcher {
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor();
+        /**
+         * 渲染Context
+         * @member egret.MainContext#rendererContext
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * 触摸Context
+         * @member egret.MainContext#touchContext
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * 网络Context
+         * @member egret.MainContext#netContext
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * 设备divice
+         * @member egret.MainContext#deviceContext
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * 舞台
+         * @member egret.MainContext#stage
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        stage: Stage;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static deviceType: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static DEVICE_PC: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static DEVICE_MOBILE: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static runtimeType: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static RUNTIME_HTML5: string;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static RUNTIME_NATIVE: string;
+        /**
+         * 游戏启动，开启主循环，参考Flash的滑动跑道模型
+         * @method egret.MainContext#run
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        run(): void;
+        /**
+         * @private
+         */
+        private static _instance;
+        /**
+         * @method egret.Ticker.getInstance
+         * @returns {Ticker}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static instance: egret.MainContext;
+    }
+}
+declare var testDeviceType1: () => boolean;
+declare var testRuntimeType1: () => boolean;
+
+declare module egret {
+    /**
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @private
+     */
+    class FrameLabel extends EventDispatcher {
+        /**
+         * @private
+         */
+        private _name;
+        /**
+         * @private
+         */
+        private _frame;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(name: string, frame: number);
+        /**
+         * @language en_US
+         * Frame number
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 标签名
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        name: string;
+        /**
+         * @language en_US
+         * Frame serial number of the label
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 标签所在帧序号
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        frame: number;
+        /**
+         * @language en_US
+         * Duplicate the current frame label object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 复制当前帧标签对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        clone(): FrameLabel;
+    }
+}
+
+declare module egret {
+    /**
+     * @classdesc 使用 MovieClipData 类，您可以创建 MovieClip 对象和处理 MovieClip 对象的数据。MovieClipData 一般由MovieClipDataFactory生成
+     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class MovieClipData extends HashObject {
+        /**
+         * @private
+         * MovieClip数据
+         */
+        $mcData: any;
+        /**
+         * 总帧数
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        numFrames: number;
+        /**
+         * 帧数据列表
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        frames: any[];
+        /**
+         * 帧标签列表
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        labels: any[];
+        /**
+         * 帧率
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        frameRate: number;
+        /**
+         * 纹理数据
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        textureData: any;
+        /**
+         * 纹理集
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        spriteSheet: SpriteSheet;
+        /**
+         * 创建一个 egret.MovieClipData 对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor();
+        /**
+         * @private
+         *
+         * @param mcData
+         * @param textureData
+         * @param spriteSheet
+         */
+        $init(mcData: any, textureData: any, spriteSheet: SpriteSheet): void;
+        /**
+         * 根据指定帧序号获取该帧对应的关键帧数据
+         * @param frame {number} 帧序号
+         * @returns {any} 帧数据对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        getKeyFrameData(frame: number): any;
+        /**
+         * 根据指定帧序号获取该帧对应的Texture对象
+         * @param frame {number} 帧序号
+         * @returns {egret.Texture} Texture对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        getTextureByFrame(frame: number): Texture;
+        /**
+         * @private
+         *
+         * @param resName
          * @returns
          */
-        private getVirtualType(type);
+        private getTextureByResName(resName);
+        /**
+         * @private
+         *
+         * @returns
+         */
+        $isDataValid(): boolean;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        $isTextureValid(): boolean;
+        /**
+         * @private
+         *
+         * @param mcData
+         */
+        $fillMCData(mcData: any): void;
+        /**
+         * @private
+         *
+         * @param framesData
+         */
+        private fillFramesData(framesData);
+        /**
+         * @private
+         *
+         * @param frameLabelsData
+         */
+        private fillFrameLabelsData(frameLabelsData);
         /**
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
-         * @language en_US
-         * The volume, ranging from 0 (silent) to 1 (full volume).
+         * MovieClip数据源
          */
-        /**
-         * @language zh_CN
-         * 音量范围从 0（静音）至 1（最大音量）。
-         */
-        volume: number;
-        /**
-         * @language en_US
-         * The sound file is loaded into memory，
-         * the use of native, html5 in empty achieve
-         * @param type Sound Type
-         * @param callback callback
-         * @param thisObj Listener function to bind this object
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        /**
-         * @language zh_CN
-         * 将声音文件加载到内存，
-         * native中使用，html5里为空实现
-         * @param type 声音类型
-         * @param callback 回调函数
-         * @param thisObj 侦听函数绑定的this对象
-         * @version Egret 2.0
-         * @platform Web,Native
-         */
-        preload(type: string, callback?: Function, thisObj?: any): void;
+        mcData: MovieClipData;
         /**
          * @private
          *
          * @param value
          */
-        $setAudio(value: Audio): void;
+        private setMCData(value);
+    }
+}
+
+declare module egret {
+    /**
+     * @classdesc 使用 MovieClipDataFactory 类，可以生成 MovieClipData 对象用于创建MovieClip
+     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class MovieClipDataFactory extends EventDispatcher {
+        /**
+         * 是否开启缓存
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        enableCache: boolean;
+        /**
+         * @private
+         */
+        $mcDataSet: any;
+        /**
+         * @private
+         */
+        $spriteSheet: SpriteSheet;
+        /**
+         * @private
+         */
+        $mcDataCache: any;
+        /**
+         * 创建一个 egret.MovieClipDataFactory 对象
+         * @param movieClipDataSet {any} MovieClip数据集，该数据集必须由Egret官方工具生成
+         * @param texture {Texture} 纹理
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(movieClipDataSet?: any, texture?: Texture);
+        /**
+         * 清空缓存
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        clearCache(): void;
+        /**
+         * 根据名字生成一个MovieClipData实例。可以用于创建MovieClip。
+         * @param movieClipName {string} MovieClip名字. 可选参数，默认为"", 相当于取第一个MovieClip数据
+         * @returns {MovieClipData} 生成的MovieClipData对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        generateMovieClipData(movieClipName?: string): MovieClipData;
+        /**
+         * @private
+         *
+         * @param movieClipName
+         * @param cache
+         * @returns
+         */
+        private findFromCache(movieClipName, cache);
+        /**
+         * @private
+         *
+         * @param movieClipName
+         * @param movieClip
+         * @param cache
+         */
+        private fillData(movieClipName, movieClip, cache);
+        /**
+         * MovieClip数据集
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        mcDataSet: any;
+        /**
+         * MovieClip需要使用的纹理图
+         */
+        texture: Texture;
+        /**
+         * 由纹理图生成的精灵表
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        spriteSheet: SpriteSheet;
+        /**
+         * @private
+         *
+         * @param value
+         */
+        private setTexture(value);
+    }
+}
+
+declare module egret {
+    /**
+     * @classdesc 影片剪辑，可以通过影片剪辑播放序列帧动画。MovieClip 类从以下类继承而来：DisplayObject 和 EventDispatcher。不同于 DisplayObject 对象，MovieClip 对象拥有一个时间轴。
+     * @extends egret.DisplayObject
+     * @event egret.Event.COMPLETE 动画播放完成。
+     * @event egret.Event.LOOP_COMPLETE 动画循环播放完成。
+     * @see http://edn.egret.com/cn/index.php/article/index/id/151 MovieClip序列帧动画
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/display/MovieClip.ts
+     */
+    class MovieClip extends DisplayObject {
+        $bitmapData: Texture;
+        $movieClipData: MovieClipData;
+        /**
+         * @private
+         */
+        private frames;
+        /**
+         * @private
+         */
+        $totalFrames: number;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        frameLabels: any[];
+        /**
+         * @private
+         */
+        private frameIntervalTime;
+        /**
+         * @private
+         */
+        $eventPool: string[];
+        $isPlaying: boolean;
+        /**
+         * @private
+         */
+        private isStopped;
+        /**
+         * @private
+         */
+        private playTimes;
+        /**
+         * @private
+         */
+        $currentFrameNum: number;
+        /**
+         * @private
+         */
+        $nextFrameNum: number;
+        /**
+         * @private
+         */
+        private displayedKeyFrameNum;
+        /**
+         * @private
+         */
+        private passedTime;
+        /**
+         * 创建新的 MovieClip 实例。创建 MovieClip 之后，调用舞台上的显示对象容器的addElement方法。
+         * @param movieClipData {movieClipData} 被引用的 movieClipData 对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(movieClipData?: MovieClipData);
+        /**
+         * @private
+         *
+         */
+        $init(): void;
+        /**
+         * @private
+         *
+         */
+        $reset(): void;
+        /**
+         * @private
+         *
+         */
+        private _initFrame();
+        /**
+         * @private
+         */
+        $render(context: sys.RenderContext): void;
+        /**
+         * @private
+         */
+        $measureContentBounds(bounds: Rectangle): void;
+        /**
+         * @private
+         *
+         * @param stage
+         * @param nestLevel
+         */
+        $onAddToStage(stage: Stage, nestLevel: number): void;
+        /**
+         * @private
+         *
+         */
+        $onRemoveFromStage(): void;
+        /**
+         * @private
+         * 返回帧标签为指定字符串的FrameLabel对象
+         * @param labelName {string} 帧标签名
+         * @param ignoreCase {boolean} 是否忽略大小写，可选参数，默认false
+         * @returns {egret.FrameLabel} FrameLabel对象
+         */
+        private getFrameLabelByName(labelName, ignoreCase?);
+        /**
+         * @private
+         * 返回指定序号的帧的FrameLabel对象
+         * @param frame {number} 帧序号
+         * @returns {egret.FrameLabel} FrameLabel对象
+         */
+        private getFrameLabelByFrame(frame);
+        /**
+         * @private
+         * 返回指定序号的帧对应的FrameLabel对象，如果当前帧没有标签，则返回前面最近的有标签的帧的FrameLabel对象
+         * @method egret.MovieClip#getFrameLabelForFrame
+         * @param frame {number} 帧序号
+         * @returns {egret.FrameLabel} FrameLabel对象
+         */
+        private getFrameLabelForFrame(frame);
+        /**
+         * 继续播放当前动画
+         * @param playTimes {number} 播放次数。 参数为整数，可选参数，>=1：设定播放次数，<0：循环播放，默认值 0：不改变播放次数(MovieClip初始播放次数设置为1)，
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        play(playTimes?: number): void;
+        /**
+         * 暂停播放动画
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        stop(): void;
+        /**
+         * 将播放头移到前一帧并停止
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        prevFrame(): void;
+        /**
+         * 跳到后一帧并停止
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        nextFrame(): void;
+        /**
+         * 将播放头移到指定帧并播放
+         * @param frame {any} 指定帧的帧号或帧标签
+         * @param playTimes {number} 播放次数。 参数为整数，可选参数，>=1：设定播放次数，<0：循环播放，默认值 0：不改变播放次数，
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        gotoAndPlay(frame: any, playTimes?: number): void;
+        /**
+         * 将播放头移到指定帧并停止
+         * @param frame {any} 指定帧的帧号或帧标签
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        gotoAndStop(frame: any): void;
+        /**
+         * @private
+         *
+         * @param frame
+         */
+        private gotoFrame(frame);
+        /**
+         * @private
+         */
+        private lastTime;
+        /**
+         * @private
+         *
+         * @param advancedTime
+         * @returns
+         */
+        private advanceTime(timeStamp);
+        /**
+         * @private
+         *
+         */
+        private advanceFrame();
+        /**
+         * @private
+         *
+         */
+        private constructFrame();
+        /**
+         * @private
+         *
+         */
+        private handlePendingEvent();
+        /**
+         * MovieClip 实例中帧的总数
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        totalFrames: number;
+        /**
+         * MovieClip 实例当前播放的帧的序号
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        currentFrame: number;
+        /**
+         * MovieClip 实例当前播放的帧的标签。如果当前帧没有标签，则 currentFrameLabel返回null。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        currentFrameLabel: string;
+        /**
+         * 当前播放的帧对应的标签，如果当前帧没有标签，则currentLabel返回包含标签的先前帧的标签。如果当前帧和先前帧都不包含标签，currentLabel返回null。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        currentLabel: string;
+        /**
+         * MovieClip 实例的帧频
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        frameRate: number;
+        /**
+         * MovieClip 实例当前是否正在播放
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        isPlaying: boolean;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * MovieClip数据源
+         */
+        movieClipData: MovieClipData;
+        /**
+         * @private
+         *
+         * @param value
+         */
+        private setMovieClipData(value);
+        /**
+         * @private
+         *
+         * @param value
+         */
+        private setPlayTimes(value);
+        /**
+         * @private
+         *
+         * @param value
+         */
+        private setIsStopped(value);
+    }
+}
+
+declare module egret {
+    class ScrollEase {
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor();
+        /**
+         *
+         * @param amount
+         * @returns
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static get(amount: any): Function;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static quintOut: Function;
+        /**
+         *
+         * @param pow
+         * @returns
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static getPowOut(pow: any): Function;
+        /**
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static quartOut: Function;
+    }
+    /**
+     * @language en_US
+     * ScrollTween is the animation easing class of Egret
+     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween缓动动画
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/tween/ScrollTween.ts
+     */
+    /**
+     * @language zh_CN
+     * Tween是Egret的动画缓动类
+     * @see http://docs.egret-labs.org/post/manual/anim/tween.html ScrollTween ease animation
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/tween/ScrollTween.ts
+     */
+    class ScrollTween extends EventDispatcher {
+        /**
+         * @private
+         */
+        private static _tweens;
+        /**
+         * @private
+         */
+        private static IGNORE;
+        /**
+         * @private
+         */
+        private static _plugins;
+        /**
+         * @private
+         */
+        private static _inited;
+        /**
+         * @private
+         */
+        private _target;
+        /**
+         * @private
+         */
+        private _useTicks;
+        /**
+         * @private
+         */
+        private ignoreGlobalPause;
+        /**
+         * @private
+         */
+        private loop;
+        /**
+         * @private
+         */
+        private pluginData;
+        /**
+         * @private
+         */
+        private _curQueueProps;
+        /**
+         * @private
+         */
+        private _initQueueProps;
+        /**
+         * @private
+         */
+        private _steps;
+        /**
+         * @private
+         */
+        private _actions;
+        /**
+         * @private
+         */
+        private paused;
+        /**
+         * @private
+         */
+        private duration;
+        /**
+         * @private
+         */
+        private _prevPos;
+        /**
+         * @private
+         */
+        private position;
+        /**
+         * @private
+         */
+        private _prevPosition;
+        /**
+         * @private
+         */
+        private _stepPosition;
+        /**
+         * @private
+         */
+        private passive;
         /**
          * @language en_US
-         * The current audio release
-         * the use of native, html5 in empty achieve
+         * Activate an object and add a ScrollTween animation to the object
+         * @param target {any} The object to be activated
+         * @param props {any} Parameters, support loop onChange onChangeObj
+         * @param pluginData {any} Write realized
+         * @param override {boolean} Whether to remove the object before adding a tween, the default value false
          * @version Egret 2.0
          * @platform Web,Native
          */
         /**
          * @language zh_CN
-         * 释放当前音频
-         * native中使用，html5里为空实现
+         * 激活一个对象，对其添加 ScrollTween 动画
+         * @param target {any} 要激活 ScrollTween 的对象
+         * @param props {any} 参数，支持loop(循环播放) onChange(变化函数) onChangeObj(变化函数作用域)
+         * @param pluginData {any} 暂未实现
+         * @param override {boolean} 是否移除对象之前添加的tween，默认值false
          * @version Egret 2.0
          * @platform Web,Native
          */
-        destroy(): void;
+        static get(target: any, props?: any, pluginData?: any, override?: boolean): ScrollTween;
+        /**
+         * @language en_US
+         * Delete all ScrollTween animations from an object
+         * @param target The object whose ScrollTween to be deleted
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 删除一个对象上的全部 ScrollTween 动画
+         * @param target  需要移除 ScrollTween 的对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static removeTweens(target: any): void;
+        /**
+         * @private
+         *
+         * @param delta
+         * @param paused
+         */
+        private static tick(timeStamp, paused?);
+        private static _lastTime;
+        /**
+         * @private
+         *
+         * @param tween
+         * @param value
+         */
+        private static _register(tween, value);
+        /**
+         * 创建一个 egret.ScrollTween 对象
+         * @private
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(target: any, props: any, pluginData: any);
+        /**
+         * @private
+         *
+         * @param target
+         * @param props
+         * @param pluginData
+         */
+        private initialize(target, props, pluginData);
+        /**
+         * @private
+         *
+         * @param value
+         * @param actionsMode
+         * @returns
+         */
+        private setPosition(value);
+        /**
+         * @private
+         *
+         * @param startPos
+         * @param endPos
+         * @param includeStart
+         */
+        private _runActions(startPos, endPos, includeStart?);
+        /**
+         * @private
+         *
+         * @param step
+         * @param ratio
+         */
+        private _updateTargetProps(step, ratio);
+        /**
+         * @language en_US
+         * Whether setting is paused
+         * @param value {boolean} Whether to pause
+         * @returns ScrollTween object itself
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设置是否暂停
+         * @param value {boolean} 是否暂停
+         * @returns Tween对象本身
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setPaused(value: boolean): ScrollTween;
+        /**
+         * @private
+         *
+         * @param props
+         * @returns
+         */
+        private _cloneProps(props);
+        /**
+         * @private
+         *
+         * @param o
+         * @returns
+         */
+        private _addStep(o);
+        /**
+         * @private
+         *
+         * @param o
+         * @returns
+         */
+        private _appendQueueProps(o);
+        /**
+         * @private
+         *
+         * @param o
+         * @returns
+         */
+        private _addAction(o);
+        /**
+         * @language en_US
+         * Modify the property of the specified display object to a specified value
+         * @param props {Object} Property set of an object
+         * @param duration {number} Duration
+         * @param ease {egret.ScrollEase} Easing algorithm
+         * @returns {egret.ScrollTween} ScrollTween object itself
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 将指定显示对象的属性修改为指定值
+         * @param props {Object} 对象的属性集合
+         * @param duration {number} 持续时间
+         * @param ease {egret.ScrollEase} 缓动算法
+         * @returns {egret.ScrollTween} Tween对象本身
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        to(props: any, duration?: number, ease?: Function): ScrollTween;
+        /**
+         * @language en_US
+         * Execute callback function
+         * @param callback {Function} Callback method
+         * @param thisObj {any} this action scope of the callback method
+         * @param params {Array<any>} Parameter of the callback method
+         * @returns {egret.ScrollTween} ScrollTween object itself
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 执行回调函数
+         * @param callback {Function} 回调方法
+         * @param thisObj {any} 回调方法this作用域
+         * @param params {Array<any>} 回调方法参数
+         * @returns {egret.ScrollTween} Tween对象本身
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        call(callback: Function, thisObj?: any, params?: Array<any>): ScrollTween;
+        /**
+         * @method egret.ScrollTween#tick
+         * @param delta {number}
+         * @private
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        tick(delta: number): void;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * ScrollView auxiliary classes for slides, you will pass a display object constructor. It can display more than the range display object within the specified size range. And can easily drag in this range.
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/display/ScrollView.ts
+     */
+    /**
+     * @language zh_CN
+     * ScrollView 是用于滑动的辅助类，将一个显示对象传入构造函数即可。可以在指定的尺寸范围内显示超过该范围的显示对象。并可以在此范围内随意拖动。
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/display/ScrollView.ts
+     */
+    class ScrollView extends DisplayObjectContainer {
+        /**
+         * @private
+         */
+        _ScrV_Props_: ScrollViewProperties;
+        /**
+         * @language en_US
+         * Start rolling threshold when the touch point from the initial touch point at a distance exceeding this value will trigger roll
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 开始滚动的阈值，当触摸点偏离初始触摸点的距离超过这个值时才会触发滚动
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        scrollBeginThreshold: number;
+        /**
+         * @language en_US
+         * Scrolling speed, the speed is required and the default speed ratio.
+         * The range of scrollSpeed> 0 assigned to 2:00, the speed is 2 times the default speed
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 滚动速度，这个值为需要的速度与默认速度的比值。
+         * 取值范围为 scrollSpeed > 0 赋值为 2 时，速度是默认速度的 2 倍
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        scrollSpeed: number;
+        /**
+         * @language en_US
+         * Whether to enable rebound, rebound When enabled, ScrollView contents allowed to continue to drag the border after arriving at the end user drag operation, and then bounce back boundary position
+         * @default true
+         * @version Egret 2.0
+         */
+        /**
+         * @language zh_CN
+         * 是否启用回弹，当启用回弹后，ScrollView中内容在到达边界后允许继续拖动，在用户拖动操作结束后，再反弹回边界位置
+         * @default true
+         * @version Egret 2.0
+         */
+        bounces: boolean;
+        /**
+         * @language en_US
+         * Create a egret.ScrollView objects
+         * @param content {egret.DisplayObject} You need to scroll object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.ScrollView 对象
+         * @param content {egret.DisplayObject} 需要滚动的对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(content?: DisplayObject);
+        /**
+         * @private
+         */
+        _content: DisplayObject;
+        /**
+         * @language en_US
+         * Set to scroll object
+         * @param content {egret.DisplayObject} You need to scroll object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设置需要滚动的对象
+         * @param content {egret.DisplayObject} 需要滚动的对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setContent(content: DisplayObject): void;
+        /**
+         * @language en_US
+         * Remove rolling objects
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 移除滚动的对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        removeContent(): void;
+        /**
+         * @language en_US
+         * Vertical scroll bar display policy, on / off / auto.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 垂直滚动条显示策略，on/off/auto。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        verticalScrollPolicy: string;
+        /**
+         * @language en_US
+         * The horizontal scroll bar display policy, on / off / auto.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 水平滚动条显示策略，on/off/auto。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        horizontalScrollPolicy: string;
+        /**
+         * @language en_US
+         * Gets or sets the horizontal scroll position
+         * @returns {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取或设置水平滚动位置,
+         * @returns {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        scrollLeft: number;
+        /**
+         * @language en_US
+         * Gets or sets the vertical scroll position
+         * @returns {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 获取或设置垂直滚动位置,
+         * @returns {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        scrollTop: number;
+        /**
+         * @language en_US
+         * Set scroll position
+         * @param top {number} The vertical scroll position
+         * @param left {number} The horizontal scroll position
+         * @param isOffset {boolean} Optional parameter, the default is false, whether it is the amount of scrolling increase as top = 1 on behalf of one pixel scroll up
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设置滚动位置
+         * @param top {number} 垂直滚动位置
+         * @param left {number} 水平滚动位置
+         * @param isOffset {boolean} 可选参数，默认是false，是否是滚动增加量，如 top=1 代表往上滚动1像素
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setScrollPosition(top: number, left: number, isOffset?: boolean): void;
+        /**
+         * @private
+         *
+         * @param top
+         * @param left
+         */
+        private _validatePosition(top?, left?);
+        /**
+         * @private
+         * @inheritDoc
+         */
+        $setWidth(value: number): void;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        $setHeight(value: number): void;
+        /**
+         * @private
+         *
+         */
+        _updateContentPosition(): void;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _checkScrollPolicy(): boolean;
+        /**
+         * @private
+         *
+         * @param policy
+         * @param contentLength
+         * @param viewLength
+         * @returns
+         */
+        private __checkScrollPolicy(policy, contentLength, viewLength);
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _addEvents(): void;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _removeEvents(): void;
+        private _tempStage;
+        /**
+         * @private
+         *
+         * @param e
+         */
+        _onTouchBegin(e: TouchEvent): void;
+        /**
+         * @private
+         */
+        private delayTouchBeginEvent;
+        /**
+         * @private
+         */
+        private touchBeginTimer;
+        /**
+         * @private
+         *
+         * @param event
+         */
+        _onTouchBeginCapture(event: TouchEvent): void;
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        private _onTouchEndCapture(event);
+        /**
+         * @private
+         *
+         */
+        private _onTouchBeginTimer();
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        private dispatchPropagationEvent(event);
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        _onTouchMove(event: TouchEvent): void;
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        _onTouchEnd(event: TouchEvent): void;
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        _onEnterFrame(event: Event): void;
+        /**
+         * @private
+         *
+         * @param e
+         * @returns
+         */
+        private _logTouchEvent(e);
+        /**
+         * @private
+         *
+         * @param e
+         * @returns
+         */
+        private _getPointChange(e);
+        /**
+         * @private
+         *
+         * @param e
+         * @returns
+         */
+        private _calcVelocitys(e);
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _getContentWidth(): number;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _getContentHeight(): number;
+        /**
+         * @language en_US
+         * The left side of the maximum distance
+         * @returns The left side of the maximum distance
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 距离左侧的最大值
+         * @returns 距离左侧最大值
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        getMaxScrollLeft(): number;
+        /**
+         * @language en_US
+         * Above the maximum distance
+         * @returns Above the maximum distance
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 距离上方最大值
+         * @returns 距离上方最大值
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        getMaxScrollTop(): number;
+        /**
+         * @private
+         */
+        private static weight;
+        /**
+         * @private
+         *
+         */
+        private _moveAfterTouchEnd();
+        /**
+         * @private
+         *
+         * @param tw
+         */
+        _onTweenFinished(tw: ScrollTween): void;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _onScrollStarted(): void;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        _onScrollFinished(): void;
+        /**
+         * @language en_US
+         * Set the scroll position above the distance
+         * @param scrollTop Position above distance
+         * @param duration Easing of time, in milliseconds
+         * @returns Get tween vertical scrolling
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设置滚动距离上方的位置
+         * @param scrollTop 距离上方的位置
+         * @param duration 缓动时间，毫秒单位
+         * @returns 获取垂直滚动的tween
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setScrollTop(scrollTop: number, duration?: number): void;
+        /**
+         * @language en_US
+         * Set the scroll position from the left side
+         * @param scrollLeft From the position on the left side
+         * @param duration Get tween vertical scrolling
+         * @returns Gets the horizontal scroll tween
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 设置滚动距离左侧的位置
+         * @param scrollLeft 距离左侧的位置
+         * @param duration 缓动时间，毫秒单位
+         * @returns 获取水平滚动的tween
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setScrollLeft(scrollLeft: number, duration?: number): void;
+        /**
+         * @private
+         *
+         * @param pixelsPerMS
+         * @param curPos
+         * @param maxPos
+         * @returns
+         */
+        private getAnimationDatas(pixelsPerMS, curPos, maxPos);
+        /**
+         * @private
+         *
+         * @param event
+         * @returns
+         */
+        private cloneTouchEvent(event);
+        /**
+         * @private
+         *
+         * @returns
+         */
+        private throwNotSupportedError();
+        /**
+         * @deprecated
+         * @param child {DisplayObject}
+         * @returns {DisplayObject}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        addChild(child: DisplayObject): DisplayObject;
+        /**
+         * @deprecated
+         * @param child {DisplayObject}
+         * @param index {number}
+         * @returns {DisplayObject}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        addChildAt(child: DisplayObject, index: number): DisplayObject;
+        /**
+         * @deprecated
+         * @param child {DisplayObject}
+         * @returns {DisplayObject}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        removeChild(child: DisplayObject): DisplayObject;
+        /**
+         * @deprecated
+         * @param index {number}
+         * @returns {DisplayObject}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        removeChildAt(index: number): DisplayObject;
+        /**
+         * @deprecated
+         * @param child {DisplayObject}
+         * @param index {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        setChildIndex(child: DisplayObject, index: number): void;
+        /**
+         * @deprecated
+         * @param child1 {DisplayObject}
+         * @param child2 {DisplayObject}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        swapChildren(child1: DisplayObject, child2: DisplayObject): void;
+        /**
+         * @deprecated
+         * @param index1 {number}
+         * @param index2 {number}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        swapChildrenAt(index1: number, index2: number): void;
     }
 }
 
@@ -15900,75 +15692,706 @@ declare module egret {
      * @version Egret 2.0
      * @platform Web,Native
      */
-    class PromiseObject {
+    class ScrollViewProperties {
         /**
          * @private
          */
-        private static promiseObjectList;
+        _verticalScrollPolicy: string;
         /**
+         * @private
+         */
+        _horizontalScrollPolicy: string;
+        /**
+         * @private
+         */
+        _scrollLeft: number;
+        /**
+         * @private
+         */
+        _scrollTop: number;
+        /**
+         * @private
+         */
+        _hCanScroll: boolean;
+        /**
+         * @private
+         */
+        _vCanScroll: boolean;
+        /**
+         * @private
+         */
+        _lastTouchPosition: egret.Point;
+        /**
+         * @private
+         */
+        _touchStartPosition: egret.Point;
+        /**
+         * @private
+         */
+        _scrollStarted: boolean;
+        /**
+         * @private
+         */
+        _lastTouchTime: number;
+        /**
+         * @private
+         */
+        _lastTouchEvent: TouchEvent;
+        /**
+         * @private
+         */
+        _velocitys: Array<{
+            x: number;
+            y: number;
+        }>;
+        /**
+         * @private
+         */
+        _isHTweenPlaying: boolean;
+        /**
+         * @private
+         */
+        _isVTweenPlaying: boolean;
+        /**
+         * @private
+         */
+        _hScrollTween: ScrollTween;
+        /**
+         * @private
+         */
+        _vScrollTween: ScrollTween;
+        /**
+         * @private
+         */
+        _bounces: boolean;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLRequestMethod class provides values that specify whether the
+     * URLRequest object should use the POST method or the GET method when sending data to a server.
+     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestMethod.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
+     * URLRequest 对象应使用 POST 方法还是 GET 方法。
+     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestMethod.ts
+     */
+    class URLRequestMethod {
+        /**
+         * @language en_US
+         * Specify that the URLRequest object is a GET.
          * @version Egret 2.0
          * @platform Web,Native
          */
-        onSuccessFunc: Function;
         /**
+         * @language zh_CN
+         * 表示 URLRequest 对象是一个 GET。
          * @version Egret 2.0
          * @platform Web,Native
          */
-        onSuccessThisObject: any;
+        static GET: string;
         /**
+         * @language en_US
+         * Specify that the URLRequest object is a POST.
          * @version Egret 2.0
          * @platform Web,Native
          */
-        onErrorFunc: Function;
         /**
+         * @language zh_CN
+         * 表示 URLRequest 对象是一个 POST。
          * @version Egret 2.0
          * @platform Web,Native
          */
-        onErrorThisObject: any;
+        static POST: string;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLLoaderDataFormat class provides values that specify how downloaded data is received.
+     * @see http://docs.egret-labs.org/post/manual/net/netformat.html Read different data format
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoaderDataFormat.ts
+     */
+    /**
+     * @language zh_CN
+     * URLLoaderDataFormat 类提供了一些用于指定如何接收已下载数据的值。
+     * @see http://docs.egret-labs.org/post/manual/net/netformat.html 读取不同数据格式
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoaderDataFormat.ts
+     */
+    class URLLoaderDataFormat {
         /**
+         * @language en_US
+         * Specify that downloaded data is received as raw binary data.
          * @version Egret 2.0
          * @platform Web,Native
          */
-        downloadingSizeFunc: Function;
         /**
+         * @language zh_CN
+         * 指定以原始二进制数据形式接收下载的数据。
          * @version Egret 2.0
          * @platform Web,Native
          */
-        downloadingSizeThisObject: any;
+        static BINARY: string;
         /**
+         * @language en_US
+         * Specify that downloaded data is received as text.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以文本形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static TEXT: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as URL-encoded variables.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以 URL 编码变量形式接收下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static VARIABLES: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as bitmap texture.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以位图纹理形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static TEXTURE: string;
+        /**
+         * @language en_US
+         * Specify that downloaded data is received as sound.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 指定以声音形式接收已下载的数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static SOUND: string;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLVariables class allows you to transfer variables between an application and a server.
+     * Use URLVariables objects with methods of the URLLoader class and the data property of the URLRequest class.
+     * @see http://docs.egret-labs.org/post/manual/net/senddata.html Send the request with parameters
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLVariables.ts
+     */
+    /**
+     * @language zh_CN
+     * 使用 URLVariables 类可以在应用程序和服务器之间传输变量。
+     * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
+     * @see http://docs.egret-labs.org/post/manual/net/senddata.html 发送带参数的请求
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLVariables.ts
+     */
+    class URLVariables extends HashObject {
+        /**
+         * @language en_US
+         * Create an egret.URLVariable object
+         * @param source {String} A URL-encoded string containing name/value pairs.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLVariables 对象
+         * @param source {String} 包含名称/值对的 URL 编码的字符串。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(source?: string);
+        /**
+         * @language en_US
+         * Key-value pair data object saved in this URLVariables object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 此 URLVariables 储存的键值对数据对象。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        variables: Object;
+        /**
+         * @language en_US
+         * Convert the variable string into the property of this URLVariables.variables object.
+         * @param source {string}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 将变量字符串转换为此 URLVariables.variables 对象的属性。
+         * @param source {string}
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        decode(source: string): void;
+        /**
+         * @language en_US
+         * Return a string containing all enumerable variables using  the MIME content encoding format : application/x-www-form-urlencoded.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 以 MIME 内容编码格式 application/x-www-form-urlencoded 返回包含所有可枚举变量的字符串。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        toString(): string;
+        /**
+         * @private
+         *
+         * @param key
+         * @param value
+         */
+        private encodeValue(key, value);
+        /**
+         * @private
+         *
+         * @param key
+         * @param value
+         */
+        private encodeArray(key, value);
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * A URLRequestHeader object encapsulates a single HTTP request header and consists of a name/value pair.  URLRequestHeader objects are used in the requestHeaders property of the URLRequest class.
+     * Note: Because of browser compatibility, this property has not been achieved in html5
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestHeader.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequestHeader 对象封装了一个 HTTP 请求标头并由一个名称/值对组成。URLRequestHeader 对象在 URLRequest 类的 requestHeaders 属性中使用。
+     * 注意：由于浏览器兼容性原因，在 html5 中并未实现
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequestHeader.ts
+     */
+    class URLRequestHeader {
+        /**
+         * @language en_US
+         * HTTP request header name, such as Content-Type
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * HTTP 请求标头名称，如 Content-Type
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        name: string;
+        /**
+         * @language en_US
+         * The values associated with the name property (such as text/plain).
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 与 name 属性相关联的值，如 text/plain
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        value: string;
+        /**
+         * @language en_US
+         * Create an egret.URLRequestHeader object
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLRequestHeader 对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(name: string, value: string);
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * The URLRequest class captures all of the information in a single HTTP request.
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequest.ts
+     */
+    /**
+     * @language zh_CN
+     * URLRequest 类可捕获单个 HTTP 请求中的所有信息。
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLRequest.ts
+     */
+    class URLRequest extends HashObject {
+        /**
+         * @language en_US
+         * Create an egret.URLRequest object
+         * @param url {string} Addresses for URL requests
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建一个 egret.URLRequest 对象
+         * @param url {string} 进行网络请求的地址
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(url?: string);
+        /**
+         * @language en_US
+         * An object contains data to be transmitted with the URL request.
+         * This property is used in conjunction with the method property.  When the value of method is GET, the value of data is appended to the value of URLRequest.url, using HTTP query-string syntax.
+         * When the method value is POST (or any value other than GET), the value of data is transmitted in the body of the HTTP request.
+         * The URLRequest API supports  binary POST, URL-encoded variables, as well as strings. The data object can be a ByteArray, URLVariables, or String object. The way in which the data is used depends on the type of object used: If the object is a ByteArray object, the binary data of the ByteArray object is used as POST data. For GET, data of ByteArray type is not supported.
+         * If the object is a URLVariables object and the method is POST, then the variables are encoded using x-www-form-urlencoded format and the resulting string is used as POST data.
+         * If the object is a URLVariables object and the method is GET, the URLVariables object will define variables to be sent with the URLRequest object.
+         * Otherwise, the object is converted into a string, and the string is used as the POST or GET data.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 一个对象，它包含将随 URL 请求一起传输的数据。
+         * 该属性与 method 属性配合使用。当 method 值为 GET 时，将使用 HTTP 查询字符串语法将 data 值追加到 URLRequest.url 值。
+         * 当 method 值为 POST（或 GET 之外的任何值）时，将在 HTTP 请求体中传输 data 值。
+         * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ByteArray、URLVariables 或 String 对象。
+         * 该数据的使用方式取决于所用对象的类型：
+         * 如果该对象为 ByteArray 对象，则 ByteArray 对象的二进制数据用作 POST 数据。对于 GET，不支持 ByteArray 类型的数据。
+         * 如果该对象是 URLVariables 对象，并且该方法是 POST，则使用 x-www-form-urlencoded 格式对变量进行编码，并且生成的字符串会用作 POST 数据。
+         * 如果该对象是 URLVariables 对象，并且该方法是 GET，则 URLVariables 对象将定义要随 URLRequest 对象一起发送的变量。
+         * 否则，该对象会转换为字符串，并且该字符串会用作 POST 或 GET 数据。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        data: any;
+        /**
+         * @language en_US
+         * Request method, valid values are URLRequestMethod.GET or URLRequestMethod.POST.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 请求方式，有效值为URLRequestMethod.GET 或 URLRequestMethod.POST。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        method: string;
+        /**
+         * @language en_US
+         * The requested URL.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 所请求的 URL。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        url: string;
+        /**
+         * @language en_US
+         * The array of HTTP request headers to be appended to the HTTP request. The array is composed of URLRequestHeader objects.
+         * Each object in the array must be a URLRequestHeader object that contains a name string and a value string.
+         * Because of browser compatibility, this property has not been achieved in html5
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 要追加到 HTTP 请求的 HTTP 请求标头的数组。该数组由 URLRequestHeader 对象组成。
+         * 数组中的每一对象必须是包含一个名称字符串和一个值字符串的 URLRequestHeader 对象。
+         * 由于浏览器兼容性原因，该属性在 html5 中并未实现
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        requestHeaders: Array<URLRequestHeader>;
+    }
+}
+
+declare module egret {
+    /**
+     * @language en_US
+     * UThe URLLoader class downloads data from a URL as text, binary data, or URL-encoded variables.  It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
+     * A URLLoader object downloads all of the data from a URL before making it available to code in the applications. It sends out notifications about the progress of the download,
+     * which you can monitor through bytesLoaded and bytesTotal properties, as well as through dispatched events.
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @event egret.Event.COMPLETE Emitted when the net request is complete.
+     * @event egret.IOErrorEvent.IO_ERROR io error.
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoader.ts
+     */
+    /**
+     * @language zh_CN
+     * URLLoader 类以文本、二进制数据或 URL 编码变量的形式从 URL 下载数据。在下载文本文件、XML 或其他用于动态数据驱动应用程序的信息时，它很有用。
+     * URLLoader 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
+     * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
+     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @event egret.Event.COMPLETE 加载完成后调度。
+     * @event egret.IOErrorEvent.IO_ERROR 加载错误后调度。
+     * @version Egret 2.0
+     * @platform Web,Native
+     * @includeExample egret/net/URLLoader.ts
+     */
+    class URLLoader extends EventDispatcher {
+        /**
+         * @language en_US
+         * Create an egret.URLLoader object
+         * @param request {URLRequest} A URLRequest object specifies the URL to be downloaded.
+         * If this parameter is omitted, no load operation begins. If a parameter is specified, the load operation begins immediately
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 创建 egret.URLLoader 对象
+         * @param request {URLRequest} 一个 URLRequest 对象，指定要下载的 URL。
+         * 如果省略该参数，则不开始加载操作。如果已指定参数，则立即开始加载操作
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        constructor(request?: URLRequest);
+        /**
+         * @language en_US
+         * Control whether the downloaded data is received as text (URLLoaderDataFormat.TEXT), raw binary data (URLLoaderDataFormat.BINARY), or URL-encoded variables (URLLoaderDataFormat.VARIABLES).
+         * If the value of the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
+         * If the value of the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
+         * If the value of the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
+         * If the value of the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
+         * The default value is URLLoaderDataFormat.TEXT.
+         * @default egret.URLLoaderDataFormat.TEXT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 控制是以文本 (URLLoaderDataFormat.TEXT)、原始二进制数据 (URLLoaderDataFormat.BINARY) 还是 URL 编码变量 (URLLoaderDataFormat.VARIABLES) 接收下载的数据。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
+         * 如果 dataFormat 属性的值是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
+         * @default egret.URLLoaderDataFormat.TEXT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        dataFormat: string;
+        /**
+         * @language en_US
+         * The data received from the load operation. This property is populated only when the load operation is complete. The format of the data depends on the setting of the dataFormat property:
+         * If the dataFormat property is URLLoaderDataFormat.TEXT, the received data is a string containing the text of the loaded file.
+         * If the dataFormat property is URLLoaderDataFormat.BINARY, the received data is a ByteArray object containing the raw binary data.
+         * If the dataFormat property is URLLoaderDataFormat.TEXTURE, the received data is a Texture object containing the bitmap data.
+         * If the dataFormat property is URLLoaderDataFormat.VARIABLES, the received data is a URLVariables object containing the URL-encoded variables.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 从加载操作接收的数据。只有完成加载操作时，才会填充该属性。该数据的格式取决于 dataFormat 属性的设置：
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXT，则所接收的数据是一个包含已加载文件文本的字符串。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.BINARY，则所接收的数据是一个包含原始二进制数据的 ByteArray 对象。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.TEXTURE，则所接收的数据是一个包含位图数据的Texture对象。
+         * 如果 dataFormat 属性是 URLLoaderDataFormat.VARIABLES，则所接收的数据是一个包含 URL 编码变量的 URLVariables 对象。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        data: any;
+        /**
+         * @private
+         */
+        _request: URLRequest;
+        /**
+         * @language en_US
+         * Send and load data from the specified URL. The data can be received as text, raw binary data, or URL-encoded variables, depending on the value you set for the dataFormat property.
+         * Note that the default value of the dataFormat property is text. If you want to send data to the specified URL, you can set the data property in the URLRequest object.
+         * @param request {URLRequest}  A URLRequest object specifies the URL to be downloaded.
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 从指定的 URL 发送和加载数据。可以以文本、原始二进制数据或 URL 编码变量格式接收数据，这取决于为 dataFormat 属性所设置的值。
+         * 请注意 dataFormat 属性的默认值为文本。如果想将数据发送至指定的 URL，则可以在 URLRequest 对象中设置 data 属性。
+         * @param request {URLRequest}  一个 URLRequest 对象，指定要下载的 URL。
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        load(request: URLRequest): void;
+        /**
+         * @private
+         */
+        _status: number;
+        /**
+         * @private
+         *
+         */
+        __recycle(): void;
+    }
+}
+
+declare module egret {
+    /**
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    interface NetContext extends HashObject {
+        /**
+         *
+         * @param loader
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        proceed(loader: URLLoader): void;
+    }
+    /**
+     * @private
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    var NetContext: {
+        new (): NetContext;
+        getNetContext(): NetContext;
+    };
+    /**
+     * @private
+     *
+     * @param request
+     * @returns
+     */
+    function $getUrl(request: URLRequest): string;
+}
+
+declare module egret {
+    /**
+     * @deprecated
+     * @version Egret 2.0
+     * @platform Web,Native
+     */
+    class Ticker extends EventDispatcher {
+        /**
+         * @deprecated
          * @version Egret 2.0
          * @platform Web,Native
          */
         constructor();
+        private _timeScale;
+        private _paused;
+        private _callIndex;
+        private _callList;
+        private _lastTime;
+        private update(timeStamp);
+        private callBackList;
         /**
-         *
+         * 注册帧回调事件，同一函数的重复监听会被忽略。
+         * @method egret.Ticker#register
+         * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
+         * @param thisObject {any} 帧回调函数的this对象
+         * @param priority {number} 事件优先级，开发者请勿传递 Number.NEGATIVE_INFINITY 和 Number.POSITIVE_INFINITY
          * @version Egret 2.0
          * @platform Web,Native
+         * @deprecated
          */
-        static create(): any;
+        register(listener: Function, thisObject: any, priority?: number): void;
+        /**
+         * 取消侦听enterFrame事件
+         * @method egret.Ticker#unregister
+         * @param listener {Function} 事件侦听函数
+         * @param thisObject {any} 侦听函数的this对象
+         * @version Egret 2.0
+         * @platform Web,Native
+         * @deprecated
+         */
+        unregister(listener: Function, thisObject: any): void;
+        /**
+         * @deprecated
+         * @param timeScale {number}
+         * @private
+         */
+        setTimeScale(timeScale: number): void;
+        /**
+         * @deprecated
+         * @method egret.Ticker#getTimeScale
+         * @private
+         */
+        getTimeScale(): number;
+        /**
+         * 暂停
+         * @deprecated
+         * @method egret.Ticker#pause
+         */
+        pause(): void;
+        /**
+         * 继续
+         * @deprecated
+         * @method egret.Ticker#resume
+         */
+        resume(): void;
         /**
          * @private
-         *
-         * @param args
          */
-        private onSuccess(...args);
+        private static instance;
         /**
-         * @private
-         *
-         * @param args
+         * @method egret.Ticker.getInstance
+         * @returns {Ticker}
+         * @version Egret 2.0
+         * @platform Web,Native
+         * @deprecated
          */
-        private onError(...args);
-        /**
-         * @private
-         *
-         * @param args
-         */
-        private downloadingSize(...args);
-        /**
-         * @private
-         *
-         */
-        private destroy();
+        static getInstance(): egret.Ticker;
     }
 }
 

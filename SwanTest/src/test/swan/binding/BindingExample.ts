@@ -11,8 +11,8 @@ class BindingExample extends egret.DisplayObjectContainer {
     public porp2: number = 456;
     constructor() {
         super();
-        swan.Binding.bindProperty(this, ["porp"], this, "porp2");
-        swan.Binding.bindHandler(this, ["porp"], this.watcherHander, this);
+        eui.Binding.bindProperty(this, ["porp"], this, "porp2");
+        eui.Binding.bindHandler(this, ["porp"], this.watcherHander, this);
         this.porp = 666;
         this.porp = 123;
     }

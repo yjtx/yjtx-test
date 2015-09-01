@@ -101,7 +101,7 @@ var egret;
                 egret.Capabilities.$isMobile = (ua.indexOf('mobile') != -1 || ua.indexOf('android') != -1);
                 Html5Capatibility._canUseBlob = false;
                 Html5Capatibility._audioType = AudioType.HTML5_AUDIO;
-                Html5Capatibility._AudioClass = egret.web.Html5Audio;
+                Html5Capatibility._AudioClass = egret.web.HtmlSound;
                 Html5Capatibility._audioMustLoad = true;
                 if (ua.indexOf("windows phone") >= 0) {
                     Html5Capatibility._System_OS = SystemOSType.WPHONE;
@@ -117,7 +117,7 @@ var egret;
                     Html5Capatibility._System_OS = SystemOSType.ADNROID;
                     if (window.hasOwnProperty("QZAppExternal") && ua.indexOf("qzone") >= 0) {
                         Html5Capatibility._audioType = AudioType.QQ_AUDIO;
-                        Html5Capatibility._AudioClass = egret.web.QQAudio;
+                        Html5Capatibility._AudioClass = egret.web.QQSound;
                         var bases = document.getElementsByTagName('base');
                         if (bases && bases.length > 0) {
                             Html5Capatibility._QQRootPath = bases[0]["baseURI"];
@@ -138,7 +138,7 @@ var egret;
                     Html5Capatibility._System_OS = SystemOSType.IOS;
                     if (Html5Capatibility.getIOSVersion() >= 7) {
                         Html5Capatibility._canUseBlob = true;
-                        Html5Capatibility._AudioClass = egret.web.WebAudio;
+                        Html5Capatibility._AudioClass = egret.web.WebAudioSound;
                         Html5Capatibility._audioType = AudioType.WEB_AUDIO;
                     }
                 }
@@ -157,9 +157,9 @@ var egret;
                 var canUseWebAudio = window["AudioContext"] || window["webkitAudioContext"] || window["mozAudioContext"];
                 if (!canUseWebAudio && Html5Capatibility._audioType == AudioType.WEB_AUDIO) {
                     Html5Capatibility._audioType = AudioType.HTML5_AUDIO;
-                    Html5Capatibility._AudioClass = egret.web.Html5Audio;
+                    Html5Capatibility._AudioClass = egret.web.HtmlSound;
                 }
-                egret.Audio = Html5Capatibility._AudioClass;
+                egret.Sound = Html5Capatibility._AudioClass;
             };
             /**
              * @private

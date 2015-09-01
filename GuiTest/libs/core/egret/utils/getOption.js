@@ -48,24 +48,5 @@ var egret;
      * @version Egret 2.0
      * @platform Web,Native
      */
-    function getOption(key) {
-        if (window.hasOwnProperty("location")) {
-            var search = location.search;
-            if (search == "") {
-                return "";
-            }
-            search = search.slice(1);
-            var searchArr = search.split("&");
-            var length = searchArr.length;
-            for (var i = 0; i < length; i++) {
-                var str = searchArr[i];
-                var arr = str.split("=");
-                if (arr[0] == key) {
-                    return arr[1];
-                }
-            }
-        }
-        return "";
-    }
-    egret.getOption = getOption;
+    egret.getOption;
 })(egret || (egret = {}));

@@ -30,6 +30,9 @@ var egret;
 (function (egret) {
     var native;
     (function (native) {
+        /**
+         * @private
+         */
         var NativeTouchHandler = (function (_super) {
             __extends(NativeTouchHandler, _super);
             function NativeTouchHandler(stage) {

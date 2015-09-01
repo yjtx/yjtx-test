@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -14,11 +14,11 @@ var LabelNormal = (function (_super) {
         this.testUrl();
     };
     __egretProto__.testUrl = function () {
-        var ui = new swan.Label();
+        var ui = new eui.Label();
         ui.text = "sdfsdf";
         this.addChild(ui);
     };
     return LabelNormal;
-})(swan.Group);
+})(eui.Group);
 LabelNormal.prototype.__class__ = "LabelNormal";
 egret.registerClass(LabelNormal,"LabelNormal");

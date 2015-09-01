@@ -98,6 +98,7 @@ declare module egret.web {
          *
          */
         private resetText();
+        $onBlur(): void;
         /**
          * @private
          *
@@ -257,6 +258,9 @@ declare module egret.localStorage.web {
 }
 
 declare module egret.web {
+    /**
+     * @private
+     */
     class WebExternalInterface implements ExternalInterface {
         /**
          * @private
@@ -527,7 +531,7 @@ declare module egret.web {
         localName: string;
         /**
          * @private
-         * 节点的命名空间地址。例如节点 <s:Skin xmlns:s="http://ns.egret.com/swan"/> 的 namespace 为： http://ns.egret.com/swan
+         * 节点的命名空间地址。例如节点 <s:Skin xmlns:s="http://ns.egret.com/eui"/> 的 namespace 为： http://ns.egret.com/eui
          */
         namespace: string;
     }
@@ -545,81 +549,6 @@ declare module egret.web {
          * 文本内容
          */
         text: string;
-    }
-}
-
-declare module egret.web {
-    /**
-     * @class egret.HTML5NetContext
-     * @classdesc
-     * @extends egret.NetContext
-     * @private
-     */
-    class HTML5NetContext extends HashObject implements NetContext {
-        /**
-         * @private
-         */
-        _versionCtr: egret.IVersionController;
-        /**
-         * @private
-         */
-        private _imageLoader;
-        /**
-         * @private
-         */
-        constructor();
-        /**
-         * @private
-         *
-         * @param versionCtr
-         */
-        initVersion(versionCtr: egret.IVersionController): void;
-        /**
-         * @private
-         *
-         * @param loader
-         */
-        proceed(loader: URLLoader): void;
-        /**
-         * @private
-         *
-         * @param loader
-         */
-        private loadSound(loader);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        private getXHR();
-        /**
-         * @private
-         *
-         * @param xhr
-         * @param responseType
-         */
-        private setResponseType(xhr, responseType);
-        /**
-         * @private
-         *
-         * @param loader
-         */
-        private loadTexture(loader);
-        /**
-         * @private
-         *
-         * @returns
-         */
-        getChangeList(): Array<any>;
-        /**
-         * @private
-         * 获取虚拟url
-         * @param url
-         * @returns {string}
-         */
-        private getVirtualUrl(url);
-        static _instance: HTML5NetContext;
-        static getNetContext(): HTML5NetContext;
     }
 }
 
@@ -648,31 +577,43 @@ declare module egret.web {
     }
 }
 
+interface BrowerGeolocation extends Geolocation {
+}
 declare module egret.web {
     /**
      * @private
-     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
      */
-    class WebImageLoader extends BaseImageLoader {
+    class WebGeolocation extends EventDispatcher implements Geolocation {
+        /**
+         * @private
+         */
+        private geolocation;
+        /**
+         * @private
+         */
+        private watchId;
+        /**
+         * @private
+         */
+        constructor(option?: PositionOptions);
         /**
          * @private
          *
-         * @param url
-         * @param callback
          */
-        load(url: string, callback: (code: number, bitmapData: any) => void): void;
+        start(): void;
         /**
          * @private
          *
-         * @param bitmapData
          */
-        static disposeBitmapData(bitmapData: any): void;
+        stop(): void;
         /**
          * @private
-         *
-         * @param bitmapData
          */
-        private static deleteWebGLTexture(bitmapData);
+        private onUpdate;
+        /**
+         * @private
+         */
+        private onError;
     }
 }
 
@@ -680,151 +621,49 @@ declare module egret.web {
     /**
      * @private
      */
-    class Html5Audio implements Audio {
-        /**
-         * @private
-         * audio音频对象
-         * @member {any} egret.Sound#audio
-         */
-        constructor();
-        /**
-         * @private
-         */
-        private _audio;
-        /**
-         * @private
-         */
-        private _loop;
-        /**
-         * @private
-         * 播放声音
-         * @method egret.Sound#play
-         * @param loop {boolean} 是否循环播放，默认为false
-         */
-        $play(type?: string): void;
+    class WebMotion extends EventDispatcher implements Motion {
         /**
          * @private
          *
          */
-        private clear();
-        /**
-         * @private
-         */
-        private paused;
-        /**
-         * @private
-         * 暂停声音
-         * @method egret.Sound#pause
-         */
-        $pause(): void;
-        /**
-         * @private
-         * 重新加载声音
-         * @method egret.Sound#load
-         */
-        $load(): void;
-        /**
-         * @private
-         *
-         * @param audio
-         */
-        $setAudio(audio: any): void;
+        start(): void;
         /**
          * @private
          *
          */
-        private initStart();
+        stop(): void;
         /**
          * @private
          */
-        private _listeners;
-        /**
-         * @private
-         */
-        private _onEndedCall;
-        /**
-         * @private
-         * 添加事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
+        protected onChange: (e: DeviceMotionEvent) => void;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     */
+    class WebOrientation extends EventDispatcher implements Orientation {
         /**
          * @private
          *
          */
-        private removeListeners();
-        /**
-         * @private
-         * 移除事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param callback
-         * @param thisObj
-         */
-        $preload(type: string, callback?: Function, thisObj?: any): void;
+        start(): void;
         /**
          * @private
          *
          */
-        $destroy(): void;
+        stop(): void;
         /**
          * @private
          */
-        private _volume;
-        /**
-         * @private
-         * 获取当前音量值
-         * @returns number
-         */
-        $getVolume(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setVolume(value: number): void;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setLoop(value: boolean): void;
-        /**
-         * @private
-         */
-        private _startTime;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getCurrentTime(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setCurrentTime(value: number): void;
-        /**
-         * @private
-         *
-         * @param virtualUrl
-         * @param callback
-         */
-        $loadByUrl(virtualUrl: string, callback: (code: number) => void): void;
+        protected onChange: (e: DeviceOrientationEvent) => void;
     }
 }
 
 declare module QZAppExternal {
     function playLocalSound(call: any, data: any): any;
-    function playLocalBackSound(data: any): any;
+    function playLocalBackSound(call: any, data: any): any;
     function preloadSound(call: any, data: any): any;
     function stopSound(): any;
     function stopBackSound(): any;
@@ -832,307 +671,121 @@ declare module QZAppExternal {
 declare module egret.web {
     /**
      * @private
+     * @inheritDoc
      */
-    class QQAudio implements Audio {
+    class QQSound extends egret.EventDispatcher implements egret.Sound {
+        /**
+         * @language en_US
+         * Background music
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 背景音乐
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static EFFECT: string;
         /**
          * @private
+         */
+        type: string;
+        /**
+         * @private
+         */
+        private url;
+        /**
+         * @private
+         */
+        private loaded;
+        /**
+         * @private
+         * @inheritDoc
          */
         constructor();
         /**
-         * @private
+         * @inheritDoc
          */
-        private _loop;
+        load(url: string): void;
         /**
-         * @private
+         * @inheritDoc
          */
-        private _type;
+        play(startTime?: number, loops?: number): SoundChannel;
         /**
-         * @private
-         * 播放声音
-         * @method egret.Sound#play
-         * @param loop {boolean} 是否循环播放，默认为false
+         * @inheritDoc
          */
-        $play(type?: string): void;
-        /**
-         * @private
-         * 暂停声音
-         * @method egret.Sound#pause
-         */
-        $pause(): void;
-        /**
-         * @private
-         * 添加事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**s
-         * @private
-         * 移除事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         * 重新加载声音
-         * @method egret.Sound#load
-         */
-        $load(): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param callback
-         * @param thisObj
-         */
-        $preload(type: string, callback?: Function, thisObj?: any): void;
-        /**
-         * @private
-         */
-        private _path;
-        /**
-         * @private
-         *
-         * @param path
-         */
-        _setPath(path: string): void;
-        /**
-         * @private
-         * 获取当前音量值
-         * @returns number
-         */
-        $getVolume(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setVolume(value: number): void;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setLoop(value: boolean): void;
-        /**
-         * @private
-         */
-        private _currentTime;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getCurrentTime(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setCurrentTime(value: number): void;
-        /**
-         * @private
-         *
-         */
-        $destroy(): void;
-        /**
-         * @private
-         *
-         * @param virtualUrl
-         * @param callback
-         */
-        $loadByUrl(virtualUrl: string, callback: (code: number) => void): void;
+        close(): void;
     }
 }
 
 declare module egret.web {
     /**
      * @private
+     * @inheritDoc
      */
-    class WebAudio implements Audio {
+    class QQSoundChannel extends egret.EventDispatcher implements egret.SoundChannel {
         /**
          * @private
          */
-        static canUseWebAudio: any;
+        $url: string;
         /**
          * @private
          */
-        static ctx: any;
-        /**
-         * @private
-         * audio音频对象
-         * @member {any} egret.Sound#audio
-         */
-        private audioBuffer;
+        $loops: number;
+        $type: string;
         /**
          * @private
          */
-        private _arrayBuffer;
-        /**
-         * @private
-         */
-        private context;
-        /**
-         * @private
-         */
-        private gain;
-        /**
-         * @private
-         */
-        private bufferSource;
-        /**
-         * @private
-         */
-        private paused;
-        /**
-         * @private
-         */
-        private static decodeArr;
-        /**
-         * @private
-         */
-        private static isDecoding;
-        /**
-         * @private
-         *
-         */
-        static decodeAudios(): void;
+        $startTime: number;
+        private isStopped;
         /**
          * @private
          */
         constructor();
+        $play(): void;
         /**
          * @private
          */
-        private _loop;
+        private onPlayEnd;
         /**
          * @private
-         * 播放声音
-         * @method egret.Sound#play
-         * @param loop {boolean} 是否循环播放，默认为false
+         * @inheritDoc
          */
-        $play(type?: string): void;
+        stop(): void;
         /**
          * @private
-         *
+         * @inheritDoc
          */
-        private clear();
         /**
-         * @private
-         *
+         * @inheritDoc
          */
-        private addListeners();
-        /**
-         * @private
-         *
-         */
-        private removeListeners();
-        /**
-         * @private
-         * 暂停声音
-         * @method egret.Sound#pause
-         */
-        $pause(): void;
-        /**
-         * @private
-         */
-        private _listeners;
-        /**
-         * @private
-         */
-        private _onEndedCall;
-        /**
-         * @private
-         * 添加事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $addEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**s
-         * @private
-         * 移除事件监听
-         * @param type 事件类型
-         * @param listener 监听函数
-         */
-        $removeEventListener(type: string, listener: Function, useCapture?: boolean): void;
-        /**
-         * @private
-         * 重新加载声音
-         * @method egret.Sound#load
-         */
-        $load(): void;
-        /**
-         * @private
-         *
-         * @param buffer
-         * @param callback
-         */
-        _setArrayBuffer(buffer: ArrayBuffer, callback: Function): void;
-        /**
-         * @private
-         *
-         * @param type
-         * @param callback
-         * @param thisObj
-         */
-        $preload(type: string, callback?: Function, thisObj?: any): void;
-        /**
-         * @private
-         */
-        private _volume;
-        /**
-         * @private
-         * 获取当前音量值
-         * @returns number
-         */
-        $getVolume(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setVolume(value: number): void;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setLoop(value: boolean): void;
+        volume: number;
         /**
          * @private
          */
         private _startTime;
         /**
          * @private
+         * @inheritDoc
          */
-        private _currentTime;
-        /**
-         * @private
-         *
-         * @returns
-         */
-        $getCurrentTime(): number;
-        /**
-         * @private
-         *
-         * @param value
-         */
-        $setCurrentTime(value: number): void;
-        /**
-         * @private
-         *
-         */
-        $destroy(): void;
-        /**
-         * @private
-         *
-         * @param virtualUrl
-         * @param callback
-         */
-        $loadByUrl(virtualUrl: string, callback: (code: number) => void): void;
+        position: number;
     }
 }
+
 /**
  * @private
  */
@@ -1150,6 +803,431 @@ interface AudioBufferSourceNodeEgret {
     addEventListener(type: string, listener: Function, useCapture?: boolean): any;
     removeEventListener(type: string, listener: Function, useCapture?: boolean): any;
     disconnect(): any;
+}
+declare module egret.web {
+    class WebAudioDecode {
+        /**
+         * @private
+         */
+        static canUseWebAudio: any;
+        /**
+         * @private
+         */
+        static ctx: any;
+        /**
+         * @private
+         */
+        static decodeArr: Array<any>;
+        /**
+         * @private
+         */
+        private static isDecoding;
+        /**
+         * @private
+         *
+         */
+        static decodeAudios(): void;
+    }
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class WebAudioSound extends egret.EventDispatcher implements egret.Sound {
+        /**
+         * @language en_US
+         * Background music
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 背景音乐
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static EFFECT: string;
+        /**
+         * @private
+         */
+        type: string;
+        /**
+         * @private
+         */
+        private url;
+        /**
+         * @private
+         */
+        private loaded;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        constructor();
+        /**
+         * @private
+         */
+        private _arrayBuffer;
+        private audioBuffer;
+        /**
+         * @inheritDoc
+         */
+        load(url: string): void;
+        /**
+         * @inheritDoc
+         */
+        play(startTime?: number, loops?: number): SoundChannel;
+        /**
+         * @inheritDoc
+         */
+        close(): void;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class WebAudioSoundChannel extends egret.EventDispatcher implements egret.SoundChannel {
+        /**
+         * @private
+         */
+        $url: string;
+        /**
+         * @private
+         */
+        $loops: number;
+        /**
+         * @private
+         */
+        $startTime: number;
+        /**
+         * @private
+         * audio音频对象
+         * @member {any} egret.Sound#audio
+         */
+        $audioBuffer: AudioBuffer;
+        /**
+         * @private
+         */
+        private gain;
+        /**
+         * @private
+         */
+        private bufferSource;
+        /**
+         * @private
+         */
+        private context;
+        private isStopped;
+        /**
+         * @private
+         */
+        constructor();
+        /**
+         * @private
+         */
+        private _currentTime;
+        /**
+         * @private
+         */
+        private _volume;
+        $play(): void;
+        stop(): void;
+        /**
+         * @private
+         */
+        private onPlayEnd;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        volume: number;
+        /**
+         * @private
+         */
+        private _startTime;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        position: number;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class HtmlSound extends egret.EventDispatcher implements egret.Sound {
+        /**
+         * @language en_US
+         * Background music
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 背景音乐
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static MUSIC: string;
+        /**
+         * @language en_US
+         * EFFECT
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        /**
+         * @language zh_CN
+         * 音效
+         * @version Egret 2.0
+         * @platform Web,Native
+         */
+        static EFFECT: string;
+        /**
+         * @private
+         */
+        type: string;
+        /**
+         * @private
+         */
+        private url;
+        /**
+         * @private
+         */
+        private originAudio;
+        /**
+         * @private
+         */
+        private loaded;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        constructor();
+        /**
+         * @inheritDoc
+         */
+        load(url: string): void;
+        /**
+         * @inheritDoc
+         */
+        play(startTime?: number, loops?: number): SoundChannel;
+        /**
+         * @inheritDoc
+         */
+        close(): void;
+        /**
+         * @private
+         */
+        private static audios;
+        static $clear(url: string): void;
+        static $pop(url: string): HTMLAudioElement;
+        static $recycle(url: string, audio: HTMLAudioElement): void;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class HtmlSoundChannel extends egret.EventDispatcher implements egret.SoundChannel {
+        /**
+         * @private
+         */
+        $url: string;
+        /**
+         * @private
+         */
+        $loops: number;
+        /**
+         * @private
+         */
+        $startTime: number;
+        /**
+         * @private
+         */
+        private audio;
+        private isStopped;
+        /**
+         * @private
+         */
+        constructor(audio: HTMLAudioElement);
+        $play(): void;
+        /**
+         * @private
+         */
+        private onPlayEnd;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        stop(): void;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        volume: number;
+        /**
+         * @private
+         * @inheritDoc
+         */
+        position: number;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     * @inheritDoc
+     */
+    class WebVideo extends egret.DisplayObject implements egret.Video {
+        /**
+         * @inheritDoc
+         */
+        src: string;
+        /**
+         * @inheritDoc
+         */
+        poster: string;
+        /**
+         * @private
+         */
+        private posterData;
+        /**
+         * @private
+         */
+        private video;
+        /**
+         * @private
+         */
+        private loaded;
+        /**
+         * @private
+         */
+        private closed;
+        /**
+         * @private
+         */
+        private heightSet;
+        /**
+         * @private
+         */
+        private widthSet;
+        /**
+         * @inheritDoc
+         */
+        constructor(url?: string);
+        /**
+         * @inheritDoc
+         */
+        load(url?: string): void;
+        /**
+         * @inheritDoc
+         */
+        play(startTime?: number, loop?: boolean): void;
+        private goFullscreen();
+        /**
+         * @inheritDoc
+         */
+        close(): void;
+        /**
+         * @inheritDoc
+         */
+        pause(): void;
+        /**
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        volume: number;
+        /**
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        position: number;
+        private _fullscreen;
+        /**
+         * @inheritDoc
+         */
+        /**
+         * @inheritDoc
+         */
+        fullscreen: boolean;
+        private _bitmapData;
+        /**
+         * @inheritDoc
+         */
+        bitmapData: BitmapData;
+        private loadPoster();
+        /**
+         * @private
+         *
+         */
+        private onVideoLoaded;
+        /**
+         * @private
+         *
+         */
+        private onVideoEnded();
+        /**
+         * @private
+         *
+         */
+        private onVideoError();
+        /**
+         * @private
+         */
+        $measureContentBounds(bounds: Rectangle): void;
+        /**
+         * @private
+         */
+        $render(context: sys.RenderContext): void;
+        private markDirty(time);
+        /**
+         * @private
+         * 设置显示高度
+         */
+        $setHeight(value: number): void;
+        /**
+         * @private
+         * 设置显示宽度
+         */
+        $setWidth(value: number): void;
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     */
+    function getOption(key: string): string;
 }
 
 declare module egret.web {
@@ -1243,5 +1321,217 @@ declare module egret.web {
      * @private
      */
     function getPrefixStyleName(name: string, element?: any): string;
+}
+
+declare module egret.web {
+    /**
+     * @private
+     */
+    class WebHttpRequest extends EventDispatcher implements HttpRequest {
+        /**
+         * @private
+         */
+        constructor();
+        /**
+         * @private
+         */
+        private _xhr;
+        /**
+         * @private
+         * 本次请求返回的数据，数据类型根据responseType设置的值确定。
+         */
+        response: any;
+        /**
+         * @private
+         */
+        private _responseType;
+        /**
+         * @private
+         * 设置返回的数据格式，请使用 HttpResponseType 里定义的枚举值。设置非法的值或不设置，都将使用HttpResponseType.TEXT。
+         */
+        responseType: string;
+        /**
+         * @private
+         */
+        private _withCredentials;
+        /**
+         * @private
+         * 表明在进行跨站(cross-site)的访问控制(Access-Control)请求时，是否使用认证信息(例如cookie或授权的header)。 默认为 false。(这个标志不会影响同站的请求)
+         */
+        withCredentials: boolean;
+        /**
+         * @private
+         */
+        private _url;
+        /**
+         * @private
+         *
+         * @returns
+         */
+        private getXHR();
+        /**
+         * @private
+         * 初始化一个请求.注意，若在已经发出请求的对象上调用此方法，相当于立即调用abort().
+         * @param url 该请求所要访问的URL该请求所要访问的URL
+         * @param method 请求所使用的HTTP方法， 请使用 HttpMethod 定义的枚举值.
+         */
+        open(url: string, method?: string): void;
+        /**
+         * @private
+         * 发送请求.
+         * @param data 需要发送的数据
+         */
+        send(data?: any): void;
+        /**
+         * @private
+         * 如果请求已经被发送,则立刻中止请求.
+         */
+        abort(): void;
+        /**
+         * @private
+         * 返回所有响应头信息(响应头名和值), 如果响应头还没接受,则返回"".
+         */
+        getAllResponseHeaders(): string;
+        private header;
+        private headerValue;
+        /**
+         * @private
+         * 给指定的HTTP请求头赋值.在这之前,您必须确认已经调用 open() 方法打开了一个url.
+         * @param header 将要被赋值的请求头名称.
+         * @param value 给指定的请求头赋的值.
+         */
+        setRequestHeader(header: string, value: string): void;
+        /**
+         * @private
+         * 返回指定的响应头的值, 如果响应头还没被接受,或该响应头不存在,则返回"".
+         * @param header 要返回的响应头名称
+         */
+        getResponseHeader(header: string): string;
+        /**
+         * @private
+         */
+        private onReadyStateChange();
+        /**
+         * @private
+         */
+        private updateProgress(event);
+    }
+}
+
+declare module egret.web {
+    /**
+     * @private
+     * ImageLoader 类可用于加载图像（JPG、PNG 或 GIF）文件。使用 load() 方法来启动加载。被加载的图像对象数据将存储在 ImageLoader.data 属性上 。
+     */
+    class WebImageLoader extends EventDispatcher implements ImageLoader {
+        /**
+         * @private
+         * 使用 load() 方法加载成功的 BitmapData 图像数据。
+         */
+        data: BitmapData;
+        /**
+         * @private
+         * 当从其他站点加载一个图片时，指定是否启用跨域资源共享(CORS)，默认值为null。
+         * 可以设置为"anonymous","use-credentials"或null,设置为其他值将等同于"anonymous"。
+         */
+        crossOrigin: string;
+        /**
+         * @private
+         */
+        private currentImage;
+        /**
+         * @private
+         */
+        private currentURL;
+        /**
+         * @private
+         */
+        private request;
+        /**
+         * @private
+         * 启动一次图像加载。注意：若之前已经调用过加载请求，重新调用 load() 将终止先前的请求，并开始新的加载。
+         * @param url 要加载的图像文件的地址。
+         */
+        load(url: string): void;
+        /**
+         * @private
+         */
+        private onBlobLoaded(event);
+        /**
+         * @private
+         */
+        private onBlobError(event);
+        /**
+         * @private
+         */
+        private loadImage(src);
+        /**
+         * @private
+         */
+        private onImageComplete(event);
+        /**
+         * @private
+         */
+        private onLoadError(event);
+        private emitIOError(url);
+        /**
+         * @private
+         */
+        private getImage(event);
+    }
+}
+
+declare module egret.web {
+    /**
+     * @class egret.HTML5NetContext
+     * @classdesc
+     * @extends egret.NetContext
+     * @private
+     */
+    class HTML5NetContext extends HashObject implements NetContext {
+        /**
+         * @private
+         */
+        constructor();
+        /**
+         * @private
+         *
+         * @param loader
+         */
+        proceed(loader: URLLoader): void;
+        /**
+         * @private
+         *
+         * @param dataFormat
+         */
+        private getResponseType(dataFormat);
+        /**
+         * @private
+         *
+         * @param loader
+         */
+        private loadSound(loader);
+        /**
+         * @private
+         *
+         * @param loader
+         */
+        private loadTexture(loader);
+        /**
+         * @private
+         *
+         * @returns
+         */
+        getChangeList(): Array<any>;
+        /**
+         * @private
+         * 获取虚拟url
+         * @param url
+         * @returns {string}
+         */
+        getVirtualUrl(url: string): string;
+        static _instance: HTML5NetContext;
+        static getNetContext(): HTML5NetContext;
+    }
 }
 

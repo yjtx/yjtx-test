@@ -4,7 +4,7 @@ class RadioButtonGroupExample extends egret.DisplayObjectContainer {
         super();
 
         var skinExml =
-            `<s:Skin class="skins.RadioButtonSkin" states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:s="http://ns.egret.com/swan">
+            `<s:Skin class="skins.RadioButtonSkin" states="up,down,disabled,upAndSelected,downAndSelected,disabledAndSelected" xmlns:s="http://ns.egret.com/eui">
                 <s:Image includeIn="disabledAndSelected" source="resource/examples/RadioButton/radiobutton_select_disabled.png"/>
                 <s:Image includeIn="downAndSelected" source="resource/examples/RadioButton/radiobutton_select_down.png"/>
                 <s:Image includeIn="upAndSelected" source="resource/examples/RadioButton/radiobutton_select_up.png"/>
@@ -14,7 +14,7 @@ class RadioButtonGroupExample extends egret.DisplayObjectContainer {
         EXML.parse(skinExml);
 
         var exml =
-            `<s:Group xmlns:s="http://ns.egret.com/swan">
+            `<s:Group xmlns:s="http://ns.egret.com/eui">
                 <s:layout>
                     <s:VerticalLayout gap="20"/>
                 </s:layout>

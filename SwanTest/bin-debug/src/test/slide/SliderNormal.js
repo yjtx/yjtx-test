@@ -1,5 +1,5 @@
 //declare module components{
-//    export class ListGroup extends swan.Group{
+//    export class ListGroup extends eui.Group{
 //
 //    }
 //}
@@ -18,6 +18,6 @@ var SliderNormal = (function (_super) {
         this.addChild(ui);
     };
     return SliderNormal;
-})(swan.Group);
+})(eui.Group);
 SliderNormal.prototype.__class__ = "SliderNormal";
 egret.registerClass(SliderNormal,"SliderNormal");

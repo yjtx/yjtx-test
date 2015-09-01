@@ -121,7 +121,6 @@ var egret;
         var __egretProto__ = ByteArray.prototype;
         /**
          * @private
-         *
          * @param buffer
          */
         __egretProto__._setArrayBuffer = function (buffer) {
@@ -137,17 +136,9 @@ var egret;
         __egretProto__.setArrayBuffer = function (buffer) {
         };
         Object.defineProperty(__egretProto__, "buffer", {
-            // getter setter
             get: function () {
                 return this.data.buffer;
             },
-            //public get bufferCopy():ArrayBuffer {
-            //    var newarraybuffer = new ArrayBuffer(this.length);
-            //    var view = new Uint8Array(this.data.buffer, 0, this.length);
-            //    var newview = new Uint8Array(newarraybuffer, 0, this.length);
-            //    newview.set(view);      // memcpy
-            //    return newarraybuffer;
-            //}
             /**
              * @private
              */
@@ -176,9 +167,9 @@ var egret;
             configurable: true
         });
         Object.defineProperty(__egretProto__, "bufferOffset", {
-            //public get phyPosition():number {
-            //    return this._position + this.data.byteOffset;
-            //}
+            /**
+             * @private
+             */
             get: function () {
                 return this.data.byteOffset;
             },
@@ -202,11 +193,11 @@ var egret;
                 return this._position;
             },
             set: function (value) {
-                if (this._position < value) {
-                    if (!this.validate(value - this._position)) {
-                        return;
-                    }
-                }
+                //if (this._position < value) {
+                //    if (!this.validate(value - this._position)) {
+                //        return;
+                //    }
+                //}
                 this._position = value;
                 this.write_position = value > this.write_position ? value : this.write_position;
             },
@@ -234,7 +225,15 @@ var egret;
                 return this.write_position;
             },
             set: function (value) {
-                this.validateBuffer(value, true);
+                this.write_position = value;
+                var tmp = new Uint8Array(new ArrayBuffer(value));
+                var byteLength = this.data.buffer.byteLength;
+                if (byteLength > value) {
+                    this._position = value;
+                }
+                var length = Math.min(byteLength, value);
+                tmp.set(new Uint8Array(this.data.buffer, 0, length));
+                this.buffer = tmp.buffer;
             },
             enumerable: true,
             configurable: true
@@ -260,17 +259,9 @@ var egret;
             enumerable: true,
             configurable: true
         });
-        //end
         __egretProto__.clear = function () {
-            //this._position = 0;
             this._setArrayBuffer(new ArrayBuffer(this.BUFFER_EXT_SIZE));
         };
-        //public getArray():Uint8Array {
-        //    if (this.array == null) {
-        //        this.array = new Uint8Array(this.data.buffer, this.data.byteOffset, this.data.byteLength);
-        //    }
-        //    return this.array;
-        //}
         /**
          * @language en_US
          * Read a Boolean value from the byte stream. Read a simple byte. If the byte is non-zero, it returns true; otherwise, it returns false.
@@ -346,15 +337,6 @@ var egret;
                 bytes.data.setUint8(i + offset, this.data.getUint8(this.position++));
             }
         };
-        //public get leftBytes():ArrayBuffer {
-        //    var begin = this.data.byteOffset + this.position;
-        //    var end = this.data.byteLength;
-        //    var result = new ArrayBuffer(end - begin);
-        //    var resultBytes = new Uint8Array(result);
-        //    var sourceBytes = new Uint8Array(this.data.buffer, begin, end - begin);
-        //    resultBytes.set(sourceBytes);
-        //    return resultBytes.buffer;
-        //}
         /**
          * @language en_US
          * Read an IEEE 754 double-precision (64 bit) floating point number from the byte stream
@@ -418,15 +400,6 @@ var egret;
             this.position += ByteArray.SIZE_OF_INT32;
             return value;
         };
-        //        public readInt64():Int64{
-        //            if (!this.validate(ByteArray.SIZE_OF_UINT32)) return null;
-        //
-        //            var low = this.data.getInt32(this.position, this.endian == Endian.LITTLE_ENDIAN);
-        //            this.position += ByteArray.SIZE_OF_INT32;
-        //            var high = this.data.getInt32(this.position, this.endian == Endian.LITTLE_ENDIAN);
-        //            this.position += ByteArray.SIZE_OF_INT32;
-        //            return new Int64(low,high);
-        //        }
         ///**
         // * 使用指定的字符集从字节流中读取指定长度的多字节字符串
         // * @param length 要从字节流中读取的字节数
@@ -500,33 +473,6 @@ var egret;
             this.position += ByteArray.SIZE_OF_UINT32;
             return value;
         };
-        //public readVariableSizedUnsignedInt():number {
-        //    var i:number;
-        //    var c:number = this.data.getUint8(this.position++);
-        //    if (c != 0xFF) {
-        //        i = c << 8;
-        //        c = this.data.getUint8(this.position++);
-        //        i |= c;
-        //    }
-        //    else {
-        //        c = this.data.getUint8(this.position++);
-        //        i = c << 16;
-        //        c = this.data.getUint8(this.position++);
-        //        i |= c << 8;
-        //        c = this.data.getUint8(this.position++);
-        //        i |= c;
-        //    }
-        //    return i;
-        //}
-        //		public readUnsignedInt64():UInt64{
-        //            if (!this.validate(ByteArray.SIZE_OF_UINT32)) return null;
-        //
-        //            var low = this.data.getUint32(this.position, this.endian == Endian.LITTLE_ENDIAN);
-        //            this.position += ByteArray.SIZE_OF_UINT32;
-        //            var high = this.data.getUint32(this.position, this.endian == Endian.LITTLE_ENDIAN);
-        //            this.position += ByteArray.SIZE_OF_UINT32;
-        //			return new UInt64(low,high);
-        //        }
         /**
          * @language en_US
          * Read a 16-bit unsigned integer from the byte stream.
@@ -601,34 +547,6 @@ var egret;
              }*/
             return this.decodeUTF8(bytes);
         };
-        //public readStandardString(length:number):string {
-        //    if (!this.validate(length)) return null;
-        //
-        //    var str:string = "";
-        //
-        //    for (var i = 0; i < length; i++) {
-        //        str += String.fromCharCode(this.data.getUint8(this.position++));
-        //    }
-        //    return str;
-        //}
-        //public readStringTillNull(keepEvenByte:boolean = true):string {
-        //
-        //    var str:string = "";
-        //    var num:number = 0;
-        //    while (this.bytesAvailable > 0) {
-        //        var b:number = this.data.getUint8(this.position++);
-        //        num++;
-        //        if (b != 0) {
-        //            str += String.fromCharCode(b);
-        //        } else {
-        //            if (keepEvenByte && num % 2 != 0) {
-        //                this.position++;
-        //            }
-        //            break;
-        //        }
-        //    }
-        //    return str;
-        //}
         /**
          * @language en_US
          * Write a Boolean value. A single byte is written according to the value parameter. If the value is true, write 1; if the value is false, write 0.
@@ -667,11 +585,6 @@ var egret;
             this.validateBuffer(ByteArray.SIZE_OF_INT8);
             this.data.setInt8(this.position++, value);
         };
-        //public writeUnsignedByte(value:number):void {
-        //    this.validateBuffer(ByteArray.SIZE_OF_UINT8);
-        //
-        //    this.data.setUint8(this.position++, value);
-        //}
         /**
          * @language en_US
          * Write the byte sequence that includes length bytes in the specified byte array, bytes, (starting at the byte specified by offset, using a zero-based index), into the byte stream
@@ -803,12 +716,6 @@ var egret;
             this.data.setInt16(this.position, value, this.endian == Endian.LITTLE_ENDIAN);
             this.position += ByteArray.SIZE_OF_INT16;
         };
-        //public writeUnsignedShort(value:number):void {
-        //    this.validateBuffer(ByteArray.SIZE_OF_UINT16);
-        //
-        //    this.data.setUint16(this.position, value, this.endian == Endian.LITTLE_ENDIAN);
-        //    this.position += ByteArray.SIZE_OF_UINT16;
-        //}
         /**
          * @language en_US
          * Write a 32-bit unsigned integer into the byte stream
@@ -892,11 +799,11 @@ var egret;
             }
         };
         /**
-         *
          * @param len
          * @returns
          * @version Egret 2.0
          * @platform Web,Native
+         * @private
          */
         __egretProto__.validate = function (len) {
             //len += this.data.byteOffset;

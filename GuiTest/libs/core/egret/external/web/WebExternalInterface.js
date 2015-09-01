@@ -30,6 +30,9 @@ var egret;
 (function (egret) {
     var web;
     (function (web) {
+        /**
+         * @private
+         */
         var WebExternalInterface = (function () {
             function WebExternalInterface() {
             }

@@ -11,9 +11,9 @@ class ArrayCollectionExample extends egret.DisplayObjectContainer {
     constructor() {
         super();
         var arr = [2, 1, 3];
-        var arrayCollection = new swan.ArrayCollection();
+        var arrayCollection = new eui.ArrayCollection();
         arrayCollection.source = arr;
-        arrayCollection.addEventListener(swan.CollectionEvent.COLLECTION_CHANGE, this.onCollectionChange, this);
+        arrayCollection.addEventListener(eui.CollectionEvent.COLLECTION_CHANGE, this.onCollectionChange, this);
         arrayCollection.addItem(5);//add
         arrayCollection.addItemAt(6, 1);//add
         arrayCollection.source.sort();
@@ -25,24 +25,24 @@ class ArrayCollectionExample extends egret.DisplayObjectContainer {
         arrayCollection.source[1] = 8;
         arrayCollection.itemUpdated(1);//update
     }
-    private onCollectionChange(e: swan.CollectionEvent) {
+    private onCollectionChange(e: eui.CollectionEvent) {
         switch (e.kind) {
-            case swan.CollectionEventKind.ADD:
+            case eui.CollectionEventKind.ADD:
                 console.log("arrayCollection add", e.currentTarget.source, e.location);
                 break;
-            case swan.CollectionEventKind.REFRESH:
+            case eui.CollectionEventKind.REFRESH:
                 console.log("arrayCollection refersh", e.currentTarget.source, e.location);
                 break;
-            case swan.CollectionEventKind.REMOVE:
+            case eui.CollectionEventKind.REMOVE:
                 console.log("arrayCollection remove", e.currentTarget.source, e.location);
                 break;
-            case swan.CollectionEventKind.REPLACE:
+            case eui.CollectionEventKind.REPLACE:
                 console.log("arrayCollection replace", e.currentTarget.source, e.location);
                 break;
-            case swan.CollectionEventKind.RESET:
+            case eui.CollectionEventKind.RESET:
                 console.log("arrayCollection reset", e.currentTarget.source, e.location);
                 break;
-            case swan.CollectionEventKind.UPDATE:
+            case eui.CollectionEventKind.UPDATE:
                 console.log("arrayCollection update", e.currentTarget.source, e.location);
                 break;
         }

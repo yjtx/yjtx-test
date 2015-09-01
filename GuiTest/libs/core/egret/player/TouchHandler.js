@@ -80,7 +80,7 @@ var egret;
                 this.lastTouchY = y;
                 var target = this.findTarget(x, y);
                 if (this.touchDownTarget[touchPointID] == null) {
-                    this.touchDownTarget[touchPointID] = target.$hashCode;
+                    this.touchDownTarget[touchPointID] = target;
                     this.useTouchesCount++;
                 }
                 egret.TouchEvent.dispatchTouchEvent(target, egret.TouchEvent.TOUCH_BEGIN, true, true, x, y, touchPointID, true);
@@ -116,16 +116,15 @@ var egret;
                     return;
                 }
                 var target = this.findTarget(x, y);
-                var oldTargetCode = this.touchDownTarget[touchPointID];
+                var oldTarget = this.touchDownTarget[touchPointID];
                 delete this.touchDownTarget[touchPointID];
                 this.useTouchesCount--;
                 egret.TouchEvent.dispatchTouchEvent(target, egret.TouchEvent.TOUCH_END, true, true, x, y, touchPointID, false);
-                target = this.findTarget(x, y);
-                if (oldTargetCode == target.$hashCode) {
+                if (oldTarget == target) {
                     egret.TouchEvent.dispatchTouchEvent(target, egret.TouchEvent.TOUCH_TAP, true, true, x, y, touchPointID, false);
                 }
                 else {
-                    egret.TouchEvent.dispatchTouchEvent(target, egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, true, true, x, y, touchPointID, false);
+                    egret.TouchEvent.dispatchTouchEvent(oldTarget, egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, true, true, x, y, touchPointID, false);
                 }
             };
             /**

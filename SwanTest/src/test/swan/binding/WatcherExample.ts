@@ -11,7 +11,7 @@
      public porp: number = 789;
      constructor() {
          super();
-         swan.Watcher.watch(this, ["porp"], this.watcherHander, this);
+         eui.Watcher.watch(this, ["porp"], this.watcherHander, this);
          this.porp = 666;
          this.porp = 123;
      }

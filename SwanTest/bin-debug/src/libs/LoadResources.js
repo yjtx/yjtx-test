@@ -15,7 +15,7 @@ var LoadResources = (function () {
         TempLoader.load(this._skins, function () { return _this.loaded(); });
     };
     __egretProto__.loaded = function () {
-        new swan.Theme("resource/theme/blue-theme.json", this._stage);
+        new eui.Theme("resource/theme/blue-theme.json", this._stage);
         this._callback.call(this._thisObj);
     };
     return LoadResources;

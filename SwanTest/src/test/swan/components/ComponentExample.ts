@@ -1,10 +1,10 @@
 /**
  * @language en_US
- * Usually swan.Component is used as a container for basic layout.
+ * Usually eui.Component is used as a container for basic layout.
  */
 /**
  * @language zh_CN
- * 通常 swan.Component 可以作为简单布局的容器。
+ * 通常 eui.Component 可以作为简单布局的容器。
  */
 class ComponentExample extends egret.DisplayObjectContainer {
 
@@ -18,12 +18,12 @@ class ComponentExample extends egret.DisplayObjectContainer {
         this.addChild(shape);
 
         var exml =
-            `<s:Skin xmlns:s="http://ns.egret.com/swan">
+            `<s:Skin xmlns:s="http://ns.egret.com/eui">
                 <s:Label text="标题" horizontalCenter="0"/>
                 <s:Label text="egret" right="0" bottom="0"/>
             </s:Skin>`;
 
-        var component = new swan.Component();
+        var component = new eui.Component();
         component.width = 400;
         component.height = 300;
         component.skinName = exml;

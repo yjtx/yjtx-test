@@ -166,7 +166,7 @@ var egret;
         for (var _i = 1; _i < arguments.length; _i++) {
             args[_i - 1] = arguments[_i];
         }
-        return egret.sys.tr(id);
+        return egret.sys.tr.apply(egret.sys, arguments);
     }
     egret.getString = getString;
 })(egret || (egret = {}));

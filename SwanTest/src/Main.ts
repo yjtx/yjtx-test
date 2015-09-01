@@ -1,4 +1,4 @@
-﻿class Main extends swan.Group {
+﻿class Main extends eui.Group {
 
     green_skins = [
         "resource/components/green/ListGroup.exml",
@@ -21,32 +21,32 @@
         this.width = this.stage.stageWidth;
         this.height = this.stage.stageHeight;
 
-        var bg:swan.Image = new swan.Image();
+        var bg:eui.Image = new eui.Image();
         bg.source = "resource/assets/blackBg.png";
         bg.percentHeight = 100;
         bg.percentWidth = 80;
         this.addChild(bg);
 
-        var input:swan.EditableText = new swan.EditableText();
+        var input:eui.EditableText = new eui.EditableText();
         input.text = "asdfsf";
         this.addChild(input);
 
-        var label:swan.Label = new swan.Label();
+        var label:eui.Label = new eui.Label();
         label.horizontalCenter = 0;
         label.verticalCenter = -40;
         label.text = "选择一个主题";
         label.textColor=0xFFFFFF;
         this.addChild(label);
 
-        var themeGroup:swan.Group = new swan.Group();
+        var themeGroup:eui.Group = new eui.Group();
         themeGroup.horizontalCenter = 0;
         themeGroup.verticalCenter = 0;
-        themeGroup.layout = new swan.HorizontalLayout();
+        themeGroup.layout = new eui.HorizontalLayout();
         themeGroup.touchEnabled = true;
         themeGroup.addEventListener(egret.TouchEvent.TOUCH_TAP , this.touchTheme , this);
         this.addChild(themeGroup);
 
-        var image:swan.Image = new swan.Image();
+        var image:eui.Image = new eui.Image();
         //image.touchEnabled = true;
         image.name = "blue";
         image.width = 100;
@@ -54,7 +54,7 @@
         image.source = "resource/assets/blue/Panel/header.png";
         themeGroup.addChild(image);
 
-        var image2:swan.Image = new swan.Image();
+        var image2:eui.Image = new eui.Image();
         //image2.touchEnabled = true;
         image2.name = "green";
         image2.width = 100;
@@ -85,7 +85,7 @@
     }
 
     loaded() {
-        new swan.Theme("resource/theme/"+this.themeName+"-theme.json",this.stage);
+        new eui.Theme("resource/theme/"+this.themeName+"-theme.json",this.stage);
         this.removeChildren();
         var ui = utils.createClass("components.MainGroup");
         this.addChild(ui);

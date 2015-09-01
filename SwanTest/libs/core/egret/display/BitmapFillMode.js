@@ -54,13 +54,13 @@ var egret;
          * @language en_US
          * Repeat the bitmap to fill area.
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         /**
          * @language zh_CN
          * 重复位图以填充区域。
          * @version Egret 2.0
-         * @platform Web,Native
+         * @platform Web
          */
         BitmapFillMode.REPEAT = "repeat";
         /**

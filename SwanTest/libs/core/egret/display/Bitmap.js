@@ -90,29 +90,70 @@ var egret;
             this._pixelHitTest = false;
             this.$renderRegion = new egret.sys.Region();
             this.$Bitmap = {
-                0: NaN,
-                1: NaN,
-                2: 1,
-                3: 1 //explicitScaleY
+                0: null,
+                1: null,
+                2: 0,
+                3: 0,
+                4: 0,
+                5: 0,
+                6: 0,
+                7: 0,
+                8: 0,
+                9: 0,
+                10: true,
+                11: NaN,
+                12: NaN //explicitBitmapHeight,
             };
-            this.texture = bitmapData;
+            this.$setBitmapData(bitmapData);
         }
         var __egretProto__ = Bitmap.prototype;
-        Object.defineProperty(__egretProto__, "texture", {
+        /**
+         * @private
+         * 显示对象添加到舞台
+         */
+        __egretProto__.$onAddToStage = function (stage, nestLevel) {
+            _super.prototype.$onAddToStage.call(this, stage, nestLevel);
+            var bitmapData = this.$Bitmap[0 /* bitmapData */];
+            if (bitmapData) {
+                if (bitmapData instanceof egret.Texture) {
+                    egret.Texture.$addDisplayObject(this, bitmapData._bitmapData.hashCode);
+                }
+                else {
+                    egret.Texture.$addDisplayObject(this, bitmapData.hashCode);
+                }
+            }
+        };
+        /**
+         * @private
+         * 显示对象从舞台移除
+         */
+        __egretProto__.$onRemoveFromStage = function () {
+            _super.prototype.$onRemoveFromStage.call(this);
+            var bitmapData = this.$Bitmap[0 /* bitmapData */];
+            if (bitmapData) {
+                if (bitmapData instanceof egret.Texture) {
+                    egret.Texture.$removeDisplayObject(this, bitmapData._bitmapData.hashCode);
+                }
+                else {
+                    egret.Texture.$removeDisplayObject(this, bitmapData.hashCode);
+                }
+            }
+        };
+        Object.defineProperty(__egretProto__, "bitmapData", {
             /**
              * @language en_US
-             * bitmapData The Texture object being referenced.
-             * @version Egret 2.0
+             * The BitmapData object being referenced.
+             * @version Lark 1.0
              * @platform Web,Native
              */
             /**
              * @language zh_CN
-             * 被引用的 Texture 对象。
-             * @version Egret 2.0
+             * 被引用的 BitmapData 对象。
+             * @version Lark 1.0
              * @platform Web,Native
              */
             get: function () {
-                return this.$bitmapData;
+                return this.$Bitmap[0 /* bitmapData */];
             },
             set: function (value) {
                 this.$setBitmapData(value);
@@ -120,6 +161,62 @@ var egret;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(__egretProto__, "texture", {
+            get: function () {
+                return this.$Bitmap[0 /* bitmapData */];
+            },
+            set: function (value) {
+                this.$setBitmapData(value);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        /**
+         * @private
+         */
+        __egretProto__.$setBitmapData = function (value) {
+            var values = this.$Bitmap;
+            if (value == values[0 /* bitmapData */]) {
+                return;
+            }
+            values[0 /* bitmapData */] = value;
+            if (value) {
+                if (value instanceof egret.Texture) {
+                    var texture = value;
+                    this.setImageData(texture._bitmapData, texture._bitmapX, texture._bitmapY, texture._bitmapWidth, texture._bitmapHeight, texture._offsetX, texture._offsetY, texture.$getTextureWidth(), texture.$getTextureHeight());
+                }
+                else {
+                    this.setImageData(value, 0, 0, value.width, value.height, 0, 0, value.width, value.height);
+                }
+            }
+            else {
+                this.setImageData(null, 0, 0, 0, 0, 0, 0, 0, 0);
+            }
+            if (this.$stage) {
+                if (value instanceof egret.Texture) {
+                    egret.Texture.$addDisplayObject(this, value._bitmapData.hashCode);
+                }
+                else {
+                    egret.Texture.$addDisplayObject(this, value.hashCode);
+                }
+            }
+            this.$invalidateContentBounds();
+        };
+        /**
+         * @private
+         */
+        __egretProto__.setImageData = function (image, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, width, height) {
+            var values = this.$Bitmap;
+            values[1 /* image */] = image;
+            values[2 /* clipX */] = clipX;
+            values[3 /* clipY */] = clipY;
+            values[4 /* clipWidth */] = clipWidth;
+            values[5 /* clipHeight */] = clipHeight;
+            values[6 /* offsetX */] = offsetX;
+            values[7 /* offsetY */] = offsetY;
+            values[8 /* width */] = width;
+            values[9 /* height */] = height;
+        };
         Object.defineProperty(__egretProto__, "scale9Grid", {
             /**
              * @language en_US
@@ -161,9 +258,9 @@ var egret;
              *
              * @default <code>BitmapFillMode.SCALE</code>
              *
-             * @version Lark 1.0
+             * @version Egret 2.0
              * @version Swan 1.0
-             * @platform Web,Native
+             * @platform Web
              */
             /**
              * @language zh_CN
@@ -174,9 +271,9 @@ var egret;
              *
              * @default <code>BitmapFillMode.SCALE</code>
              *
-             * @version Lark 1.0
+             * @version Egret 2.0
              * @version Swan 1.0
-             * @platform Web,Native
+             * @platform Web
              */
             get: function () {
                 return this.$fillMode;
@@ -193,30 +290,20 @@ var egret;
             }
             this.$fillMode = value;
         };
-        /**
-         * @private
-         */
-        __egretProto__.$setBitmapData = function (value) {
-            if (value == this.$bitmapData) {
-                return;
-            }
-            this.$bitmapData = value;
-            this.$invalidateContentBounds();
-        };
         Object.defineProperty(__egretProto__, "smoothing", {
             /**
              * @language en_US
              * Whether or not the bitmap is smoothed when scaled.
              * @default true。
              * @version Egret 2.0
-             * @platform Web,Native
+             * @platform Web
              */
             /**
              * @language zh_CN
              * 控制在缩放时是否对位图进行平滑处理。
              * @default true。
              * @version Egret 2.0
-             * @platform Web,Native
+             * @platform Web
              */
             get: function () {
                 return this.$smoothing;
@@ -240,10 +327,10 @@ var egret;
         __egretProto__.$setWidth = function (value) {
             //value = +value || 0;
             var values = this.$Bitmap;
-            if (value < 0 || value == values[0 /* explicitBitmapWidth */]) {
+            if (value < 0 || value == values[11 /* explicitBitmapWidth */]) {
                 return;
             }
-            values[0 /* explicitBitmapWidth */] = value;
+            values[11 /* explicitBitmapWidth */] = value;
             this.$invalidateContentBounds();
         };
         /**
@@ -254,10 +341,10 @@ var egret;
         __egretProto__.$setHeight = function (value) {
             //value = +value || 0;
             var values = this.$Bitmap;
-            if (value < 0 || value == values[1 /* explicitBitmapHeight */]) {
+            if (value < 0 || value == values[12 /* explicitBitmapHeight */]) {
                 return;
             }
-            values[1 /* explicitBitmapHeight */] = value;
+            values[12 /* explicitBitmapHeight */] = value;
             this.$invalidateContentBounds();
         };
         /**
@@ -266,7 +353,7 @@ var egret;
          */
         __egretProto__.$getWidth = function () {
             var values = this.$Bitmap;
-            return isNaN(values[0 /* explicitBitmapWidth */]) ? this.$getContentBounds().width : values[0 /* explicitBitmapWidth */];
+            return isNaN(values[11 /* explicitBitmapWidth */]) ? this.$getContentBounds().width : values[11 /* explicitBitmapWidth */];
         };
         /**
          * @private
@@ -274,54 +361,18 @@ var egret;
          */
         __egretProto__.$getHeight = function () {
             var values = this.$Bitmap;
-            return isNaN(values[1 /* explicitBitmapHeight */]) ? this.$getContentBounds().height : values[1 /* explicitBitmapHeight */];
-        };
-        /**
-         * @private
-         */
-        __egretProto__.$getScaleX = function () {
-            return this.$Bitmap[2 /* explicitScaleX */];
-        };
-        /**
-         * @private
-         */
-        __egretProto__.$setScaleX = function (value) {
-            value = egret.getNumber(value);
-            var values = this.$Bitmap;
-            if (value == values[2 /* explicitScaleX */]) {
-                return false;
-            }
-            values[2 /* explicitScaleX */] = value;
-            return _super.prototype.$setScaleX.call(this, 1);
-        };
-        /**
-         * @private
-         */
-        __egretProto__.$getScaleY = function () {
-            return this.$Bitmap[3 /* explicitScaleY */];
-        };
-        /**
-         * @private
-         */
-        __egretProto__.$setScaleY = function (value) {
-            value = egret.getNumber(value);
-            var values = this.$Bitmap;
-            if (value == values[3 /* explicitScaleY */]) {
-                return false;
-            }
-            values[3 /* explicitScaleY */] = value;
-            return _super.prototype.$setScaleY.call(this, 1);
+            return isNaN(values[12 /* explicitBitmapHeight */]) ? this.$getContentBounds().height : values[12 /* explicitBitmapHeight */];
         };
         /**
          * @private
          */
         __egretProto__.$measureContentBounds = function (bounds) {
-            var bitmapData = this.$bitmapData;
-            if (bitmapData) {
-                var w = !isNaN(this.$Bitmap[0 /* explicitBitmapWidth */]) ? this.$Bitmap[0 /* explicitBitmapWidth */] : (bitmapData.$getTextureWidth());
-                var h = !isNaN(this.$Bitmap[1 /* explicitBitmapHeight */]) ? this.$Bitmap[1 /* explicitBitmapHeight */] : (bitmapData.$getTextureHeight());
+            var values = this.$Bitmap;
+            if (values[1 /* image */]) {
                 var values = this.$Bitmap;
-                bounds.setTo(0, 0, w * values[2 /* explicitScaleX */], h * values[3 /* explicitScaleY */]);
+                var w = !isNaN(values[11 /* explicitBitmapWidth */]) ? values[11 /* explicitBitmapWidth */] : values[8 /* width */];
+                var h = !isNaN(values[12 /* explicitBitmapHeight */]) ? values[12 /* explicitBitmapHeight */] : values[9 /* height */];
+                bounds.setTo(0, 0, w, h);
             }
             else {
                 bounds.setEmpty();
@@ -331,14 +382,11 @@ var egret;
          * @private
          */
         __egretProto__.$render = function (context) {
-            var bitmapData = this.$bitmapData;
-            if (bitmapData) {
-                var destW = !isNaN(this.$Bitmap[0 /* explicitBitmapWidth */]) ? this.$Bitmap[0 /* explicitBitmapWidth */] : (bitmapData.$getTextureWidth());
-                var destH = !isNaN(this.$Bitmap[1 /* explicitBitmapHeight */]) ? this.$Bitmap[1 /* explicitBitmapHeight */] : (bitmapData.$getTextureHeight());
-                var values = this.$Bitmap;
-                destW *= values[2 /* explicitScaleX */];
-                destH *= values[3 /* explicitScaleY */];
-                Bitmap.$drawImage(context, bitmapData, destW, destH, this.scale9Grid, this.fillMode, this.$smoothing, bitmapData._offsetX * values[2 /* explicitScaleX */], bitmapData._offsetY * values[3 /* explicitScaleY */]);
+            var values = this.$Bitmap;
+            if (values[1 /* image */]) {
+                var destW = !isNaN(values[11 /* explicitBitmapWidth */]) ? values[11 /* explicitBitmapWidth */] : values[8 /* width */];
+                var destH = !isNaN(values[12 /* explicitBitmapHeight */]) ? values[12 /* explicitBitmapHeight */] : values[9 /* height */];
+                Bitmap.$drawImage(context, values[1 /* image */], values[2 /* clipX */], values[3 /* clipY */], values[4 /* clipWidth */], values[5 /* clipHeight */], values[6 /* offsetX */], values[7 /* offsetY */], values[8 /* width */], values[9 /* height */], destW, destH, this.scale9Grid, this.fillMode, this.$smoothing);
             }
         };
         Object.defineProperty(__egretProto__, "pixelHitTest", {
@@ -413,27 +461,25 @@ var egret;
          * @param fillMode
          * @param smoothing
          */
-        Bitmap.$drawImage = function (context, texture, destW, destH, scale9Grid, fillMode, smoothing, offsetX, offsetY) {
-            var bitmapData = texture;
+        Bitmap.$drawImage = function (context, image, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, textureWidth, textureHeight, destW, destH, scale9Grid, fillMode, smoothing) {
+            if (!image) {
+                return;
+            }
             context.imageSmoothingEnabled = smoothing;
-            offsetX = offsetX || Math.round(bitmapData._offsetX);
-            offsetY = offsetY || Math.round(bitmapData._offsetY);
-            var bitmapWidth = bitmapData._bitmapWidth;
-            var bitmapHeight = bitmapData._bitmapHeight;
             if (scale9Grid) {
-                Bitmap.$drawScale9GridImage(context, bitmapData, scale9Grid, destW, destH);
+                Bitmap.$drawScale9GridImage(context, image, scale9Grid, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, textureWidth, textureHeight, destW, destH);
             }
             else if (fillMode == egret.BitmapFillMode.SCALE) {
-                context.drawImage(bitmapData._bitmapData, bitmapData._bitmapX, bitmapData._bitmapY, bitmapWidth, bitmapHeight, offsetX, offsetY, bitmapData.$getScaleBitmapWidth() / bitmapData.$getTextureWidth() * destW, bitmapData.$getScaleBitmapHeight() / bitmapData.$getTextureHeight() * destH);
+                context.drawImage(image, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, clipWidth / textureWidth * destW, clipHeight / textureHeight * destH);
             }
             else {
-                var tempImage = bitmapData._bitmapData;
+                var tempImage = image;
                 var tempCanvas;
-                if (tempImage.width != bitmapWidth || tempImage.height != bitmapHeight || egret.$TextureScaleFactor != 1) {
+                if (tempImage.width != clipWidth || tempImage.height != clipHeight || egret.$TextureScaleFactor != 1) {
                     tempCanvas = egret.sys.surfaceFactory.create(true);
-                    tempCanvas.width = bitmapData.$getTextureWidth();
-                    tempCanvas.height = bitmapData.$getTextureHeight();
-                    tempCanvas.renderContext.drawImage(tempImage, bitmapData._bitmapX, bitmapData._bitmapY, bitmapWidth, bitmapHeight, offsetX, offsetY, bitmapData.$getScaleBitmapWidth(), bitmapData.$getScaleBitmapHeight());
+                    tempCanvas.width = textureWidth;
+                    tempCanvas.height = textureHeight;
+                    tempCanvas.renderContext.drawImage(tempImage, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, textureWidth, textureHeight);
                     tempImage = tempCanvas;
                 }
                 var pattern = context.createPattern(tempImage, "repeat");
@@ -450,14 +496,13 @@ var egret;
          * @private
          * 绘制九宫格位图
          */
-        Bitmap.$drawScale9GridImage = function (context, texture, scale9Grid, surfaceWidth, surfaceHeight) {
-            var image = texture._bitmapData;
-            var imageWidth = texture._bitmapWidth;
-            var imageHeight = texture._bitmapHeight;
-            surfaceWidth = surfaceWidth - (texture.$getTextureWidth() - texture.$getScaleBitmapWidth());
-            surfaceHeight = surfaceHeight - (texture.$getTextureHeight() - texture.$getScaleBitmapHeight());
-            var targetW0 = scale9Grid.x - texture._offsetX;
-            var targetH0 = scale9Grid.y - texture._offsetY;
+        Bitmap.$drawScale9GridImage = function (context, image, scale9Grid, clipX, clipY, clipWidth, clipHeight, offsetX, offsetY, textureWidth, textureHeight, surfaceWidth, surfaceHeight) {
+            var imageWidth = clipWidth;
+            var imageHeight = clipHeight;
+            surfaceWidth = surfaceWidth - (textureWidth - clipWidth * egret.$TextureScaleFactor);
+            surfaceHeight = surfaceHeight - (textureHeight - clipHeight * egret.$TextureScaleFactor);
+            var targetW0 = scale9Grid.x - offsetX;
+            var targetH0 = scale9Grid.y - offsetY;
             var sourceW0 = targetW0 / egret.$TextureScaleFactor;
             var sourceH0 = targetH0 / egret.$TextureScaleFactor;
             var sourceW1 = scale9Grid.width / egret.$TextureScaleFactor;
@@ -475,11 +520,11 @@ var egret;
                     sourceW0--;
                 }
             }
-            var sourceX0 = texture._bitmapX;
+            var sourceX0 = clipX;
             var sourceX1 = sourceX0 + sourceW0;
             var sourceX2 = sourceX1 + sourceW1;
             var sourceW2 = imageWidth - sourceW0 - sourceW1;
-            var sourceY0 = texture._bitmapY;
+            var sourceY0 = clipY;
             var sourceY1 = sourceY0 + sourceH0;
             var sourceY2 = sourceY1 + sourceH1;
             var sourceH2 = imageHeight - sourceH0 - sourceH1;
@@ -489,11 +534,11 @@ var egret;
                 context.drawImage(image, 0, 0, surfaceWidth, surfaceHeight);
                 return;
             }
-            var targetX0 = texture._offsetX;
+            var targetX0 = offsetX;
             var targetX1 = targetX0 + targetW0;
             var targetX2 = targetX0 + (surfaceWidth - targetW2);
             var targetW1 = surfaceWidth - targetW0 - targetW2;
-            var targetY0 = texture._offsetY;
+            var targetY0 = offsetY;
             var targetY1 = targetY0 + targetH0;
             var targetY2 = targetY0 + surfaceHeight - targetH2;
             var targetH1 = surfaceHeight - targetH0 - targetH2;
