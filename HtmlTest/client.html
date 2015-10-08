@@ -66,6 +66,9 @@
             var availHeight = window.screen.availHeight;
             var availWidth = window.screen.availWidth;
 
+            var bodyWidth = document.body.style.width;
+            var bodyHeight = document.body.style.height;
+
             var str = "clientWidth=" + clientWidth + "\n"
                     + "clientHeight=" + clientHeight + "\n"
                     + "clientTop=" + clientTop + "\n"
@@ -84,6 +87,8 @@
                     + "height=" + height + "\n"
                     + "availWidth=" + availWidth + "\n"
                     + "availHeight=" + availHeight + "\n"
+                    + "bodyWidth=" + bodyWidth + "\n"
+                    + "bodyHeight=" + bodyHeight + "\n"
 
             if ("innerText" in text) {
                 text.innerText = str;

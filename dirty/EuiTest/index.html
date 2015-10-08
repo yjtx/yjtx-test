@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/eui/eui.js" src-release="libs/modules/eui/eui.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件-->
+    <!--game_files_start-->
+	<script egret="game" src="bin-debug/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/libs/LoadResources.js"></script>
+	<script egret="game" src="bin-debug/libs/utils.js"></script>
+	<script egret="game" src="bin-debug/test/all/AllExamples.js"></script>
+	<script egret="game" src="bin-debug/test/button/ButtonCancel.js"></script>
+	<script egret="game" src="bin-debug/test/button/ButtonInGroupClick.js"></script>
+	<script egret="game" src="bin-debug/test/button/ButtonOK.js"></script>
+	<script egret="game" src="bin-debug/test/editableText/EditableTextNormal.js"></script>
+	<script egret="game" src="bin-debug/test/editableText/EditableTextSkinNormal.js"></script>
+	<script egret="game" src="bin-debug/test/image/ImageNormal.js"></script>
+	<script egret="game" src="bin-debug/test/label/LabelNormal.js"></script>
+	<script egret="game" src="bin-debug/test/label/LabelNormalDelay.js"></script>
+	<script egret="game" src="bin-debug/test/list/ListNormal.js"></script>
+	<script egret="game" src="bin-debug/test/slide/SliderNormal.js"></script>
+	<script egret="game" src="bin-debug/test/swan/binding/BindingExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/binding/WatcherExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/collections/ArrayCollectionExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ButtonExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/CheckboxExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ComponentExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/DataGroupExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/EditablTextExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/GroupExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/HScrollBarExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/HSliderExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ImageExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ItemRendererExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/LabelExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ListExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/PanelExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ProgressBarExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/RadioButtonExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/RadioButtonGroupExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ScrollerExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/SkinExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/TabBarExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ToggleButtonExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ToggleSwitchExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/VScrollBarExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/VSliderExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/ViewStackExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/supportClasses/DefaultAssetAdapterExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/components/supportClasses/RangeExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/core/BitmapFillModeExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/core/DirectionExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/core/ScrollPolicyExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/core/ThemeExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/events/CollectionEventExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/events/ItemTapEventExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/events/PropertyEventExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/events/UIEventExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/BasicLayoutExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/ColumnAlignExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/HorizontalLayoutExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/JustifyAlignExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/RowAlignExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/TileLayoutExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/TileOrientationExample.js"></script>
+	<script egret="game" src="bin-debug/test/swan/layout/VerticalLayoutExample.js"></script>
+	<!--game_files_end-->
+</head>
+<body>
+
+    <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="auto"
+         data-scale-mode="showAll"
+         data-resolution-mode="retina"
+         data-frame-rate="30"
+         data-content-width="480"
+         data-content-height="800"
+         data-show-paint-rect="false"
+         data-multi-fingered="2"
+         data-show-fps="true" data-show-log="true"
+         data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9">
+    </div>
+    <script>
+
+        var dive = document.getElementById("egret-sample");
+        var mainClass = getOption("mainClass");
+        if (mainClass) {
+            dive.setAttribute("data-entry-class", mainClass);
+        }
+        var factor = getOption("factor");
+        if (mainClass) {
+            dive.setAttribute("texture-scale-factor", factor);
+        }
+
+        egret.runEgret();
+
+        function getOption(key) {
+            var search = location.search;
+            if (search == "") {
+                return "";
+            }
+            search = search.slice(1);
+            var searchArr = search.split("&");
+            var length = searchArr.length;
+            for (var i = 0; i < length; i++) {
+                var str = searchArr[i];
+                var arr = str.split("=");
+                if (arr[0] == key) {
+                    return arr[1];
+                }
+            }
+        }
+    </script>
+</body>
+</html>

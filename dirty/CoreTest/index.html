@@ -1,0 +1,200 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Egret</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="true"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        html, body {
+            -ms-touch-action: none;
+            background: #888888;
+            padding: 0;
+            border: 0;
+            margin: 0;
+            height: 100%;
+        }
+    </style>
+
+
+    <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件-->
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js" src-release="libs/modules/egret/egret.min.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js" src-release="libs/modules/egret/egret.web.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js" src-release="libs/modules/game/game.min.js"></script>
+	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
+	<script egret="lib" src="libs/modules/dragonbones/dragonbones.js" src-release="libs/modules/dragonbones/dragonbones.min.js"></script>
+	<script egret="lib" src="libs/modules/socket/socket.js" src-release="libs/modules/socket/socket.min.js"></script>
+	<!--modules_files_end-->
+
+    <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
+    <!--other_libs_files_start-->
+    <!--other_libs_files_end-->
+
+    <!--这个标签会被替换为项目中所有的 javascript 文件-->
+    <!--game_files_start-->
+	<script egret="game" src="bin-debug/DivSprite.js"></script>
+	<script egret="game" src="bin-debug/LoadingUI.js"></script>
+	<script egret="game" src="bin-debug/Main.js"></script>
+	<script egret="game" src="bin-debug/SSMovieClip.js"></script>
+	<script egret="game" src="bin-debug/gamelibs/LoadResources.js"></script>
+	<script egret="game" src="bin-debug/gamelibs/ResourceUtils.js"></script>
+	<script egret="game" src="bin-debug/test/base64/Base64FromCrossUrl.js"></script>
+	<script egret="game" src="bin-debug/test/base64/Base64FromDisplayObject.js"></script>
+	<script egret="game" src="bin-debug/test/base64/Base64FromTexture.js"></script>
+	<script egret="game" src="bin-debug/test/base64/Base64SaveFromDisplayObject.js"></script>
+	<script egret="game" src="bin-debug/test/base64/Base64SaveFromTexture.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapClickCrossMore.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapClickSimpleMore.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapClickZoom.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapDelay.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapNormal.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapOffsetAnchor.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapOffsetAnchorRun.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapRepeat.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapRepeatScale.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapScale9Logo.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapScale9Size.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapScale9Zoom.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapScale9ZoomSize.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapScaleX.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapSize.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapZoom.js"></script>
+	<script egret="game" src="bin-debug/test/bitmaptext/BitmapTextNormal.js"></script>
+	<script egret="game" src="bin-debug/test/bitmaptext/BitmapTextRESNormal.js"></script>
+	<script egret="game" src="bin-debug/test/blendMode/BlendModeErase.js"></script>
+	<script egret="game" src="bin-debug/test/cacheAsbitmap/CacheAsBitmapParentSizeZero.js"></script>
+	<script egret="game" src="bin-debug/test/db/DBGirlRun.js"></script>
+	<script egret="game" src="bin-debug/test/db/DBNormal.js"></script>
+	<script egret="game" src="bin-debug/test/db/DBRole.js"></script>
+	<script egret="game" src="bin-debug/test/displayObject/DisplayObjectContentBounds.js"></script>
+	<script egret="game" src="bin-debug/test/empty/EmptyHelloWorld.js"></script>
+	<script egret="game" src="bin-debug/test/event/EventStageADDAndREMOVE.js"></script>
+	<script egret="game" src="bin-debug/test/event/EventStageRESIZE.js"></script>
+	<script egret="game" src="bin-debug/test/fillmode/BitmapFillModeExample.js"></script>
+	<script egret="game" src="bin-debug/test/function/FunctionDefaultValue.js"></script>
+	<script egret="game" src="bin-debug/test/function/FunctionSuper.js"></script>
+	<script egret="game" src="bin-debug/test/function/FunctionSuperClasses.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArc.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsLineStyle.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsSomeCircles.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderBitmap.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeust.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderPostData.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderSound.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderText.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderTextTwice.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskCircleGraphics.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskDiffMaskAndScroll.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskDisplayObject.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskMaskRect.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskScrollRect.js"></script>
+	<script egret="game" src="bin-debug/test/movieclip/MovieClipClickCrossMore.js"></script>
+	<script egret="game" src="bin-debug/test/movieclip/MovieClipClickSimpleMore.js"></script>
+	<script egret="game" src="bin-debug/test/movieclip/MovieClipNormal.js"></script>
+	<script egret="game" src="bin-debug/test/orientation/OrientationNormal.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESAsync.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESByUrl.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeAfterAsync.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeAfterRenderTexture.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeAfterUrl.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeGroupAfterSheet.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeSheetAfterSheet.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESDisposeSubKeyAfterSheet.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESLoaded.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESRenderTextureDouble.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESSheet.js"></script>
+	<script egret="game" src="bin-debug/test/scrollview/ScrollViewNormal.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundClickLoop.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundClickPlay.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundNormal.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundTimeout.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundVolume.js"></script>
+	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetDiff.js"></script>
+	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetRepeat.js"></script>
+	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetSubKey.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldAppendText.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldBackground.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldFamily.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldFlow.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldFlowRun.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldHref.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldInput.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldInputText.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldNormal.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldNormalDelay.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldRestrict.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldTextArea.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldWrap.js"></script>
+	<script egret="game" src="bin-debug/test/texture/RenderTextureLess257.js"></script>
+	<script egret="game" src="bin-debug/test/texture/TextureGetPixel32WithDO.js"></script>
+	<script egret="game" src="bin-debug/test/texture/TextureGetPixel32WithImg.js"></script>
+	<script egret="game" src="bin-debug/test/ticker/TickerLoadingUse.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchBitmap.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchContainer.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchGraphics.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchHideClick.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchReleaseOutSide.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchSpriteBitmap.js"></script>
+	<script egret="game" src="bin-debug/test/tween/TweenNormal.js"></script>
+	<script egret="game" src="bin-debug/test/video/VideoNormal.js"></script>
+	<script egret="game" src="bin-debug/test/websocket/WebSocketBinary.js"></script>
+	<script egret="game" src="bin-debug/test/websocket/WebSocketString.js"></script>
+	<!--game_files_end-->
+
+</head>
+<body>
+
+    <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;" class="egret-player"
+         data-entry-class="Main"
+         data-orientation="auto"
+         data-scale-mode="noScale"
+         data-resolution-mode="retina"
+         data-frame-rate="30"
+         data-content-width="480"
+         data-content-height="800"
+		 data-show-paint-rect="false"
+		 data-multi-fingered="2"
+		 data-show-fps="false" data-show-log="false"
+		 data-log-filter="" data-show-fps-style="x:0,y:0,size:30">
+    </div>
+    <script>
+        var dive = document.getElementById("egret-sample");
+        var mainClass = getOption("mainClass");
+        if (mainClass) {
+            dive.setAttribute("data-entry-class", mainClass);
+        }
+        var factor = getOption("factor");
+        if (mainClass) {
+            dive.setAttribute("texture-scale-factor", factor);
+        }
+
+        egret.runEgret();
+
+        function getOption(key) {
+//        if (window.hasOwnProperty("location")) {
+            var search = location.search;
+            if (search == "") {
+                return "";
+            }
+            search = search.slice(1);
+            var searchArr = search.split("&");
+            var length = searchArr.length;
+            for (var i = 0; i < length; i++) {
+                var str = searchArr[i];
+                var arr = str.split("=");
+                if (arr[0] == key) {
+                    return arr[1];
+                }
+            }
+        }
+        //        }
+    </script>
+</body>
+</html>

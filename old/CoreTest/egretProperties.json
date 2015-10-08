@@ -1,0 +1,31 @@
+{
+	"document_class": "Main",
+	"modules": [
+		{
+			"name": "core"
+		},
+		{
+			"name": "socket"
+		},
+		{
+			"name": "res"
+		},
+		{
+			"name": "dragonbones"
+		},
+		{
+			"name": "version"
+		},
+		{
+			"name": "gui"
+		},
+		{
+			"name": "third",
+			"path": "third"
+		}
+	],
+	"native": {
+		"path_ignore": []
+	},
+	"egret_version": "2.0.5"
+}
