@@ -15,6 +15,12 @@ class TextFieldInputText extends egret.DisplayObjectContainer {
 
 
     private testTextInput():void {
+        var shape:egret.Shape = new egret.Shape();
+        this.addChild(shape);
+        shape.graphics.beginFill(0xff0000);
+        shape.graphics.lineStyle(2, 0xffff00);
+        shape.graphics.drawRect(0, 0, this.stage.stageWidth, this.stage.stageHeight);
+        shape.graphics.endFill();
 
         var textField = new egret.TextField();
         textField.multiline = false;

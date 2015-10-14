@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class MovieClipResAnimation extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,29 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testMovieClip, this, "mcs", this.stage.textureScaleFactor);
     }
 
-    private testSimpleBitmap():void {
+    private testMovieClip():void {
+        var movieclipData = RES.getRes("chunli_res_animation_json");
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
-
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+        //return;
+        //var texture = RES.getRes("chunli_png");
+        //var self = this;
+        //
+        //var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData, texture);
+        //
+        //for (var i:number = 0; i < 1; i++) {
+        //    var role:egret.MovieClip = new egret.MovieClip(((i % 2 == 0) ? mcDataFactory1 : mcDataFactory1).generateMovieClipData("test"));
+        //    role.x = 100;
+        //    role.y = 220;
+        //    self.addChild(role);
+        //    role.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
+        //    role.scaleX = 1;
+        //
+        //    role.x = (i % 5) * 80;
+        //    role.y = Math.floor(i / 5) * 80 + 300;
+        //}
     }
 }
 

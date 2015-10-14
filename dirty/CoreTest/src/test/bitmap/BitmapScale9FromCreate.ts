@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class BitmapScale9FromCreate extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,19 +36,32 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        this.testBitmapScale9();
     }
 
-    private testSimpleBitmap():void {
+    private testBitmapScale9():void {
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        var icon = new egret.Bitmap(RES.getRes("talkingPanel_png"));
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+        var loader = new egret.URLLoader();
+        loader.addEventListener(egret.Event.COMPLETE, function loadOver(e) {
+            var loader = e.currentTarget;
+
+            var icon = new egret.Bitmap(loader.data);
+            icon.width = 200;
+            icon.height = 180;
+            this.addChild(icon);
+            icon.x = 100;
+            icon.y = 100;
+            icon.scale9Grid = new egret.Rectangle(15, 53, 3, 3);
+
+        }, this);
+
+        loader.dataFormat = egret.URLLoaderDataFormat.TEXTURE;
+        var request = new egret.URLRequest(ResourceUtils.getRoot(this.stage.textureScaleFactor) + "talkingPanel.png");
+        loader.load(request);
     }
+
 }
 
 

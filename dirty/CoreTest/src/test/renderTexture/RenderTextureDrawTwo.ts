@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class RenderTextureDrawTwo extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,34 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        this.testBitmap();
     }
 
-    private testSimpleBitmap():void {
+    private testBitmap():void {
+        var s: egret.Sprite = new egret.Sprite();
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        var sp: egret.Sprite = new egret.Sprite();
+        sp.graphics.beginFill(0xFF0000);
+        sp.graphics.drawRect(0,0,200,4);
+        sp.graphics.endFill();
+        sp.y = 4;
+        s.addChild(sp);
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+        sp = new egret.Sprite();
+        sp.graphics.beginFill(0x00FF00);
+        sp.graphics.drawRect(0,0,100,4);
+        sp.graphics.endFill();
+        sp.y = 16;
+        s.addChild(sp);
+
+        this.addChild(s);
+
+        var t: egret.RenderTexture = new egret.RenderTexture();
+        t.drawToTexture(s);
+        var b: egret.Bitmap = new egret.Bitmap(t);
+        b.y = 100;
+        this.addChild(b);
+        console.log(b.width + "-" + b.height);
     }
 }
 

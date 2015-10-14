@@ -1,11 +1,11 @@
 {
 	"groups":[
 	{
-		"keys":"bg_jpg,skeleton_json,texture_json,texture_png,role_1_png,role_1_d_json,role_1_eyelid_png,role_1_s_json,egret_icon_png,font_fnt,img_scale9_png,chunli_json,chunli_png,run_down_json,run_down_png,skill_30172_png,skill_30173_png,skill_30174_png,skill_30175_png,effect_mp3,guangyin_mp3,ready_bg_music_mp3,ready_bg_music1_mp3,ready_bg_music2_mp3,wf_mp3,zuiquan_mp3,ori_0_png,ori_1_json",
+		"keys":"bg_jpg,skeleton_json,texture_json,texture_png,role_1_png,role_1_d_json,role_1_eyelid_png,role_1_s_json,egret_icon_png,font_fnt,img_scale9_png,chunli_json,chunli_png,run_down_json,run_down_png,skill_30172_png,skill_30173_png,skill_30174_png,skill_30175_png,effect_mp3,guangyin_mp3,ready_bg_music_mp3,ready_bg_music1_mp3,ready_bg_music2_mp3,wf_mp3,zuiquan_mp3,ori_0_png,ori_1_json,tmw_desert_spacing_png,progressTime_png,progressCircle_png",
 		"name":"preload"
 	},
 	{
-		"keys":"effect_mp3,wf_mp3,guangyin_mp3",
+		"keys":"effect_mp3,wf_mp3,guangyin_mp3,numbers_mp3",
 		"name":"sounds"
 	},
 	{
@@ -13,7 +13,7 @@
 		"name":"dbs"
 	},
 	{
-		"keys":"chunli_json,chunli_png,run_down_json,run_down_png,icon_win_png,icon_lose_png,run_up_json,run_up_png",
+		"keys":"chunli_json,chunli_png,run_down_json,run_down_png,icon_win_png,icon_lose_png,run_up_json,run_up_png,chunli_res_animation_json",
 		"name":"mcs"
 	},
 	{
@@ -25,7 +25,7 @@
 		"name":"spritesheets"
 	},
 	{
-		"keys":"img_scale9_png,dot_png",
+		"keys":"img_scale9_png,dot_png,talkingPanel_png",
 		"name":"bitmap"
 	},
 	{
@@ -247,5 +247,37 @@
 		"name":"coin_single_png",
 		"type":"image",
 		"url":"spritesheet/coin_single.png"
+	},
+	{
+		"name":"tmw_desert_spacing_png",
+		"type":"image",
+		"url":"tmw_desert_spacing.png"
+	},
+	{
+		"name":"talkingPanel_png",
+		"scale9grid":"15,53,3,3",
+		"type":"image",
+		"url":"talkingPanel.png"
+	},
+	{
+		"name":"progressTime_png",
+		"type":"image",
+		"url":"progressTime.png"
+	},
+	{
+		"name":"progressCircle_png",
+		"type":"image",
+		"url":"progressCircle.png"
+	},
+	{
+		"name":"numbers_mp3",
+		"soundType":"effect",
+		"type":"sound",
+		"url":"sound/numbers.mp3"
+	},
+	{
+		"name":"chunli_res_animation_json",
+		"type":"animation",
+		"url":"mc/chunli_res_animation.json"
 	}]
 }

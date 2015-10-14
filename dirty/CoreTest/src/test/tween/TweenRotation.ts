@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class TweenRotation extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,21 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testBitmap, this, "preload", this.stage.textureScaleFactor);
     }
 
-    private testSimpleBitmap():void {
+    btp1;
+    private testBitmap():void {
+        this.btp1 = new egret.Bitmap(RES.getRes("egret_icon_png"));
+        this.addChildAt(this.btp1, 0);
+        this.btp1.x = 200;
+        this.btp1.y = 200;
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        egret.Tween.get(this.btp1,{ loop: false ,onChange: this.onC,onChangeObj: this},null,true).to({rotation:2700},8000);
+    }
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+    private onC(){
+        console.log(this.btp1.rotation);
     }
 }
 

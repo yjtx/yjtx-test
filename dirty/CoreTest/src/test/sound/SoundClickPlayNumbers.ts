@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class SoundClickPlayNumbers extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,37 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testSound, this, "sounds", this.stage.textureScaleFactor);
     }
 
-    private testSimpleBitmap():void {
+    private testSound():void {
+        var s:egret.Sound = RES.getRes("numbers_mp3");
+        var sChannel:egret.SoundChannel;
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        var text1:egret.TextField = new egret.TextField();
+        text1.text = "play";
+        text1.size = 60;
+        text1.y = 60;
+        this.addChild(text1);
+        text1.touchEnabled = true;
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+        text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            sChannel = s.play(0, 1);
+        }, this);
+
+        var text2:egret.TextField = new egret.TextField();
+        text2.text = "pause";
+        text2.size = 60;
+        text2.y = 160;
+        text2.touchEnabled = true;
+        text2.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            sChannel.stop();
+        }, this);
+        this.addChild(text2);
+
+        s.addEventListener(egret.Event.SOUND_COMPLETE, function (e:egret.Event) {
+            console.log(e.type);
+        }, this);
     }
 }
 

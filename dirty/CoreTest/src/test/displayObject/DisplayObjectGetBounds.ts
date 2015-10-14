@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class DisplayObjectGetBounds extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,37 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        this.testSimpleBitmap();
     }
 
     private testSimpleBitmap():void {
+        var sp: egret.Shape = new egret.Shape();
+        sp.graphics.beginFill(0);
+        sp.graphics.drawRect(0,0,100,300);
+        sp.graphics.endFill();
+        this.addChild(sp);
+        sp.x = 110;
+        sp.y = 210;
+        var rect = sp.getBounds();
+        console.log(rect.x,rect.y,rect.width,rect.height);
 
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        sp.rotation = 45;
+        var rect = sp.getBounds();
+        console.log(rect.x,rect.y,rect.width,rect.height);
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+        sp.rotation = 0;
+        var rect:egret.Rectangle = this.getTransformedBounds(sp);
+        console.log(rect.x,rect.y,rect.width,rect.height);
+        //0 0 100 300
+
+        egret.setTimeout(function() {
+            sp.rotation = 45;
+            var rect:egret.Rectangle = this.getTransformedBounds(sp);
+            console.log(rect.x,rect.y,rect.width,rect.height);
+            //0 0 100 300
+        }, this, 3000);
+
+
     }
 }
 

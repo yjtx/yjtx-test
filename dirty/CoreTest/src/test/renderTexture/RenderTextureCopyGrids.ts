@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class RenderTextureCopyGrids extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,18 +36,26 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testUrl, this, "preload", this.stage.textureScaleFactor);
     }
 
-    private testSimpleBitmap():void {
-
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
-
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+    private testUrl():void {
+        var test:egret.Bitmap = new egret.Bitmap(RES.getRes("tmw_desert_spacing_png"));
+        this.addChild(test);
+        test.x = 240;
+        test.y = 400 - 60;
+        for(var i:number=0;i<6;i++)
+        {
+            for(var j:number=0;j<8;j++){
+                var renderTexture: egret.RenderTexture= new egret.RenderTexture();
+                renderTexture.drawToTexture(test,new egret.Rectangle(j*33,i*33,33,33),1);
+                var tiled:egret.Bitmap=new egret.Bitmap();
+                tiled.texture=renderTexture;
+                tiled.x=j*33;
+                tiled.y=i*33;
+                this.addChild(tiled);
+            }
+        }
     }
 }
 

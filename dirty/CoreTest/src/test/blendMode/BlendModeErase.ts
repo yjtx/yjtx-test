@@ -35,14 +35,19 @@ class BlendModeErase extends egret.DisplayObjectContainer {
 
         this.addChild(container);
 
-        //var renderTexture:egret.RenderTexture = new egret.RenderTexture();
-        //renderTexture.drawToTexture(container);
-        //
-        //var bitmap:egret.Bitmap = new egret.Bitmap();
-        //bitmap.texture = renderTexture;
-        //this.addChild(bitmap);
 
+        var renderTexture:egret.RenderTexture = new egret.RenderTexture();
+        renderTexture.drawToTexture(container);
 
+        var bitmap:egret.Bitmap = new egret.Bitmap();
+        bitmap.texture = renderTexture;
+        this.addChild(bitmap);
+
+        bitmap.touchEnabled = true;
+        bitmap.pixelHitTest = true;
+        bitmap.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
+            console.log(e.type);
+        }, this);
     }
 
 }

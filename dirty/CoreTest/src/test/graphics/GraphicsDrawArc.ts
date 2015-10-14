@@ -10,31 +10,23 @@ class GraphicsDrawArc extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        this.testDrawArc();
+        this.testDrawArc(100, 100, 1);
+        this.testDrawArc(100, 200, 10);
+        this.testDrawArc(100, 300, 18);
+        this.testDrawArc(100, 400, 20);
+        this.testDrawArc(300, 100, 25);
     }
 
-    private testDrawArc():void {
-        var shape:egret.Shape = new egret.Shape();
-        this.addChild(shape);
+    private testDrawArc(x, y, size):void {
+        var g = new egret.Shape();
+        g.x = x;
+        g.y = y;
+        g.graphics.beginFill(0xff0000);
+        g.graphics.lineStyle(size, 0xffff00);
+        g.graphics.drawArc(0, 0, 100, 0, 0.5, true);
+        g.graphics.endFill();
 
-        var angle = 60;
-        egret.setInterval(function () {
-            changeGraphics(angle);
-            angle+= 10;
-            angle = angle % 360;
-        }, this, 16);
-
-        function changeGraphics(angle) {
-            shape.graphics.clear();
-
-            //shape.graphics.lineStyle(2, 0x0000ff, 1);
-            shape.graphics.beginFill(0x00ffff, 1);
-            shape.graphics.moveTo(200, 200);
-            shape.graphics.lineTo(300, 200);
-            shape.graphics.drawArc(200, 200, 100, 0, angle * Math.PI / 180, false);
-            shape.graphics.lineTo(200, 200);
-            shape.graphics.endFill();
-        }
+        this.addChild(g);
     }
 
 }

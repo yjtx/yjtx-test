@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,19 +36,17 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
     }
 
-    private testSimpleBitmap():void {
-
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
-
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
-        var icon:egret.Bitmap = new egret.Bitmap();
-        icon.texture = texture;
-        this.addChild(icon);
+    private testScale9():void {
+        var texture1:egret.Texture = RES.getRes("img_scale9_png");
+        var bitmap = new egret.Bitmap(texture1);
+        this.addChild(bitmap);
+        bitmap.cacheAsBitmap = true;
+        bitmap.cacheAsBitmap = false;
     }
+
 }
 
 

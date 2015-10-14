@@ -49,7 +49,7 @@ class CacheAsBitmapParentSizeZero extends egret.DisplayObjectContainer {
         this.addChild(c);
         c.scaleX = c.scaleY = 0;
 
-        egret.Tween.get(c).to({"scaleX" : 1, "scaleY" : 1}, 2000);
+        egret.Tween.get(c).to({"scaleX" : 1, "scaleY" : 1}, 2000).to({"scaleX" : 0, "scaleY" : 0}, 2000);
     }
 }
 

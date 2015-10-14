@@ -46,14 +46,15 @@ class RenderTextureLess257 extends egret.DisplayObjectContainer {
         shape1.graphics.drawRect(0, 0, 100, 100);
         shape1.graphics.endFill();
         c1.addChild(shape1);
-        shape1.x = 149;
-        shape1.y = 10;
+        c1.scaleX = c1.scaleY = 2;
 
         var texture1 = new egret.RenderTexture();
         texture1.drawToTexture(c1);
 
         var bitmap1 = new egret.Bitmap(texture1);
         this.addChild(bitmap1);
+        bitmap1.x = 149;
+        bitmap1.y = 10;
 
         console.log("right width: 100  height: 100");
         console.log("show width: " + bitmap1.width + "  height: " + bitmap1.height);
@@ -65,16 +66,15 @@ class RenderTextureLess257 extends egret.DisplayObjectContainer {
         shape2.graphics.drawRect(0, 0, 300, 300);
         shape2.graphics.endFill();
         c2.addChild(shape2);
-        shape2.x = 149;
-        shape2.y = 160;
-        shape2.x = 199;
-        shape2.y = 199;
+        c2.x = c2.y = 100;
 
         var texture2 = new egret.RenderTexture();
         texture2.drawToTexture(c2);
 
         var bitmap2 = new egret.Bitmap(texture2);
         this.addChild(bitmap2);
+        bitmap2.x = 149;
+        bitmap2.y = 199;
 
         console.log("right width: 300  height: 300");
         console.log("show width: " + bitmap2.width + "  height: " + bitmap2.height);
