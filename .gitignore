@@ -1,4 +1,12 @@
 .idea/
 
+bin-debug/
+libs
+
 .DS_Store
 .[Tt]humb
+
+
+AndCore/
+AndGui/
+IOSCore/
