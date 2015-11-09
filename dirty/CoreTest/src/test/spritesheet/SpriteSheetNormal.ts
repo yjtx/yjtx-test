@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class SpriteSheetNormal extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,41 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testNormal, this, "spritesheets", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testNormal():void {
+        var texture:egret.Texture = RES.getRes("999999_02");
+        var icon:egret.Bitmap = new egret.Bitmap(texture);
+        this.addChild(icon);
+        icon.x = 100;
+        icon.y = 100;
+        //icon.width = icon.height = 60;
 
+        var shape:egret.Shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff);
+        shape.graphics.drawRect(0, 0, icon.width, icon.height);
+        shape.graphics.endFill();
+        this.addChildAt(shape, 0);
+        shape.x = icon.x;
+        shape.y = icon.y;
+
+
+        var texture:egret.Texture = RES.getRes("999999_02");
+        var icon:egret.Bitmap = new egret.Bitmap(texture);
+        this.addChild(icon);
+        icon.x = 100;
+        icon.y = 330;
+        icon.width = icon.height = 60;
+
+        var shape:egret.Shape = new egret.Shape();
+        shape.graphics.beginFill(0xffffff);
+        shape.graphics.drawRect(0, 0, icon.width, icon.height);
+        shape.graphics.endFill();
+        this.addChildAt(shape, 0);
+        shape.x = icon.x;
+        shape.y = icon.y;
+    }
 }
 
 

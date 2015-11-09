@@ -1892,7 +1892,7 @@
                 ],
                 "duration": 8,
                 "tweenEasing": 0,
-                "loop": 10,
+                "loop": 0,
                 "scale": 2.5,
                 "fadeInTime": 0.208,
                 "name": "walk"

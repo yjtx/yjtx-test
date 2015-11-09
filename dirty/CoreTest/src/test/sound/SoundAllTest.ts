@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class SoundAllTest extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,57 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testSound, this, "sounds", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    public static Label:egret.TextField;
 
+    private testSound():void {
+        var container:egret.Sprite = new egret.Sprite();
+        this.addChild(container);
+        var currentChild;
+
+        container.x = 100;
+        container.y = 100;
+        container.graphics.beginFill(0xff0000, 1);
+        container.graphics.drawRect(0, 0, 380, 400);
+        container.graphics.endFill();
+
+        var testInfo = {};
+        testInfo["testSoundFuncs"] = input.testSoundFuncs;
+
+        var label:egret.TextField = new egret.TextField();
+        label.fontFamily = "";
+        this.addChild(label);
+        label.x = 450;
+
+        SoundAllTest.Label = label;
+
+        var i:number = 0;
+        for (var key in testInfo)
+        {
+            var text:egret.TextField = new egret.TextField();
+            this.addChild(text);
+            text.stroke = 2;
+            text.strokeColor = 0xff0000;
+            text.x = 0;
+            text.y = 40 * i +100;
+            text.text = key;
+            text.touchEnabled = true;
+            text.addEventListener(egret.TouchEvent.TOUCH_TAP, function() {
+                if (currentChild) {
+                    egret.Tween.removeTweens(currentChild);
+                }
+                container.removeChildren();
+
+                currentChild = testInfo[this.text].call(null);
+                container.addChild(currentChild);
+                currentChild.x = 200;
+                label.text = this.text;
+            }, text);
+            i++;
+        }
+    }
 }
 
 

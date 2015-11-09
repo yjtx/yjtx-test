@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class RenderTextureCircle extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,28 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        this.testBitmap();
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testBitmap():void {
+            var ball: egret.Shape = new egret.Shape();
+            ball.graphics.beginFill(0xFF0000);
+            ball.graphics.drawCircle(0,0,50);
+            ball.graphics.endFill();
+            ball.x = 50;
+            ball.y = 50;
+            this.addChild(ball);
 
+            var rect: egret.Rectangle = ball.getBounds(null);
+            console.log(rect.x + ":" + rect.y + ":" + rect.width + ":" + rect.height);    // -50:-50:100:100
+            var rect2: egret.Rectangle = new egret.Rectangle(-50,-50,100,100);    // 有疑问
+
+            var t: egret.RenderTexture = new egret.RenderTexture();
+            t.drawToTexture(ball,rect2);
+            var b: egret.Bitmap = new egret.Bitmap(t);
+            b.x = b.y = 100;
+            this.addChild(b);
+    }
 }
 
 

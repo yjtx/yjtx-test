@@ -14,68 +14,30 @@ class TextFieldFamily extends egret.DisplayObjectContainer {
     }
 
     private testTextFieldWidth():void {
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 默认";
-        textfield.fontFamily = "dfsafafdf";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 10;
+        egret.TextField.default_fontFamily = "SimHei";
 
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 微软雅黑";
-        textfield.fontFamily = "Microsoft YaHei";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 50;
+        this.addText("一行白鹭上青天，all birds! 浏览器 默认", "aa");
 
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 宋体";
-        textfield.fontFamily = "SumSun";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 90;
+        this.addText("一行白鹭上青天，all birds! Egret 默认", null);
 
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 黑体";
-        textfield.fontFamily = "SimHei";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 130;
+        this.addText("一行白鹭上青天，all birds! Arial", "Arial");
 
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 新宋体";
-        textfield.fontFamily = "NSimSun";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 170;
+        this.addText("一行白鹭上青天，all birds! 微软雅黑", "Microsoft YaHei");
+        this.addText("一行白鹭上青天，all birds! 宋体", "SumSun");
+        this.addText("一行白鹭上青天，all birds! 黑体", "SimHei");
+        this.addText("一行白鹭上青天，all birds! 新宋体", "NSimSun");
+        this.addText("一行白鹭上青天，all birds! 新细明体", "PMingLiU");
+        this.addText("一行白鹭上青天，all birds! 标楷体", "DFKai-SB");
+        this.addText("一行白鹭上青天，all birds! 楷体", "KaiTi");
+    }
 
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 新细明体";
-        textfield.fontFamily = "PMingLiU";
-        this.addChild(textfield);
+    private addText(text:string, family:string):void {
+        var textfield:egret.TextField = new egret.TextField();
+        textfield.text = text;
+        textfield.fontFamily = family;
         textfield.x = 10;
-        textfield.y = 210;
-
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 标楷体";
-        textfield.fontFamily = "DFKai-SB";
+        textfield.y = this.numChildren * 40 + 10;
         this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 250;
-
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! 楷体";
-        textfield.fontFamily = "KaiTi";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 290;
-
-        var textfield = new egret.TextField();
-        textfield.text = "一行白鹭上青天，all birds! Arial";
-        textfield.fontFamily = "Arial";
-        this.addChild(textfield);
-        textfield.x = 10;
-        textfield.y = 330;
     }
 }
 

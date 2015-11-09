@@ -40,7 +40,7 @@ class WebSocketBinary extends egret.DisplayObjectContainer {
     }
 
     private testWebSocketBinary():void {
-        var socket = new egret.WebSocket();
+        var socket:egret.WebSocket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_BINARY;
         var magBytesAvailable = 0;
         socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, function (e:egret.ProgressEvent) {

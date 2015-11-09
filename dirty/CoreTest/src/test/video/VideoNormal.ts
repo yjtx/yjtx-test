@@ -15,11 +15,13 @@ class VideoNormal extends egret.DisplayObjectContainer {
         this.video.load("resource/video/trailer.mp4");
         this.addChild(this.video);
 
+
         var text = new egret.TextField();
         text.text = 'Loading';
         text.x = 50;
         text.y = 280 - 20;
         this.video.addEventListener(egret.Event.COMPLETE, function (e) {
+            console.log("complete");
             text.text = "Loaded, click video to play";
         }, this);
         text.touchEnabled = true;

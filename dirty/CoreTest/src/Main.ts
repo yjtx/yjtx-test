@@ -208,5 +208,3 @@ class Main extends egret.DisplayObjectContainer {
         textfield.textFlow = textFlow;
     }
 }
-
-

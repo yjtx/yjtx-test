@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class MovieClipNumRun extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,38 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testMovieClip, this, "mcs", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testMovieClip():void {
+        var movieclipData = RES.getRes("nums_json");
+        var texture = RES.getRes("nums_png");
+        var self = this;
 
+        var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData, texture);
+
+        for (var i:number = 0; i < 6; i++) {
+            var role:egret.MovieClip = new egret.MovieClip(((i % 2 == 0) ? mcDataFactory1 : mcDataFactory1).generateMovieClipData("nums"));
+            role.x = 100;
+            role.y = 220;
+            self.addChild(role);
+            role.play(-1);
+
+            role.x = (i % 5) * 80;
+            role.y = Math.floor(i / 5) * 80 + 300;
+        }
+
+        var count = -1;
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            count++;
+            for (var i:number = 0; i < 6; i++) {
+                var child:egret.MovieClip = <egret.MovieClip>this.getChildAt(i);
+                child.gotoAndStop((i + count) % 6 + 1);
+            }
+
+
+        }, this);
+    }
 }
 
 

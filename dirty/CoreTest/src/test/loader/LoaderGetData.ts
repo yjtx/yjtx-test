@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class LoaderGetData extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,15 +36,28 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        this.testText();
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
+    private testText():void {
+        var loader = new egret.URLLoader();
+        loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
+            egret.log("1111");
+            egret.log(loader.data);
+
+        }, this);
+
+        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
+
+        var request = new egret.URLRequest("http://115.238.54.151:81/energy/ajaxdata.jsp");
+        request.method = egret.URLRequestMethod.GET;
+
+        var str = decodeURIComponent("action=getUserInfo&usercode=f96c81062869dbaec16cb9a4df14d9d6&packagename=energy20150824&gameid=1?callback=JsonpReq.completeCall.call_0");
+
+        var variables = new egret.URLVariables(str);
+        request.data = variables;
+
+        loader.load(request);
     }
 
 }

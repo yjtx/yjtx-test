@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class ContainerChildRemove extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,15 +36,33 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        for (var i:number = 0; i < 5; i++) {
+            var text:egret.TextField = new egret.TextField();
+            text.text = "ddd " + i;
+            this.addChild(text);
+            text.x = 100;
+            text.y = 100 + i * 60;
+        }
+
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapHandler, this);
+
+        var child:egret.TextField = <egret.TextField>this.getChildAt(2);
+        child.addEventListener(egret.Event.REMOVED_FROM_STAGE,this.onRemovedFromStage,this);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
+    private onTapHandler():void {
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapHandler, this);
+
+        var child:egret.TextField = <egret.TextField>this.getChildAt(2);
+        this.removeChild(child);
+    }
+
+    private onRemovedFromStage(e:egret.Event):void {
+        var child:egret.TextField = <egret.TextField>this.getChildAt(0);
+        if (child.parent) {
+            child.parent.removeChild(child);
+        }
     }
 
 }

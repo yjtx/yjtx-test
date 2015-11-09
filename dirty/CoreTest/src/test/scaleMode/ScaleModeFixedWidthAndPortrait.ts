@@ -27,8 +27,9 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class ScaleModeFixedWidthAndPortrait extends egret.DisplayObjectContainer {
 
+    //默认设置是 fixedWidth
     public constructor() {
         super();
 
@@ -36,15 +37,30 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testScrollView, this, "preload", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
+    private testScrollView():void {
+        this.initContent();
+
+        this.stage.scaleMode = egret.StageScaleMode.FIXED_HEIGHT;
+    }
+
+    private initContent():void {
+        var bg = new egret.Bitmap(RES.getRes("bg_jpg"));
+        bg.width = this.stage.stageWidth;
+        bg.height = this.stage.stageHeight;
+        this.addChild(bg);
+
+        var icon = new egret.Bitmap(RES.getRes("egret_icon_png"));
+        this.addChild(icon);
+        icon.x = this.stage.stageWidth / 2 - 50;
+        icon.y = this.stage.stageHeight / 2 - 50;
+        icon.width = icon.height = 100;
+        icon.touchEnabled = true;
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function(e) {
+            egret.log("11111")
+        }, this);
     }
 
 }

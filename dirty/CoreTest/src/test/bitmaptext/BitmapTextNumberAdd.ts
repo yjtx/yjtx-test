@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class BitmapTextNumberAdd extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,25 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testBitmapText, this, "fonts", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testBitmapText():void {
 
+        var num:number = 10;
+        var bitmapFont:egret.BitmapFont = RES.getRes("font_fnt");
+        var bitmap1 = new egret.BitmapText();
+        bitmap1.font = bitmapFont;
+        bitmap1.text = num.toString();
+        bitmap1.y = 100;
+        this.addChild(bitmap1);
+
+        egret.setInterval(function () {
+            num += Math.floor(Math.random() * 100);
+            console.log(num);
+            bitmap1.text = num.toString();
+        }, this, 1000);
+    }
 }
 
 

@@ -17,6 +17,7 @@ class MaskDisplayObject extends egret.DisplayObjectContainer {
         var texture:egret.Texture = RES.getRes("egret_icon_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
+        icon.alpha = 0.5;
 
         var shape:egret.Shape = new egret.Shape();
         shape.graphics.beginFill(0x00ff00, 1);

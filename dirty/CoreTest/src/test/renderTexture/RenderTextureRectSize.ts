@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class RenderTextureRectSize extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,36 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        this.testBitmap();
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testBitmap():void {
+        var s: egret.Sprite = new egret.Sprite();
+        var sp: egret.Sprite = new egret.Sprite();
 
+        sp.graphics.beginFill(0xFF0000);
+        sp.graphics.drawRect(0,0,258,4);
+        sp.graphics.endFill();
+        s.addChild(sp);
+
+        var sp2: egret.Sprite = new egret.Sprite();
+        sp2.graphics.beginFill(0x00FF00);
+        sp2.graphics.drawRect(0,0,258,4);
+        sp2.graphics.endFill();
+        sp2.y = 6;
+        s.addChild(sp2);
+
+        this.addChild(s);
+
+        var t: egret.RenderTexture = new egret.RenderTexture();
+        t.drawToTexture(s,new egret.Rectangle(0,0,20,20));
+        var b: egret.Bitmap = new egret.Bitmap(t);
+        b.y = 100;
+        this.addChild(b);
+        console.log(b.width + "-" + b.height);
+
+        s.mask = new egret.Rectangle(0, 0, 20, 20);
+    }
 }
 
 

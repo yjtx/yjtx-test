@@ -14,7 +14,7 @@ class GraphicsWithoutEndFill extends egret.DisplayObjectContainer {
     }
 
     private testDrawArc():void {
-        /*var shape:egret.Shape = new egret.Shape();
+        var shape:egret.Shape = new egret.Shape();
         this.addChild(shape);
 
         shape.graphics.clear();
@@ -46,17 +46,8 @@ class GraphicsWithoutEndFill extends egret.DisplayObjectContainer {
         shape.graphics.lineTo(300, 20);
         shape.graphics.drawArc(200, 20, 100, 0, 180 * Math.PI / 180, false);
         shape.graphics.lineTo(200, 20);
-        //shape.graphics.endFill();*/
+        //shape.graphics.endFill();
 
-        var s = new egret.Shape();
-        s.graphics.lineStyle(3, 0x000000);
-        s.graphics.moveTo(100, 100);
-        s.graphics.lineTo(200, 100);
-        s.graphics.lineTo(200, 200); 
-        this.addChild(s);
-        s.x = 300;
-        s.y = 100;
-        //s.graphics.endFill(); this.addChild(s);
     }
 
 }

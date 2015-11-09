@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
+class RenderTextureSpriteWithBitmap extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,24 @@ class CacheAsBitmapTwice extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
+        new LoadResources(this.testUrl, this, "preload", this.stage.textureScaleFactor);
     }
 
-    private testScale9():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
-        this.addChild(bitmap);
-        bitmap.cacheAsBitmap = true;
-        bitmap.cacheAsBitmap = false;
-    }
+    private testUrl():void {
+        var tx: egret.Texture = RES.getRes("egret_icon_png");
+        var bmp: egret.Bitmap = new egret.Bitmap(tx);
 
+        var sp = new egret.DisplayObjectContainer();
+        sp.addChild(bmp);
+        sp.x = sp.y = 200;
+        this.addChild(sp);
+
+        var tx2: egret.RenderTexture = new egret.RenderTexture();
+        tx2.drawToTexture(sp);
+        var bmp2: egret.Bitmap = new egret.Bitmap(tx2);
+        this.addChild(bmp2);
+        console.log(tx2.textureWidth + " " + tx2.textureHeight);
+    }
 }
 
 
