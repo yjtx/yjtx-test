@@ -27,7 +27,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class DisplayObjectContentBounds extends egret.DisplayObjectContainer {
 
     public constructor() {
         super();
@@ -36,17 +36,27 @@ class BitmapNormal extends egret.DisplayObjectContainer {
     }
 
     private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
+        new LoadResources(this.testSimpleBitmap, this, "preload", egret.MainContext.instance.rendererContext.texture_scale_factor);
     }
 
     private testSimpleBitmap():void {
-        this.width = this.stage.stageWidth;
-        this.height = this.stage.stageHeight;
+        var container1:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
+        this.addChild(container1);
+        container1.name = "container1";
 
-        var texture:egret.Texture = RES.getRes("img_scale9_png");
+        var container2:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
+        container1.addChild(container2);
+        container2.width = 100;
+        container2.height = 100;
+        container2.name = "container2";
+
+        var texture:egret.Texture = RES.getRes("bg_jpg");
         var icon:egret.Bitmap = new egret.Bitmap();
         icon.texture = texture;
-        this.addChild(icon);
+        container2.addChild(icon);
+
+        console.log("width=" + container1.width + "  height=" + container1.height);
+        console.log("width=" + container2.width + "  height=" + container2.height);
     }
 }
 
