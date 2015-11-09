@@ -50,6 +50,8 @@ var game_file_list = [
 	"bin-debug/skins/simple/VSliderThumbSkin.g.js",
 	"bin-debug/test/label/LabelNormal.js",
 	"bin-debug/test/label/LabelNormalDelay.js",
+	"bin-debug/test/list/ListTwo.js",
+	"bin-debug/test/textInput/TextInputNormal.js",
 	"bin-debug/test/uiasset/UIAssetWithBitmapText.js",
 	//----auto game_file_list end----
 ];
@@ -79,16 +81,16 @@ egret_native.egretStart = function () {
         //以下为自动修改，请勿修改
         //----auto option start----
 		entryClassName: "Main",
-		frameRate: undefined,
-		scaleMode: "noScale",
+		frameRate: 30,
+		scaleMode: "fixedHeight",
 		contentWidth: 480,
 		contentHeight: 800,
 		showPaintRect: false,
-		showFPS: true,
-		fpsStyles: "x:0,y:600,size:24,textColor:0xffffff",
+		showFPS: false,
+		fpsStyles: "x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9",
 		showLog: false,
 		logFilter: "",
-		maxTouches: undefined,
+		maxTouches: 2,
 		textureScaleFactor: 1
 		//----auto option end----
     };

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>HelloWorld</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+</head>
+<body>
+
+<h4 style="color: #ff0000">问题机型：IPhone</h4>
+<h4 style="color: #ff0000">系统版本：IOS9</h4>
+<h4 style="color: #ff0000">浏览器：除 safari 所有</h4>
+
+<div>
+    <canvas id="testCanvas" style="position: absolute;" width=480 height=800></canvas>
+    <div id="fps" style="position: absolute;"/>
+</div>
+<script>
+
+    var canvas = document.getElementById("testCanvas");
+    var ctx2 = canvas.getContext("2d");
+    var fps = document.getElementById("fps");
+
+    var run = function (){
+        var requestAnimationFrame = window["requestAnimationFrame"] || window["webkitRequestAnimationFrame"] ||
+                window["mozRequestAnimationFrame"] || window["oRequestAnimationFrame"] || window["msRequestAnimationFrame"];
+        if(!requestAnimationFrame){
+            requestAnimationFrame = function (callback) {
+                return window.setTimeout(callback, 1000 / 60);
+            };
+        }
+
+        var width = 480;
+        var height = 800;
+
+        var canvas = document.getElementById("testCanvas");
+
+        var ctx = canvas.getContext("2d");
+
+        var time = Date.now();
+        var _tick = 0;
+        var _maxDeltaTime = 500;
+        var _totalDeltaTime = 0;
+        var frameStr = "";
+
+        var loop = function (){
+            _tick++;
+            var now = Date.now();
+            _totalDeltaTime += now - time;
+            time = now;
+            if(_totalDeltaTime > _maxDeltaTime){
+                frameStr = "fps: " + Math.floor(_tick * 1000 / _totalDeltaTime).toString();
+                _tick = 0;
+                _totalDeltaTime = 0;
+            }
+            ctx.fillStyle = "#ffffff";
+            ctx.fillRect(0,0, width,height);
+
+            var size = 40;
+            var fontFamily = "Arial";
+            var font = size + "px " + fontFamily;
+            ctx.font = font;
+            ctx.fillStyle = "#00ff00";
+            ctx.fillText("" + frameStr, 0, 100, 0xFFFF);
+
+            if ("innerText" in fps) {
+                // fps.innerText = frameStr;
+            }
+            else if ("textContent" in text) {
+                // fps.textContent = frameStr;
+            }
+
+            requestAnimationFrame(loop);
+
+        };
+
+        loop();
+    };
+
+    setTimeout(run,1000);
+</script>
+
+</body>
+</html>

@@ -1,34 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html unselectable="on" onselectstart="return false;" >
 <head lang="en">
     <title></title>
     <meta charset="UTF-8">
     <style>
+    html,body{
+-moz-user-select: none;
+-khtml-user-select: none;
+user-select: none;
+}
+
+/* unselectable="on" onselectstart="return false;" */
     </style>
 </head>
 <body>
+
+<div style="width:100px;height:100px;position:relative;left: 100px;top:0;" data-reactid=".0.0.1.0.1.1.0.1:0.1:$/=10.2.2.1.1.0">
+	<!-- <img src="assets/acc-setting-1.png" data-reactid=".0.0.1.0.1.1.0.1:0.1:$/=10.2.2.1.1.0.0:0"> -->
+	<button class="btn-format1 pull-right" style="margin-right:20px;" data-reactid=".0.0.1.0.1.1.0.1:0.1:$/=10.2.2.1.1.0.0:1">+添加图片</button>
+	<input style="width:100%;height:100%;padding:0px;position:absolute;left: 0;top:0;" type="file" data-reactid=".0.0.1.0.1.1.0.1:0.1:$/=10.2.2.1.1.0.1">
+</div>
+
+    
 <div>
-    <input id="egretTextarea" tabindex="-1" onfocus=" this.style.imeMode='disabled' "
+    asdfsdf
+    <input id="egretTextarea" tabindex="-1" onfocus=" this.style.imeMode='disabled' "  unselectable="on" onselectstart="return false;" 
            style="resize: none; width: 200px; height: 30px;">
 
     </input>
 
 
-    <input id="egretTextarea1" tabindex="-1"
+    <input id="egretTextarea1" tabindex="-1"  unselectable="on" onselectstart="return false;" 
            style="resize: none; width: 200px; height: 30px;">
 
     </input>
 
 </div>
 
-<button id="btn" style="width: 200px;height: 100px;" onclick="showSelect()"></button>
+<button id="btn" style="width: 200px;height: 100px;" onclick="showSelect()"  unselectable="on" onselectstart="return false;" ></button>
 
-<div id="text"></div>
+<div id="text" unselectable="on" onselectstart="return false;" ></div>
 
 <script type="text/javascript">
-    egretTextarea.value = "sdfsfs";
+    //egretTextarea.value = "sdfsfs";
     egretTextarea1.value = "sdfsfs";
 
+
+
+    egretTextarea.placeholder = "sfsdfsdf";
+
+    egretTextarea.addEventListener("focus", function() {
+
+        egretTextarea.placeholder = "";
+
+    }); 
+    egretTextarea.addEventListener("blur", function() {
+
+        egretTextarea.placeholder = "sfsdfsdf";
+
+    }); 
 
     function showSelect() {
         if ("innerText" in text) {

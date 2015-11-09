@@ -1,12 +1,14 @@
 {
 	"native": {
-		"path_ignore": []
+		"path_ignore": [],
+		"android_path": "../AndCore",
+		"ios_path": "../IOSCore"
 	},
 	"publish": {
 		"web": 0,
 		"native": 1
 	},
-	"egret_version": "2.5.1",
+	"egret_version": "2.5.4",
 	"modules": [
 		{
 			"name": "egret"

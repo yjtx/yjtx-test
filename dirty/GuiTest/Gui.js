@@ -1,7 +1,9 @@
 var examples = {
     "Label": ["Normal", "NormalDelay"],
     "UIAsset": ["WithBitmapText"],
-    "Main": ["Demo"]
+    "Main": ["Demo"],
+    "List": ["Two"],
+    "TextInput": ["Normal"]
 };
 
 function returnHref(thirdName, forthName) {

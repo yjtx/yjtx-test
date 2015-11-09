@@ -2,6 +2,7 @@ var examples = {
     "Empty": ["HelloWorld"],
     "Function": ["Super", "DefaultValue"],
     "Loader": ["Bitmap", "Sound", "Text"],
+    "DisplayObject": ["ContentBounds", "GetBounds"],
     "TextField": ["Normal", "AppendText", "Background", "Family", "Restrict", "Flow", "Input", "TextArea", "Wrap", "InputRotation"],
     "Sound": ["Normal"],
     "WebSocket": ["String", "Binary"],
@@ -14,6 +15,7 @@ var examples = {
     "MovieClip": ["Normal"],
     "Event": ["StageADDAndREMOVE"],
     "Touch": ["Bitmap", "Graphics", "Container", "GraphicsEvent"],
+    "Timer": ["LoopUse", "StartStop"],
     "Graphics": ["LineStyle", "SomeCircles"],
     "Mask": ["MaskRect", "ScrollRect"],
     "ScrollView": ["Normal"],
@@ -21,6 +23,8 @@ var examples = {
     "SpriteSheet": ["Diff", "SubKey"],
     "Texture": ["GetPixel32WithImg", "GetPixel32WithDO"],
     "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync"],
+    "Ticker": ["LoadingUse"],
+    "Other": ["WinTest"],
     "": []
 };
 

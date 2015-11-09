@@ -40,6 +40,7 @@
 	<script egret="game" src="bin-debug/AssetAdapter.js"></script>
 	<script egret="game" src="bin-debug/LoadingUI.js"></script>
 	<script egret="game" src="bin-debug/MainDemo.js"></script>
+	<script egret="game" src="bin-debug/ThemeAdapter.js"></script>
 	<script egret="game" src="bin-debug/scene/Showcase.js"></script>
 	<script egret="game" src="bin-debug/skins/scene/ShowcaseSkin.g.js"></script>
 	<script egret="game" src="bin-debug/skins/simple/AlertSkin.g.js"></script>
@@ -78,6 +79,8 @@
 	<script egret="game" src="bin-debug/skins/simple/VSliderThumbSkin.g.js"></script>
 	<script egret="game" src="bin-debug/test/label/LabelNormal.js"></script>
 	<script egret="game" src="bin-debug/test/label/LabelNormalDelay.js"></script>
+	<script egret="game" src="bin-debug/test/list/ListTwo.js"></script>
+	<script egret="game" src="bin-debug/test/textInput/TextInputNormal.js"></script>
 	<script egret="game" src="bin-debug/test/uiasset/UIAssetWithBitmapText.js"></script>
 	<!--game_files_end-->
 </head>
@@ -85,16 +88,16 @@
 
 <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;" class="egret-player"
      data-entry-class="Main"
-     data-scale-mode="noScale"
-     data-orientation="auto"
-     texture-scale-factor="1"
      data-orientation="portrait"
+     data-scale-mode="fixedHeight"
+     data-resolution-mode="retina"
+     data-frame-rate="30"
      data-content-width="480"
      data-content-height="800"
      data-show-paint-rect="false"
-     data-show-fps="true"
-     data-show-fps-style="x:0,y:600,size:24,textColor:0xffffff"
-     data-show-log="false" data-log-filter="">
+     data-multi-fingered="2"
+     data-show-fps="false" data-show-log="false"
+     data-log-filter="" data-show-fps-style="x:0,y:0,size:30,textColor:0x00c200,bgAlpha:0.9">
 </div>
 <script>
     var dive = document.getElementById("egret-sample");
