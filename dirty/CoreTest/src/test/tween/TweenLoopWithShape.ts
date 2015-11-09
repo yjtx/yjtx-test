@@ -51,7 +51,8 @@ class TweenLoopWithShape extends egret.DisplayObjectContainer {
         var tshape = new egret.Shape();
         tshape.graphics.clear();
         tshape.graphics.beginFill(0, 0.5);
-        tshape.graphics.drawRect(0, 0, egret.MainContext.instance.stage.stageWidth, egret.MainContext.instance.stage.stageHeight);
+        tshape.graphics.drawRect(0, 0, 300,
+            500);
         tshape.graphics.endFill();
         this.addChild(tshape);
     }
