@@ -11,6 +11,7 @@ var game_file_list = [
 	"libs/modules/eui/eui.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
+	"bin-debug/ThemeAdapter.js",
 	"bin-debug/libs/LoadResources.js",
 	"bin-debug/libs/utils.js",
 	"bin-debug/test/all/AllExamples.js",

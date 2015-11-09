@@ -74,6 +74,7 @@ var game_file_list = [
 	"bin-debug/test/graphics/GraphicsDrawLine.js",
 	"bin-debug/test/graphics/GraphicsDrawLineClick.js",
 	"bin-debug/test/graphics/GraphicsLineStyle.js",
+	"bin-debug/test/graphics/GraphicsLineTest.js",
 	"bin-debug/test/graphics/GraphicsSomeCircles.js",
 	"bin-debug/test/graphics/GraphicsWithoutEndFill.js",
 	"bin-debug/test/loader/LoaderBitmap.js",
@@ -112,6 +113,7 @@ var game_file_list = [
 	"bin-debug/test/res/RESDisposeSheetAfterSheet.js",
 	"bin-debug/test/res/RESDisposeSubKeyAfterSheet.js",
 	"bin-debug/test/res/RESLoaded.js",
+	"bin-debug/test/res/RESLoadedTwice.js",
 	"bin-debug/test/res/RESRenderTextureDouble.js",
 	"bin-debug/test/res/RESSheet.js",
 	"bin-debug/test/scaleMode/ScaleModeCenterWithBg.js",
@@ -158,13 +160,13 @@ var game_file_list = [
 	"bin-debug/test/touch/TouchMultiTouches.js",
 	"bin-debug/test/touch/TouchReleaseOutSide.js",
 	"bin-debug/test/touch/TouchSpriteBitmap.js",
+	"bin-debug/test/tween/TweenLoopWithShape.js",
 	"bin-debug/test/tween/TweenNormal.js",
 	"bin-debug/test/tween/TweenRotation.js",
 	"bin-debug/test/video/VideoNormal.js",
 	"bin-debug/test/websocket/WebSocketBinary.js",
 	"bin-debug/test/websocket/WebSocketString.js",
 	"bin-debug/test/xml/XMLJsonUse.js",
-	"bin-debug/test/graphics/GraphicsLineTest.js",
 	//----auto game_file_list end----
 ];
 
