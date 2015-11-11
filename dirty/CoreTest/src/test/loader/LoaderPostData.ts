@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderPostData extends egret.DisplayObjectContainer {
+class LoaderPostData extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testText();
         this.testText1();
     }

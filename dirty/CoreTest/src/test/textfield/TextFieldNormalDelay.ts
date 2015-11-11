@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldNormalDelay extends egret.DisplayObjectContainer {
+class TextFieldNormalDelay extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testNormal();
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var textfield1 = new egret.TextField();
         this.addChild(textfield1);
 

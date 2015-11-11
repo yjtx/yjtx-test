@@ -28,19 +28,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Base64FromTexture extends egret.DisplayObjectContainer {
+class Base64FromTexture extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
+        super(["mcs"]);
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "mcs", this.stage.textureScaleFactor);
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("run_down_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

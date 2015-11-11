@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class XMLJsonUse extends egret.DisplayObjectContainer {
+class XMLJsonUse extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         var xmlStr =
             `<root value="abc">
                <item1 value1="item1">

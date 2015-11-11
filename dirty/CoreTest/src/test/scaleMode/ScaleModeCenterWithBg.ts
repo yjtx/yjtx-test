@@ -27,18 +27,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ScaleModeCenterWithBg extends egret.DisplayObjectContainer {
+class ScaleModeCenterWithBg extends EntryDisplayObjectContainer {
 
     //默认设置是 fixedWidth
     private defaultW:number = 480;
     private defaultH:number = 800;
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.stage.scaleMode = egret.StageScaleMode.FIXED_WIDTH;
         this.checkMode();
 

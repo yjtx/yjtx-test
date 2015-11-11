@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapScale9FromCreate extends egret.DisplayObjectContainer {
+class BitmapScale9FromCreate extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmapScale9();
-    }
-
-    private testBitmapScale9():void {
+    protected initRoot():void {
 
         var icon = new egret.Bitmap(RES.getRes("talkingPanel_png"));
 

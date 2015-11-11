@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapScale9Size extends egret.DisplayObjectContainer {
+class BitmapScale9Size extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmapScale9, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testBitmapScale9():void {
+    protected initRoot():void {
         var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
         icon.width = 200;
         icon.height = 180;

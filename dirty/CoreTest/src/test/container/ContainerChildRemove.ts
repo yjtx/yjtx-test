@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ContainerChildRemove extends egret.DisplayObjectContainer {
+class ContainerChildRemove extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         for (var i:number = 0; i < 5; i++) {
             var text:egret.TextField = new egret.TextField();
             text.text = "ddd " + i;

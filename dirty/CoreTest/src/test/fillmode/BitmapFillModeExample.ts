@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapFillModeExample extends egret.DisplayObjectContainer {
+class BitmapFillModeExample extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testScale9():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("img_scale9_png");
 
         var image_repeat = new egret.Bitmap();

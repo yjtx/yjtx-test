@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SpriteSheetSubKey extends egret.DisplayObjectContainer {
+class SpriteSheetSubKey extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["spritesheets"]);
     }
 
-    private init():void {
-        new LoadResources(this.testNormal, this, "spritesheets", this.stage.textureScaleFactor);
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("ori_1_json.ori_2_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

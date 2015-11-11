@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldFamily extends egret.DisplayObjectContainer {
+class TextFieldFamily extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testTextFieldWidth();
-    }
-
-    private testTextFieldWidth():void {
+    protected initRoot():void {
         egret.TextField.default_fontFamily = "SimHei";
 
         this.addText("一行白鹭上青天，all birds! 浏览器 默认", "aa");

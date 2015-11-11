@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ScrollViewList extends egret.DisplayObjectContainer {
+class ScrollViewList extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["spritesheets"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScrollView, this, "spritesheets", this.stage.textureScaleFactor);
-    }
-
-    private testScrollView():void {
+    protected initRoot():void {
         var container = new egret.DisplayObjectContainer();
         this.bgContainer = new egret.DisplayObjectContainer();
         this.iconContainer = new egret.DisplayObjectContainer();

@@ -1,21 +1,15 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class TouchMultiTouches extends egret.DisplayObjectContainer {
+class TouchMultiTouches extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.stage.maxTouches = 99;
 
-        new LoadResources(this.testSimpleMaskDO, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleMaskDO():void {
         var texture:egret.Texture = RES.getRes("bg_jpg");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         icon.touchEnabled = true;

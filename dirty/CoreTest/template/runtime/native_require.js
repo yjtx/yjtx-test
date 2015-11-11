@@ -14,6 +14,7 @@ var game_file_list = [
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
 	"bin-debug/SSMovieClip.js",
+	"bin-debug/gamelibs/EntryDisplayObjectContainer.js",
 	"bin-debug/gamelibs/LoadResources.js",
 	"bin-debug/gamelibs/ResourceUtils.js",
 	"bin-debug/test/arc/ArcAllUse.js",

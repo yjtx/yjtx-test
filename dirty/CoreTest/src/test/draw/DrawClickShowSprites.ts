@@ -2,14 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class DrawClickShowSprites extends egret.DisplayObjectContainer {
+class DrawClickShowSprites extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testNormal();
     }
 

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ArcAllUse extends egret.DisplayObjectContainer {
+class ArcAllUse extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["arcs"]);
     }
 
-    private init():void {
-        new LoadResources(this.test, this, "arcs", this.stage.textureScaleFactor);
-    }
-
-    private test():void {
+    protected initRoot():void {
         this.addToContainer(this.getArc(false));
         this.addToContainer(this.getArc(true));
 

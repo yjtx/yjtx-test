@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class TweenLoopWithShape extends egret.DisplayObjectContainer {
+class TweenLoopWithShape extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
 
         var btp1 = new egret.Bitmap(RES.getRes("img_scale9_png"));
         this.addChildAt(btp1, 0);

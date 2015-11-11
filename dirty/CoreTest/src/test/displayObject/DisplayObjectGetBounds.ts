@@ -27,19 +27,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class DisplayObjectGetBounds extends egret.DisplayObjectContainer {
-
+class DisplayObjectGetBounds extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testSimpleBitmap();
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var sp: egret.Shape = new egret.Shape();
         sp.graphics.beginFill(0);
         sp.graphics.drawRect(0,0,100,300);

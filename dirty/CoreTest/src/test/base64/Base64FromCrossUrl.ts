@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Base64FromCrossUrl extends egret.DisplayObjectContainer {
+class Base64FromCrossUrl extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testUrl();
-    }
-
-    private testUrl():void {
+    protected initRoot():void {
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture:egret.Texture) {
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);

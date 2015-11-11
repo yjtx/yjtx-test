@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SoundClickPlayNumbers extends egret.DisplayObjectContainer {
+class SoundClickPlayNumbers extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["sounds"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSound, this, "sounds", this.stage.textureScaleFactor);
-    }
-
-    private testSound():void {
+    protected initRoot():void {
         var s:egret.Sound = RES.getRes("numbers_mp3");
         var sChannel:egret.SoundChannel;
 

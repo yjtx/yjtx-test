@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class MaskCircleGraphics extends egret.DisplayObjectContainer {
+class MaskCircleGraphics extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleMaskRect, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleMaskRect():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("egret_icon_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

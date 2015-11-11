@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESByUrl extends egret.DisplayObjectContainer {
+class RESByUrl extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testUrl();
     }
 

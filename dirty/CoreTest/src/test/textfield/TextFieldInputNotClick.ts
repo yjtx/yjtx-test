@@ -2,19 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldInputNotClick extends egret.DisplayObjectContainer {
+class TextFieldInputNotClick extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testTextInput();
-    }
-
-
-    private testTextInput():void {
+    protected initRoot():void {
         var shape:egret.Shape = new egret.Shape();
         this.addChild(shape);
         shape.graphics.beginFill(0xff0000);

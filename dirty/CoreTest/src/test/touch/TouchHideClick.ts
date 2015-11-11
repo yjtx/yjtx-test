@@ -3,19 +3,13 @@
  *
  * up 事件不会影响 最后 click target对象改变
  */
-class TouchHideClick extends egret.DisplayObjectContainer {
+class TouchHideClick extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleMaskDO, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleMaskDO():void {
+    protected initRoot():void {
         var self = this;
 
         var texture:egret.Texture = RES.getRes("egret_icon_png");

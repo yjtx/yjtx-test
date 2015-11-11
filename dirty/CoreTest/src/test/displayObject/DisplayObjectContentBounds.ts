@@ -27,19 +27,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class DisplayObjectContentBounds extends egret.DisplayObjectContainer {
-
+class DisplayObjectContentBounds extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var container1:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
         this.addChild(container1);
         container1.name = "container1";

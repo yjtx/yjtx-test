@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldFlow extends egret.DisplayObjectContainer {
+class TextFieldFlow extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testFlow();
-    }
-
-    private testFlow():void {
+    protected initRoot():void {
         var c:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
         var input:egret.TextField;
         input = new egret.TextField();

@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapEmptyBitmap extends egret.DisplayObjectContainer {
+class CacheAsBitmapEmptyBitmap extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         var bitmap = new egret.Bitmap();
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;

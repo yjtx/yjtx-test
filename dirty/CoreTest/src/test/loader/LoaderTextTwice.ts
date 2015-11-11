@@ -27,21 +27,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderTextTwice extends egret.DisplayObjectContainer {
+class LoaderTextTwice extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        this.testText();
     }
 
     private loader:egret.URLLoader;
 
-    private testText():void {
+    protected initRoot():void {
 
         var self = this;
         this.loader = new egret.URLLoader();

@@ -2,15 +2,9 @@
  * Created by yjtx on 15-6-23.
  */
 
-class DrawMCAndClick extends egret.DisplayObjectContainer {
+class DrawMCAndClick extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.createGameScene, this, "mcs", this.stage.textureScaleFactor);
+        super(["mcs"]);
     }
 
 
@@ -18,7 +12,7 @@ class DrawMCAndClick extends egret.DisplayObjectContainer {
     private speed: number;
     private jo: egret.Sprite = new egret.Sprite();
     private pttarget: egret.Point = new egret.Point();
-    private createGameScene(): void {
+    protected initRoot():void {
         var stageW: number = this.stage.stageWidth;
         var stageH: number = this.stage.stageHeight;
 

@@ -1,15 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class GraphicsDrawCurve extends egret.DisplayObjectContainer {
+class GraphicsDrawCurve extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         var shp:egret.Shape = new egret.Shape();
         shp.graphics.lineStyle(2,0x00ff00);
         shp.graphics.moveTo(100,100);

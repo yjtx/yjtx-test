@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESAsync extends egret.DisplayObjectContainer {
+class RESAsync extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testUrl():void {
+    protected initRoot():void {
         RES.getResAsync("run_down_png", function (texture) {
             console.log(arguments);
             var bitmap = new egret.Bitmap(texture);

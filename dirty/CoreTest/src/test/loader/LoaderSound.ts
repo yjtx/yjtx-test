@@ -27,15 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderSound extends egret.DisplayObjectContainer {
+class LoaderSound extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testSound();
     }
 

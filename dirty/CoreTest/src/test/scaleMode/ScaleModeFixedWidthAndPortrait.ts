@@ -27,20 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ScaleModeFixedWidthAndPortrait extends egret.DisplayObjectContainer {
+class ScaleModeFixedWidthAndPortrait extends EntryDisplayObjectContainer {
 
     //默认设置是 fixedWidth
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScrollView, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testScrollView():void {
+    protected initRoot():void {
         this.initContent();
 
         this.stage.scaleMode = egret.StageScaleMode.FIXED_HEIGHT;

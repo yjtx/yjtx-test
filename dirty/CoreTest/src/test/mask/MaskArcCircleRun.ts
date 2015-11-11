@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class MaskArcCircleRun extends egret.DisplayObjectContainer {
+class MaskArcCircleRun extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.test, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private test():void {
+    protected initRoot():void {
         var sky:egret.Bitmap = new egret.Bitmap(RES.getRes("bg_jpg"));
         this.addChild(sky);
         var stageW:number = this.stage.stageWidth;

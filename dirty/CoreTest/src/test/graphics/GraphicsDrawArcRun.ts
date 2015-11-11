@@ -1,15 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class GraphicsDrawArcRun extends egret.DisplayObjectContainer {
+class GraphicsDrawArcRun extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testDrawArc();
     }
 

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapScaleX extends egret.DisplayObjectContainer {
+class BitmapScaleX extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("egret_icon_png");
         var icon:egret.Bitmap = new egret.Bitmap();
         icon.texture = texture;

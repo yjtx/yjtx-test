@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class WebSocketBinary extends egret.DisplayObjectContainer {
+class WebSocketBinary extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testWebSocketBinary();
-    }
-
-    private testWebSocketBinary():void {
+    protected initRoot():void {
         var socket:egret.WebSocket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_BINARY;
         var magBytesAvailable = 0;

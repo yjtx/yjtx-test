@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class DrawDBAndClick extends egret.DisplayObjectContainer {
+class DrawDBAndClick extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["dbs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testNormal, this, "dbs", this.stage.textureScaleFactor);
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var container = new egret.DisplayObjectContainer();
 
         this.addChild(container);

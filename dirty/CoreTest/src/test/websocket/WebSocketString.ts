@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class WebSocketString extends egret.DisplayObjectContainer {
+class WebSocketString extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testWebSocketString();
-    }
-
-    private testWebSocketString():void {
+    protected initRoot():void {
         var socket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_STRING;
         socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, function (e:egret.ProgressEvent) {

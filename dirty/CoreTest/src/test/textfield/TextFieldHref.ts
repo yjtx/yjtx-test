@@ -2,14 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldHref extends egret.DisplayObjectContainer {
+class TextFieldHref extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.test1();
         this.test2();
         this.test3();

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ContainerOutSideChildInScreen extends egret.DisplayObjectContainer {
+class ContainerOutSideChildInScreen extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var container:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
 
         var texture:egret.Texture = RES.getRes("img_scale9_png");

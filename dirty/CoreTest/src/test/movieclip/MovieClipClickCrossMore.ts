@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class MovieClipClickCrossMore extends egret.DisplayObjectContainer {
+class MovieClipClickCrossMore extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["mcs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testMovieClip, this, "mcs", this.stage.textureScaleFactor);
-    }
-
-    private testMovieClip():void {
+    protected initRoot():void {
         var movieclipData1 = RES.getRes("run_down_json");
         var texture1 = RES.getRes("run_down_png");
         var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData1, texture1);

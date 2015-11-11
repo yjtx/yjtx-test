@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SpriteSheetRepeat extends egret.DisplayObjectContainer {
+class SpriteSheetRepeat extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["spritesheets"]);
     }
 
-    private init():void {
-        new LoadResources(this.testNormal, this, "spritesheets", this.stage.textureScaleFactor);
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var coin:egret.Bitmap;
 
         coin = this.createBitmapByName('coin_single_png');

@@ -27,23 +27,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SpriteSheetDiff extends egret.DisplayObjectContainer {
+class SpriteSheetDiff extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.testNormal, this, "spritesheets", this.stage.textureScaleFactor);
+        super(["spritesheets"]);
     }
 
     private getBitmap(idx:number):egret.Texture {
         return RES.getRes("ori_" + idx + "_png");
     }
 
-    private testNormal():void {
+    protected initRoot():void {
         var texture:egret.Texture = this.getBitmap(0);
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

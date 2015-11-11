@@ -27,20 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapTextNumberAdd extends egret.DisplayObjectContainer {
+class BitmapTextNumberAdd extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["fonts"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmapText, this, "fonts", this.stage.textureScaleFactor);
-    }
-
-    private testBitmapText():void {
-
+    protected initRoot():void {
         var num:number = 10;
         var bitmapFont:egret.BitmapFont = RES.getRes("font_fnt");
         var bitmap1 = new egret.BitmapText();

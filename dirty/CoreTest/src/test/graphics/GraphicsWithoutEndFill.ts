@@ -1,15 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class GraphicsWithoutEndFill extends egret.DisplayObjectContainer {
+class GraphicsWithoutEndFill extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testDrawArc();
     }
 

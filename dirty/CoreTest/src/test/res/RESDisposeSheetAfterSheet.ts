@@ -27,21 +27,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESDisposeSheetAfterSheet extends egret.DisplayObjectContainer {
+class RESDisposeSheetAfterSheet extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.testUrl, this, "spritesheets", this.stage.textureScaleFactor);
+        super(["spritesheets"]);
     }
 
     private _bitmap:egret.Bitmap;
 
-    private testUrl():void {
+    protected initRoot():void {
         this._bitmap = new egret.Bitmap(RES.getRes("icon_1_png"));
         this.addChild(this._bitmap);
 

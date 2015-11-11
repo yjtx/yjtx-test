@@ -27,25 +27,19 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SpriteSheetNormal extends egret.DisplayObjectContainer {
+class SpriteSheetNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["spritesheets"]);
     }
 
-    private init():void {
-        new LoadResources(this.testNormal, this, "spritesheets", this.stage.textureScaleFactor);
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("999999_02");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
         icon.x = 100;
         icon.y = 100;
-        //icon.width = icon.height = 60;
+        icon.width = icon.height = 120;
 
         var shape:egret.Shape = new egret.Shape();
         shape.graphics.beginFill(0xffffff);

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderHttpReqeust extends egret.DisplayObjectContainer {
+class LoaderHttpReqeust extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testText();
-    }
-
-    private testText():void {
+    protected initRoot():void {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             alert(loader.data);

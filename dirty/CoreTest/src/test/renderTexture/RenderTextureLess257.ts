@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureLess257 extends egret.DisplayObjectContainer {
+class RenderTextureLess257 extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmap();
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var c1 = new egret.DisplayObjectContainer();
         var shape1 = new egret.Shape();
         shape1.graphics.beginFill(0xff0000, 1);

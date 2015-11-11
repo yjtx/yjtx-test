@@ -1,15 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class TimerLoopUse extends egret.DisplayObjectContainer {
+class TimerLoopUse extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         var timer:egret.Timer = new egret.Timer(100, 0);
         timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerHandler, this);
         timer.start();

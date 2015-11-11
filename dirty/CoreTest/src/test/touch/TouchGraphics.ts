@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class TouchGraphics extends egret.DisplayObjectContainer {
+class TouchGraphics extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testSimpleMaskDO();
-    }
-
-    private testSimpleMaskDO():void {
+    protected initRoot():void {
         var shape:egret.Shape = new egret.Shape();
         shape.graphics.beginFill(0xff0000, 1);
         shape.graphics.drawRect(0, 0, 100, 100);

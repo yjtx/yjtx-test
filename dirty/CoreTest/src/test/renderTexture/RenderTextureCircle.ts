@@ -27,36 +27,30 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureCircle extends egret.DisplayObjectContainer {
+class RenderTextureCircle extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmap();
-    }
+    protected initRoot():void {
+        var ball:egret.Shape = new egret.Shape();
+        ball.graphics.beginFill(0xFF0000);
+        ball.graphics.drawCircle(0, 0, 50);
+        ball.graphics.endFill();
+        ball.x = 50;
+        ball.y = 50;
+        this.addChild(ball);
 
-    private testBitmap():void {
-            var ball: egret.Shape = new egret.Shape();
-            ball.graphics.beginFill(0xFF0000);
-            ball.graphics.drawCircle(0,0,50);
-            ball.graphics.endFill();
-            ball.x = 50;
-            ball.y = 50;
-            this.addChild(ball);
+        var rect:egret.Rectangle = ball.getBounds(null);
+        console.log(rect.x + ":" + rect.y + ":" + rect.width + ":" + rect.height);    // -50:-50:100:100
+        var rect2:egret.Rectangle = new egret.Rectangle(-50, -50, 100, 100);    // 有疑问
 
-            var rect: egret.Rectangle = ball.getBounds(null);
-            console.log(rect.x + ":" + rect.y + ":" + rect.width + ":" + rect.height);    // -50:-50:100:100
-            var rect2: egret.Rectangle = new egret.Rectangle(-50,-50,100,100);    // 有疑问
-
-            var t: egret.RenderTexture = new egret.RenderTexture();
-            t.drawToTexture(ball,rect2);
-            var b: egret.Bitmap = new egret.Bitmap(t);
-            b.x = b.y = 100;
-            this.addChild(b);
+        var t:egret.RenderTexture = new egret.RenderTexture();
+        t.drawToTexture(ball, rect2);
+        var b:egret.Bitmap = new egret.Bitmap(t);
+        b.x = b.y = 100;
+        this.addChild(b);
     }
 }
 

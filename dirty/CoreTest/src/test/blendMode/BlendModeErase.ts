@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class BlendModeErase extends egret.DisplayObjectContainer {
+class BlendModeErase extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testDrawArc();
-    }
-
-    private testDrawArc():void {
+    protected initRoot():void {
         var container:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
         container.width = 300;
         container.height = 300;

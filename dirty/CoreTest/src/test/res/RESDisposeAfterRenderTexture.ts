@@ -27,22 +27,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESDisposeAfterRenderTexture extends egret.DisplayObjectContainer {
+class RESDisposeAfterRenderTexture extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.testUrl, this, "bitmap", this.stage.textureScaleFactor);
+        super(["bitmap"]);
     }
 
     private _bitmap:egret.Bitmap;
 
     private _texture:egret.Texture;
-    private testUrl():void {
+    protected initRoot():void {
         RES.getResAsync("run_down_png", function (texture:egret.Texture) {
             this._texture = texture;
             var c = new egret.DisplayObjectContainer();

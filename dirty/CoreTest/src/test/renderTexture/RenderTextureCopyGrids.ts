@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureCopyGrids extends egret.DisplayObjectContainer {
+class RenderTextureCopyGrids extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testUrl, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testUrl():void {
+    protected initRoot():void {
         var test:egret.Bitmap = new egret.Bitmap(RES.getRes("tmw_desert_spacing_png"));
         this.addChild(test);
         test.x = 240;

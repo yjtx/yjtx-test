@@ -27,15 +27,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class DisplayObjectSkewValue extends egret.DisplayObjectContainer {
-
+class DisplayObjectSkewValue extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         var codeBg = new egret.Sprite();
         codeBg.graphics.beginFill(0xffff00, 1);
         codeBg.graphics.drawRect(0, 0, 200, 200);

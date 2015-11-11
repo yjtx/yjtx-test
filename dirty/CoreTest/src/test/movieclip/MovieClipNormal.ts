@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class MovieClipNormal extends egret.DisplayObjectContainer {
+class MovieClipNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["mcs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testMovieClip, this, "mcs", this.stage.textureScaleFactor);
-    }
-
-    private testMovieClip():void {
+    protected initRoot():void {
         var movieclipData = RES.getRes("chunli_json");
         var texture = RES.getRes("chunli_png");
         var self = this;

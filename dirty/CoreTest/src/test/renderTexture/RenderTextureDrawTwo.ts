@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureDrawTwo extends egret.DisplayObjectContainer {
+class RenderTextureDrawTwo extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmap();
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var s: egret.Sprite = new egret.Sprite();
 
         var sp: egret.Sprite = new egret.Sprite();

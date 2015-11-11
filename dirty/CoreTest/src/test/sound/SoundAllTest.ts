@@ -27,21 +27,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SoundAllTest extends egret.DisplayObjectContainer {
+class SoundAllTest extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.testSound, this, "sounds", this.stage.textureScaleFactor);
+        super(["sounds"]);
     }
 
     public static Label:egret.TextField;
 
-    private testSound():void {
+    protected initRoot():void {
         var container:egret.Sprite = new egret.Sprite();
         this.addChild(container);
         var currentChild;

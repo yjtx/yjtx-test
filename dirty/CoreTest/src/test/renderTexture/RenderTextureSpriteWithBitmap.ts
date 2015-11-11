@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureSpriteWithBitmap extends egret.DisplayObjectContainer {
+class RenderTextureSpriteWithBitmap extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testUrl, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testUrl():void {
+    protected initRoot():void {
         var tx: egret.Texture = RES.getRes("egret_icon_png");
         var bmp: egret.Bitmap = new egret.Bitmap(tx);
 

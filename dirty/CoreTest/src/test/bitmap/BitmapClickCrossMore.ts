@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapClickCrossMore extends egret.DisplayObjectContainer {
+class BitmapClickCrossMore extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["mcs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "mcs", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var self = this;
         var texture1 = RES.getRes("icon_win_png");
         var texture2 = RES.getRes("icon_lose_png");

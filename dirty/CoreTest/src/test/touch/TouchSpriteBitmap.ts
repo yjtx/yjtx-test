@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class TouchSpriteBitmap extends egret.DisplayObjectContainer {
+class TouchSpriteBitmap extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleMaskDO, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testSimpleMaskDO():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("egret_icon_png");
 
         var btn2:egret.Sprite = new egret.Sprite();

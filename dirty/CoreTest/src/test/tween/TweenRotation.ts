@@ -27,20 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class TweenRotation extends egret.DisplayObjectContainer {
-
-    public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
-
-    private init():void {
-        new LoadResources(this.testBitmap, this, "preload", this.stage.textureScaleFactor);
-    }
+class TweenRotation extends EntryDisplayObjectContainer {
 
     btp1;
-    private testBitmap():void {
+    public constructor() {
+        super(["preload"]);
+    }
+
+    protected initRoot():void {
         this.btp1 = new egret.Bitmap(RES.getRes("egret_icon_png"));
         this.addChildAt(this.btp1, 0);
         this.btp1.x = 200;

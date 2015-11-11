@@ -1,17 +1,14 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class TimerStartStop extends egret.DisplayObjectContainer {
-
-    public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
-    }
+class TimerStartStop extends EntryDisplayObjectContainer {
 
     timer:egret.Timer;
+    public constructor() {
+        super();
+    }
 
-    private init():void {
+    protected initRoot():void {
         this.timer = new egret.Timer(5000, 10);
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.onTimerHandler, this);
         this.timer.start();

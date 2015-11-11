@@ -1,12 +1,10 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class GraphicsGuaguale extends egret.DisplayObjectContainer {
+class GraphicsGuaguale extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
 
         this.y = 300;
     }
@@ -14,7 +12,7 @@ class GraphicsGuaguale extends egret.DisplayObjectContainer {
     bg_container;
     pen_container;
 
-    private init():void {
+    protected initRoot():void {
         var w = 300;
         var h = 100;
 

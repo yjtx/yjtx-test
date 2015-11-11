@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class ScrollViewNormal extends egret.DisplayObjectContainer {
+class ScrollViewNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScrollView, this, "preload", this.stage.textureScaleFactor);
-    }
-
-    private testScrollView():void {
+    protected initRoot():void {
         var btp1 = new egret.Bitmap(RES.getRes("bg_jpg"));
         //btp1.width = 400;
         //btp1.height = 600;

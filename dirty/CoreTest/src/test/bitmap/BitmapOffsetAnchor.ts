@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapOffsetAnchor extends egret.DisplayObjectContainer {
+class BitmapOffsetAnchor extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testAnchor, this, "bitmap", this.stage.textureScaleFactor);
-    }
-
-    private testAnchor():void {
+    protected initRoot():void {
         var bmp;
         //0 0
         bmp = this.createBitmapByName("img_scale9_png");
