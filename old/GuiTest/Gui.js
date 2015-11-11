@@ -1,5 +1,6 @@
 var examples = {
     "Label": ["Normal", "NormalDelay"],
+    "CacheAsBitmap": ["UIAssetSource"],
     "Main": ["Test"]
 };
 

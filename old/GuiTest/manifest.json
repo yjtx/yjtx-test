@@ -38,6 +38,7 @@
     "skins/simple/ToggleSwitchSkin.exml",
     "skins/simple/TreeSkin.exml",
     "skins/simple/VSliderSkin.exml",
+    "test/cacheAsBitmap/CacheAsBitmapUIAssetSource.ts",
     "test/label/LabelNormal.ts",
     "test/label/LabelNormalDelay.ts"
 ]

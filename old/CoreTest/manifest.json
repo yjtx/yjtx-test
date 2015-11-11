@@ -22,6 +22,7 @@
     "test/bitmap/BitmapZoom.ts",
     "test/bitmaptext/BitmapTextNormal.ts",
     "test/bitmaptext/BitmapTextRESNormal.ts",
+    "test/cacheAsbitmap/CacheAsBitmapDelayLoaded.ts",
     "test/cacheAsbitmap/CacheAsBitmapParentSizeZero.ts",
     "test/db/DBGirlRun.ts",
     "test/db/DBNormal.ts",
