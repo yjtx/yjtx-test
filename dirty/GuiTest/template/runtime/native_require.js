@@ -12,6 +12,9 @@ var game_file_list = [
 	"bin-debug/LoadingUI.js",
 	"bin-debug/MainDemo.js",
 	"bin-debug/ThemeAdapter.js",
+	"bin-debug/gamelibs/EntryDisplayObjectContainer.js",
+	"bin-debug/gamelibs/LoadResources.js",
+	"bin-debug/gamelibs/ResourceUtils.js",
 	"bin-debug/scene/Showcase.js",
 	"bin-debug/skins/scene/ShowcaseSkin.g.js",
 	"bin-debug/skins/simple/AlertSkin.g.js",
@@ -52,6 +55,7 @@ var game_file_list = [
 	"bin-debug/test/label/LabelNormalDelay.js",
 	"bin-debug/test/list/ListTwo.js",
 	"bin-debug/test/textInput/TextInputNormal.js",
+	"bin-debug/test/uiasset/UIAssetScaleZeroClick.js",
 	"bin-debug/test/uiasset/UIAssetWithBitmapText.js",
 	//----auto game_file_list end----
 ];

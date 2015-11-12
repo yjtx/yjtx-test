@@ -1,6 +1,6 @@
 var examples = {
     "Label": ["Normal", "NormalDelay"],
-    "UIAsset": ["WithBitmapText"],
+    "UIAsset": ["WithBitmapText", "ScaleZeroClick"],
     "Main": ["Demo"],
     "List": ["Two"],
     "TextInput": ["Normal"]
