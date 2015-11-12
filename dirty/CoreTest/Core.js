@@ -14,10 +14,10 @@ var examples = {
     "Event": ["StageADDAndREMOVE", "StageRESIZE"],
 
     "Function": ["Super", "DefaultValue"],
-    "Graphics": ["LineTest", "Guaguale", "Guaguale2", "DrawArc", "DrawLineClick", "DrawArcFill", "DrawArcRun", "LineStyle", "SomeCircles", "WithoutEndFill", "DrawLine", "ArcCircleRun", "DrawCurve"],
+    "Graphics": ["CurveTo","LineTest", "Guaguale", "Guaguale2", "DrawArc", "DrawLineClick", "DrawArcFill", "DrawArcRun", "LineStyle", "SomeCircles", "WithoutEndFill", "DrawLine", "ArcCircleRun", "DrawCurve"],
 
     "Loader": ["Bitmap", "Sound", "Text", "PostData", "GetData"],
-    "Mask": ["MaskRect", "ScrollRect", "DisplayObject", "CircleGraphics", "ArcCircleRun"],
+    "Mask": ["ProgressCircle", "MaskRect", "ScrollRect", "DisplayObject", "CircleGraphics", "ArcCircleRun"],
     "MovieClip": ["Normal", "ClickSimpleMore", "ClickCrossMore", "ResAnimation", "NumRun"],
 
     "Orientation": ["Normal"],
