@@ -27,21 +27,15 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class SoundNormal extends egret.DisplayObjectContainer {
+class SoundNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["sounds"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSound, this, "sounds", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testSound():void {
+    protected initRoot():void {
         var sound:egret.Sound = RES.getRes("wf_mp3");
-        sound.play(true);
+        sound.play();
     }
 }
 

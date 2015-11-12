@@ -31,5 +31,4 @@ class TickerLoadingUse extends egret.DisplayObjectContainer {
             throw "error"
         },this,100);
     }
-
 }

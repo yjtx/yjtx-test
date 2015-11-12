@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapDelayLoaded extends egret.DisplayObjectContainer {
+class CacheAsBitmapDelayLoaded extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testScale9():void {
+    protected initRoot():void {
         var bitmap = new egret.Bitmap();
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;

@@ -3,6 +3,7 @@
     "dependence": ["core"],
     "source": "",
     "file_list": [
-        "Utils.d.ts"
+        "Utils.d.ts",
+        "compatibleUtils.ts"
     ]
 }

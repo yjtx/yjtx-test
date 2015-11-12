@@ -27,19 +27,12 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class TextureGetPixel32WithDO extends egret.DisplayObjectContainer {
-
+class TextureGetPixel32WithDO extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["mcs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "mcs", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var c = new egret.DisplayObjectContainer();
         var shape = new egret.Shape();
         shape.graphics.beginFill(0xff0000, 1);

@@ -27,15 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESByUrl extends egret.DisplayObjectContainer {
+class RESByUrl extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testUrl();
     }
 
@@ -43,6 +41,7 @@ class RESByUrl extends egret.DisplayObjectContainer {
         alert("开始加载");
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
             alert("加载完毕");
+            console.log(arguments);
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);
 

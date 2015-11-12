@@ -1,6 +1,7 @@
-/**
+/*
+/!**
  * Created by yjtx on 15-7-17.
- */
+ *!/
 class FunctionSuper extends egret.DisplayObjectContainer {
 
     public constructor() {
@@ -22,10 +23,12 @@ class A1 {
 
     public _a:number = 1;
     set a(value:number) {
+        console.log("set  a 1");
         this._a = value;
     }
 
     get a():number {
+        console.log("get  a 1");
         return this._a;
     }
 
@@ -38,12 +41,15 @@ class A2 extends A1 {
 
 }
 class A3 extends A2 {
-    //set a(value:number) {
-    //
-    //}
-    //get a():number {
-    //    return 3;
-    //}
+    set a(value:number) {
+        console.log("set  a 3");
+        egret.superSetter(A3, this, "a", value);
+    }
+
+    get a():number {
+        console.log("get  a 3");
+        return egret.superGetter(A3, this, "a");
+    }
 }
 class A4 extends A3 {
 
@@ -52,15 +58,16 @@ class A5 extends A4 {
 
     set a(value:number) {
         //super.a = value;
-        egret.superSetter(this, "a", value);
+        console.log("set  a 5");
+        egret.superSetter(A5, this, "a", value);
     }
 
     get a():number {
-        //return super.a;
-        return egret.superGetter(this, "a");
+        console.log("get  a 5");
+        return egret.superGetter(A5, this, "a");
     }
 
     getB(v1, v2, v3):void {
         return super.getB(v1, v2, v3);
     }
-}
+}*/

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderBitmap extends egret.DisplayObjectContainer {
+class LoaderBitmap extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmap();
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(e) {
             var loader = e.currentTarget;

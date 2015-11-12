@@ -1,4 +1,3 @@
-
 //////////////////////////////////////////////////////////////////////////////////////
 //
 //  Copyright (c) 2014-2015, Egret Technology Inc.
@@ -28,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class TextureGetPixel32WithImg extends egret.DisplayObjectContainer {
+class TextureGetPixel32WithImg extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("dot_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

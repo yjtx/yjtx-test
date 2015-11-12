@@ -61,10 +61,10 @@ class OtherWinTest extends egret.DisplayObjectContainer {
         //移动一个位置
         var self = this;
 
-        var timers: egret.Timer = new egret.Timer(3000, this.move.length - 1);
+        var timers: egret.Timer = new egret.Timer(5000, this.move.length - 1);
         timers.addEventListener(egret.TimerEvent.TIMER,function(evt) {
-            self.moveIcon(sprite);
             console.log(egret.getTimer());
+            self.moveIcon(sprite);
         },this);
         timers.start();
         this.timer.push(timers);
@@ -76,7 +76,7 @@ class OtherWinTest extends egret.DisplayObjectContainer {
         var s = this.timer[0].currentCount;
         var nextX = this.move[s][0] * 90;
         var nextY = this.move[s][1] * 90;
-        egret.Tween.get(sprit,{ loop: false }).to({ x: nextX,y: nextY }, 3000).call(function(){
+        egret.Tween.get(sprit,{ loop: false }).to({ x: nextX,y: nextY }, 3000).call(function () {
             console.log(egret.getTimer());
         }, this);
     }

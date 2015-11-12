@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class DBRole extends egret.DisplayObjectContainer {
+class DBRole extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["dbs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testRole, this, "dbs", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testRole():void {
+    protected initRoot():void {
         //眼睛有bug
         var container = new egret.DisplayObjectContainer();
 
@@ -43,6 +37,7 @@ class DBRole extends egret.DisplayObjectContainer {
             dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
             return true;
         }, this);
+
     }
 
 }

@@ -27,19 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapNormal extends egret.DisplayObjectContainer {
+class BitmapNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testSimpleBitmap, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
+    protected initRoot():void {
 
-    private testSimpleBitmap():void {
         this.width = this.stage.stageWidth;
         this.height = this.stage.stageHeight;
 

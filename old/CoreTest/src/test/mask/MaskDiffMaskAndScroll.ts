@@ -1,19 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class MaskDiffMaskAndScroll extends egret.DisplayObjectContainer {
+class MaskDiffMaskAndScroll extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testMaskRectAndScrollRect, this, "preload", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testMaskRectAndScrollRect():void {
+    protected initRoot():void {
         var texture:egret.Texture = RES.getRes("bg_jpg");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);

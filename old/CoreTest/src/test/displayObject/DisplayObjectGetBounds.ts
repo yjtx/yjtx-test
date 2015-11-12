@@ -27,35 +27,39 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class DisplayObjectGetBounds extends egret.DisplayObjectContainer {
-
+class DisplayObjectGetBounds extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testSimpleBitmap();
-    }
-
-    private testSimpleBitmap():void {
+    protected initRoot():void {
         var sp: egret.Shape = new egret.Shape();
         sp.graphics.beginFill(0);
         sp.graphics.drawRect(0,0,100,300);
         sp.graphics.endFill();
         this.addChild(sp);
-        sp.x = 0;
-        sp.y = 0;
+        sp.x = 110;
+        sp.y = 210;
+        var rect = sp.getBounds();
+        console.log(rect.x,rect.y,rect.width,rect.height);
 
+        sp.rotation = 45;
+        var rect = sp.getBounds();
+        console.log(rect.x,rect.y,rect.width,rect.height);
 
-        var rect:egret.Rectangle = sp.getBounds();
+        /*sp.rotation = 0;
+        var rect:egret.Rectangle = this.getTransformedBounds(sp);
         console.log(rect.x,rect.y,rect.width,rect.height);
         //0 0 100 300
-        sp.rotation = 90;
-        var rect:egret.Rectangle = sp.getBounds();
-        console.log(rect.x,rect.y,rect.width,rect.height);
-        //0 0 100 300
+
+        egret.setTimeout(function() {
+            sp.rotation = 45;
+            var rect:egret.Rectangle = this.getTransformedBounds(sp);
+            console.log(rect.x,rect.y,rect.width,rect.height);
+            //0 0 100 300
+        }, this, 3000);*/
+
+
     }
 }
 

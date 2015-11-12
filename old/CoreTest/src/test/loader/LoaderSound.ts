@@ -27,15 +27,14 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class LoaderSound extends egret.DisplayObjectContainer {
+class LoaderSound extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testSound();
     }
 
@@ -43,7 +42,7 @@ class LoaderSound extends egret.DisplayObjectContainer {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             var sound:egret.Sound = loader.data;
-            sound.play(true);
+            sound.play();
 
         }, this);
 

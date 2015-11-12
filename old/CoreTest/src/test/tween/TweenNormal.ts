@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class TweenNormal extends egret.DisplayObjectContainer {
+class TweenNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "preload", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmap():void {
+    protected initRoot():void {
         var btp1 = new egret.Bitmap(RES.getRes("egret_icon_png"));
         this.addChildAt(btp1, 0);
 

@@ -2,21 +2,14 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldRestrict extends egret.DisplayObjectContainer {
+class TextFieldRestrict extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testTextInput();
-    }
+    protected initRoot():void {
 
-
-    private testTextInput():void {
-
-        /*var textField = new egret.TextField();
+        var textField = new egret.TextField();
         textField.multiline = true;
         textField.text = "没有限制";
         textField.size = 40;
@@ -177,7 +170,7 @@ class TextFieldRestrict extends egret.DisplayObjectContainer {
         textField.background = true;
         textField.backgroundColor = 0xffffff;
         textField.border = true;
-        textField.borderColor = 0x000000;*/
+        textField.borderColor = 0x000000;
     }
 }
 

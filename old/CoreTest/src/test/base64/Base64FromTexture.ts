@@ -28,24 +28,19 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Base64FromTexture extends egret.DisplayObjectContainer {
+class Base64FromTexture extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
+        super(["mcs"]);
 
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmap, this, "mcs", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmap():void {
-        var texture1:egret.Texture = RES.getRes("run_down_png");
-        var icon:egret.Bitmap = new egret.Bitmap(texture1);
+    protected initRoot():void {
+        var texture:egret.Texture = RES.getRes("run_down_png");
+        var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
 
-        var base64 = icon.texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
+        var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
         console.log(base64);
     }
 }

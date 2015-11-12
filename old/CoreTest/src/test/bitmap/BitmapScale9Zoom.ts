@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapScale9Zoom extends egret.DisplayObjectContainer {
+class BitmapScale9Zoom extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmapScale9, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmapScale9():void {
+    protected initRoot():void {
         var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
         icon.y = 0;
         this.addChild(icon);
@@ -55,6 +49,22 @@ class BitmapScale9Zoom extends egret.DisplayObjectContainer {
         this.addChild(icon);
         icon.x = 220;
         icon.scaleX = icon.scaleY = 2;
+
+
+        var texture:egret.Texture = RES.getRes("scale9_1_png");
+        var icon:egret.Bitmap = new egret.Bitmap();
+        icon.texture = texture;
+        icon.y = 400;
+        this.addChild(icon);
+
+        var texture:egret.Texture = RES.getRes("scale9_1_png");
+        var icon:egret.Bitmap = new egret.Bitmap();
+        icon.texture = texture;
+        icon.x = 200;
+        icon.y = 400;
+        icon.width = 200;
+        icon.height = 300;
+        this.addChild(icon);
     }
 
 }

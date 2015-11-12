@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class DBNormal extends egret.DisplayObjectContainer {
+class DBNormal extends EntryDisplayObjectContainer {
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["dbs"]);
     }
 
-    private init():void {
-        new LoadResources(this.testNormal, this, "dbs", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testNormal():void {
+    protected initRoot():void {
         var container = new egret.DisplayObjectContainer();
 
         this.addChild(container);
@@ -40,6 +34,7 @@ class DBNormal extends egret.DisplayObjectContainer {
             dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);
             return true;
         }, this);
+
 
     }
 }

@@ -1,0 +1,795 @@
+{
+    "frameRate": 24,
+    "armature": [
+        {
+            "bone": [
+                {
+                    "length": null,
+                    "name": "root",
+                    "transform": {"y": 0.5599999999999999}
+                }
+            ],
+            "skin": [
+                {
+                    "name": "",
+                    "slot": [
+                        {
+                            "display": [
+                                {
+                                    "type": "image",
+                                    "name": "jianxing31",
+                                    "transform": {
+                                        "y": -69.36,
+                                        "x": 44.800000000000004
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "jianxing36",
+                                    "transform": {
+                                        "y": -99.32000000000001,
+                                        "x": 8.8
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "jianxing35",
+                                    "transform": {
+                                        "y": -77.36000000000001,
+                                        "x": -2.4000000000000004
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "jianxing34",
+                                    "transform": {
+                                        "y": -72.56,
+                                        "x": -11.200000000000001
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "jianxing33",
+                                    "transform": {
+                                        "y": -82.16000000000001,
+                                        "x": 27.200000000000003
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "jianxing32",
+                                    "transform": {
+                                        "y": -47.760000000000005,
+                                        "x": 12.8
+                                    }
+                                }
+                            ],
+                            "name": "skill"
+                        },
+                        {
+                            "display": [
+                                {
+                                    "type": "image",
+                                    "name": "07",
+                                    "transform": {
+                                        "y": -48,
+                                        "x": 3.2
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "08",
+                                    "transform": {
+                                        "y": -52.800000000000004,
+                                        "x": -4
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "09",
+                                    "transform": {
+                                        "y": -76,
+                                        "x": 1.6
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "12",
+                                    "transform": {
+                                        "y": -39.2,
+                                        "x": -12
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "11",
+                                    "transform": {
+                                        "y": -46.400000000000006,
+                                        "x": -7.2
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "10",
+                                    "transform": {
+                                        "y": -38.96000000000001,
+                                        "x": 31.200000000000003
+                                    }
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "display": [
+                                {
+                                    "type": "image",
+                                    "name": "01",
+                                    "transform": {
+                                        "y": -42.160000000000004,
+                                        "x": -24.8
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "02",
+                                    "transform": {
+                                        "y": -45.36000000000001,
+                                        "x": -24.8
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "04",
+                                    "transform": {
+                                        "y": -46.160000000000004,
+                                        "x": -23.200000000000003
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "03",
+                                    "transform": {
+                                        "y": -46.160000000000004,
+                                        "x": -23.200000000000003
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "05",
+                                    "transform": {
+                                        "y": -46.160000000000004,
+                                        "x": -24
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "06",
+                                    "transform": {
+                                        "y": -45.36000000000001,
+                                        "x": -25.6
+                                    }
+                                },
+                                {
+                                    "type": "image",
+                                    "name": "00",
+                                    "transform": {
+                                        "y": -52.800000000000004,
+                                        "x": 5.6000000000000005
+                                    }
+                                }
+                            ],
+                            "name": "run"
+                        }
+                    ]
+                }
+            ],
+            "name": "hero",
+            "slot": [
+                {
+                    "displayIndex": 6,
+                    "name": "run",
+                    "parent": "root"
+                },
+                {
+                    "displayIndex": -1,
+                    "z": 1,
+                    "name": "attack",
+                    "parent": "root"
+                },
+                {
+                    "displayIndex": -1,
+                    "z": 2,
+                    "name": "skill",
+                    "parent": "root"
+                }
+            ],
+            "animation": [
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 0,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "fadeInTime": 0.1,
+                    "name": "ready",
+                    "playTimes": 0
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 0,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "fadeInTime": 0.1,
+                    "name": "hurt"
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 1,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 3,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 2,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 4,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 5,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 10,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 10,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 10,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 10,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "name": "run",
+                    "playTimes": 0
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 0,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "name": "readyWeapon",
+                    "playTimes": 0
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 16,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "duration": 3,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 1,
+                                    "duration": 3,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 2,
+                                    "duration": 3,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 5,
+                                    "duration": 3,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 4,
+                                    "duration": 3,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 3,
+                                    "duration": 1,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 16,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 16,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 16,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "name": "attack"
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 4,
+                                    "color": {"aM": 19},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 6,
+                                    "color": {"aM": 27},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 6,
+                                    "color": {"aM": 50},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 6,
+                                    "color": {"aM": 56},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 24,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 24,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 24,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 24,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "fadeInTime": 1,
+                    "name": "show"
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 0,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 0,
+                                    "transform": {
+                                        "skX": 77.8911,
+                                        "skY": 77.8911
+                                    },
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "name": "dead"
+                },
+                {
+                    "frame": [],
+                    "slot": [
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 12,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 6,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "run"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 14,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "attack"
+                        },
+                        {
+                            "frame": [
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 5,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 4,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 3,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 2,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": 1,
+                                    "duration": 2,
+                                    "color": {},
+                                    "tweenEasing": 0
+                                },
+                                {
+                                    "displayIndex": -1,
+                                    "duration": 0,
+                                    "color": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "skill"
+                        }
+                    ],
+                    "duration": 14,
+                    "bone": [
+                        {
+                            "frame": [
+                                {
+                                    "duration": 14,
+                                    "transform": {},
+                                    "tweenEasing": null
+                                }
+                            ],
+                            "name": "root"
+                        }
+                    ],
+                    "name": "skill"
+                }
+            ]
+        }
+    ],
+    "isGlobal": 0,
+    "name": "hero",
+    "version": "4.0"
+}

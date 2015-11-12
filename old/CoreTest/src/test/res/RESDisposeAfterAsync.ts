@@ -27,22 +27,17 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RESDisposeAfterAsync extends egret.DisplayObjectContainer {
+class RESDisposeAfterAsync extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testUrl, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testUrl():void {
+    private _bitmap:egret.Bitmap;
+    protected initRoot():void {
         RES.getResAsync("run_down_png", function (texture) {
-            var bitmap = new egret.Bitmap(texture);
-            this.addChild(bitmap);
+            this._bitmap = new egret.Bitmap(texture);
+            this.addChild(this._bitmap);
 
             egret.setTimeout(function () {
                 this.destroy();
@@ -53,6 +48,7 @@ class RESDisposeAfterAsync extends egret.DisplayObjectContainer {
 
     private load() {
         RES.getResAsync("run_down_png", function (texture) {
+            this._bitmap.texture = texture;
             egret.setTimeout(function () {
 
                 this.destroy();

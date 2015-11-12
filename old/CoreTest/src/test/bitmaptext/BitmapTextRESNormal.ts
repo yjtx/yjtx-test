@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapTextRESNormal extends egret.DisplayObjectContainer {
+class BitmapTextRESNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["fonts"]);
     }
 
-    private init():void {
-        new LoadResources(this.testBitmapText, this, "fonts", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testBitmapText():void {
+    protected initRoot():void {
         var bitmapFont:egret.BitmapFont = RES.getRes("font_fnt");
         var bitmap1 = new egret.BitmapText();
         bitmap1.font = bitmapFont;

@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class CacheAsBitmapParentSizeZero extends egret.DisplayObjectContainer {
+class CacheAsBitmapParentSizeZero extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["bitmap"]);
     }
 
-    private init():void {
-        new LoadResources(this.testScale9, this, "bitmap", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testScale9():void {
+    protected initRoot():void {
         var c = new egret.DisplayObjectContainer();
         var texture1:egret.Texture = RES.getRes("img_scale9_png");
         var icon:egret.Bitmap = new egret.Bitmap(texture1);
@@ -49,7 +43,7 @@ class CacheAsBitmapParentSizeZero extends egret.DisplayObjectContainer {
         this.addChild(c);
         c.scaleX = c.scaleY = 0;
 
-        egret.Tween.get(c).to({"scaleX" : 1, "scaleY" : 1}, 2000);
+        egret.Tween.get(c).to({"scaleX" : 1, "scaleY" : 1}, 2000).to({"scaleX" : 0, "scaleY" : 0}, 2000);
     }
 }
 

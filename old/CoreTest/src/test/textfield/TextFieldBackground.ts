@@ -2,18 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldBackground extends egret.DisplayObjectContainer {
+class TextFieldBackground extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testTextField();
-    }
-
-    private testTextField():void {
+    protected initRoot():void {
         var textfield1 = new egret.TextField();
         textfield1.text = "sfsfsf";
         textfield1.size = 60;

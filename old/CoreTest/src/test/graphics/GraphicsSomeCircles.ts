@@ -1,15 +1,13 @@
 /**
  * Created by yjtx on 15-7-10.
  */
-class GraphicsSomeCircles extends egret.DisplayObjectContainer {
+class GraphicsSomeCircles extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
+    protected initRoot():void {
         this.testDrawArc();
     }
 
@@ -25,12 +23,12 @@ class GraphicsSomeCircles extends egret.DisplayObjectContainer {
         this.addChild(emptySP);
         emptySP.touchEnabled = true;
         emptySP.addEventListener(egret.TouchEvent.TOUCH_BEGIN,(e)=>{
-            //drawSp.graphics.beginFill(0xFFFFFF,0.5);
+
             drawSp.graphics.drawCircle(e.localX, e.localY,50);
             drawSp.graphics.endFill();
         },this);
         emptySP.addEventListener(egret.TouchEvent.TOUCH_MOVE,(e)=>{
-            //drawSp.graphics.beginFill(0xFFFFFF,0.5);
+
             drawSp.graphics.drawCircle(e.localX, e.localY,50);
             drawSp.graphics.endFill();
         },this);

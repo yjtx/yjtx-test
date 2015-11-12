@@ -27,19 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class BitmapTextNormal extends egret.DisplayObjectContainer {
+class BitmapTextNormal extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testBitmapText();
-    }
-
-    private testBitmapText():void {
+    protected initRoot():void {
         var count = 0;
         var movieclipData;
         var texture;

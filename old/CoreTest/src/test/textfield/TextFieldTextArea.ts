@@ -2,19 +2,12 @@
  * Created by yjtx on 15-6-23.
  */
 
-class TextFieldTextArea extends egret.DisplayObjectContainer {
+class TextFieldTextArea extends EntryDisplayObjectContainer {
     public constructor() {
         super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
 
-    private init():void {
-        this.testTextInput();
-    }
-
-
-    private testTextInput():void {
+    protected initRoot():void {
 
         var textField = new egret.TextField();
         textField.multiline = true;

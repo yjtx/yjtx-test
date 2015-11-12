@@ -27,20 +27,13 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class Base64FromDisplayObject extends egret.DisplayObjectContainer {
+class Base64FromDisplayObject extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
-
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
+        super(["preload"]);
     }
 
-    private init():void {
-        egret.MainContext.instance.rendererContext.texture_scale_factor
-        new LoadResources(this.testDisplayObject, this, "preload", egret.MainContext.instance.rendererContext.texture_scale_factor);
-    }
-
-    private testDisplayObject():void {
+    protected initRoot():void {
         var c = new egret.DisplayObjectContainer();
         this.addChild(c);
         var texture1:egret.Texture = RES.getRes("run_down_png");
