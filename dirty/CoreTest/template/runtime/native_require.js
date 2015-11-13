@@ -126,6 +126,7 @@ var game_file_list = [
 	"bin-debug/test/res/RESRenderTextureDouble.js",
 	"bin-debug/test/res/RESSheet.js",
 	"bin-debug/test/scaleMode/ScaleModeCenterWithBg.js",
+	"bin-debug/test/scaleMode/ScaleModeClickChangeModes.js",
 	"bin-debug/test/scaleMode/ScaleModeFixedWidthAndPortrait.js",
 	"bin-debug/test/scrollview/ScrollViewList.js",
 	"bin-debug/test/scrollview/ScrollViewNormal.js",
@@ -215,7 +216,7 @@ egret_native.egretStart = function () {
 		showPaintRect: false,
 		showFPS: true,
 		fpsStyles: "x:0,y:0,size:30,bgAlpha:0.5",
-		showLog: true,
+		showLog: false,
 		logFilter: "",
 		maxTouches: 99,
 		textureScaleFactor: 1

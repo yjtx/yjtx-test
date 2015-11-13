@@ -14,7 +14,7 @@ var examples = {
     "Event": ["StageADDAndREMOVE", "StageRESIZE"],
 
     "Function": ["Super", "DefaultValue"],
-    "Graphics": ["CurveTo","LineTest", "Guaguale", "Guaguale2", "DrawArc", "DrawLineClick", "DrawArcFill", "DrawArcRun", "LineStyle", "SomeCircles", "WithoutEndFill", "DrawLine", "ArcCircleRun", "DrawCurve"],
+    "Graphics": ["LinesDiff", "CurveTo","LineTest", "Guaguale", "Guaguale2", "DrawArc", "DrawLineClick", "DrawArcFill", "DrawArcRun", "LineStyle", "SomeCircles", "WithoutEndFill", "DrawLine", "ArcCircleRun", "DrawCurve"],
 
     "Loader": ["Bitmap", "Sound", "Text", "PostData", "GetData"],
     "Mask": ["ProgressCircle", "MaskRect", "ScrollRect", "DisplayObject", "CircleGraphics", "ArcCircleRun"],
@@ -26,7 +26,7 @@ var examples = {
         "DisposeSheetAfterSheet", "DisposeGroupAfterSheet", "DisposeSubKeyAfterSheet", "LoadedTwice"],
     "Sound": ["Normal", "ClickLoop", "ClickPlay", "ClickPlayNumbers", "Timeout", "Volume", "AllTest", "CheckStartTime"],
     "ScrollView": ["Normal", "List"],
-    "ScaleMode": ["CenterWithBg", "FixedWidthAndPortrait"],
+    "ScaleMode": ["ClickChangeModes", "CenterWithBg", "FixedWidthAndPortrait"],
     "SpriteSheet": ["Diff", "SubKey", "Repeat", "Normal"],
     "Texture": ["GetPixel32WithImg", "GetPixel32WithDO"],
     "TextField": ["Normal", "InputNotClick", "StrokeRun", "AppendText", "Background", "Family", "Restrict", "Flow", "FlowRun", "Input", "TextArea", "Wrap", "NormalDelay", "Href", "InputText"],

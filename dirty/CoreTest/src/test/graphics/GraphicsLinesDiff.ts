@@ -11,21 +11,46 @@ class GraphicsLinesDiff extends EntryDisplayObjectContainer {
         this.createGameScene();
     }
 
-    private createGameScene(): void {
-        var shape:egret.Shape;
+    bg1:egret.Shape;
+    bg2:egret.Shape;
 
-        shape = new egret.Shape();
-        this.addChild(shape);
+    private createGameScene():void {
 
-        shape.graphics.lineStyle(10, 0xff0000);
-        shape.graphics.moveTo(10, 10);
-        shape.graphics.lineTo(10, 100);
-        shape.graphics.lineTo(50, 50);
-        shape.graphics.lineTo(100, 10);
-        shape.graphics.lineTo(140, 130);
-        shape.graphics.lineTo(200, 10);
+        this.bg1 = new egret.Shape();
+        this.addChild(this.bg1);
+        this.bg1.graphics.lineStyle(10, 0x000000);
 
+        this.bg2 = new egret.Shape();
+        this.bg2.y = 300;
+        this.addChild(this.bg2);
+        this.bg2.graphics.lineStyle(10, 0x000000);
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchEventHandler, this);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchEventHandler, this);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEventHandler, this);
     }
 
+    private lastX:number;
+    private lastY:number;
+    private onTouchEventHandler(e:egret.TouchEvent):void {
+        switch (e.type) {
+            case "touchBegin":
+                this.bg1.graphics.moveTo(e.stageX, e.stageY);
+
+                this.lastX = e.stageX;
+                this.lastY = e.stageY;
+                break;
+            case "touchMove":
+                this.bg1.graphics.lineTo(e.stageX, e.stageY);
+
+                this.bg2.graphics.moveTo(this.lastX, this.lastY);
+                this.lastX = e.stageX;
+                this.lastY = e.stageY;
+                this.bg2.graphics.lineTo(this.lastX, this.lastY);
+                break;
+            case "touchEnd":
+                break;
+        }
+    }
 }
 
