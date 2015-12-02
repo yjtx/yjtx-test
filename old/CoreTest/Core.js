@@ -21,6 +21,7 @@ var examples = {
     "ScrollView": ["Normal"],
     "BitmapText": ["Normal", "RESNormal"],
     "SpriteSheet": ["Diff", "SubKey"],
+    "Stage":["FrameRate"],
     "Texture": ["GetPixel32WithImg", "GetPixel32WithDO"],
     "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync"],
     "Ticker": ["LoadingUse"],

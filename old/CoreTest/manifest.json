@@ -115,6 +115,7 @@
     "test/spritesheet/SpriteSheetNormal.ts",
     "test/spritesheet/SpriteSheetRepeat.ts",
     "test/spritesheet/SpriteSheetSubKey.ts",
+    "test/stage/StageFrameRate.ts",
     "test/textfield/TextFieldAppendText.ts",
     "test/textfield/TextFieldBackground.ts",
     "test/textfield/TextFieldFamily.ts",
