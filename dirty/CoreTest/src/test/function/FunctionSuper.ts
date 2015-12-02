@@ -15,6 +15,10 @@ class FunctionSuper extends egret.DisplayObjectContainer {
 
         a.a = 4;
         console.log(a.a);
+
+        a.b = 1000;
+
+        console.log(a.c);
     }
 }
 
@@ -29,6 +33,15 @@ class A1 {
     get a():number {
         console.log("get  a 1");
         return this._a;
+    }
+
+    set b(value:number) {
+
+    }
+
+
+    get c():number {
+        return 1;
     }
 
     getB(v1, v2, v3):void {
@@ -56,7 +69,6 @@ class A4 extends A3 {
 class A5 extends A4 {
 
     set a(value:number) {
-        //super.a = value;
         console.log("set  a 5");
         egret.superSetter(A5, this, "a", value);
     }
@@ -68,5 +80,14 @@ class A5 extends A4 {
 
     getB(v1, v2, v3):void {
         return super.getB(v1, v2, v3);
+    }
+
+    set b(value:number) {
+        console.log(10);
+        egret.superSetter(A5, this, "b", 10);
+    }
+
+    get c():number {
+        return 2;
     }
 }

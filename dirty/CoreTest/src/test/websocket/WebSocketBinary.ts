@@ -38,25 +38,25 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
         socket.type = egret.WebSocket.TYPE_BINARY;
         var magBytesAvailable = 0;
         socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, function (e:egret.ProgressEvent) {
-            console.log("SOCKET_DATA");
+            egret.log("SOCKET_DATA");
 
             var byte:egret.ByteArray = new egret.ByteArray();
             socket.readBytes(byte);
             var msg:string = byte.readUTFBytes(magBytesAvailable);
             var boo:boolean = byte.readBoolean();
             var num:number = byte.readInt();
-            console.log("收到数据：" + msg + boo.toString() + num.toString());
+            egret.log("收到数据：" + msg + boo.toString() + num.toString());
 
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e:egret.Event) {
-            console.log("WebSocketOpen");
+            egret.log("WebSocketOpen");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e:egret.Event) {
-            console.log("WebSocketClose");
+            egret.log("WebSocketClose");
 
         }, this);
         socket.addEventListener(egret.IOErrorEvent.IO_ERROR, function (e:egret.IOErrorEvent) {
-            console.log("WebSocketError");
+            egret.log("WebSocketError");
 
         }, this);
 
@@ -66,6 +66,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
         label.y = 0;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("打开连接中....");
             socket.connect("echo.websocket.org", 80);
         }, this);
 
@@ -75,6 +76,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
         label.y = 30;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("发送数据中....");
             var byte:egret.ByteArray = new egret.ByteArray();
             byte.writeUTF("Hello Egret WebSocket");
             byte.position = 0;
@@ -92,6 +94,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
         label.y = 60;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("关闭连接中....");
             socket.close();
         }, this);
     }

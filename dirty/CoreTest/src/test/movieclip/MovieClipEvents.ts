@@ -27,30 +27,41 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureBitmapWithScale extends EntryDisplayObjectContainer {
+class MovieClipEvents extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super(["preload"]);
+        super(["mcs"]);
     }
 
     protected initRoot():void {
-        var tx:egret.Texture = RES.getRes("egret_icon_png");
-        var bmp:egret.Bitmap = new egret.Bitmap(tx);
-        this.addChild(bmp);
-        bmp.width = bmp.height = 200;
-        bmp.x = 10;
-        bmp.y = 10;
+        var movieclipData1 = RES.getRes("run_down_json");
+        var texture1 = RES.getRes("run_down_png");
+        var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData1, texture1);
 
-        var tx2:egret.RenderTexture = new egret.RenderTexture();
-        tx2.drawToTexture(bmp, new egret.Rectangle(0, 0, bmp.width, bmp.height), 0.42);
+        var movieclipData2 = RES.getRes("run_up_json");
+        var texture2 = RES.getRes("run_up_png");
+        var mcDataFactory2 = new egret.MovieClipDataFactory(movieclipData2, texture2);
 
-        tx2.textureWidth = 300;
-        tx2.textureHeight = 300;
+        var self = this;
 
-        var bmp2:egret.Bitmap = new egret.Bitmap(tx2);
-        this.addChild(bmp2);
-        bmp2.x = 10;
-        bmp2.y = 310;
+        var role1:egret.MovieClip = new egret.MovieClip(mcDataFactory1.generateMovieClipData("run"));
+        self.addChild(role1);
+        role1.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
+        role1.scaleX = 1;
+
+        role1.x = Math.random() * self.stage.stageWidth;
+        role1.y = Math.random() * self.stage.stageHeight + 20;
+        role1.addEventListener(egret.MovieClipEvent.FRAME_LABEL,(e:egret.MovieClipEvent)=>{
+            console.log("111 " + e.type + "  " + e.frameLabel + "  " + role1.currentFrame);//frame_label @fall 6
+        },this);
+
+
+        var role2:egret.MovieClip = new egret.MovieClip(mcDataFactory1.generateMovieClipData("run"));
+        role2.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
+
+        role2.addEventListener(egret.MovieClipEvent.FRAME_LABEL,(e:egret.MovieClipEvent)=>{
+            console.log("222 " + e.type + "  " + e.frameLabel + "  " + role2.currentFrame);//frame_label @fall 6
+        },this);
     }
 }
 

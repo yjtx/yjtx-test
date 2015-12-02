@@ -27,30 +27,40 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureBitmapWithScale extends EntryDisplayObjectContainer {
+class BitmapWithVideo extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super(["preload"]);
+        super(["bitmap"]);
     }
 
     protected initRoot():void {
-        var tx:egret.Texture = RES.getRes("egret_icon_png");
-        var bmp:egret.Bitmap = new egret.Bitmap(tx);
-        this.addChild(bmp);
-        bmp.width = bmp.height = 200;
-        bmp.x = 10;
-        bmp.y = 10;
+        var self = this;
 
-        var tx2:egret.RenderTexture = new egret.RenderTexture();
-        tx2.drawToTexture(bmp, new egret.Rectangle(0, 0, bmp.width, bmp.height), 0.42);
+        var video = document.createElement("video");
+        video.src = "resource/video/trailer.mp4";
+        video.addEventListener("canplay", function () {
+            video.width = video.videoWidth;
+            video.height = video.videoHeight;
+            var icon:egret.Bitmap = new egret.Bitmap();
+            var data = <egret.BitmapData>(self.toBitmapData(video));
+            icon.bitmapData = data;
+            self.addChild(icon);
 
-        tx2.textureWidth = 300;
-        tx2.textureHeight = 300;
+            egret.startTick(function ():boolean {
+                icon.bitmapData = null;
+                icon.bitmapData = data;
+                return true;
+            }, this);
+        });
 
-        var bmp2:egret.Bitmap = new egret.Bitmap(tx2);
-        this.addChild(bmp2);
-        bmp2.x = 10;
-        bmp2.y = 310;
+        video.setAttribute("autoplay", "autoplay");
+        video.play();
+        video.load();
+    }
+
+    private toBitmapData(data:HTMLImageElement|HTMLCanvasElement|HTMLVideoElement):egret.BitmapData {
+        data["hashCode"] = data["$hashCode"] = egret.$hashCount++;
+        return <egret.BitmapData><any>data;
     }
 }
 

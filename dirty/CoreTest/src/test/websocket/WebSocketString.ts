@@ -37,20 +37,20 @@ class WebSocketString extends EntryDisplayObjectContainer {
         var socket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_STRING;
         socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, function (e:egret.ProgressEvent) {
-            console.log("SOCKET_DATA");
+            egret.log("SOCKET_DATA");
 
             var msg:string = socket.readUTF();
-            console.log("收到数据：" + msg);
+            egret.log("收到数据：" + msg);
 
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e:egret.Event) {
-            console.log("WebSocketOpen");
+            egret.log("WebSocketOpen");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e:egret.Event) {
-            console.log("WebSocketClose");
+            egret.log("WebSocketClose");
         }, this);
         socket.addEventListener(egret.IOErrorEvent.IO_ERROR, function (e:egret.IOErrorEvent) {
-            console.log("WebSocketError");
+            egret.log("WebSocketError");
 
         }, this);
 
@@ -60,6 +60,7 @@ class WebSocketString extends EntryDisplayObjectContainer {
         label.y = 0;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("打开连接中....");
             socket.connect("echo.websocket.org", 80);
         }, this);
 
@@ -69,6 +70,7 @@ class WebSocketString extends EntryDisplayObjectContainer {
         label.y = 30;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("发送数据中....");
             socket.writeUTF("Hello Egret WebSocket");
         }, this);
 
@@ -78,10 +80,9 @@ class WebSocketString extends EntryDisplayObjectContainer {
         label.y = 60;
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.log("关闭连接中....");
             socket.close();
         }, this);
-
-
     }
 }
 

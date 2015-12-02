@@ -21,12 +21,11 @@ class TouchSpriteBitmap extends EntryDisplayObjectContainer {
         btn2.addChild(img);
 
         this.addChild(btn2);
-        btn2.x = 200;
-        btn2.y = 400;
+        btn2.y = 100;
         btn2.touchEnabled = true;
-        btn2.addEventListener(egret.TouchEvent.TOUCH_TAP, function(evt:egret.TouchEvent)
-        {
-            console.log(evt);
+        btn2.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e:egret.TouchEvent) {
+            console.log(e.stageX, e.stageY);
+            console.log(btn2.hitTestPoint(e.stageX, e.stageY, true))
         }, this);
     }
 

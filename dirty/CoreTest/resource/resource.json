@@ -9,7 +9,7 @@
 		"name":"sounds"
 	},
 	{
-		"keys":"role_1_eyelid_png,role_1_png,role_1_s_json,role_1_d_json,texture_png,texture_json,skeleton_json,zhujue1_skeleton_json,zhujue1_texture_json,zhujue1_texture_png,hero_530adf09_json,texture_86c49911_png,texture_ae654056_json",
+		"keys":"role_1_eyelid_png,role_1_png,role_1_s_json,role_1_d_json,texture_png,texture_json,skeleton_json,zhujue1_skeleton_json,zhujue1_texture_json,zhujue1_texture_png,hero_530adf09_json,texture_86c49911_png,texture_ae654056_json,effects_ske_json,effects_texture_json,effects_texture_png",
 		"name":"dbs"
 	},
 	{
@@ -39,6 +39,10 @@
 	{
 		"keys":"progressTime2_png,progressTime_png,egret_icon_png",
 		"name":"arcs"
+	},
+	{
+		"keys":"home-Figure_png,home-zw-blueRing1_png,home-zw-blueRing2_png,home-zw-blueRing3_png,home-zw-blueRing4_png,home-zw-blueRing5_png",
+		"name":"images"
 	}],
 	"resources":[
 	{
@@ -342,5 +346,50 @@
 		"name":"nums_png",
 		"type":"image",
 		"url":"mc/nums.png"
+	},
+	{
+		"name":"home-Figure_png",
+		"type":"image",
+		"url":"images/home-Figure.png"
+	},
+	{
+		"name":"home-zw-blueRing1_png",
+		"type":"image",
+		"url":"images/home-zw-blueRing1.png"
+	},
+	{
+		"name":"home-zw-blueRing2_png",
+		"type":"image",
+		"url":"images/home-zw-blueRing2.png"
+	},
+	{
+		"name":"home-zw-blueRing3_png",
+		"type":"image",
+		"url":"images/home-zw-blueRing3.png"
+	},
+	{
+		"name":"home-zw-blueRing4_png",
+		"type":"image",
+		"url":"images/home-zw-blueRing4.png"
+	},
+	{
+		"name":"home-zw-blueRing5_png",
+		"type":"image",
+		"url":"images/home-zw-blueRing5.png"
+	},
+	{
+		"name":"effects_ske_json",
+		"type":"json",
+		"url":"db/effects/effects_ske.json"
+	},
+	{
+		"name":"effects_texture_json",
+		"type":"json",
+		"url":"db/effects/effects_texture.json"
+	},
+	{
+		"name":"effects_texture_png",
+		"type":"image",
+		"url":"db/effects/effects_texture.png"
 	}]
 }

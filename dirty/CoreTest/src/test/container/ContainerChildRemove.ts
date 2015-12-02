@@ -31,6 +31,8 @@ class ContainerChildRemove extends EntryDisplayObjectContainer {
 
     public constructor() {
         super();
+
+        console.log("成功: 点击之后,会删除 'ddd 0' 和 'ddd 2'!");
     }
 
     protected initRoot():void {

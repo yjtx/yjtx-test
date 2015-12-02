@@ -4,10 +4,17 @@
 class BlendModeErase extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
+        super(["preload"]);
     }
 
     protected initRoot():void {
+        var sky:egret.Bitmap = new egret.Bitmap(RES.getRes("bg_jpg"));
+        this.addChild(sky);
+        var stageW:number = this.stage.stageWidth;
+        var stageH:number = this.stage.stageHeight;
+        sky.width = stageW;
+        sky.height = stageH;
+
         var container:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
         container.width = 300;
         container.height = 300;
@@ -27,7 +34,7 @@ class BlendModeErase extends EntryDisplayObjectContainer {
 
         erase.blendMode = egret.BlendMode.ERASE;
 
-        this.addChild(container);
+        //this.addChild(container);
 
 
         var renderTexture:egret.RenderTexture = new egret.RenderTexture();
@@ -36,6 +43,7 @@ class BlendModeErase extends EntryDisplayObjectContainer {
         var bitmap:egret.Bitmap = new egret.Bitmap();
         bitmap.texture = renderTexture;
         this.addChild(bitmap);
+        bitmap.y = 350;
 
         bitmap.touchEnabled = true;
         bitmap.pixelHitTest = true;

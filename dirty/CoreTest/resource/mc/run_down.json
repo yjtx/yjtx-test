@@ -1,6 +1,10 @@
 {"mc":{
 	"run":{
 		"frameRate":24,
+		"events":[
+			{"name":"@fallhalf","frame":2},
+			{"name":"@movehalf","frame":5}
+		],
 		"frames":[
 			
 			{

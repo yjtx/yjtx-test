@@ -27,31 +27,37 @@
 //
 //////////////////////////////////////////////////////////////////////////////////////
 
-class RenderTextureBitmapWithScale extends EntryDisplayObjectContainer {
+class TweenTreeRunRotation extends EntryDisplayObjectContainer {
 
+    btp1;
     public constructor() {
-        super(["preload"]);
+        super(["images"]);
     }
 
     protected initRoot():void {
-        var tx:egret.Texture = RES.getRes("egret_icon_png");
-        var bmp:egret.Bitmap = new egret.Bitmap(tx);
-        this.addChild(bmp);
-        bmp.width = bmp.height = 200;
-        bmp.x = 10;
-        bmp.y = 10;
 
-        var tx2:egret.RenderTexture = new egret.RenderTexture();
-        tx2.drawToTexture(bmp, new egret.Rectangle(0, 0, bmp.width, bmp.height), 0.42);
+        for (var i:number = 0; i < 5; i++) {
+            this.btp1 = new egret.Bitmap(RES.getRes("home-zw-blueRing" + (i + 1) + "_png"));
+            this.addChild(this.btp1);
+            this.btp1.x = 200;
+            this.btp1.y = 200;
+            this.btp1.anchorOffsetX = this.btp1.width / 2;
+            this.btp1.anchorOffsetY = this.btp1.height / 2;
 
-        tx2.textureWidth = 300;
-        tx2.textureHeight = 300;
 
-        var bmp2:egret.Bitmap = new egret.Bitmap(tx2);
-        this.addChild(bmp2);
-        bmp2.x = 10;
-        bmp2.y = 310;
+            egret.Tween.get(this.btp1, {loop:true}).to({ rotation: 360 }, 4000).to({rotation:0}, 4000);
+        }
+
+        var image:egret.Bitmap = new egret.Bitmap(RES.getRes("home-Figure_png"));
+        this.addChild(image);
+
+
+        image.scaleX = 0.5;
+        image.scaleY = 0.5;
+        egret.Tween.get(image).to({ alpha: 1, scaleX : 1, scaleY : 1},1000,egret.Ease.backOut).call(function(){
+        });
     }
+
 }
 
 
