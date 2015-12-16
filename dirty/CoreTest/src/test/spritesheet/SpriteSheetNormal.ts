@@ -34,9 +34,10 @@ class SpriteSheetNormal extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
-        var texture:egret.Texture = RES.getRes("999999_02");
+        var texture:egret.Texture = RES.getRes("hello_json.999999_02");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
+        console.log(icon.texture)
         icon.x = 100;
         icon.y = 100;
         icon.width = icon.height = 120;
@@ -50,7 +51,7 @@ class SpriteSheetNormal extends EntryDisplayObjectContainer {
         shape.y = icon.y;
 
 
-        var texture:egret.Texture = RES.getRes("999999_02");
+        var texture:egret.Texture = RES.getRes("hello_json.999999_02");
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
         icon.x = 100;

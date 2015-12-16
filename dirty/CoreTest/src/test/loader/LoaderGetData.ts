@@ -34,6 +34,11 @@ class LoaderGetData extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
+        this.testText();
+        this.testText1();
+    }
+
+    private testText():void {
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             egret.log("1111");
@@ -43,14 +48,30 @@ class LoaderGetData extends EntryDisplayObjectContainer {
 
         loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
 
-        var request = new egret.URLRequest("http://115.238.54.151:81/energy/ajaxdata.jsp");
+        var request = new egret.URLRequest("http://s1.ns.qimi.com/zmfsj/www/qimi/local/api.php");
         request.method = egret.URLRequestMethod.GET;
 
-        var str = decodeURIComponent("action=getUserInfo&usercode=f96c81062869dbaec16cb9a4df14d9d6&packagename=energy20150824&gameid=1?callback=JsonpReq.completeCall.call_0");
-
-        var variables = new egret.URLVariables(str);
+        var variables = new egret.URLVariables("data={%22mod%22:%22User%22,%22do%22:%22login%22,%22p%22:{%22uName%22:%22ivens0008@ismole.com%22,%22uPass%22:%22whatAfuckingDay%22}}&h=U1p7QAlvfmNmXXBcWWZBdm4KFF4Idxp1YXgkPAIeFFd9&print=no&secket=");
         request.data = variables;
 
+        loader.load(request);
+    }
+
+    private testText1():void {
+        var loader = new egret.URLLoader();
+        loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
+            egret.log("2222");
+            egret.log(loader.data);
+        }, this);
+
+        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
+
+        var request = new egret.URLRequest("http://s1.ns.qimi.com/zmfsj/www/qimi/local/api.php");
+        request.method = egret.URLRequestMethod.GET;
+
+        var variables = new egret.URLVariables();
+        request.data = variables;
+        variables.variables = {"data":'{"mod":"User","do":"login","p":{"uName":"ivens0008@ismole.com","uPass":"whatAfuckingDay"}}', "h" : "U1p7QAlvfmNmXXBcWWZBdm4KFF4Idxp1YXgkPAIeFFd9", "print":"no", "secket":""};
         loader.load(request);
     }
 

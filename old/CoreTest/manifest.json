@@ -52,6 +52,7 @@
     "test/empty/EmptyHelloWorld.ts",
     "test/event/EventStageADDAndREMOVE.ts",
     "test/event/EventStageRESIZE.ts",
+    "test/event/EventTouchCapture.ts",
     "test/fillmode/BitmapFillModeExample.ts",
     "test/function/FunctionDefaultValue.ts",
     "test/function/FunctionSuper.ts",

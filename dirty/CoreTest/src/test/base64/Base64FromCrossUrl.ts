@@ -34,6 +34,8 @@ class Base64FromCrossUrl extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
+        //egret.ImageLoader.crossOrigin = "anonymous";
+
         RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture:egret.Texture) {
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);

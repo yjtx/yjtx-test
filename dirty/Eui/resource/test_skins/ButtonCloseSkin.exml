@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="ButtonCloseSkin" states="up,down,disabled" minHeight="30" minWidth="84" xmlns:e="http://ns.egret.com/eui">
+	<e:Image width="160" height="100" scale9Grid="16,16,84,30"
+	         source="close_png"
+	         source.down="close_png"/>
+</e:Skin>

@@ -13,7 +13,7 @@ var examples = {
     "CacheAsBitmap": ["ParentSizeZero", "DelayLoaded"],
     "DB": ["Normal", "Role", "GirlRun"],
     "MovieClip": ["Normal"],
-    "Event": ["StageADDAndREMOVE"],
+    "Event": ["StageADDAndREMOVE", "TouchCapture"],
     "Touch": ["Bitmap", "Graphics", "Container", "GraphicsEvent"],
     "Timer": ["LoopUse", "StartStop"],
     "Graphics": ["LineStyle", "SomeCircles"],

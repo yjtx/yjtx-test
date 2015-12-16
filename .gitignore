@@ -1,7 +1,5 @@
 .idea/
 
-bin-debug/
-libs
 
 .DS_Store
 .[Tt]humb
@@ -10,3 +8,5 @@ libs
 AndCore/
 AndGui/
 IOSCore/
+Release/
+IosOldCore/

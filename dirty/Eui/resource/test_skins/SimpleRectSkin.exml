@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<e:Skin class="skins.ButtonSkin" states="up,down,disabled" minHeight="50" minWidth="100" xmlns:e="http://ns.egret.com/eui">
+	<e:Rect height="41" width="140" fillAlpha="0" x="0" strokeAlpha="1" strokeWeight="2" y="1" y.up="1" includeIn="up" fillColor="0xff0000" strokeColor="0x00ff00"/>
+</e:Skin>

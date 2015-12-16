@@ -6,8 +6,8 @@ class VideoNormal extends egret.DisplayObjectContainer {
         super();
 
         this.video = new egret.Video();
-        this.video.x = 50;
-        this.video.y = 0;
+        this.video.x = 100;
+        this.video.y = 100;
         this.video.width = 427;
         this.video.height = 240;
         this.video.fullscreen = false;

@@ -31,14 +31,18 @@
 
 <div id="iframeDiv">
 
-    <iframe id="iframe" name="iframe" frameborder="0" border="none" padding="0px" marginwidth="0" marginheight="0" scrolling="no" height="500" width="100%"
-            style="height: 627px;"></iframe>
+    <iframe id="iframe" name="iframe" frameborder="0" border="none" padding="0px" marginwidth="0" marginheight="0" scrolling="no" height="800" width="100%"
+            style="height: 627px;display:none"></iframe>
 
 </div>
 
 <script type="text/javascript">
     var url = getOption("url");
     var iframe = document.getElementById("iframe");
+
+    setTimeout(function () {
+        iframe.style.display = "block";
+    }, 20000);
 
     iframe.src = url;
     iframe.contentWindow.addEventListener("resize", function() {

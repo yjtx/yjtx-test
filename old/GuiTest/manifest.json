@@ -1,4 +1,5 @@
 [
+    "gamelibs/EntryDisplayObjectContainer.ts",
     "skins/simple/ItemRendererSkin.exml",
     "skins/simple/ListSkin.exml",
     "skins/scene/ShowcaseSkin.exml",
@@ -7,6 +8,7 @@
     "skins/simple/VScrollBarThumbSkin.exml",
     "AssetAdapter.ts",
     "LoadingUI.ts",
+    "gamelibs/ResourceUtils.ts",
     "scene/Showcase.ts",
     "skins/simple/CloseButtonSkin.exml",
     "skins/simple/DropDownListItemRendererSkin.exml",
@@ -18,6 +20,7 @@
     "skins/simple/VScrollBarSkin.exml",
     "skins/simple/VSliderThumbSkin.exml",
     "MainTest.ts",
+    "gamelibs/LoadResources.ts",
     "skins/simple/AlertSkin.exml",
     "skins/simple/ButtonSkin.exml",
     "skins/simple/CheckBoxSkin.exml",
@@ -40,5 +43,10 @@
     "skins/simple/VSliderSkin.exml",
     "test/cacheAsBitmap/CacheAsBitmapUIAssetSource.ts",
     "test/label/LabelNormal.ts",
-    "test/label/LabelNormalDelay.ts"
+    "test/label/LabelNormalDelay.ts",
+    "test/textInput/TextInputNormal.ts",
+    "test/uiasset/UIAssetDynamicSetting.ts",
+    "test/uiasset/UIAssetExmlSimple.ts",
+    "test/uiasset/UIAssetScaleZeroClick.ts",
+    "test/uiasset/UIAssetWithBitmapText.ts"
 ]

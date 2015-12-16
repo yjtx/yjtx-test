@@ -5,10 +5,11 @@
 		"ios_path": "../IOSCore"
 	},
 	"publish": {
+		"path": "../Release/CoreTest",
 		"web": 0,
 		"native": 1
 	},
-	"egret_version": "2.5.5",
+	"egret_version": "2.5.7",
 	"modules": [
 		{
 			"name": "egret"

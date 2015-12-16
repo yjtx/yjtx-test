@@ -1,7 +1,9 @@
 var examples = {
+    "Button": ["WithInput"],
     "Label": ["Normal", "NormalDelay"],
-    "UIAsset": ["WithBitmapText", "ScaleZeroClick"],
+    "UIAsset": ["WithBitmapText", "ScaleZeroClick", "DynamicSetting", "ExmlSimple"],
     "Main": ["Demo"],
+    "Rect": ["CacheAsBitmap", "ExmlSimple"],
     "List": ["Two"],
     "TextInput": ["Normal"]
 };

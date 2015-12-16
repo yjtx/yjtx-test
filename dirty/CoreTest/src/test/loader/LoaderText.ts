@@ -35,6 +35,8 @@ class LoaderText extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
+        egret.log("start");
+
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             alert(loader.data);

@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="SkinButtonSkin" width="540" height="900" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Button id="closeButton" skinName="resource/test_skins/ButtonCloseSkin.exml" label="" x="100" y="177" width="160"/>
+</e:Skin>

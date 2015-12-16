@@ -98,11 +98,13 @@
 	<script egret="game" src="bin-debug/test/event/EventBoyAndGirl.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventStageADDAndREMOVE.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventStageRESIZE.js"></script>
+	<script egret="game" src="bin-debug/test/event/EventTouchCapture.js"></script>
 	<script egret="game" src="bin-debug/test/fillmode/BitmapFillModeExample.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionDefaultValue.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionRegExp1.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionSuper.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionSuperClasses.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsArcCircleDiff.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsArcCircleRun.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsCurveTo.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArc.js"></script>
@@ -119,6 +121,7 @@
 	<script egret="game" src="bin-debug/test/graphics/GraphicsLinesDiff.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsSomeCircles.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsWithoutEndFill.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderBinFile.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderBitmap.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderGetData.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeust.js"></script>
@@ -158,6 +161,7 @@
 	<script egret="game" src="bin-debug/test/res/RESDisposeGroupAfterSheet.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeSheetAfterSheet.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeSubKeyAfterSheet.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESLoadTwoAndDisposeFirst.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESLoaded.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESLoadedTwice.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESRenderTextureDouble.js"></script>
@@ -177,6 +181,7 @@
 	<script egret="game" src="bin-debug/test/sound/SoundVolume.js"></script>
 	<script egret="game" src="bin-debug/test/sound/all/test_sound.js"></script>
 	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetDiff.js"></script>
+	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetDiffOffSet.js"></script>
 	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetNormal.js"></script>
 	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetRepeat.js"></script>
 	<script egret="game" src="bin-debug/test/spritesheet/SpriteSheetSubKey.js"></script>
@@ -209,6 +214,7 @@
 	<script egret="game" src="bin-debug/test/touch/TouchContainer.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchGraphics.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchHideClick.js"></script>
+	<script egret="game" src="bin-debug/test/touch/TouchInputAndButton.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchMultiTouches.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchReleaseOutSide.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchSpriteBitmap.js"></script>
@@ -226,16 +232,16 @@
 <body>
 
 <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;overflow:visible;-webkit-transform: translateZ(0);" class="egret-player"
-     data-entry-class="ScrollViewList"
+     data-entry-class="LoaderBinFile"
      data-orientation="portrait"
-     data-scale-mode="showAll"
+     data-scale-mode="fixedWidth"
      data-resolution-mode="retina"
      data-frame-rate="30"
      data-content-width="480"
      data-content-height="800"
      data-show-paint-rect="false"
      data-multi-fingered="99"
-     data-show-fps="false" data-show-log="false"
+     data-show-fps="true" data-show-log="true"
      data-log-filter="" data-show-fps-style="x:0,y:0,size:30,bgAlpha:0.5">
 </div>
 <script>

@@ -25,7 +25,8 @@
 		}
 	],
 	"native": {
-		"path_ignore": []
+		"path_ignore": [],
+		"ios_path": "../IosOldCore"
 	},
 	"egret_version": "2.0.5"
 }

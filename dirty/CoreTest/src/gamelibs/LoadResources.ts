@@ -32,12 +32,14 @@ class LoadResources {
     private _callback;
     private _thisObj;
     private _group;
+
+
     public constructor(callback, thisObj, group, factor) {
+
         this._callback = callback;
         this._thisObj = thisObj;
         this._group = group;
 
-        alert("开始加载");
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig(ResourceUtils.getRoot(factor) + "resource.json", ResourceUtils.getRoot(factor));
     }
@@ -52,6 +54,7 @@ class LoadResources {
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
 
+        alert("开始加载");
         RES.loadGroup(this._group);
     }
 
