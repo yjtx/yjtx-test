@@ -23,7 +23,7 @@ var examples = {
     "SpriteSheet": ["Diff", "SubKey"],
     "Stage":["FrameRate"],
     "Texture": ["GetPixel32WithImg", "GetPixel32WithDO"],
-    "RES": ["ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync"],
+    "RES": ["LoadAndDispose", "ByUrl", "Async", "DisposeAfterUrl", "DisposeAfterAsync"],
     "Ticker": ["LoadingUse"],
     "Other": ["WinTest"],
     "": []

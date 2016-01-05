@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=280"/>
+    <title></title>
+    <style>
+
+        button {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div>
+
+    猎豹浏览器，打开代码中的 alert 就不会假死，不打开就会假死。
+
+</div>
+<input id="input2" style="width:400px" width="400"/>
+<input type="range" id="input" style="width:400px" width="400"/>
+
+<button id="btn1" onclick="play()">play</button>
+<button id="btn2" onclick="pause()">pause</button>
+
+<script>
+
+    var audio1 = new Audio("sound/wf.mp3");
+    audio1.addEventListener("canplaythrough", onAudioLoaded);
+    audio1.addEventListener("error", onAudioError);
+    audio1.load();
+
+    function onAudioLoaded() {
+        removeListeners();
+    }
+
+    function onAudioError() {
+        removeListeners();
+    }
+
+    function removeListeners() {
+        audio1.removeEventListener("canplaythrough", onAudioLoaded);
+        audio1.removeEventListener("error", onAudioError);
+    }
+
+</script>
+
+<script>
+    var $startTime = 30;
+
+    var audio;
+    function play() {
+        audio = audio1;//.cloneNode();
+        audio.load();
+
+        audio.removeEventListener("ended", onAudioError);
+        audio.removeEventListener("canplay", ended);
+
+        again1();
+        addTimer();
+    }
+
+    function pause() {
+        audio.pause();
+
+        removeTimer();
+    }
+
+    function again1() {
+        try {
+            audio.currentTime = $startTime;
+        }
+        catch (e) {
+            audio.addEventListener("canplay", canPlay);
+            return;
+        }
+
+        audio.autoplay = !0;
+        audio.play();
+    }
+
+    function canPlay() {
+        alert("1111");
+        audio.removeEventListener("canplay", canPlay);
+
+        try {
+            audio.currentTime = $startTime;
+        }
+        catch (e) {
+            return;
+        }
+
+        audio.autoplay = !0;
+        audio.play();
+    }
+
+
+    function update() {
+        input2.value = audio.currentTime + "/" + audio.duration;
+        input.value = audio.currentTime * 100 / 241;
+    }
+
+    function ended() {
+        audio.play();
+    }
+
+    function addTimer() {
+        audio.addEventListener("timeupdate", update);
+        audio.addEventListener("ended", ended);
+    }
+
+    function removeTimer() {
+        audio.removeEventListener("timeupdate", update);
+        audio.removeEventListener("ended", ended);
+    }
+</script>
+
+</body>
+</html>

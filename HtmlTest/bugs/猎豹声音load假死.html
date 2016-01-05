@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=280"/>
+    <title></title>
+    <style>
+
+        button, select {
+            width: 200px;
+            height: 100px;
+            margin: 10px;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h4 style="color: #ff0000">问题机型：三星note2</h4>
+<h4 style="color: #ff0000">浏览器：猎豹 3.25.7</h4>
+
+<div>
+    步骤：选择 “打开 alert” 后播放没有问题，选择 “关闭 alert” 后播放会假死
+</div>
+<div>
+    问题：play 之前调用了 load 导致的。
+</div>
+
+<button id="btn1" onclick="play()">play</button>
+<button id="btn2" onclick="pause()">pause</button>
+
+<select id="selectType">
+    <option value="2">打开alert</option>
+    <option value="1">关掉alert</option>
+</select>
+
+<script>
+
+    var audio1 = new Audio("liebao_sound/dmxj.mp3");
+    audio1.addEventListener("canplaythrough", onAudioLoaded);
+    audio1.addEventListener("error", onAudioError);
+    audio1.load();
+
+    function onAudioLoaded() {
+        removeListeners();
+    }
+
+    function onAudioError() {
+        removeListeners();
+    }
+
+    function removeListeners() {
+        audio1.removeEventListener("canplaythrough", onAudioLoaded);
+        audio1.removeEventListener("error", onAudioError);
+    }
+
+</script>
+
+<script>
+    var $startTime = 30;
+
+    var audio;
+    function play() {
+        audio = audio1;
+        audio.load();//这个引起的，注释掉也没有问题
+
+        audio.addEventListener("canplay", canPlay);
+        addTimer();
+    }
+
+    function pause() {
+        audio.pause();
+
+        removeTimer();
+    }
+
+    function canPlay() {
+        audio.removeEventListener("canplay", canPlay);
+
+        try {
+            if (selectType.value == 2) {
+                alert("1111");
+            }
+            audio.currentTime = $startTime;
+        }
+        catch (e) {
+            return;
+        }
+
+        audio.autoplay = !0;
+        audio.play();
+    }
+
+    function ended() {
+        audio.play();
+    }
+
+    function addTimer() {
+        audio.addEventListener("ended", ended);
+    }
+
+    function removeTimer() {
+        audio.removeEventListener("ended", ended);
+    }
+</script>
+
+</body>
+</html>

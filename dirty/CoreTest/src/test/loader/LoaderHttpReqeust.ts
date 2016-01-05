@@ -34,17 +34,15 @@ class LoaderHttpReqeust extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
-        var loader = new egret.URLLoader();
-        loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
-            alert(loader.data);
-            alert(JSON.parse(loader.data));
-        }, this);
-
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-        var request = new egret.URLRequest("resource/resource.json");
-        loader.load(request);
+        var request = new egret.HttpRequest();
+        //request.withCredentials = true;
+        request.responseType = egret.HttpResponseType.TEXT;
+        request.open("http://www.baidu.com",egret.HttpMethod.GET);//http://httpbin.org/get这个网址没有问题。
+        request.send();
+        request.addEventListener(egret.Event.COMPLETE, function (e) {
+            console.log(" sss  " );
+        },this);
     }
-
 }
 
 

@@ -1,5 +1,6 @@
 .idea/
 
+resource_Publish
 
 .DS_Store
 .[Tt]humb
@@ -10,3 +11,6 @@ AndGui/
 IOSCore/
 Release/
 IosOldCore/
+dirty/CoreTest/resource/resource_publish.json
+dirty/CoreTest/resource/sound-no.zip
+dirty/CoreTest/resource/sound-ok.zip

@@ -6,8 +6,16 @@
 </head>
 <body>
 
-<h4 style="color: #ff0000">问题机型：小米</h4>
-<h4 style="color: #ff0000">浏览器：猎豹</h4>
+<h4 style="color: #ff0000">问题机型：小米3  4.4.4</h4>
+<h4 style="color: #ff0000">浏览器：猎豹 3.25.7</h4>
+
+<div>
+    步骤：米3 进入到 onerror 中，其他手机进入到 onload 中
+</div>
+<div>
+    问题：bug语句，crossOrigin 不管是设置成""或者null，都会有问题，去掉即可
+
+</div>
 
 <script>
     var bitmapData = document.createElement("img");

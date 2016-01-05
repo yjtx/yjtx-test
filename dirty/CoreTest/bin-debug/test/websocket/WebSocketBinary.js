@@ -61,7 +61,8 @@ var WebSocketBinary = (function (_super) {
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             egret.log("打开连接中....");
-            socket.connect("echo.websocket.org", 80);
+            //socket.connect("echo.websocket.org", 80);
+            socket.connect("172.20.152.153", 8080);
         }, this);
         var label = new egret.TextField();
         label.text = "点击发送数据";

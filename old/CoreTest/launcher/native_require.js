@@ -1,5 +1,7 @@
 var window = {};
 
+__global.alert = console.log;
+
 egret_native.setSearchPaths([""]);
 
 egret_native.requireFiles = function () {
@@ -91,7 +93,7 @@ egret_native.egretStart = function () {
         configurable: true
     });
 
-    var document_class = "Main";
+    var document_class = "RESLoadAndDispose";
     var rootClass;
     if (document_class) {
         rootClass = egret.getDefinitionByName(document_class);

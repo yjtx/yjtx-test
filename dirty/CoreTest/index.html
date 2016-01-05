@@ -20,6 +20,7 @@
             height: 100%;
         }
     </style>
+	<script src="http://qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js"></script>
 
 
     <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件-->
@@ -114,6 +115,7 @@
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawEllipse.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawLine.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawLineClick.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawRoundRect.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsGuaguale.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsGuaguale2.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsLineStyle.js"></script>
@@ -125,6 +127,7 @@
 	<script egret="game" src="bin-debug/test/loader/LoaderBitmap.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderGetData.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeust.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeustGet.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderPostData.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderSound.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderText.js"></script>
@@ -133,6 +136,7 @@
 	<script egret="game" src="bin-debug/test/mask/MaskCircleGraphics.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskDiffMaskAndScroll.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskDisplayObject.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskMaskGraphics.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskMaskRect.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskProgressCircle.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskScrollRect.js"></script>
@@ -145,6 +149,7 @@
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipResAnimation.js"></script>
 	<script egret="game" src="bin-debug/test/orientation/OrientationNormal.js"></script>
 	<script egret="game" src="bin-debug/test/other/OtherWinTest.js"></script>
+	<script egret="game" src="bin-debug/test/pixel/PixelMovieClip.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureBgTween.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureBitmapWithScale.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureCircle.js"></script>
@@ -161,6 +166,7 @@
 	<script egret="game" src="bin-debug/test/res/RESDisposeGroupAfterSheet.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeSheetAfterSheet.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeSubKeyAfterSheet.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESLoadAndDispose.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESLoadTwoAndDisposeFirst.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESLoaded.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESLoadedTwice.js"></script>
@@ -177,6 +183,7 @@
 	<script egret="game" src="bin-debug/test/sound/SoundClickPlay.js"></script>
 	<script egret="game" src="bin-debug/test/sound/SoundClickPlayNumbers.js"></script>
 	<script egret="game" src="bin-debug/test/sound/SoundNormal.js"></script>
+	<script egret="game" src="bin-debug/test/sound/SoundPosition.js"></script>
 	<script egret="game" src="bin-debug/test/sound/SoundTimeout.js"></script>
 	<script egret="game" src="bin-debug/test/sound/SoundVolume.js"></script>
 	<script egret="game" src="bin-debug/test/sound/all/test_sound.js"></script>
@@ -197,6 +204,7 @@
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputAndArea.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputNotClick.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputText.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldInputTextWithDisplayAsPasswordAndRestrict.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldMaxChars.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldNormal.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldNormalDelay.js"></script>
@@ -221,6 +229,7 @@
 	<script egret="game" src="bin-debug/test/tween/TweenLoopWithShape.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenNormal.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenRotation.js"></script>
+	<script egret="game" src="bin-debug/test/tween/TweenTextFieldNumberAdd.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenTreeRunRotation.js"></script>
 	<script egret="game" src="bin-debug/test/video/VideoNormal.js"></script>
 	<script egret="game" src="bin-debug/test/websocket/WebSocketBinary.js"></script>
@@ -232,11 +241,11 @@
 <body>
 
 <div id="egret-sample" style="margin: auto;width: 100%;height: 100%;overflow:visible;-webkit-transform: translateZ(0);" class="egret-player"
-     data-entry-class="LoaderBinFile"
+     data-entry-class="RESLoadAndDispose"
      data-orientation="portrait"
      data-scale-mode="fixedWidth"
      data-resolution-mode="retina"
-     data-frame-rate="30"
+     data-frame-rate="60"
      data-content-width="480"
      data-content-height="800"
      data-show-paint-rect="false"

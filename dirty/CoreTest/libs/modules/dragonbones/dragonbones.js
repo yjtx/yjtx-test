@@ -45,7 +45,7 @@ var dragonBones;
          *
          */
         DragonBones.PARENT_COORDINATE_DATA_VERSION = "3.0";
-        DragonBones.VERSION = "4.3.3";
+        DragonBones.VERSION = "4.3.5";
         return DragonBones;
     })();
     dragonBones.DragonBones = DragonBones;
@@ -11471,9 +11471,11 @@ var dragonBones;
             slotData.zOrder = Data3Parser.getNumber(slotObject, dragonBones.ConstValues.A_Z_ORDER, 0) || 0;
             slotData.blendMode = slotObject[dragonBones.ConstValues.A_BLENDMODE];
             var displayList = slotObject[dragonBones.ConstValues.DISPLAY];
-            for (var i = 0, len = displayList.length; i < len; i++) {
-                var displayObject = displayList[i];
-                slotData.addDisplayData(Data3Parser.parseDisplayData(displayObject));
+            if (displayList) {
+                for (var i = 0, len = displayList.length; i < len; i++) {
+                    var displayObject = displayList[i];
+                    slotData.addDisplayData(Data3Parser.parseDisplayData(displayObject));
+                }
             }
             return slotData;
         };
@@ -11517,7 +11519,7 @@ var dragonBones;
             if (frameObjectList) {
                 for (i = 0, len = frameObjectList.length; i < len; i++) {
                     var frameObject = frameObjectList[i];
-                    var frame = Data3Parser.parseTransformFrame(frameObject, frameRate);
+                    var frame = Data3Parser.parseTransformFrame(frameObject, null, frameRate);
                     animationData.addFrame(frame);
                 }
             }
@@ -11629,15 +11631,25 @@ var dragonBones;
             outputTimeline.originPivot.y = Data3Parser.getNumber(timelineObject, dragonBones.ConstValues.A_PIVOT_Y, 0) || 0;
             outputTimeline.duration = duration;
             var frameList = timelineObject[dragonBones.ConstValues.FRAME];
+            var nextFrameObject;
             for (var i = 0, len = frameList.length; i < len; i++) {
                 var frameObject = frameList[i];
-                var frame = Data3Parser.parseTransformFrame(frameObject, frameRate);
+                if (i < len - 1) {
+                    nextFrameObject = frameList[i + 1];
+                }
+                else if (i != 0) {
+                    nextFrameObject = frameList[0];
+                }
+                else {
+                    nextFrameObject = null;
+                }
+                var frame = Data3Parser.parseTransformFrame(frameObject, nextFrameObject, frameRate);
                 outputTimeline.addFrame(frame);
             }
             Data3Parser.parseTimeline(timelineObject, outputTimeline);
             return outputTimeline;
         };
-        Data3Parser.parseTransformFrame = function (frameObject, frameRate) {
+        Data3Parser.parseTransformFrame = function (frameObject, nextFrameObject, frameRate) {
             var outputFrame = new dragonBones.TransformFrame();
             Data3Parser.parseFrame(frameObject, outputFrame, frameRate);
             outputFrame.visible = !Data3Parser.getBoolean(frameObject, dragonBones.ConstValues.A_HIDE, false);
@@ -11646,6 +11658,9 @@ var dragonBones;
             outputFrame.tweenRotate = Math.floor(Data3Parser.getNumber(frameObject, dragonBones.ConstValues.A_TWEEN_ROTATE, 0) || 0);
             outputFrame.tweenScale = Data3Parser.getBoolean(frameObject, dragonBones.ConstValues.A_TWEEN_SCALE, true);
             //outputFrame.displayIndex = Math.floor(Data3Parser.getNumber(frameObject, ConstValues.A_DISPLAY_INDEX, 0)|| 0);
+            if (nextFrameObject && Math.floor(Data3Parser.getNumber(nextFrameObject, dragonBones.ConstValues.A_DISPLAY_INDEX, 0) || 0) == -1) {
+                outputFrame.tweenEasing = NaN;
+            }
             Data3Parser.parseTransform(frameObject[dragonBones.ConstValues.TRANSFORM], outputFrame.transform, outputFrame.pivot);
             if (Data3Parser.tempDragonBonesData.isGlobal) {
                 outputFrame.global.copy(outputFrame.transform);
@@ -11965,9 +11980,11 @@ var dragonBones;
             slotData.parent = slotObject[dragonBones.ConstValues.A_PARENT];
             slotData.zOrder = DataParser.getNumber(slotObject, dragonBones.ConstValues.A_Z_ORDER, 0) || 0;
             var displayList = slotObject[dragonBones.ConstValues.DISPLAY];
-            for (var i = 0, len = displayList.length; i < len; i++) {
-                var displayObject = displayList[i];
-                slotData.addDisplayData(DataParser.parseDisplayData(displayObject));
+            if (displayList) {
+                for (var i = 0, len = displayList.length; i < len; i++) {
+                    var displayObject = displayList[i];
+                    slotData.addDisplayData(DataParser.parseDisplayData(displayObject));
+                }
             }
             return slotData;
         };

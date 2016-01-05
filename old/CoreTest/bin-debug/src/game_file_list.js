@@ -96,6 +96,7 @@ var game_file_list = [
 	"test/res/RESDisposeGroupAfterSheet.js",
 	"test/res/RESDisposeSheetAfterSheet.js",
 	"test/res/RESDisposeSubKeyAfterSheet.js",
+	"test/res/RESLoadAndDispose.js",
 	"test/res/RESLoaded.js",
 	"test/res/RESLoadedTwice.js",
 	"test/res/RESRenderTextureDouble.js",

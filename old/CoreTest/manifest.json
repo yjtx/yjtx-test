@@ -98,6 +98,7 @@
     "test/res/RESDisposeGroupAfterSheet.ts",
     "test/res/RESDisposeSheetAfterSheet.ts",
     "test/res/RESDisposeSubKeyAfterSheet.ts",
+    "test/res/RESLoadAndDispose.ts",
     "test/res/RESLoaded.ts",
     "test/res/RESLoadedTwice.ts",
     "test/res/RESRenderTextureDouble.ts",
