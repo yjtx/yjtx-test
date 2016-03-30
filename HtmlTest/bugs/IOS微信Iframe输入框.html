@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<h3>请在 iframe 模式下测试</h3>
-<p>如果是inputDiv监听，则长按住输入框后（非第一个字符前）不能弹出粘贴图标，而且不能输入字符（第一个输入框）； 如果是label监听或者不加监听，则长按后都可以弹出粘贴图标（第二个输入框）。</p>
+<h3>请在 ios iframe 模式下非 Safari 测试</h3>
+<p>如果对在输入框范围内的某个DOM组件进行touchstart监听，就会导致输入框在空字符时长按粘贴标签出不来，如果是监听click则没有问题</p>
 
 <div>
     问题输入框
@@ -23,11 +23,22 @@
 </div>
 
 <div style="margin: 30px 0px">
-    正确输入框
-    <div id="label2"></div>
+    问题输入框
+    <div id="label2" style="position:absolute;width: 300px;height:100px"></div>
     <div id="inputDiv2"
-         style="background: #ffff00;width: 300px;height:100px">
+         style="background: #ffff00;width: 300px;height:100px;position: absolute">
             <textarea id="text2" type="text" tabindex="-1"
+                      style="top:100px;width: 200px;text-align: left; font-size: 40px; color: rgb(0, 0, 0);">
+            </textarea>
+    </div>
+</div>
+
+<div style="margin: 120px 0px">
+    正确输入框
+    <div id="label3" style="position:absolute;width: 300px;height:100px"></div>
+    <div id="inputDiv3"
+         style="background: #ffff00;width: 300px;height:100px;position: absolute">
+            <textarea id="text3" type="text" tabindex="-1"
                       style="top:100px;width: 200px;text-align: left; font-size: 40px; color: rgb(0, 0, 0);">
             </textarea>
     </div>
@@ -42,7 +53,7 @@
 
     inputDiv.addEventListener("touchstart", function () {
     });
-    text.value = "bbb";
+    text.value = "";
     //////////////////////////////1111111//////////////////////////////////
 
 
@@ -53,7 +64,7 @@
 
     label2.addEventListener("touchstart", function () {
     });
-    text2.value = "bbb";
+    text2.value = "";
     //////////////////////////////2222222//////////////////////////////////
 
 </script>

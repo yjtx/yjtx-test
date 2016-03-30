@@ -42,9 +42,9 @@
 
     setTimeout(function () {
         iframe.style.display = "block";
-    }, 20000);
+        iframe.src = url;
+    }, 1000);
 
-    iframe.src = url;
     iframe.contentWindow.addEventListener("resize", function() {
         console.log("sdfsfsdf")
     });
