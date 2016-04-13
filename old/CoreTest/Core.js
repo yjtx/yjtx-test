@@ -11,7 +11,7 @@ var examples = {
     "Bitmap": ["Normal", "Delay", "Size", "Zoom", "Scale9Size", "Scale9Zoom", "Scale9ZoomSize",
         "Repeat", "RepeatScale", "OffsetAnchor", "OffsetAnchorRun", "Scale9Logo"],
     "CacheAsBitmap": ["ParentSizeZero", "DelayLoaded"],
-    "DB": ["Normal", "Role", "GirlRun"],
+    "DB": ["Normal", "Role", "GirlRun", "BigFla"],
     "MovieClip": ["Normal"],
     "Event": ["StageADDAndREMOVE", "TouchCapture"],
     "Touch": ["Bitmap", "Graphics", "Container", "GraphicsEvent"],

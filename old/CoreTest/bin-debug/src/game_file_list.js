@@ -40,6 +40,7 @@ var game_file_list = [
 	"test/cacheAsbitmap/CacheAsBitmapTwice.js",
 	"test/container/ContainerChildRemove.js",
 	"test/container/ContainerOutSideChildInScreen.js",
+	"test/db/DBBigFla.js",
 	"test/db/DBGirlRun.js",
 	"test/db/DBHero.js",
 	"test/db/DBNormal.js",

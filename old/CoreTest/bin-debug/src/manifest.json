@@ -40,6 +40,7 @@
 	"test/cacheAsbitmap/CacheAsBitmapTwice.ts",
 	"test/container/ContainerChildRemove.ts",
 	"test/container/ContainerOutSideChildInScreen.ts",
+	"test/db/DBBigFla.ts",
 	"test/db/DBGirlRun.ts",
 	"test/db/DBHero.ts",
 	"test/db/DBNormal.ts",

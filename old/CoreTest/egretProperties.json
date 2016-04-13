@@ -1,5 +1,5 @@
 {
-	"document_class": "RESLoadAndDispose",
+	"document_class": "DBBigFla",
 	"modules": [
 		{
 			"name": "core"
@@ -26,7 +26,8 @@
 	],
 	"native": {
 		"path_ignore": [],
-		"ios_path": "../IosOldCore"
+		"ios_path": "../IosOldCore",
+		"android_path": "../OldAndCore"
 	},
 	"egret_version": "2.0.5"
 }

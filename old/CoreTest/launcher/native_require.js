@@ -1,6 +1,6 @@
 var window = {};
 
-__global.alert = console.log;
+var alert = console.log;
 
 egret_native.setSearchPaths([""]);
 
@@ -93,7 +93,7 @@ egret_native.egretStart = function () {
         configurable: true
     });
 
-    var document_class = "RESLoadAndDispose";
+    var document_class = "DBBigFla";
     var rootClass;
     if (document_class) {
         rootClass = egret.getDefinitionByName(document_class);
