@@ -43,5 +43,5 @@ var LoaderHttpReqeust = (function (_super) {
         }, this);
     };
     return LoaderHttpReqeust;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderHttpReqeust,'LoaderHttpReqeust');

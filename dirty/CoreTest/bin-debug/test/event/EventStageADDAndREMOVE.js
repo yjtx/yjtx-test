@@ -23,7 +23,7 @@ var EventStageADDAndREMOVE = (function (_super) {
         }, this, 1000);
     };
     return EventStageADDAndREMOVE;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(EventStageADDAndREMOVE,'EventStageADDAndREMOVE');
 var TempContainer = (function (_super) {
     __extends(TempContainer, _super);
@@ -48,5 +48,5 @@ var TempContainer = (function (_super) {
         console.log("onRemoveFromStageHandler");
     };
     return TempContainer;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(TempContainer,'TempContainer');

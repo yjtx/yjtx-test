@@ -33,5 +33,5 @@ var MaskMaskGraphics = (function (_super) {
         icon.mask = shape;
     };
     return MaskMaskGraphics;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskMaskGraphics,'MaskMaskGraphics');

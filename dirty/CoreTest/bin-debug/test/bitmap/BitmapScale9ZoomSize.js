@@ -54,5 +54,5 @@ var BitmapScale9ZoomSize = (function (_super) {
         icon.height = 180;
     };
     return BitmapScale9ZoomSize;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScale9ZoomSize,'BitmapScale9ZoomSize');

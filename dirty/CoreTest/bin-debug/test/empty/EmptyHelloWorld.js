@@ -37,5 +37,5 @@ var EmptyHelloWorld = (function (_super) {
         alert("Hello World");
     };
     return EmptyHelloWorld;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(EmptyHelloWorld,'EmptyHelloWorld');

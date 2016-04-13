@@ -55,5 +55,5 @@ var RenderTextureRectSize = (function (_super) {
         s.mask = new egret.Rectangle(0, 0, 20, 20);
     };
     return RenderTextureRectSize;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureRectSize,'RenderTextureRectSize');

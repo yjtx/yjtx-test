@@ -40,5 +40,5 @@ var BitmapZoom = (function (_super) {
         icon.scaleX = icon.scaleY = 1.5;
     };
     return BitmapZoom;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapZoom,'BitmapZoom');

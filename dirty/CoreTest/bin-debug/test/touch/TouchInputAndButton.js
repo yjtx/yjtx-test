@@ -55,5 +55,5 @@ var TouchInputAndButton = (function (_super) {
         }, this);
     };
     return TouchInputAndButton;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchInputAndButton,'TouchInputAndButton');

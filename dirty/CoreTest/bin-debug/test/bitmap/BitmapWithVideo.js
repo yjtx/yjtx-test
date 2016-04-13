@@ -58,5 +58,5 @@ var BitmapWithVideo = (function (_super) {
         return data;
     };
     return BitmapWithVideo;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapWithVideo,'BitmapWithVideo');

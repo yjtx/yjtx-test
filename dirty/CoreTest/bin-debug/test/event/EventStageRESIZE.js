@@ -15,5 +15,5 @@ var EventStageRESIZE = (function (_super) {
         }, this);
     };
     return EventStageRESIZE;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(EventStageRESIZE,'EventStageRESIZE');

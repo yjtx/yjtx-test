@@ -59,5 +59,5 @@ var MaskProgressCircle = (function (_super) {
         sp.graphics.endFill(); // if you want a sector without filling color , please remove this line.
     };
     return MaskProgressCircle;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskProgressCircle,'MaskProgressCircle');

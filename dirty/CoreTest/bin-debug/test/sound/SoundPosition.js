@@ -105,5 +105,5 @@ var SoundPosition = (function (_super) {
         endTime2.y = 430;
     };
     return SoundPosition;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundPosition,'SoundPosition');

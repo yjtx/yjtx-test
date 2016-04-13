@@ -160,5 +160,5 @@ var ArcAllUse = (function (_super) {
         }
     };
     return ArcAllUse;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ArcAllUse,'ArcAllUse');

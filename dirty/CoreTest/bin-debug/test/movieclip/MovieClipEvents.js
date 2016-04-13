@@ -56,5 +56,5 @@ var MovieClipEvents = (function (_super) {
         }, this);
     };
     return MovieClipEvents;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipEvents,'MovieClipEvents');

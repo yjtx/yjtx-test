@@ -201,5 +201,5 @@ var TextFieldInput = (function (_super) {
         textField.textAlign = egret.HorizontalAlign.RIGHT;
     };
     return TextFieldInput;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldInput,'TextFieldInput');

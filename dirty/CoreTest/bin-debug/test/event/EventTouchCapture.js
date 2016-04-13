@@ -46,5 +46,5 @@ var EventTouchCapture = (function (_super) {
         egret.log(egret.getQualifiedClassName(e.currentTarget) + " =======  " + e.type + " ======= useCapture false " + +this["useCapture"]);
     };
     return EventTouchCapture;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(EventTouchCapture,'EventTouchCapture');

@@ -26,5 +26,5 @@ var TextFieldShowOneByOne = (function (_super) {
         }, this, 200);
     };
     return TextFieldShowOneByOne;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldShowOneByOne,'TextFieldShowOneByOne');

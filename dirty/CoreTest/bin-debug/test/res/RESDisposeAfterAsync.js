@@ -57,5 +57,5 @@ var RESDisposeAfterAsync = (function (_super) {
         }, this, 4000);
     };
     return RESDisposeAfterAsync;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESDisposeAfterAsync,'RESDisposeAfterAsync');

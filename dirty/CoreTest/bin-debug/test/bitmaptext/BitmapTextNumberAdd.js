@@ -47,5 +47,5 @@ var BitmapTextNumberAdd = (function (_super) {
         }, this, 1000);
     };
     return BitmapTextNumberAdd;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapTextNumberAdd,'BitmapTextNumberAdd');

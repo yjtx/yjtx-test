@@ -36,5 +36,5 @@ var MaskWithShapeMove = (function (_super) {
         tw.call(change, self);
     };
     return MaskWithShapeMove;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskWithShapeMove,'MaskWithShapeMove');

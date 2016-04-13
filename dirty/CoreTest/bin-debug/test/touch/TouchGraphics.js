@@ -78,5 +78,5 @@ var TouchGraphics = (function (_super) {
         }, this);
     };
     return TouchGraphics;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchGraphics,'TouchGraphics');

@@ -44,5 +44,5 @@ var BlendModeErase = (function (_super) {
         }, this);
     };
     return BlendModeErase;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BlendModeErase,'BlendModeErase');

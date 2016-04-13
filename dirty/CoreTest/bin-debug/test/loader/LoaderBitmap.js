@@ -44,5 +44,5 @@ var LoaderBitmap = (function (_super) {
         loader.load(request);
     };
     return LoaderBitmap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderBitmap,'LoaderBitmap');

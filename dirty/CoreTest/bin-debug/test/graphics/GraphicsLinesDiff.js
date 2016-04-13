@@ -41,5 +41,5 @@ var GraphicsLinesDiff = (function (_super) {
         }
     };
     return GraphicsLinesDiff;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsLinesDiff,'GraphicsLinesDiff');

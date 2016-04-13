@@ -52,8 +52,8 @@ class OrientationNormal extends EntryDisplayObjectContainer {
             role.y = Math.floor(i / 5) * 80 + 300;
         }
 
+        this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
 
-        this.stage.orientation = egret.OrientationMode.AUTO;
         var arr = [];
         arr.push(egret.OrientationMode.AUTO);
         arr.push(egret.OrientationMode.PORTRAIT);
@@ -61,8 +61,10 @@ class OrientationNormal extends EntryDisplayObjectContainer {
         arr.push(egret.OrientationMode.LANDSCAPE_FLIPPED);
 
         var count = 0;
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        this.stage.orientation = arr[count++];
+
+        //this.touchEnabled = true;
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             count = count % arr.length;
             this.stage.orientation = arr[count++];
         }, this);

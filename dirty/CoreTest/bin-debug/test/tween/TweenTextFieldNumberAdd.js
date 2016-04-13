@@ -47,5 +47,5 @@ var TweenTextFieldNumberAdd = (function (_super) {
         console.log(this.text.text);
     };
     return TweenTextFieldNumberAdd;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TweenTextFieldNumberAdd,'TweenTextFieldNumberAdd');

@@ -54,8 +54,13 @@ class LoadResources {
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
 
-        alert("开始加载");
-        RES.loadGroup(this._group);
+        if (this._group != null && this._group != "") {
+            alert("开始加载");
+            RES.loadGroup(this._group);
+        }
+        else {
+            this._callback.call(this._thisObj);
+        }
     }
 
     /**

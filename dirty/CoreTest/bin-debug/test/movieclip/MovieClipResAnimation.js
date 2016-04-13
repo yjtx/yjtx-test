@@ -53,5 +53,5 @@ var MovieClipResAnimation = (function (_super) {
         //}
     };
     return MovieClipResAnimation;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipResAnimation,'MovieClipResAnimation');

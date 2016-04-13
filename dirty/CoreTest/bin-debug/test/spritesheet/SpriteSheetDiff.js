@@ -52,5 +52,5 @@ var SpriteSheetDiff = (function (_super) {
         //icon.y = 300;
     };
     return SpriteSheetDiff;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SpriteSheetDiff,'SpriteSheetDiff');

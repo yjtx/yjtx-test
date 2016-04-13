@@ -30,5 +30,5 @@ var GraphicsLineStyle = (function (_super) {
         }
     };
     return GraphicsLineStyle;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsLineStyle,'GraphicsLineStyle');

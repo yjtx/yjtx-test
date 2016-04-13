@@ -19,5 +19,5 @@ var GraphicsDrawLine = (function (_super) {
         shape.graphics.lineTo(200, 100);
     };
     return GraphicsDrawLine;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawLine,'GraphicsDrawLine');

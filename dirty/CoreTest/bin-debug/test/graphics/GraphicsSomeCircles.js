@@ -33,5 +33,5 @@ var GraphicsSomeCircles = (function (_super) {
         }, this);
     };
     return GraphicsSomeCircles;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsSomeCircles,'GraphicsSomeCircles');

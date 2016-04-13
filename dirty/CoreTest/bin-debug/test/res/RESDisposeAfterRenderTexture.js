@@ -66,5 +66,5 @@ var RESDisposeAfterRenderTexture = (function (_super) {
         }, this, 4000);
     };
     return RESDisposeAfterRenderTexture;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESDisposeAfterRenderTexture,'RESDisposeAfterRenderTexture');

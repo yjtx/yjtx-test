@@ -60,5 +60,5 @@ var RenderTextureBgTween = (function (_super) {
         return result;
     };
     return RenderTextureBgTween;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureBgTween,'RenderTextureBgTween');

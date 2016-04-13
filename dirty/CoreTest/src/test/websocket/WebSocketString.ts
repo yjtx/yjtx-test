@@ -36,6 +36,7 @@ class WebSocketString extends EntryDisplayObjectContainer {
     protected initRoot():void {
         var socket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_STRING;
+        alert("111")
         socket.addEventListener(egret.ProgressEvent.SOCKET_DATA, function (e:egret.ProgressEvent) {
             egret.log("SOCKET_DATA");
 
@@ -61,7 +62,8 @@ class WebSocketString extends EntryDisplayObjectContainer {
         this.addChild(label);
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             egret.log("打开连接中....");
-            socket.connect("echo.websocket.org", 80);
+            //socket.connect("echo.websocket.org", 80);
+            socket.connectByUrl("ws://echo.websocket.org");
         }, this);
 
         var label:egret.TextField = new egret.TextField();

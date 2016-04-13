@@ -21,5 +21,5 @@ var GraphicsDrawRoundRect = (function (_super) {
         this.addChild(g);
     };
     return GraphicsDrawRoundRect;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawRoundRect,'GraphicsDrawRoundRect');

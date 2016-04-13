@@ -27,5 +27,5 @@ var TickerLoadingUse = (function (_super) {
     }
     var d = __define,c=TickerLoadingUse,p=c.prototype;
     return TickerLoadingUse;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(TickerLoadingUse,'TickerLoadingUse');

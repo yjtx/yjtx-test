@@ -111,5 +111,5 @@ var DrawDBAndClick = (function (_super) {
         }
     };
     return DrawDBAndClick;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DrawDBAndClick,'DrawDBAndClick');

@@ -50,5 +50,5 @@ var LoaderBinFile = (function (_super) {
         loader.load(request);
     };
     return LoaderBinFile;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderBinFile,'LoaderBinFile');

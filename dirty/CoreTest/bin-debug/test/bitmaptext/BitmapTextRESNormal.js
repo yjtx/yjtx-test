@@ -43,5 +43,5 @@ var BitmapTextRESNormal = (function (_super) {
         }, this, 5000);
     };
     return BitmapTextRESNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapTextRESNormal,'BitmapTextRESNormal');

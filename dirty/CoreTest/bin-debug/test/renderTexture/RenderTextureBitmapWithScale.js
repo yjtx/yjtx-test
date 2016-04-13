@@ -49,5 +49,5 @@ var RenderTextureBitmapWithScale = (function (_super) {
         bmp2.y = 310;
     };
     return RenderTextureBitmapWithScale;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureBitmapWithScale,'RenderTextureBitmapWithScale');

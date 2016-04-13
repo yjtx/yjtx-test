@@ -31,5 +31,5 @@ var GraphicsDrawArcRun = (function (_super) {
         }
     };
     return GraphicsDrawArcRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawArcRun,'GraphicsDrawArcRun');

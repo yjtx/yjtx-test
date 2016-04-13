@@ -46,5 +46,5 @@ var BitmapParams = (function (_super) {
         console.log("2 texture: " + icon.texture);
     };
     return BitmapParams;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapParams,'BitmapParams');

@@ -58,5 +58,5 @@ var RESDisposeGroupAfterSheet = (function (_super) {
         }, this, 4000);
     };
     return RESDisposeGroupAfterSheet;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESDisposeGroupAfterSheet,'RESDisposeGroupAfterSheet');

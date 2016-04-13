@@ -26,5 +26,5 @@ var TouchMultiTouches = (function (_super) {
         }, this);
     };
     return TouchMultiTouches;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchMultiTouches,'TouchMultiTouches');

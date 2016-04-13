@@ -64,5 +64,5 @@ var LoaderPostData = (function (_super) {
         loader.load(request);
     };
     return LoaderPostData;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderPostData,'LoaderPostData');

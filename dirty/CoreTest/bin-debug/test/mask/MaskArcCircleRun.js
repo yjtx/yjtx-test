@@ -44,5 +44,5 @@ var MaskArcCircleRun = (function (_super) {
         }
     };
     return MaskArcCircleRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskArcCircleRun,'MaskArcCircleRun');

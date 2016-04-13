@@ -63,5 +63,5 @@ var LoaderHttpReqeustGet = (function (_super) {
     p.testText2 = function () {
     };
     return LoaderHttpReqeustGet;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderHttpReqeustGet,'LoaderHttpReqeustGet');

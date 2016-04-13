@@ -15,5 +15,5 @@ var TextFieldNormalDelay = (function (_super) {
         }, this, 1000);
     };
     return TextFieldNormalDelay;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldNormalDelay,'TextFieldNormalDelay');

@@ -106,5 +106,5 @@ var RESLoadedTwice = (function (_super) {
         }
     };
     return RESLoadedTwice;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(RESLoadedTwice,'RESLoadedTwice');

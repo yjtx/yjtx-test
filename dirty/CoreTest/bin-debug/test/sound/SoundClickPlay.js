@@ -58,5 +58,5 @@ var SoundClickPlay = (function (_super) {
         }, this);
     };
     return SoundClickPlay;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundClickPlay,'SoundClickPlay');

@@ -49,5 +49,5 @@ var MovieClipNormal = (function (_super) {
         }
     };
     return MovieClipNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipNormal,'MovieClipNormal');

@@ -55,5 +55,5 @@ var RESDisposeSubKeyAfterSheet = (function (_super) {
         }, this, 4000);
     };
     return RESDisposeSubKeyAfterSheet;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESDisposeSubKeyAfterSheet,'RESDisposeSubKeyAfterSheet');

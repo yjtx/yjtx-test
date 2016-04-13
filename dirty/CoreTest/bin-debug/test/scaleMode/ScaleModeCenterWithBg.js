@@ -88,5 +88,5 @@ var ScaleModeCenterWithBg = (function (_super) {
         }
     };
     return ScaleModeCenterWithBg;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ScaleModeCenterWithBg,'ScaleModeCenterWithBg');

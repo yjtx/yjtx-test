@@ -21,5 +21,5 @@ var TouchReleaseOutSide = (function (_super) {
         }, this);
     };
     return TouchReleaseOutSide;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchReleaseOutSide,'TouchReleaseOutSide');

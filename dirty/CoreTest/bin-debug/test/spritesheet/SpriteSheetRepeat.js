@@ -57,5 +57,5 @@ var SpriteSheetRepeat = (function (_super) {
         return result;
     };
     return SpriteSheetRepeat;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SpriteSheetRepeat,'SpriteSheetRepeat');

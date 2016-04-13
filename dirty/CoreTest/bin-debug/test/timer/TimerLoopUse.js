@@ -20,5 +20,5 @@ var TimerLoopUse = (function (_super) {
         timer.stop();
     };
     return TimerLoopUse;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TimerLoopUse,'TimerLoopUse');

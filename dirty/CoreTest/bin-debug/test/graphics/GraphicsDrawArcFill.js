@@ -37,5 +37,5 @@ var GraphicsDrawArcFill = (function (_super) {
         egret.startTick(f, this);
     };
     return GraphicsDrawArcFill;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawArcFill,'GraphicsDrawArcFill');

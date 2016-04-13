@@ -24,5 +24,5 @@ var TimerStartStop = (function (_super) {
         console.log(egret.getTimer());
     };
     return TimerStartStop;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TimerStartStop,'TimerStartStop');

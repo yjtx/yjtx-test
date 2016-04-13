@@ -54,5 +54,5 @@ var TextFieldHref = (function (_super) {
         }, this);
     };
     return TextFieldHref;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldHref,'TextFieldHref');

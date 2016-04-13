@@ -40,5 +40,5 @@ var CacheAsBitmapTwice = (function (_super) {
         bitmap.cacheAsBitmap = false;
     };
     return CacheAsBitmapTwice;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(CacheAsBitmapTwice,'CacheAsBitmapTwice');

@@ -31,5 +31,5 @@ var DBGirlRun = (function (_super) {
         }, this);
     };
     return DBGirlRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DBGirlRun,'DBGirlRun');

@@ -26,5 +26,5 @@ var TouchSpriteBitmap = (function (_super) {
         }, this);
     };
     return TouchSpriteBitmap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchSpriteBitmap,'TouchSpriteBitmap');

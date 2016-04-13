@@ -57,5 +57,5 @@ var PixelMovieClip = (function (_super) {
         console.log((point.x - bounds.x) + "  " + (point.y - bounds.y));
     };
     return PixelMovieClip;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(PixelMovieClip,'PixelMovieClip');

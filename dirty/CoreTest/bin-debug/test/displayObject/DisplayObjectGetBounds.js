@@ -57,5 +57,5 @@ var DisplayObjectGetBounds = (function (_super) {
         }, this, 3000);
     };
     return DisplayObjectGetBounds;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DisplayObjectGetBounds,'DisplayObjectGetBounds');

@@ -39,5 +39,5 @@ var Base64SaveFromTexture = (function (_super) {
         texture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
     };
     return Base64SaveFromTexture;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(Base64SaveFromTexture,'Base64SaveFromTexture');

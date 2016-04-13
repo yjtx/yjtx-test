@@ -27,5 +27,5 @@ var GraphicsArcCircleRun = (function (_super) {
         }
     };
     return GraphicsArcCircleRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsArcCircleRun,'GraphicsArcCircleRun');

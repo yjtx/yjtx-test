@@ -180,5 +180,5 @@ var Main = (function (_super) {
         textfield.textFlow = textFlow;
     };
     return Main;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(Main,'Main');

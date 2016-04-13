@@ -81,5 +81,5 @@ var BitmapFillModeExample = (function (_super) {
         return txt;
     };
     return BitmapFillModeExample;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapFillModeExample,'BitmapFillModeExample');

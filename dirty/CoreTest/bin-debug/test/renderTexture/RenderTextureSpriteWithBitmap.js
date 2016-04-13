@@ -46,5 +46,5 @@ var RenderTextureSpriteWithBitmap = (function (_super) {
         console.log(tx2.textureWidth + " " + tx2.textureHeight);
     };
     return RenderTextureSpriteWithBitmap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureSpriteWithBitmap,'RenderTextureSpriteWithBitmap');

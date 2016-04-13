@@ -21,7 +21,7 @@ var FunctionDefaultValue = (function (_super) {
         console.log(tf.toString());
     };
     return FunctionDefaultValue;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(FunctionDefaultValue,'FunctionDefaultValue');
 var TestFunction = (function () {
     function TestFunction() {
@@ -53,5 +53,5 @@ var TestFunction = (function () {
         return str;
     };
     return TestFunction;
-})();
+}());
 egret.registerClass(TestFunction,'TestFunction');

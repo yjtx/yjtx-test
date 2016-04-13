@@ -17,5 +17,5 @@ var TextFieldAppendText = (function (_super) {
         this.addChild(textfield1);
     };
     return TextFieldAppendText;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldAppendText,'TextFieldAppendText');

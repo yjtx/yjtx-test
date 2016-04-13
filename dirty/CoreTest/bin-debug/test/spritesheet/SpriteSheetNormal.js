@@ -62,5 +62,5 @@ var SpriteSheetNormal = (function (_super) {
         shape.y = icon.y;
     };
     return SpriteSheetNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SpriteSheetNormal,'SpriteSheetNormal');

@@ -43,7 +43,7 @@ var WebSocketBinary = (function (_super) {
             var msg = byte.readUTFBytes(magBytesAvailable);
             var boo = byte.readBoolean();
             var num = byte.readInt();
-            egret.log("收到数据：" + msg + boo.toString() + num.toString());
+            egret.log("收到数据：" + msg + " " + boo.toString() + " " + num.toString());
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e) {
             egret.log("WebSocketOpen");
@@ -62,7 +62,8 @@ var WebSocketBinary = (function (_super) {
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             egret.log("打开连接中....");
             //socket.connect("echo.websocket.org", 80);
-            socket.connect("172.20.152.153", 8080);
+            //socket.connect("172.20.152.153", 8080);
+            socket.connectByUrl("ws://echo.websocket.org");
         }, this);
         var label = new egret.TextField();
         label.text = "点击发送数据";
@@ -76,7 +77,7 @@ var WebSocketBinary = (function (_super) {
             byte.position = 0;
             magBytesAvailable = byte.bytesAvailable;
             byte.position = byte.bytesAvailable;
-            byte.writeBoolean(false);
+            byte.writeBoolean(true);
             byte.writeInt(123);
             byte.position = 0;
             socket.writeBytes(byte, 0, byte.bytesAvailable);
@@ -92,5 +93,5 @@ var WebSocketBinary = (function (_super) {
         }, this);
     };
     return WebSocketBinary;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(WebSocketBinary,'WebSocketBinary');

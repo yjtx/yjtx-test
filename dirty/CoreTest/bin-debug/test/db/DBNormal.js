@@ -31,5 +31,5 @@ var DBNormal = (function (_super) {
         }, this);
     };
     return DBNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DBNormal,'DBNormal');

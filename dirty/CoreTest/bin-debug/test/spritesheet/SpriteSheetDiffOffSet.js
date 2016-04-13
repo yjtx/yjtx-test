@@ -67,5 +67,5 @@ var SpriteSheetDiffOffSet = (function (_super) {
         icon.y = 430;
     };
     return SpriteSheetDiffOffSet;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SpriteSheetDiffOffSet,'SpriteSheetDiffOffSet');

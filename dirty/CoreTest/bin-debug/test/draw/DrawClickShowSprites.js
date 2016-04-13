@@ -90,5 +90,5 @@ var DrawClickShowSprites = (function (_super) {
         }
     };
     return DrawClickShowSprites;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DrawClickShowSprites,'DrawClickShowSprites');

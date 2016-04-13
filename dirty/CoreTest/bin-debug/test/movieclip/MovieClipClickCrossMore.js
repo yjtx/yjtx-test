@@ -57,5 +57,5 @@ var MovieClipClickCrossMore = (function (_super) {
         }, this);
     };
     return MovieClipClickCrossMore;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipClickCrossMore,'MovieClipClickCrossMore');

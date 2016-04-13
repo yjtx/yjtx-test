@@ -45,5 +45,5 @@ var DisplayObjectSkewValue = (function (_super) {
         console.log(" skewX:" + codeBg.skewX + " skewY:" + codeBg.skewY);
     };
     return DisplayObjectSkewValue;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DisplayObjectSkewValue,'DisplayObjectSkewValue');

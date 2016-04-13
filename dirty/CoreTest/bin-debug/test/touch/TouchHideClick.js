@@ -36,5 +36,5 @@ var TouchHideClick = (function (_super) {
         }, this);
     };
     return TouchHideClick;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchHideClick,'TouchHideClick');

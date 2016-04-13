@@ -22,5 +22,5 @@ var MaskDisplayObject = (function (_super) {
         shape.mask = icon;
     };
     return MaskDisplayObject;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskDisplayObject,'MaskDisplayObject');

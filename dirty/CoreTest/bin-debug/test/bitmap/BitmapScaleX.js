@@ -67,5 +67,5 @@ var BitmapScaleX = (function (_super) {
         c.addChild(icon);
     };
     return BitmapScaleX;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScaleX,'BitmapScaleX');

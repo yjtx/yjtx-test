@@ -25,7 +25,7 @@ var EventBoyAndGirl = (function (_super) {
         boy.removeEventListener(DateEvent.DATE, girl.getDate, girl);
     };
     return EventBoyAndGirl;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(EventBoyAndGirl,'EventBoyAndGirl');
 var Boy = (function (_super) {
     __extends(Boy, _super);
@@ -46,7 +46,7 @@ var Boy = (function (_super) {
         this.dispatchEvent(daterEvent);
     };
     return Boy;
-})(egret.Sprite);
+}(egret.Sprite));
 egret.registerClass(Boy,'Boy');
 var Girl = (function (_super) {
     __extends(Girl, _super);
@@ -59,7 +59,7 @@ var Girl = (function (_super) {
         console.log("会在" + evt._year + "年" + evt._month + "月" + evt._date + "日，在" + evt._where + evt._todo);
     };
     return Girl;
-})(egret.Sprite);
+}(egret.Sprite));
 egret.registerClass(Girl,'Girl');
 var DateEvent = (function (_super) {
     __extends(DateEvent, _super);
@@ -76,5 +76,5 @@ var DateEvent = (function (_super) {
     var d = __define,c=DateEvent,p=c.prototype;
     DateEvent.DATE = "约会";
     return DateEvent;
-})(egret.Event);
+}(egret.Event));
 egret.registerClass(DateEvent,'DateEvent');

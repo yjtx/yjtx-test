@@ -24,5 +24,5 @@ var TextFieldStrokeRun = (function (_super) {
         }, this);
     };
     return TextFieldStrokeRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldStrokeRun,'TextFieldStrokeRun');

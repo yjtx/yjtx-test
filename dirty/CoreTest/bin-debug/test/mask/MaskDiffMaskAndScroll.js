@@ -26,5 +26,5 @@ var MaskDiffMaskAndScroll = (function (_super) {
         }, this);
     };
     return MaskDiffMaskAndScroll;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskDiffMaskAndScroll,'MaskDiffMaskAndScroll');

@@ -44,5 +44,5 @@ var LoaderText = (function (_super) {
         loader.load(request);
     };
     return LoaderText;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderText,'LoaderText');

@@ -54,5 +54,5 @@ var BitmapClickSimpleMore = (function (_super) {
         }, this);
     };
     return BitmapClickSimpleMore;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapClickSimpleMore,'BitmapClickSimpleMore');

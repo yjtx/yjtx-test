@@ -58,5 +58,5 @@ var SoundVolume = (function (_super) {
         }, this);
     };
     return SoundVolume;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundVolume,'SoundVolume');

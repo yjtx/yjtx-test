@@ -39,5 +39,5 @@ var SoundTimeout = (function (_super) {
         }, this, 5000);
     };
     return SoundTimeout;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundTimeout,'SoundTimeout');

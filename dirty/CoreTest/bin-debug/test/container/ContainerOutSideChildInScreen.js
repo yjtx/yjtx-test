@@ -49,5 +49,5 @@ var ContainerOutSideChildInScreen = (function (_super) {
         bitmap.y = 300;
     };
     return ContainerOutSideChildInScreen;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ContainerOutSideChildInScreen,'ContainerOutSideChildInScreen');

@@ -45,5 +45,5 @@ var ScrollViewNormal = (function (_super) {
         scroller.bounces = true;
     };
     return ScrollViewNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ScrollViewNormal,'ScrollViewNormal');

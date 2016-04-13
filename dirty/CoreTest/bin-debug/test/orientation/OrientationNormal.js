@@ -47,19 +47,20 @@ var OrientationNormal = (function (_super) {
             role.x = (i % 5) * 80;
             role.y = Math.floor(i / 5) * 80 + 300;
         }
-        this.stage.orientation = egret.OrientationMode.AUTO;
+        this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
         var arr = [];
         arr.push(egret.OrientationMode.AUTO);
         arr.push(egret.OrientationMode.PORTRAIT);
         arr.push(egret.OrientationMode.LANDSCAPE);
         arr.push(egret.OrientationMode.LANDSCAPE_FLIPPED);
         var count = 0;
-        this.touchEnabled = true;
-        this.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        this.stage.orientation = arr[count++];
+        //this.touchEnabled = true;
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             count = count % arr.length;
             this.stage.orientation = arr[count++];
         }, this);
     };
     return OrientationNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(OrientationNormal,'OrientationNormal');

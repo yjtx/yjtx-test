@@ -21,5 +21,5 @@ var MaskCircleGraphics = (function (_super) {
         icon.mask = shape;
     };
     return MaskCircleGraphics;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskCircleGraphics,'MaskCircleGraphics');

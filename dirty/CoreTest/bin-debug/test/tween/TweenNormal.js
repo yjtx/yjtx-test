@@ -52,5 +52,5 @@ var TweenNormal = (function (_super) {
         }, this, 3000);
     };
     return TweenNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TweenNormal,'TweenNormal');

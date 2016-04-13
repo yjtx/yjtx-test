@@ -56,5 +56,5 @@ var MovieClipNumRun = (function (_super) {
         }, this);
     };
     return MovieClipNumRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipNumRun,'MovieClipNumRun');

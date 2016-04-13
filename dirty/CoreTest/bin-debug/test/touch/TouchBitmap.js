@@ -31,5 +31,5 @@ var TouchBitmap = (function (_super) {
         }, this);
     };
     return TouchBitmap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchBitmap,'TouchBitmap');

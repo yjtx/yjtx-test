@@ -57,5 +57,5 @@ var TextFieldInputText = (function (_super) {
         }, this);
     };
     return TextFieldInputText;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldInputText,'TextFieldInputText');

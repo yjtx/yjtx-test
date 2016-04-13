@@ -45,5 +45,5 @@ var BitmapClickZoom = (function (_super) {
         }, this);
     };
     return BitmapClickZoom;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapClickZoom,'BitmapClickZoom');

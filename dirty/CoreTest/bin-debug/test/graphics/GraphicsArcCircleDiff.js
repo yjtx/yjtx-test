@@ -30,5 +30,5 @@ var GraphicsArcCircleDiff = (function (_super) {
         shape2.graphics.endFill();
     };
     return GraphicsArcCircleDiff;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsArcCircleDiff,'GraphicsArcCircleDiff');

@@ -21,5 +21,5 @@ var GraphicsDrawEllipse = (function (_super) {
         this.addChild(g);
     };
     return GraphicsDrawEllipse;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawEllipse,'GraphicsDrawEllipse');

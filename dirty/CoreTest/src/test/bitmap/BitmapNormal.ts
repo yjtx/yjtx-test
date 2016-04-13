@@ -40,6 +40,11 @@ class BitmapNormal extends EntryDisplayObjectContainer {
         icon.width = this.stage.stageWidth;
         icon.height = this.stage.stageHeight;
         this.addChild(icon);
+        console.log(this.width);
+
+        icon.visible = false;
+        this.removeChild(icon);
+        console.log(this.width);
     }
 }
 

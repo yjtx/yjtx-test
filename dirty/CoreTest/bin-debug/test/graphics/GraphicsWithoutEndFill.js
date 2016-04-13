@@ -43,5 +43,5 @@ var GraphicsWithoutEndFill = (function (_super) {
         //shape.graphics.endFill();
     };
     return GraphicsWithoutEndFill;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsWithoutEndFill,'GraphicsWithoutEndFill');

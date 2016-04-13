@@ -49,5 +49,5 @@ var RESByUrl = (function (_super) {
         }, this, RES.ResourceItem.TYPE_IMAGE);
     };
     return RESByUrl;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESByUrl,'RESByUrl');

@@ -46,5 +46,5 @@ var BitmapScale9Logo = (function (_super) {
         }, this, 3000);
     };
     return BitmapScale9Logo;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScale9Logo,'BitmapScale9Logo');

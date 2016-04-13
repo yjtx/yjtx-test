@@ -31,5 +31,5 @@ var DBHero = (function (_super) {
         }, this);
     };
     return DBHero;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DBHero,'DBHero');

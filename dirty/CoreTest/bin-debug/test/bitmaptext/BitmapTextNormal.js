@@ -73,5 +73,5 @@ var BitmapTextNormal = (function (_super) {
         loader.load(request);
     };
     return BitmapTextNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapTextNormal,'BitmapTextNormal');

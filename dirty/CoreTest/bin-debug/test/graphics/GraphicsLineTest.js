@@ -41,5 +41,5 @@ var GraphicsLineTest = (function (_super) {
         }
     };
     return GraphicsLineTest;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsLineTest,'GraphicsLineTest');

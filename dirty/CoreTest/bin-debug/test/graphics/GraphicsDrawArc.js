@@ -25,5 +25,5 @@ var GraphicsDrawArc = (function (_super) {
         this.addChild(g);
     };
     return GraphicsDrawArc;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawArc,'GraphicsDrawArc');

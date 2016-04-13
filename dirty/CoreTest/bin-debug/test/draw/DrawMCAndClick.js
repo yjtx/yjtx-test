@@ -174,5 +174,5 @@ var DrawMCAndClick = (function (_super) {
         }
     };
     return DrawMCAndClick;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DrawMCAndClick,'DrawMCAndClick');

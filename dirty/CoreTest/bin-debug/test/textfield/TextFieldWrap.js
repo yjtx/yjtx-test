@@ -21,5 +21,5 @@ var TextFieldWrap = (function (_super) {
         this.addChild(textfield1);
     };
     return TextFieldWrap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldWrap,'TextFieldWrap');

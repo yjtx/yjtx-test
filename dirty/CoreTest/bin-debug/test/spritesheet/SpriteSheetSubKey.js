@@ -44,5 +44,5 @@ var SpriteSheetSubKey = (function (_super) {
         icon.scaleX = icon.scaleY = 1.5;
     };
     return SpriteSheetSubKey;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SpriteSheetSubKey,'SpriteSheetSubKey');

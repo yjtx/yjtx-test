@@ -44,5 +44,5 @@ var Base64FromDisplayObject = (function (_super) {
         console.log(base64);
     };
     return Base64FromDisplayObject;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(Base64FromDisplayObject,'Base64FromDisplayObject');

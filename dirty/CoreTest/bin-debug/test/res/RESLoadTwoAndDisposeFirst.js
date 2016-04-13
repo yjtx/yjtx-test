@@ -44,5 +44,5 @@ var RESLoadTwoAndDisposeFirst = (function (_super) {
         }, this, 3000);
     };
     return RESLoadTwoAndDisposeFirst;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESLoadTwoAndDisposeFirst,'RESLoadTwoAndDisposeFirst');

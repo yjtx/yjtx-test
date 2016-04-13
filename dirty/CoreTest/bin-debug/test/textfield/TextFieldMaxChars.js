@@ -71,5 +71,5 @@ var TextFieldMaxChars = (function (_super) {
         return _ba.readUTFBytes(_len) + "...";
     };
     return TextFieldMaxChars;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldMaxChars,'TextFieldMaxChars');

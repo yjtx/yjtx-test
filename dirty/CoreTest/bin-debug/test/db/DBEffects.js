@@ -35,5 +35,5 @@ var DBEffects = (function (_super) {
         }, this);
     };
     return DBEffects;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DBEffects,'DBEffects');

@@ -29,5 +29,5 @@ var TextFieldFamily = (function (_super) {
         this.addChild(textfield);
     };
     return TextFieldFamily;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldFamily,'TextFieldFamily');

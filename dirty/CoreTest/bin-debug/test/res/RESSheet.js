@@ -37,5 +37,5 @@ var RESSheet = (function (_super) {
         this.addChild(bitmap);
     };
     return RESSheet;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESSheet,'RESSheet');

@@ -55,5 +55,5 @@ var BitmapClickCrossMore = (function (_super) {
         }, this);
     };
     return BitmapClickCrossMore;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapClickCrossMore,'BitmapClickCrossMore');

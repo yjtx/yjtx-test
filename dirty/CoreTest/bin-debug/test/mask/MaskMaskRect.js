@@ -14,5 +14,5 @@ var MaskMaskRect = (function (_super) {
         icon.mask = new egret.Rectangle(100, 100, 100, 100);
     };
     return MaskMaskRect;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskMaskRect,'MaskMaskRect');

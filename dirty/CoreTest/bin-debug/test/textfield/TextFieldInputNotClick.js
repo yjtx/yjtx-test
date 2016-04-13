@@ -60,5 +60,5 @@ var TextFieldInputNotClick = (function (_super) {
         }, this);
     };
     return TextFieldInputNotClick;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldInputNotClick,'TextFieldInputNotClick');

@@ -42,5 +42,5 @@ var BitmapRepeat = (function (_super) {
         icon.fillMode = egret.BitmapFillMode.REPEAT;
     };
     return BitmapRepeat;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapRepeat,'BitmapRepeat');

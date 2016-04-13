@@ -50,5 +50,5 @@ var RenderTextureCopyGrids = (function (_super) {
         }
     };
     return RenderTextureCopyGrids;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureCopyGrids,'RenderTextureCopyGrids');

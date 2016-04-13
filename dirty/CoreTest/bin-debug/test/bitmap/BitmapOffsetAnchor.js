@@ -113,5 +113,5 @@ var BitmapOffsetAnchor = (function (_super) {
         return result;
     };
     return BitmapOffsetAnchor;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapOffsetAnchor,'BitmapOffsetAnchor');

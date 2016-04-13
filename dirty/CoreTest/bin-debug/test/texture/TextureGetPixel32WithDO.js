@@ -54,5 +54,5 @@ var TextureGetPixel32WithDO = (function (_super) {
         console.dir(data);
     };
     return TextureGetPixel32WithDO;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextureGetPixel32WithDO,'TextureGetPixel32WithDO');

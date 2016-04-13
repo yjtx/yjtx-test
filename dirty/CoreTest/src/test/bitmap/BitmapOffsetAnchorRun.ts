@@ -56,6 +56,9 @@ class BitmapOffsetAnchorRun extends EntryDisplayObjectContainer {
         console.log(bmp.width);
         egret.Tween.get(bmp, {loop: true}).to({rotation: 360}, 3600);
         this.scaleX = this.scaleY = 1.5;
+
+        egret.Tween.get(this, {loop: true}).to({rotation: 3600}, 3600);
+
     }
 
     /**

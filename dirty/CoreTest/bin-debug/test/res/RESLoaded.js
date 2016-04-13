@@ -106,5 +106,5 @@ var RESLoaded = (function (_super) {
     p.createGameScene = function () {
     };
     return RESLoaded;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(RESLoaded,'RESLoaded');

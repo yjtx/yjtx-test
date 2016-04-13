@@ -60,5 +60,5 @@ var RESDisposeAfterUrl = (function (_super) {
         }, this, 4000);
     };
     return RESDisposeAfterUrl;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESDisposeAfterUrl,'RESDisposeAfterUrl');

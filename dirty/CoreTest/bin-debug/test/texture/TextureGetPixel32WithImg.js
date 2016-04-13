@@ -46,5 +46,5 @@ var TextureGetPixel32WithImg = (function (_super) {
         console.dir(data);
     };
     return TextureGetPixel32WithImg;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextureGetPixel32WithImg,'TextureGetPixel32WithImg');

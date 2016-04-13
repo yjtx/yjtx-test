@@ -49,5 +49,5 @@ var DisplayObjectContentBounds = (function (_super) {
         console.log("width=" + container2.width + "  height=" + container2.height);
     };
     return DisplayObjectContentBounds;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DisplayObjectContentBounds,'DisplayObjectContentBounds');

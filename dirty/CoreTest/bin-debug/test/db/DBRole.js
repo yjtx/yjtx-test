@@ -33,5 +33,5 @@ var DBRole = (function (_super) {
         }, this);
     };
     return DBRole;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(DBRole,'DBRole');

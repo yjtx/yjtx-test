@@ -44,7 +44,6 @@ class SoundClickLoop extends EntryDisplayObjectContainer {
         this.addChild(text1_1);
         text1_1.touchEnabled = true;
         text1_1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-
             sChannel1 = s1.play(1, 0);
         }, this);
 

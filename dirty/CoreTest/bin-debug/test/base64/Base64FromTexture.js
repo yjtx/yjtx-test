@@ -40,5 +40,5 @@ var Base64FromTexture = (function (_super) {
         console.log(base64);
     };
     return Base64FromTexture;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(Base64FromTexture,'Base64FromTexture');

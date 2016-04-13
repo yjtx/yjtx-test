@@ -19,5 +19,5 @@ var GraphicsDrawCurve = (function (_super) {
         this.addChild(shp);
     };
     return GraphicsDrawCurve;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawCurve,'GraphicsDrawCurve');

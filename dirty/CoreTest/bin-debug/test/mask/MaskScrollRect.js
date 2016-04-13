@@ -14,5 +14,5 @@ var MaskScrollRect = (function (_super) {
         icon.scrollRect = new egret.Rectangle(100, 100, 100, 100);
     };
     return MaskScrollRect;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MaskScrollRect,'MaskScrollRect');

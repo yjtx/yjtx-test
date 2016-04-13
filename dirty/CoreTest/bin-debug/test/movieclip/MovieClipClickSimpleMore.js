@@ -54,5 +54,5 @@ var MovieClipClickSimpleMore = (function (_super) {
         }, this);
     };
     return MovieClipClickSimpleMore;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(MovieClipClickSimpleMore,'MovieClipClickSimpleMore');

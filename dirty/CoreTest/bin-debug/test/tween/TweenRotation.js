@@ -43,5 +43,5 @@ var TweenRotation = (function (_super) {
         console.log(this.btp1.rotation);
     };
     return TweenRotation;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TweenRotation,'TweenRotation');

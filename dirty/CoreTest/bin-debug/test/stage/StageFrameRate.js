@@ -11,5 +11,5 @@ var StageFrameRate = (function (_super) {
         this.stage.frameRate = 24;
     };
     return StageFrameRate;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(StageFrameRate,'StageFrameRate');

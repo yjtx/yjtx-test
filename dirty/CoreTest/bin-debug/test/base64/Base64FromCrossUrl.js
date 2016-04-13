@@ -41,5 +41,5 @@ var Base64FromCrossUrl = (function (_super) {
         }, this, RES.ResourceItem.TYPE_IMAGE);
     };
     return Base64FromCrossUrl;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(Base64FromCrossUrl,'Base64FromCrossUrl');

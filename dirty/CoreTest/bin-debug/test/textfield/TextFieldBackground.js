@@ -39,5 +39,5 @@ var TextFieldBackground = (function (_super) {
         textfield2.scaleX = textfield2.scaleY = 0.5;
     };
     return TextFieldBackground;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldBackground,'TextFieldBackground');

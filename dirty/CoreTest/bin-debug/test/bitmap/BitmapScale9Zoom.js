@@ -61,5 +61,5 @@ var BitmapScale9Zoom = (function (_super) {
         this.addChild(icon);
     };
     return BitmapScale9Zoom;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScale9Zoom,'BitmapScale9Zoom');

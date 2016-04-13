@@ -76,5 +76,5 @@ var GraphicsGuaguale2 = (function (_super) {
         }
     };
     return GraphicsGuaguale2;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsGuaguale2,'GraphicsGuaguale2');

@@ -45,7 +45,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
             var msg:string = byte.readUTFBytes(magBytesAvailable);
             var boo:boolean = byte.readBoolean();
             var num:number = byte.readInt();
-            egret.log("收到数据：" + msg + boo.toString() + num.toString());
+            egret.log("收到数据：" + msg + " " + boo.toString() + " " + num.toString());
 
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e:egret.Event) {
@@ -68,7 +68,9 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
         label.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             egret.log("打开连接中....");
             //socket.connect("echo.websocket.org", 80);
-            socket.connect("172.20.152.153", 8080);
+            //socket.connect("172.20.152.153", 8080);
+
+            socket.connectByUrl("ws://echo.websocket.org");
         }, this);
 
         var label:egret.TextField = new egret.TextField();
@@ -83,7 +85,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
             byte.position = 0;
             magBytesAvailable = byte.bytesAvailable;
             byte.position = byte.bytesAvailable;
-            byte.writeBoolean(false);
+            byte.writeBoolean(true);
             byte.writeInt(123);
             byte.position = 0;
             socket.writeBytes(byte, 0, byte.bytesAvailable);

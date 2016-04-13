@@ -17,5 +17,5 @@ var FunctionRegExp1 = (function (_super) {
         alert("use");
     };
     return FunctionRegExp1;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(FunctionRegExp1,'FunctionRegExp1');

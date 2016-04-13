@@ -79,5 +79,5 @@ var SoundClickLoop = (function (_super) {
         this.addChild(text2_2);
     };
     return SoundClickLoop;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundClickLoop,'SoundClickLoop');

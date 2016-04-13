@@ -80,5 +80,5 @@ var OtherWinTest = (function (_super) {
         }, this);
     };
     return OtherWinTest;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(OtherWinTest,'OtherWinTest');

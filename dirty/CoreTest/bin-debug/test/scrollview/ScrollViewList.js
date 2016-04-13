@@ -78,5 +78,5 @@ var ScrollViewList = (function (_super) {
         text2.y = icon.y + 50;
     };
     return ScrollViewList;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ScrollViewList,'ScrollViewList');

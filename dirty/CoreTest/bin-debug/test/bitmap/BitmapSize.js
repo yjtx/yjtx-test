@@ -41,5 +41,5 @@ var BitmapSize = (function (_super) {
         icon.height = 180;
     };
     return BitmapSize;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapSize,'BitmapSize');

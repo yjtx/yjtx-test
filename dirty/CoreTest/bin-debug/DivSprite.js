@@ -8,5 +8,5 @@ var DivSprite = (function (_super) {
     }
     var d = __define,c=DivSprite,p=c.prototype;
     return DivSprite;
-})(egret.Sprite);
+}(egret.Sprite));
 egret.registerClass(DivSprite,'DivSprite');

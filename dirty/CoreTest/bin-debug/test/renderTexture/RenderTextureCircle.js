@@ -50,5 +50,5 @@ var RenderTextureCircle = (function (_super) {
         this.addChild(b);
     };
     return RenderTextureCircle;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureCircle,'RenderTextureCircle');

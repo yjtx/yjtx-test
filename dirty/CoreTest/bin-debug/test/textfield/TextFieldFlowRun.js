@@ -31,5 +31,5 @@ var TextFieldFlowRun = (function (_super) {
         }, this, 100);
     };
     return TextFieldFlowRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldFlowRun,'TextFieldFlowRun');

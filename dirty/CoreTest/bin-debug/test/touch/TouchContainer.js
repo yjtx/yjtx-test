@@ -38,5 +38,5 @@ var TouchContainer = (function (_super) {
         }, this);
     };
     return TouchContainer;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TouchContainer,'TouchContainer');

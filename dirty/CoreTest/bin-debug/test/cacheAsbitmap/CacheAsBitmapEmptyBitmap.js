@@ -38,5 +38,5 @@ var CacheAsBitmapEmptyBitmap = (function (_super) {
         bitmap.cacheAsBitmap = true;
     };
     return CacheAsBitmapEmptyBitmap;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(CacheAsBitmapEmptyBitmap,'CacheAsBitmapEmptyBitmap');

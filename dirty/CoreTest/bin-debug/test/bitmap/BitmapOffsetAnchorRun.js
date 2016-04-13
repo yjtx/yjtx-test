@@ -52,6 +52,7 @@ var BitmapOffsetAnchorRun = (function (_super) {
         console.log(bmp.width);
         egret.Tween.get(bmp, { loop: true }).to({ rotation: 360 }, 3600);
         this.scaleX = this.scaleY = 1.5;
+        egret.Tween.get(this, { loop: true }).to({ rotation: 3600 }, 3600);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
@@ -63,5 +64,5 @@ var BitmapOffsetAnchorRun = (function (_super) {
         return result;
     };
     return BitmapOffsetAnchorRun;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapOffsetAnchorRun,'BitmapOffsetAnchorRun');

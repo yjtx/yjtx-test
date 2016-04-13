@@ -41,5 +41,5 @@ var BitmapDelay = (function (_super) {
         }, this, 3000);
     };
     return BitmapDelay;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapDelay,'BitmapDelay');

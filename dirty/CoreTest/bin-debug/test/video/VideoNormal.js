@@ -34,5 +34,5 @@ var VideoNormal = (function (_super) {
         this._isplaying = true;
     };
     return VideoNormal;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(VideoNormal,'VideoNormal');

@@ -43,5 +43,5 @@ var Base64SaveFromDisplayObject = (function (_super) {
         renderTexture.saveToFile("image/png", "a/down.png", new egret.Rectangle(20, 20, 100, 100));
     };
     return Base64SaveFromDisplayObject;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(Base64SaveFromDisplayObject,'Base64SaveFromDisplayObject');

@@ -81,5 +81,5 @@ var ScaleModeClickChangeModes = (function (_super) {
             + "\nstageWidth:" + this.stage.stageWidth + "\nstageHeight:" + this.stage.stageHeight;
     };
     return ScaleModeClickChangeModes;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ScaleModeClickChangeModes,'ScaleModeClickChangeModes');

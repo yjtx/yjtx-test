@@ -46,5 +46,5 @@ var LoaderSound = (function (_super) {
         loader.load(request);
     };
     return LoaderSound;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderSound,'LoaderSound');

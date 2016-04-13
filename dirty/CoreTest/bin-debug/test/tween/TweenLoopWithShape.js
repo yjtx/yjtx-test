@@ -46,5 +46,5 @@ var TweenLoopWithShape = (function (_super) {
         this.addChild(tshape);
     };
     return TweenLoopWithShape;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TweenLoopWithShape,'TweenLoopWithShape');

@@ -37,5 +37,5 @@ var ResourceUtils = (function () {
         return "resource/";
     };
     return ResourceUtils;
-})();
+}());
 egret.registerClass(ResourceUtils,'ResourceUtils');

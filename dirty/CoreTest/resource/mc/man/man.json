@@ -9,7 +9,7 @@
 			
 			],
 		"events":[
-		{"name":"@walk_down","frame":2}
+			{"name":"@walk_down","frame":2}
 			,{"name":"@walk_up","frame":6}
 			,{"name":"@walk_left","frame":10}
 			,{"name":"@walk_right","frame":14}

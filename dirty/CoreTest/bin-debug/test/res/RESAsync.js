@@ -44,5 +44,5 @@ var RESAsync = (function (_super) {
         }, this);
     };
     return RESAsync;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESAsync,'RESAsync');

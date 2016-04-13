@@ -50,5 +50,5 @@ var TweenTreeRunRotation = (function (_super) {
         });
     };
     return TweenTreeRunRotation;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TweenTreeRunRotation,'TweenTreeRunRotation');

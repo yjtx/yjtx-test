@@ -22,5 +22,5 @@ var EntryDisplayObjectContainer = (function (_super) {
         egret.error("请重写此方法");
     };
     return EntryDisplayObjectContainer;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(EntryDisplayObjectContainer,'EntryDisplayObjectContainer');

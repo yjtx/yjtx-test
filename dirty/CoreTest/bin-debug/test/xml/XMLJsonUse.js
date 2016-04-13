@@ -39,5 +39,5 @@ var XMLJsonUse = (function (_super) {
         console.log(xml.item);
     };
     return XMLJsonUse;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(XMLJsonUse,'XMLJsonUse');

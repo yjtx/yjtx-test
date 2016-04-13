@@ -27,5 +27,5 @@ var GraphicsDrawLineClick = (function (_super) {
         this.shape.graphics.endFill();
     };
     return GraphicsDrawLineClick;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsDrawLineClick,'GraphicsDrawLineClick');

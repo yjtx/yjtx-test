@@ -15,5 +15,5 @@ var TextFieldNormal = (function (_super) {
         this.addChild(textfield1);
     };
     return TextFieldNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldNormal,'TextFieldNormal');

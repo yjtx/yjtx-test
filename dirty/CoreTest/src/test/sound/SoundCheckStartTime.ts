@@ -37,6 +37,7 @@ class SoundCheckStartTime extends EntryDisplayObjectContainer {
         var s1: egret.Sound = RES.getRes("wf_mp3");
         var sChannel1:egret.SoundChannel;
 
+        console.log("sound length: " + s1.length);
         var text1_1: egret.TextField = new egret.TextField();
         text1_1.text = "playMusic";
         text1_1.size = 60;

@@ -26,5 +26,5 @@ var TextFieldFlow = (function (_super) {
         this.addChild(c);
     };
     return TextFieldFlow;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldFlow,'TextFieldFlow');

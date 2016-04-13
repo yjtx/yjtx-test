@@ -55,5 +55,5 @@ var RenderTextureDrawTwo = (function (_super) {
         console.log(b.width + "-" + b.height);
     };
     return RenderTextureDrawTwo;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureDrawTwo,'RenderTextureDrawTwo');

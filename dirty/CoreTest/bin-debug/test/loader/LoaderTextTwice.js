@@ -57,5 +57,5 @@ var LoaderTextTwice = (function (_super) {
         this.loader.load(request);
     };
     return LoaderTextTwice;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(LoaderTextTwice,'LoaderTextTwice');

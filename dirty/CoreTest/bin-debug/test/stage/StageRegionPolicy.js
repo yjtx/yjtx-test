@@ -16,5 +16,5 @@ var StageRegionPolicy = (function (_super) {
         this.stage.dirtyRegionPolicy = egret.DirtyRegionPolicy.OFF;
     };
     return StageRegionPolicy;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(StageRegionPolicy,'StageRegionPolicy');

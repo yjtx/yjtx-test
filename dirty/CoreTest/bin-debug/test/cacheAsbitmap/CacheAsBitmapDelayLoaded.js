@@ -42,5 +42,5 @@ var CacheAsBitmapDelayLoaded = (function (_super) {
         }, this, 3000);
     };
     return CacheAsBitmapDelayLoaded;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(CacheAsBitmapDelayLoaded,'CacheAsBitmapDelayLoaded');

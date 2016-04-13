@@ -162,5 +162,5 @@ var TextFieldRestrict = (function (_super) {
         textField.borderColor = 0x000000;
     };
     return TextFieldRestrict;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldRestrict,'TextFieldRestrict');

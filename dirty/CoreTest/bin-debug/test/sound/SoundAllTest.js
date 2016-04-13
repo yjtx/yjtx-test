@@ -72,5 +72,5 @@ var SoundAllTest = (function (_super) {
         }
     };
     return SoundAllTest;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(SoundAllTest,'SoundAllTest');

@@ -41,9 +41,12 @@ class RESLoadAndDispose extends EntryDisplayObjectContainer {
         var isLoaded = true;
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             if (isLoaded) {
-                this.removeChild(bitmap);
+                //this.removeChild(bitmap);
 
                 console.log("destroy");
+
+                //bitmap.texture = null;
+
                 RES.destroyRes("member_bitmap");
             }
             else {
@@ -56,9 +59,9 @@ class RESLoadAndDispose extends EntryDisplayObjectContainer {
 
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, function () {
             console.log("over");
-            bitmap = new egret.Bitmap();
+            //bitmap = new egret.Bitmap();
             bitmap.texture = RES.getRes("bg_jpg");
-            this.addChild(bitmap);
+            //this.addChild(bitmap);
         }, this);
     }
 }

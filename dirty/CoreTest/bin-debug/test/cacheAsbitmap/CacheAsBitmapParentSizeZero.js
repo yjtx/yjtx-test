@@ -43,5 +43,5 @@ var CacheAsBitmapParentSizeZero = (function (_super) {
         egret.Tween.get(c).to({ "scaleX": 1, "scaleY": 1 }, 2000).to({ "scaleX": 0, "scaleY": 0 }, 2000);
     };
     return CacheAsBitmapParentSizeZero;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(CacheAsBitmapParentSizeZero,'CacheAsBitmapParentSizeZero');

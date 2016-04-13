@@ -39,7 +39,11 @@ var BitmapNormal = (function (_super) {
         icon.width = this.stage.stageWidth;
         icon.height = this.stage.stageHeight;
         this.addChild(icon);
+        console.log(this.width);
+        icon.visible = false;
+        this.removeChild(icon);
+        console.log(this.width);
     };
     return BitmapNormal;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapNormal,'BitmapNormal');

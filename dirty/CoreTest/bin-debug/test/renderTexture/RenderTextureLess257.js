@@ -65,5 +65,5 @@ var RenderTextureLess257 = (function (_super) {
         console.log("show width: " + bitmap2.width + "  height: " + bitmap2.height);
     };
     return RenderTextureLess257;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RenderTextureLess257,'RenderTextureLess257');

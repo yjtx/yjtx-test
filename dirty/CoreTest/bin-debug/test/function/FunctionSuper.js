@@ -17,7 +17,7 @@ var FunctionSuper = (function (_super) {
         console.log(a.c);
     };
     return FunctionSuper;
-})(egret.DisplayObjectContainer);
+}(egret.DisplayObjectContainer));
 egret.registerClass(FunctionSuper,'FunctionSuper');
 var A1 = (function () {
     function A1() {
@@ -46,7 +46,7 @@ var A1 = (function () {
     p.getB = function (v1, v2, v3) {
     };
     return A1;
-})();
+}());
 egret.registerClass(A1,'A1');
 var A2 = (function (_super) {
     __extends(A2, _super);
@@ -55,7 +55,7 @@ var A2 = (function (_super) {
     }
     var d = __define,c=A2,p=c.prototype;
     return A2;
-})(A1);
+}(A1));
 egret.registerClass(A2,'A2');
 var A3 = (function (_super) {
     __extends(A3, _super);
@@ -74,7 +74,7 @@ var A3 = (function (_super) {
         }
     );
     return A3;
-})(A2);
+}(A2));
 egret.registerClass(A3,'A3');
 var A4 = (function (_super) {
     __extends(A4, _super);
@@ -83,7 +83,7 @@ var A4 = (function (_super) {
     }
     var d = __define,c=A4,p=c.prototype;
     return A4;
-})(A3);
+}(A3));
 egret.registerClass(A4,'A4');
 var A5 = (function (_super) {
     __extends(A5, _super);
@@ -116,5 +116,5 @@ var A5 = (function (_super) {
         }
     );
     return A5;
-})(A4);
+}(A4));
 egret.registerClass(A5,'A5');

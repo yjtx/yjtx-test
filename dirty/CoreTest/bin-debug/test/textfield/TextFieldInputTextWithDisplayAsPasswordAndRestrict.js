@@ -55,5 +55,5 @@ var TextFieldInputTextWithDisplayAsPasswordAndRestrict = (function (_super) {
         }, this);
     };
     return TextFieldInputTextWithDisplayAsPasswordAndRestrict;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(TextFieldInputTextWithDisplayAsPasswordAndRestrict,'TextFieldInputTextWithDisplayAsPasswordAndRestrict');

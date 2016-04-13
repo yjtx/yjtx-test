@@ -53,5 +53,5 @@ var ScaleModeFixedWidthAndPortrait = (function (_super) {
         }, this);
     };
     return ScaleModeFixedWidthAndPortrait;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ScaleModeFixedWidthAndPortrait,'ScaleModeFixedWidthAndPortrait');

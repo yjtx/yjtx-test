@@ -57,5 +57,5 @@ var ContainerChildRemove = (function (_super) {
         }
     };
     return ContainerChildRemove;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(ContainerChildRemove,'ContainerChildRemove');

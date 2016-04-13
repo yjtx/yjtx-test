@@ -47,5 +47,5 @@ var RESRenderTextureDouble = (function (_super) {
         }, this);
     };
     return RESRenderTextureDouble;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(RESRenderTextureDouble,'RESRenderTextureDouble');

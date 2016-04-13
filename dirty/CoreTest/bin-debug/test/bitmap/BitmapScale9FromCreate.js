@@ -50,5 +50,5 @@ var BitmapScale9FromCreate = (function (_super) {
         loader.load(request);
     };
     return BitmapScale9FromCreate;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScale9FromCreate,'BitmapScale9FromCreate');

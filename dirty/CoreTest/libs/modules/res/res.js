@@ -49,7 +49,6 @@ var RES;
          * @param type Type of resource term.
          * @version Egret 2.4
          * @platform Web,Native
-         * @private
          */
         /**
          * @language zh_CN
@@ -59,7 +58,6 @@ var RES;
          * @param type 加载项文件类型。
          * @version Egret 2.4
          * @platform Web,Native
-         * @private
          */
         function ResourceItem(name, url, type) {
             /**
@@ -67,14 +65,12 @@ var RES;
              * Name of the resource term group.
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             /**
              * @language zh_CN
              * 资源所属的组名。
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             this.groupName = "";
             /**
@@ -82,14 +78,12 @@ var RES;
              * The raw data object to be referenced.
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             /**
              * @language zh_CN
              * 被引用的原始数据对象。
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             this.data = null;
             this._loaded = false;
@@ -104,14 +98,12 @@ var RES;
              * Load complete flag.
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             /**
              * @language zh_CN
              * 加载完成的标志。
              * @version Egret 2.4
              * @platform Web,Native
-             * @private
              */
             ,function () {
                 return this.data ? this.data.loaded : this._loaded;
@@ -127,33 +119,16 @@ var RES;
          * Turn into a string.
          * @version Egret 2.4
          * @platform Web,Native
-         * @private
          */
         /**
          * @language zh_CN
          * 转成字符串。
          * @version Egret 2.4
          * @platform Web,Native
-         * @private
          */
         p.toString = function () {
             return "[ResourceItem name=\"" + this.name + "\" url=\"" + this.url + "\" type=\"" + this.type + "\"]";
         };
-        /**
-         * @language en_US
-         * Animation configuration file. Currently supports Egret MovieClip file format.
-         * @version Egret 2.4
-         * @platform Web,Native
-         * @private
-         */
-        /**
-         * @language zh_CN
-         * Animation 配置文件。目前支持 Egret MovieClip 文件格式。
-         * @version Egret 2.4
-         * @platform Web,Native
-         * @private
-         */
-        ResourceItem.TYPE_ANIMATION = "animation";
         /**
          * @language en_US
          * XML file.
@@ -259,7 +234,7 @@ var RES;
          */
         ResourceItem.TYPE_SOUND = "sound";
         return ResourceItem;
-    })();
+    }());
     RES.ResourceItem = ResourceItem;
     egret.registerClass(ResourceItem,'RES.ResourceItem');
 })(RES || (RES = {}));
@@ -496,7 +471,7 @@ var RES;
             return resItem;
         };
         return ResourceConfig;
-    })();
+    }());
     RES.ResourceConfig = ResourceConfig;
     egret.registerClass(ResourceConfig,'RES.ResourceConfig');
 })(RES || (RES = {}));
@@ -774,7 +749,7 @@ var RES;
             }
         };
         return ResourceLoader;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     RES.ResourceLoader = ResourceLoader;
     egret.registerClass(ResourceLoader,'RES.ResourceLoader');
 })(RES || (RES = {}));
@@ -1004,7 +979,7 @@ var RES;
          */
         ResourceEvent.GROUP_LOAD_ERROR = "groupLoadError";
         return ResourceEvent;
-    })(egret.Event);
+    }(egret.Event));
     RES.ResourceEvent = ResourceEvent;
     egret.registerClass(ResourceEvent,'RES.ResourceEvent');
 })(RES || (RES = {}));
@@ -1109,7 +1084,7 @@ var RES;
             return "";
         };
         return AnalyzerBase;
-    })(egret.HashObject);
+    }(egret.HashObject));
     RES.AnalyzerBase = AnalyzerBase;
     egret.registerClass(AnalyzerBase,'RES.AnalyzerBase');
 })(RES || (RES = {}));
@@ -1215,7 +1190,7 @@ var RES;
          */
         p.analyzeData = function (resItem, data) {
             var name = resItem.name;
-            if (this.fileDic[name] || !data) {
+            if (this.fileDic[name] || (data != "" && !data)) {
                 return;
             }
             this.fileDic[name] = data;
@@ -1247,7 +1222,7 @@ var RES;
         p.onResourceDestroy = function (resource) {
         };
         return BinAnalyzer;
-    })(RES.AnalyzerBase);
+    }(RES.AnalyzerBase));
     RES.BinAnalyzer = BinAnalyzer;
     egret.registerClass(BinAnalyzer,'RES.BinAnalyzer');
 })(RES || (RES = {}));
@@ -1391,7 +1366,7 @@ var RES;
             texture.dispose();
         };
         return ImageAnalyzer;
-    })(RES.AnalyzerBase);
+    }(RES.AnalyzerBase));
     RES.ImageAnalyzer = ImageAnalyzer;
     egret.registerClass(ImageAnalyzer,'RES.ImageAnalyzer');
 })(RES || (RES = {}));
@@ -1436,7 +1411,7 @@ var RES;
         }
         var d = __define,c=TextAnalyzer,p=c.prototype;
         return TextAnalyzer;
-    })(RES.BinAnalyzer);
+    }(RES.BinAnalyzer));
     RES.TextAnalyzer = TextAnalyzer;
     egret.registerClass(TextAnalyzer,'RES.TextAnalyzer');
 })(RES || (RES = {}));
@@ -1497,7 +1472,7 @@ var RES;
             }
         };
         return JsonAnalyzer;
-    })(RES.BinAnalyzer);
+    }(RES.BinAnalyzer));
     RES.JsonAnalyzer = JsonAnalyzer;
     egret.registerClass(JsonAnalyzer,'RES.JsonAnalyzer');
 })(RES || (RES = {}));
@@ -1636,6 +1611,11 @@ var RES;
          */
         p.getRelativePath = function (url, file) {
             url = url.split("\\").join("/");
+            var params = url.match(/#.*|\?.*/);
+            var paramUrl = "";
+            if (params) {
+                paramUrl = params[0];
+            }
             var index = url.lastIndexOf("/");
             if (index != -1) {
                 url = url.substring(0, index + 1) + file;
@@ -1643,7 +1623,7 @@ var RES;
             else {
                 url = file;
             }
-            return url;
+            return url + paramUrl;
         };
         p.parseSpriteSheet = function (texture, data, name) {
             var frames = data.frames;
@@ -1706,7 +1686,7 @@ var RES;
             }
         };
         return SheetAnalyzer;
-    })(RES.BinAnalyzer);
+    }(RES.BinAnalyzer));
     RES.SheetAnalyzer = SheetAnalyzer;
     egret.registerClass(SheetAnalyzer,'RES.SheetAnalyzer');
 })(RES || (RES = {}));
@@ -1805,7 +1785,7 @@ var RES;
             }
         };
         return FontAnalyzer;
-    })(RES.SheetAnalyzer);
+    }(RES.SheetAnalyzer));
     RES.FontAnalyzer = FontAnalyzer;
     egret.registerClass(FontAnalyzer,'RES.FontAnalyzer');
 })(RES || (RES = {}));
@@ -1926,7 +1906,7 @@ var RES;
             return false;
         };
         return SoundAnalyzer;
-    })(RES.AnalyzerBase);
+    }(RES.AnalyzerBase));
     RES.SoundAnalyzer = SoundAnalyzer;
     egret.registerClass(SoundAnalyzer,'RES.SoundAnalyzer');
 })(RES || (RES = {}));
@@ -1987,7 +1967,7 @@ var RES;
             }
         };
         return XMLAnalyzer;
-    })(RES.BinAnalyzer);
+    }(RES.BinAnalyzer));
     RES.XMLAnalyzer = XMLAnalyzer;
     egret.registerClass(XMLAnalyzer,'RES.XMLAnalyzer');
 })(RES || (RES = {}));
@@ -2130,7 +2110,7 @@ var RES;
                 */
             };
             return Html5VersionController;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         web.Html5VersionController = Html5VersionController;
         egret.registerClass(Html5VersionController,'RES.web.Html5VersionController',["RES.VersionController","RES.IVersionController"]);
         if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
@@ -2268,7 +2248,7 @@ var RES;
                 return null;
             };
             return NativeVersionController;
-        })();
+        }());
         native.NativeVersionController = NativeVersionController;
         egret.registerClass(NativeVersionController,'RES.native.NativeVersionController',["RES.VersionController","RES.IVersionController"]);
         if (egret.Capabilities.runtimeType == egret.RuntimeType.NATIVE) {
@@ -2525,7 +2505,7 @@ var RES;
     RES.hasRes = hasRes;
     /**
      * @language en_US
-     * Run time dynamic analysis of a configuration file.
+     * parse a configuration file at run time，it will not clean the exist data.
      * @param data Configuration file data, please refer to the resource.json configuration file format. JSON object can be introduced into the corresponding.
      * @param folder Path prefix for load.
      * @see #setMaxRetryTimes
@@ -2534,7 +2514,7 @@ var RES;
      */
     /**
      * @language zh_CN
-     * 运行时动态解析一个配置文件。
+     * 运行时动态解析一个配置文件,此操作不会清空之前已存在的配置。
      * @param data 配置文件数据，请参考 resource.json 的配置文件格式。传入对应的 json 对象即可。
      * @param folder 加载项的路径前缀。
      * @see #setMaxRetryTimes
@@ -2550,7 +2530,6 @@ var RES;
      * @language en_US
      * The synchronization method for obtaining the cache has been loaded with the success of the resource.
      * <br>The type of resource and the corresponding return value types are as follows:
-     * <br>RES.ResourceItem.TYPE_ANIMATION : (egret.Bitmap|egret.Texture)[]
      * <br>RES.ResourceItem.TYPE_BIN : ArrayBuffer JavaScript primary object
      * <br>RES.ResourceItem.TYPE_IMAGE : img Html Object，or egret.BitmapData interface。
      * <br>RES.ResourceItem.TYPE_JSON : Object
@@ -2561,7 +2540,7 @@ var RES;
      * But if there are two SpriteSheet in a single picture of the same name, the return of the image after the load.
      * <br>RES.ResourceItem.TYPE_SOUND : HtmlSound Html Object
      * <br>RES.ResourceItem.TYPE_TEXT : string
-     * @param key A sbuKeys attribute or name property in a configuration file.
+     * @param key A subKeys attribute or name property in a configuration file.
      * @see RES.ResourceItem
      * @see #setMaxRetryTimes
      * @version Egret 2.4
@@ -2571,7 +2550,6 @@ var RES;
      * @language zh_CN
      * 同步方式获取缓存的已经加载成功的资源。
      * <br>资源类型和对应的返回值类型关系如下：
-     * <br>RES.ResourceItem.TYPE_ANIMATION : (egret.Bitmap|egret.Texture)[]
      * <br>RES.ResourceItem.TYPE_BIN : ArrayBuffer JavaScript 原生对象
      * <br>RES.ResourceItem.TYPE_IMAGE : img Html 对象，或者 egret.BitmapData 接口。
      * <br>RES.ResourceItem.TYPE_JSON : Object
@@ -2581,7 +2559,7 @@ var RES;
      * <br>  3. 如果传入的是 "image1" 单个资源的名称，返回的是单个资源。但是如果有两张 SpriteSheet 中有单个图片资源名称相同，返回的是后加载的那个图片资源。
      * <br>RES.ResourceItem.TYPE_SOUND : HtmlSound Html 对象
      * <br>RES.ResourceItem.TYPE_TEXT : string
-     * @param key 对应配置文件里的 name 属性或 sbuKeys 属性的一项。
+     * @param key 对应配置文件里的 name 属性或 subKeys 属性的一项。
      * @see RES.ResourceItem
      * @see #setMaxRetryTimes
      * @version Egret 2.4
@@ -2851,7 +2829,6 @@ var RES;
         p.init = function () {
             this.vcs = new RES.VersionController();
             var analyzerClassMap = this.analyzerClassMap;
-            //analyzerClassMap[ResourceItem.TYPE_ANIMATION] = AnimationAnalyzer;
             analyzerClassMap[RES.ResourceItem.TYPE_BIN] = RES.BinAnalyzer;
             analyzerClassMap[RES.ResourceItem.TYPE_IMAGE] = RES.ImageAnalyzer;
             analyzerClassMap[RES.ResourceItem.TYPE_TEXT] = RES.TextAnalyzer;
@@ -3299,7 +3276,7 @@ var RES;
          */
         Resource.GROUP_CONFIG = "RES__CONFIG";
         return Resource;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.registerClass(Resource,'Resource');
     /**
      * Resource单例
@@ -3482,7 +3459,7 @@ var RES;
             return loader;
         };
         return AnimationAnalyzer;
-    })(RES.BinAnalyzer);
+    }(RES.BinAnalyzer));
     RES.AnimationAnalyzer = AnimationAnalyzer;
     egret.registerClass(AnimationAnalyzer,'RES.AnimationAnalyzer');
 })(RES || (RES = {}));

@@ -43,5 +43,5 @@ var BitmapRepeatScale = (function (_super) {
         icon.fillMode = egret.BitmapFillMode.REPEAT;
     };
     return BitmapRepeatScale;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapRepeatScale,'BitmapRepeatScale');

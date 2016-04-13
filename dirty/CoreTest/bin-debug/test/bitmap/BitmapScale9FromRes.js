@@ -41,5 +41,5 @@ var BitmapScale9FromRes = (function (_super) {
         icon.y = 100; //[15,53,3,3]
     };
     return BitmapScale9FromRes;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(BitmapScale9FromRes,'BitmapScale9FromRes');

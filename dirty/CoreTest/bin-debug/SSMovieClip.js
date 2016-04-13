@@ -113,7 +113,7 @@ var ss;
             //}
         };
         return SSMovieClip;
-    })(egret.MovieClip);
+    }(egret.MovieClip));
     ss.SSMovieClip = SSMovieClip;
     egret.registerClass(SSMovieClip,'ss.SSMovieClip');
 })(ss || (ss = {}));

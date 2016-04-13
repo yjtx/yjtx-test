@@ -31,5 +31,5 @@ var GraphicsCurveTo = (function (_super) {
         this.addChild(g);
     };
     return GraphicsCurveTo;
-})(EntryDisplayObjectContainer);
+}(EntryDisplayObjectContainer));
 egret.registerClass(GraphicsCurveTo,'GraphicsCurveTo');
