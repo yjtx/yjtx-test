@@ -31,14 +31,14 @@ var RectExmlSimple = (function (_super) {
     function RectExmlSimple() {
         _super.call(this);
     }
-    var d = __define,c=RectExmlSimple;p=c.prototype;
+    var d = __define,c=RectExmlSimple,p=c.prototype;
     p.initRoot = function () {
         var ui = new SimpleRect();
         this.addChild(ui);
     };
     return RectExmlSimple;
-})(EntryEuiDocument);
-egret.registerClass(RectExmlSimple,"RectExmlSimple");
+}(EntryEuiDocument));
+egret.registerClass(RectExmlSimple,'RectExmlSimple');
 var SimpleRect = (function (_super) {
     __extends(SimpleRect, _super);
     function SimpleRect() {
@@ -47,7 +47,7 @@ var SimpleRect = (function (_super) {
         //  Assign the skin name used by this Component
         this.skinName = "resource/test_skins/SimpleRectSkin.exml";
     }
-    var d = __define,c=SimpleRect;p=c.prototype;
+    var d = __define,c=SimpleRect,p=c.prototype;
     return SimpleRect;
-})(eui.Component);
-egret.registerClass(SimpleRect,"SimpleRect");
+}(eui.Component));
+egret.registerClass(SimpleRect,'SimpleRect');

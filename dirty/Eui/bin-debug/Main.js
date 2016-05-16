@@ -33,7 +33,7 @@ var Main = (function (_super) {
         this.isThemeLoadEnd = false;
         this.isResourceLoadEnd = false;
     }
-    var d = __define,c=Main;p=c.prototype;
+    var d = __define,c=Main,p=c.prototype;
     p.createChildren = function () {
         _super.prototype.createChildren.call(this);
         //inject the custom material parser
@@ -132,5 +132,5 @@ var Main = (function (_super) {
         this.addChild(panel);
     };
     return Main;
-})(eui.UILayer);
-egret.registerClass(Main,"Main");
+}(eui.UILayer));
+egret.registerClass(Main,'Main');

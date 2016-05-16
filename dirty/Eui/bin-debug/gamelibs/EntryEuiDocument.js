@@ -7,7 +7,7 @@ var EntryEuiDocument = (function (_super) {
         _super.call(this);
         this.groups = groups;
     }
-    var d = __define,c=EntryEuiDocument;p=c.prototype;
+    var d = __define,c=EntryEuiDocument,p=c.prototype;
     p.createChildren = function () {
         _super.prototype.createChildren.call(this);
         if (this.groups == null || this.groups.length == 0) {
@@ -21,5 +21,5 @@ var EntryEuiDocument = (function (_super) {
         egret.error("请重写此方法");
     };
     return EntryEuiDocument;
-})(eui.Component);
-egret.registerClass(EntryEuiDocument,"EntryEuiDocument");
+}(eui.Component));
+egret.registerClass(EntryEuiDocument,'EntryEuiDocument');

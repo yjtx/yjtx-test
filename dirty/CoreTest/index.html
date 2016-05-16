@@ -21,8 +21,8 @@
         }
 
 		 input, textarea, keygen, select, button, meter, progress {
-    -webkit-writing-mode: horizontal-tb;
-}
+    		-webkit-writing-mode: horizontal-tb;
+		}
     </style>
 	<script src="http://qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js"></script>
 
@@ -35,9 +35,8 @@
 	<script egret="lib" src="libs/modules/game/game.web.js" src-release="libs/modules/game/game.web.min.js"></script>
 	<script egret="lib" src="libs/modules/tween/tween.js" src-release="libs/modules/tween/tween.min.js"></script>
 	<script egret="lib" src="libs/modules/res/res.js" src-release="libs/modules/res/res.min.js"></script>
-	<script egret="lib" src="libs/modules/dragonbones/dragonbones.js" src-release="libs/modules/dragonbones/dragonbones.min.js"></script>
+	<script egret="lib" src="libs/modules/dragonBones/dragonBones.js" src-release="libs/modules/dragonBones/dragonBones.min.js"></script>
 	<script egret="lib" src="libs/modules/socket/socket.js" src-release="libs/modules/socket/socket.min.js"></script>
-	<script egret="lib" src="libs/modules/dom/dom.js" src-release="libs/modules/dom/dom.min.js"></script>
 	<!--modules_files_end-->
 
     <!--这个标签为不通过egret提供的第三方库的方式使用的 javascript 文件，请将这些文件放在libs下，但不要放在modules下面。-->
@@ -222,6 +221,7 @@
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInput2.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputAndArea.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputNotClick.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldInputRotation.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputText.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputTextWithDisplayAsPasswordAndRestrict.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldLineSpacing.js"></script>
@@ -229,6 +229,8 @@
 	<script egret="game" src="bin-debug/test/textfield/TextFieldMiniWidth.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldNormal.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldNormalDelay.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldOnFocus.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldOnFocusAuto.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldRestrict.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldShowOneByOne.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldStrokeRun.js"></script>
@@ -236,6 +238,7 @@
 	<script egret="game" src="bin-debug/test/textfield/TextFieldWrap.js"></script>
 	<script egret="game" src="bin-debug/test/texture/TextureGetPixel32WithDO.js"></script>
 	<script egret="game" src="bin-debug/test/texture/TextureGetPixel32WithImg.js"></script>
+	<script egret="game" src="bin-debug/test/ticker/TickerAddAndRemove.js"></script>
 	<script egret="game" src="bin-debug/test/ticker/TickerLoadingUse.js"></script>
 	<script egret="game" src="bin-debug/test/timer/TimerLoopUse.js"></script>
 	<script egret="game" src="bin-debug/test/timer/TimerStartStop.js"></script>
@@ -292,10 +295,10 @@
 <script>
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
 
-	var clientWidth = document.documentElement.clientWidth;
-	var clientHeight = document.documentElement.clientHeight;
-	document.body.style.width = clientWidth + "px";
-	document.body.style.height = clientHeight + "px";
+	// var clientWidth = document.documentElement.clientWidth;
+	// var clientHeight = document.documentElement.clientHeight;
+	// document.body.style.width = clientWidth + "px";
+	// document.body.style.height = clientHeight + "px";
 
 
     console.log(this.name);
@@ -310,7 +313,7 @@
         dive.setAttribute("texture-scale-factor", factor);
     }
 
-    egret.runEgret({"renderMode" : "webgl"});
+    egret.runEgret({"renderMode" : "canvas"});
 
 
     function getOption(key) {

@@ -45,13 +45,13 @@ class TweenTweensOp extends EntryDisplayObjectContainer {
 
         var tween1 = egret.Tween.get(this.btp1).call(function() {
             egret.log("tween1 time start: " + egret.getTimer());
-        }, this).to({x:400}, 8000).call(function() {
+        }, this).wait(6000).to({x:400}, 8000).call(function() {
             egret.log("tween1 time end: " + egret.getTimer());
         }, this);
 
         var tween2 = egret.Tween.get(this.btp1).call(function() {
             egret.log("tween2 time start: " + egret.getTimer());
-        }, this).to({rotation:400}, 8000).call(function() {
+        }, this).wait(6000).to({rotation:400}, 8000).call(function() {
             egret.log("tween2 time end: " + egret.getTimer());
         }, this);
 
@@ -62,17 +62,17 @@ class TweenTweensOp extends EntryDisplayObjectContainer {
 
         egret.setTimeout(function () {//继续
             egret.log("resume");
-            egret.Tween.resumeTweens(this.btp1);
+            // egret.Tween.resumeTweens(this.btp1);
         }, this, 6000);
 
         egret.setTimeout(function () {//清楚 tween
             egret.log("remove");
-            egret.Tween.removeTweens(this.btp1);
+            // egret.Tween.removeTweens(this.btp1);
         }, this, 8000);
 
         egret.setTimeout(function () {//不应该再继续
             egret.log("resume 2");
-            egret.Tween.resumeTweens(this.btp1);
+            // egret.Tween.resumeTweens(this.btp1);
         }, this, 10000);
     }
 }

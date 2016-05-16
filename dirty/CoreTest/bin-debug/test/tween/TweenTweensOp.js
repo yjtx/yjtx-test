@@ -42,12 +42,12 @@ var TweenTweensOp = (function (_super) {
         this.btp1.anchorOffsetY = this.btp1.height / 2;
         var tween1 = egret.Tween.get(this.btp1).call(function () {
             egret.log("tween1 time start: " + egret.getTimer());
-        }, this).to({ x: 400 }, 8000).call(function () {
+        }, this).wait(6000).to({ x: 400 }, 8000).call(function () {
             egret.log("tween1 time end: " + egret.getTimer());
         }, this);
         var tween2 = egret.Tween.get(this.btp1).call(function () {
             egret.log("tween2 time start: " + egret.getTimer());
-        }, this).to({ rotation: 400 }, 8000).call(function () {
+        }, this).wait(6000).to({ rotation: 400 }, 8000).call(function () {
             egret.log("tween2 time end: " + egret.getTimer());
         }, this);
         egret.setTimeout(function () {
@@ -56,15 +56,15 @@ var TweenTweensOp = (function (_super) {
         }, this, 4000);
         egret.setTimeout(function () {
             egret.log("resume");
-            egret.Tween.resumeTweens(this.btp1);
+            // egret.Tween.resumeTweens(this.btp1);
         }, this, 6000);
         egret.setTimeout(function () {
             egret.log("remove");
-            egret.Tween.removeTweens(this.btp1);
+            // egret.Tween.removeTweens(this.btp1);
         }, this, 8000);
         egret.setTimeout(function () {
             egret.log("resume 2");
-            egret.Tween.resumeTweens(this.btp1);
+            // egret.Tween.resumeTweens(this.btp1);
         }, this, 10000);
     };
     return TweenTweensOp;

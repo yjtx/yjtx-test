@@ -33,7 +33,7 @@ class MovieClipClickSimpleMore extends EntryDisplayObjectContainer {
         super(["mcs"]);
     }
 
-    protected initRoot():void {
+    protected initRoot(): void {
         var movieclipData = RES.getRes("run_down_json");
         var texture = RES.getRes("run_down_png");
         var mcDataFactory = new egret.MovieClipDataFactory(movieclipData, texture);
@@ -41,8 +41,8 @@ class MovieClipClickSimpleMore extends EntryDisplayObjectContainer {
         var self = this;
 
         function addMcs() {
-            for (var i:number = 0; i < 10; i++) {
-                var role:egret.MovieClip = new egret.MovieClip(mcDataFactory.generateMovieClipData("run"));
+            for (var i: number = 0; i < 10; i++) {
+                var role: egret.MovieClip = new egret.MovieClip(mcDataFactory.generateMovieClipData("run"));
                 self.addChild(role);
                 role.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
                 role.scaleX = 1;

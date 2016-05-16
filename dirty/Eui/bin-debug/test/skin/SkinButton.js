@@ -7,9 +7,9 @@ var SkinButton = (function (_super) {
         _super.call(this, ["preload"]);
         this.skinName = "resource/test_skins/SkinButtonSkin.exml";
     }
-    var d = __define,c=SkinButton;p=c.prototype;
+    var d = __define,c=SkinButton,p=c.prototype;
     p.initRoot = function () {
     };
     return SkinButton;
-})(EntryEuiDocument);
-egret.registerClass(SkinButton,"SkinButton");
+}(EntryEuiDocument));
+egret.registerClass(SkinButton,'SkinButton');

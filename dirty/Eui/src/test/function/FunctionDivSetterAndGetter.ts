@@ -38,6 +38,16 @@ class UserInfoView extends eui.Component {
         super();
     }
 
+    _b11111:number = 0;
+
+    get b11111():number {
+        return this._b11111;
+    }
+
+    set b11111(value:number) {
+        this._b11111 = value;
+    }
+
     get isMaster():boolean {
         console.log("ssssss");
         return true;//this.imgMaster.visible;

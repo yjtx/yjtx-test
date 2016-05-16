@@ -12,7 +12,7 @@ class ScrollerExmlIn extends EntryEuiDocument {
         var exml =
 	         `
 <e:Group class="components.ListGroup" xmlns:e="http://ns.egret.com/eui">
-    <e:Scroller left="1" top="1" width="300" height="100">
+    <e:Scroller id="scroller" left="1" top="1" width="300" height="100">
         <e:List id="list">
             <e:itemRendererSkinName>
                 <e:Skin states="up,down,disabled" height="64">
@@ -57,8 +57,30 @@ class ScrollerExmlIn extends EntryEuiDocument {
         ui.list.addEventListener(egret.TouchEvent.TOUCH_END, this.onTrueHandler, { useCapture: true }, true);
         ui.list.addEventListener(egret.TouchEvent.TOUCH_END, this.onFalseHandler, { useCapture: false }, false);
 
+        ui.list.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTrueHandler, { useCapture: true }, true);
+        ui.list.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onFalseHandler, { useCapture: false }, false);
+
         ui.list.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTrueHandler, { useCapture: true }, true);
         ui.list.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFalseHandler, { useCapture: false }, false);
+
+        ui.list.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTrueHandler, { useCapture: true }, true);
+        ui.list.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onFalseHandler, { useCapture: false }, false);
+
+
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTrueHandler, { useCapture: true }, true);
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onFalseHandler, { useCapture: false }, false);
+
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onTrueHandler, { useCapture: true }, true);
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_END, this.onFalseHandler, { useCapture: false }, false);
+
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTrueHandler, { useCapture: true }, true);
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onFalseHandler, { useCapture: false }, false);
+
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTrueHandler, { useCapture: true }, true);
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFalseHandler, { useCapture: false }, false);
+
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTrueHandler, { useCapture: true }, true);
+        ui.scroller.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onFalseHandler, { useCapture: false }, false);
 
 
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTrueHandler, { useCapture: true }, true);
@@ -67,8 +89,14 @@ class ScrollerExmlIn extends EntryEuiDocument {
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTrueHandler, { useCapture: true }, true);
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.onFalseHandler, { useCapture: false }, false);
 
+        this.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTrueHandler, { useCapture: true }, true);
+        this.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onFalseHandler, { useCapture: false }, false);
+
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTrueHandler, { useCapture: true }, true);
         this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFalseHandler, { useCapture: false }, false);
+
+        this.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTrueHandler, { useCapture: true }, true);
+        this.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onFalseHandler, { useCapture: false }, false);
 
         this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTrueHandler, { useCapture: true }, true);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onFalseHandler, { useCapture: false }, false);
@@ -76,8 +104,14 @@ class ScrollerExmlIn extends EntryEuiDocument {
         this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTrueHandler, { useCapture: true }, true);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onFalseHandler, { useCapture: false }, false);
 
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onTrueHandler, { useCapture: true }, true);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onFalseHandler, { useCapture: false }, false);
+
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTrueHandler, { useCapture: true }, true);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onFalseHandler, { useCapture: false }, false);
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTrueHandler, { useCapture: true }, true);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onFalseHandler, { useCapture: false }, false);
     }
 
     private onTrueHandler(e:egret.TouchEvent):void {

@@ -6,7 +6,7 @@ var ButtonWithInput = (function (_super) {
     function ButtonWithInput() {
         _super.call(this, ["preload"]);
     }
-    var d = __define,c=ButtonWithInput;p=c.prototype;
+    var d = __define,c=ButtonWithInput,p=c.prototype;
     p.initRoot = function () {
         var shape = new egret.Shape();
         this.addChild(shape);
@@ -52,5 +52,5 @@ var ButtonWithInput = (function (_super) {
         }, this);
     };
     return ButtonWithInput;
-})(EntryEuiDocument);
-egret.registerClass(ButtonWithInput,"ButtonWithInput");
+}(EntryEuiDocument));
+egret.registerClass(ButtonWithInput,'ButtonWithInput');

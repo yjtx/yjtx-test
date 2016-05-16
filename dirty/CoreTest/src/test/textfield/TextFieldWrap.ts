@@ -20,6 +20,7 @@ class TextFieldWrap extends EntryDisplayObjectContainer {
         textfield1.wordWrap = true;
         textfield1.y = 280;
         this.addChild(textfield1);
+        
     }
 }
 

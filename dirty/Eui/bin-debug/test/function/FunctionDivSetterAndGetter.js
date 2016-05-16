@@ -6,20 +6,20 @@ var FunctionDivSetterAndGetter = (function (_super) {
     function FunctionDivSetterAndGetter() {
         _super.call(this, ["preload"]);
     }
-    var d = __define,c=FunctionDivSetterAndGetter;p=c.prototype;
+    var d = __define,c=FunctionDivSetterAndGetter,p=c.prototype;
     p.initRoot = function () {
         this.addChild(new Seat());
     };
     return FunctionDivSetterAndGetter;
-})(EntryEuiDocument);
-egret.registerClass(FunctionDivSetterAndGetter,"FunctionDivSetterAndGetter");
+}(EntryEuiDocument));
+egret.registerClass(FunctionDivSetterAndGetter,'FunctionDivSetterAndGetter');
 var Seat = (function (_super) {
     __extends(Seat, _super);
     function Seat() {
         _super.call(this);
         this.init();
     }
-    var d = __define,c=Seat;p=c.prototype;
+    var d = __define,c=Seat,p=c.prototype;
     p.init = function () {
         this.skinName = components.SeatSkin;
     };
@@ -27,14 +27,23 @@ var Seat = (function (_super) {
         _super.prototype.createChildren.call(this);
     };
     return Seat;
-})(eui.Component);
-egret.registerClass(Seat,"Seat");
+}(eui.Component));
+egret.registerClass(Seat,'Seat');
 var UserInfoView = (function (_super) {
     __extends(UserInfoView, _super);
     function UserInfoView() {
         _super.call(this);
+        this._b11111 = 0;
     }
-    var d = __define,c=UserInfoView;p=c.prototype;
+    var d = __define,c=UserInfoView,p=c.prototype;
+    d(p, "b11111"
+        ,function () {
+            return this._b11111;
+        }
+        ,function (value) {
+            this._b11111 = value;
+        }
+    );
     d(p, "isMaster"
         ,function () {
             console.log("ssssss");
@@ -45,5 +54,5 @@ var UserInfoView = (function (_super) {
         }
     );
     return UserInfoView;
-})(eui.Component);
-egret.registerClass(UserInfoView,"UserInfoView");
+}(eui.Component));
+egret.registerClass(UserInfoView,'UserInfoView');

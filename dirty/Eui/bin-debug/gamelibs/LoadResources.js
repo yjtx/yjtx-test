@@ -34,7 +34,6 @@ var LoadResources = (function () {
         this._thisObj = thisObj;
         this.stage = stage;
         this._group = group;
-        alert("开始加载");
         //inject the custom material parser
         //注入自定义的素材解析器
         var assetAdapter = new AssetAdapter();
@@ -45,7 +44,7 @@ var LoadResources = (function () {
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig(ResourceUtils.getRoot(factor) + "default.res.json", ResourceUtils.getRoot(factor));
     }
-    var d = __define,c=LoadResources;p=c.prototype;
+    var d = __define,c=LoadResources,p=c.prototype;
     /**
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
@@ -59,7 +58,13 @@ var LoadResources = (function () {
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
-        RES.loadGroup(this._group);
+        if (this._group != null && this._group != "") {
+            alert("开始加载");
+            RES.loadGroup(this._group);
+        }
+        else {
+            this._callback.call(this._thisObj);
+        }
     };
     /**
      * 主题文件加载完成,开始预加载
@@ -118,5 +123,5 @@ var LoadResources = (function () {
         this._callback.call(this._thisObj);
     };
     return LoadResources;
-})();
-egret.registerClass(LoadResources,"LoadResources");
+}());
+egret.registerClass(LoadResources,'LoadResources');

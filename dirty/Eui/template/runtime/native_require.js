@@ -14,6 +14,7 @@ var game_file_list = [
 	"bin-debug/gamelibs/LoadResources.js",
 	"bin-debug/gamelibs/ResourceUtils.js",
 	"bin-debug/test/button/ButtonWithInput.js",
+	"bin-debug/test/button/EditTextLineSpacing.js",
 	"bin-debug/test/function/FunctionDivSetterAndGetter.js",
 	"bin-debug/test/image/ImageExmlIn.js",
 	"bin-debug/test/image/ImageExmlOut.js",

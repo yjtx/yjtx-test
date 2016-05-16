@@ -39,8 +39,18 @@ class CacheAsBitmapEmptyContainer extends EntryDisplayObjectContainer {
         this.addChild(container);
 
         console.log("11111");
+        
+        CacheAsBitmapEmptyContainer.getInstance();
     }
-
+    
+    static instance:CacheAsBitmapEmptyContainer;
+    public static getInstance():CacheAsBitmapEmptyContainer {
+        if (this.instance == null) {
+            this.instance = new CacheAsBitmapEmptyContainer();
+        }
+        
+        return this.instance;
+    }
 
 }
 

@@ -37,6 +37,13 @@ var CacheAsBitmapEmptyContainer = (function (_super) {
         container.cacheAsBitmap = true;
         this.addChild(container);
         console.log("11111");
+        CacheAsBitmapEmptyContainer.getInstance();
+    };
+    CacheAsBitmapEmptyContainer.getInstance = function () {
+        if (this.instance == null) {
+            this.instance = new CacheAsBitmapEmptyContainer();
+        }
+        return this.instance;
     };
     return CacheAsBitmapEmptyContainer;
 }(EntryDisplayObjectContainer));

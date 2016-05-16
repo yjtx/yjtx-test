@@ -3,7 +3,8 @@ var examples = {
     "Function": ["DivSetterAndGetter"],
     "Rect": ["ExmlSimple"],
     "Image": ["Normal", "ExmlIn", "ExmlOut"],
-    "Scroller": ["ExmlIn"]
+    "Scroller": ["ExmlIn"],
+    "EditText": ["LineSpacing"]
 };
 
 function returnHref(thirdName, forthName) {

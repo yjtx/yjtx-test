@@ -1,4 +1,4 @@
 <?xml version='1.0' encoding='utf-8'?>
 <e:Skin class="components.SeatSkin" width="600" height="170" width.my="1400" width.left="600" width.right="600" height.left="300" height.right="300" currentState="normal" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" states="normal,my,left,right"  height.my="180" height.normal="180">
-	<ns1:UserInfoView id="userInfoView" skinName="components.UserInfoSkin"/>
+	<ns1:UserInfoView  skinName="components.UserInfoSkin"/>
 </e:Skin>

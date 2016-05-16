@@ -3,7 +3,7 @@
  */
 class ImageExmlIn extends EntryEuiDocument {
     constructor() {
-        super(["preload"]);
+        super([""]);
 
     }
 
@@ -11,7 +11,7 @@ class ImageExmlIn extends EntryEuiDocument {
 
         var exml =
 	         `
-<e:Image class="MyImage" xmlns:e="http://ns.egret.com/eui" source="close_png" width="160" height="100" scale9Grid="16,16,84,30"/>
+<e:Image class="MyImage" xmlns:e="http://ns.egret.com/eui" source="ori_1_json.ori_2_png" width="160" height="100" scale9Grid="16,16,84,30"/>
     `;
         var clazz = EXML.parse(exml);
         var ui = new clazz();

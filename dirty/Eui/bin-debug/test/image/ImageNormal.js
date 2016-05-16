@@ -7,13 +7,17 @@ var ImageNormal = (function (_super) {
         _super.call(this, ["preload"]);
         this.addEventListener(eui.UIEvent.COMPLETE, this.onCompleteHandler, this);
     }
-    var d = __define,c=ImageNormal;p=c.prototype;
+    var d = __define,c=ImageNormal,p=c.prototype;
     p.onCompleteHandler = function (e) {
         console.log(e.type);
     };
     p.initRoot = function () {
         this.skinName = "ImageNormalSkin";
+        var loadingBg = new eui.Image(RES.getRes("checkbox_select_down_png"));
+        this.addChild(loadingBg);
+        console.log(loadingBg.width);
+        console.log(loadingBg.width);
     };
     return ImageNormal;
-})(EntryEuiDocument);
-egret.registerClass(ImageNormal,"ImageNormal");
+}(EntryEuiDocument));
+egret.registerClass(ImageNormal,'ImageNormal');

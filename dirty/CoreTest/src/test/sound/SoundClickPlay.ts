@@ -36,7 +36,7 @@ class SoundClickPlay extends EntryDisplayObjectContainer {
     protected initRoot():void {
         var s:egret.Sound = RES.getRes("effect_mp3");
         var sChannel:egret.SoundChannel;
-
+        
         var text1:egret.TextField = new egret.TextField();
         text1.text = "play";
         text1.size = 60;

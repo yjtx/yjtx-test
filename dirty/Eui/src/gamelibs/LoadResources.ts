@@ -40,8 +40,6 @@ class LoadResources {
         this.stage = stage;
         this._group = group;
 
-        alert("开始加载");
-
         //inject the custom material parser
         //注入自定义的素材解析器
         var assetAdapter = new AssetAdapter();
@@ -68,7 +66,13 @@ class LoadResources {
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
 
-        RES.loadGroup(this._group);
+        if (this._group != null && this._group != "") {
+            alert("开始加载");
+            RES.loadGroup(this._group);
+        }
+        else {
+            this._callback.call(this._thisObj);
+        }
     }
     private isThemeLoadEnd: boolean = false;
     /**

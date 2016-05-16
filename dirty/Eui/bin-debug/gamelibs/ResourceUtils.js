@@ -29,7 +29,7 @@
 var ResourceUtils = (function () {
     function ResourceUtils() {
     }
-    var d = __define,c=ResourceUtils;p=c.prototype;
+    var d = __define,c=ResourceUtils,p=c.prototype;
     ResourceUtils.getRoot = function (factor) {
         if (factor == 2) {
             return "resource_240/";
@@ -37,5 +37,5 @@ var ResourceUtils = (function () {
         return "resource/";
     };
     return ResourceUtils;
-})();
-egret.registerClass(ResourceUtils,"ResourceUtils");
+}());
+egret.registerClass(ResourceUtils,'ResourceUtils');

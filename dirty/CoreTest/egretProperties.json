@@ -9,7 +9,7 @@
 		"web": 0,
 		"native": 1
 	},
-	"egret_version": "3.0.6",
+	"egret_version": "3.0.8",
 	"modules": [
 		{
 			"name": "egret"
@@ -28,10 +28,6 @@
 		},
 		{
 			"name": "socket"
-		},
-		{
-			"name": "dom",
-			"path": "/Users/yjtx/Sites/Egret/egret-game-library/dom/libsrc"
 		}
 	]
 }
