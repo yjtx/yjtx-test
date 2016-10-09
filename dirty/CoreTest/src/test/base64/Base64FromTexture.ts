@@ -40,8 +40,22 @@ class Base64FromTexture extends EntryDisplayObjectContainer {
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         this.addChild(icon);
 
-        var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
-        console.log(base64);
+        egret.setTimeout(function() {
+            var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
+            egret.log(base64);
+
+            if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
+                var bitmap3:egret.Bitmap = new egret.Bitmap();
+                var texture3:egret.Texture = new egret.Texture();
+                var image: HTMLImageElement = new Image();
+                image.src = base64;
+                texture3.bitmapData = new egret.BitmapData(image);
+                bitmap3.texture = texture3;
+                this.addChild(bitmap3);
+                bitmap3.y = 400;
+            }
+        }, this, 1000);
+        
     }
 }
 

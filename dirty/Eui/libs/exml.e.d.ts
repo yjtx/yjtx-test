@@ -35,6 +35,10 @@ declare module skins{
 	}
 }
 declare module skins{
+	class TextInputSkin extends eui.Skin{
+	}
+}
+declare module skins{
 	class ToggleSwitchSkin extends eui.Skin{
 	}
 }
@@ -61,6 +65,8 @@ declare module components{
 	}
 }
 declare class ImageNormalSkin extends eui.Skin{
+}
+declare class ScrollerExmlOutSkin extends eui.Skin{
 }
 declare class SkinButtonSkin extends eui.Skin{
 }

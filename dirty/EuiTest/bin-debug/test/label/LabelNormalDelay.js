@@ -9,7 +9,7 @@ var LabelNormalDelay = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=LabelNormalDelay;p=c.prototype;
+    var d = __define,c=LabelNormalDelay,p=c.prototype;
     p.init = function () {
         this.testUrl();
     };
@@ -22,5 +22,5 @@ var LabelNormalDelay = (function (_super) {
         }, this, 1000);
     };
     return LabelNormalDelay;
-})(eui.Group);
-egret.registerClass(LabelNormalDelay,"LabelNormalDelay");
+}(eui.Group));
+egret.registerClass(LabelNormalDelay,'LabelNormalDelay');

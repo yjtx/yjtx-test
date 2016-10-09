@@ -13,7 +13,7 @@ var TileOrientationExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=TileOrientationExample;p=c.prototype;
+    var d = __define,c=TileOrientationExample,p=c.prototype;
     p.init = function () {
         var arrValues = [eui.TileOrientation.ROWS, eui.TileOrientation.COLUMNS];
         for (var i = 0, max = arrValues.length; i < max; i++) {
@@ -52,5 +52,5 @@ var TileOrientationExample = (function (_super) {
         return btn;
     };
     return TileOrientationExample;
-})(egret.Sprite);
-egret.registerClass(TileOrientationExample,"TileOrientationExample");
+}(egret.Sprite));
+egret.registerClass(TileOrientationExample,'TileOrientationExample');

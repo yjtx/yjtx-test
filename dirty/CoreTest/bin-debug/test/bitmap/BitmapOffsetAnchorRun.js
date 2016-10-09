@@ -40,6 +40,11 @@ var BitmapOffsetAnchorRun = (function (_super) {
         var h = bmp.height; // * 0.5;
         var x = this.stage.stageWidth / 2;
         var y = this.stage.stageHeight / 2;
+        bmp.x = x;
+        bmp.y = y - 100;
+        this.addChildAt(bmp, 0);
+        console.log(bmp.width);
+        egret.Tween.get(bmp, { loop: true }).to({ rotation: 360 }, 3600);
         //0.5 0.5
         bmp = this.createBitmapByName("img_scale9_png");
         this.addChildAt(bmp, 0);
@@ -48,11 +53,9 @@ var BitmapOffsetAnchorRun = (function (_super) {
         bmp.anchorOffsetX = w / 2;
         bmp.anchorOffsetY = h / 2;
         bmp.x = x;
-        bmp.y = y;
+        bmp.y = y + 200;
         console.log(bmp.width);
         egret.Tween.get(bmp, { loop: true }).to({ rotation: 360 }, 3600);
-        this.scaleX = this.scaleY = 1.5;
-        egret.Tween.get(this, { loop: true }).to({ rotation: 3600 }, 3600);
     };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。

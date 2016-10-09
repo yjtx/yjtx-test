@@ -14,7 +14,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=HScrollBarSkin;p=c.prototype;
+            var d = __define,c=HScrollBarSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return HScrollBarSkin._skinParts;
@@ -34,8 +34,8 @@ var skins;
             };
             HScrollBarSkin._skinParts = ["track", "thumb"];
             return HScrollBarSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.HScrollBarSkin = HScrollBarSkin;
-        egret.registerClass(HScrollBarSkin,"skins.simple.HScrollBarSkin");
+        egret.registerClass(HScrollBarSkin,'skins.simple.HScrollBarSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

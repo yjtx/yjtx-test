@@ -15,7 +15,7 @@ var ItemRendererExample = (function (_super) {
         var dataGroup = new clazz();
         this.addChild(dataGroup);
     }
-    var d = __define,c=ItemRendererExample;p=c.prototype;
+    var d = __define,c=ItemRendererExample,p=c.prototype;
     return ItemRendererExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ItemRendererExample,"ItemRendererExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ItemRendererExample,'ItemRendererExample');

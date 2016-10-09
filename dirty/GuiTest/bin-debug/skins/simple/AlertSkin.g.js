@@ -10,7 +10,7 @@ var skins;
                 this.__s(this, ["maxWidth", "minHeight", "minWidth"], [710, 230, 370]);
                 this.elementsContent = [this.__1_i(), this.moveArea_i(), this.contentDisplay_i(), this.__4_i()];
             }
-            var d = __define,c=AlertSkin;p=c.prototype;
+            var d = __define,c=AlertSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return AlertSkin._skinParts;
@@ -77,8 +77,8 @@ var skins;
             };
             AlertSkin._skinParts = ["titleDisplay", "closeButton", "moveArea", "contentDisplay", "firstButton", "secondButton"];
             return AlertSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.AlertSkin = AlertSkin;
-        egret.registerClass(AlertSkin,"skins.simple.AlertSkin");
+        egret.registerClass(AlertSkin,'skins.simple.AlertSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

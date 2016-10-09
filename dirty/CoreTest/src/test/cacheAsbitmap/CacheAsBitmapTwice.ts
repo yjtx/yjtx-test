@@ -34,8 +34,8 @@ class CacheAsBitmapTwice extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
+        var texture1:egret.Texture = RES.getRes("img_scale9_png");
+        var bitmap = new egret.Bitmap(texture1);
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;
         bitmap.cacheAsBitmap = false;

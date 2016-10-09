@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- content：菜单名字   id：序号    level：菜单层次   isfold:初始化的时候菜单是否折叠起来   resources：资源名字，带后缀名-->
+<menu>
+	<Item content="拆装发动机线束" id="1">
+		<content2>
+			　　P&L
+		</content2>
+	</Item>
+</menu>

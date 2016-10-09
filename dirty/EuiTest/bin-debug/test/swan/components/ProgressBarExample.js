@@ -18,7 +18,7 @@ var ProgressBarExample = (function (_super) {
             }
         }, null);
     }
-    var d = __define,c=ProgressBarExample;p=c.prototype;
+    var d = __define,c=ProgressBarExample,p=c.prototype;
     return ProgressBarExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ProgressBarExample,"ProgressBarExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ProgressBarExample,'ProgressBarExample');

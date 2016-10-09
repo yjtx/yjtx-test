@@ -15,15 +15,15 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=SliderThumbSkin;p=c.prototype;
+            var d = __define,c=SliderThumbSkin,p=c.prototype;
             p.__4_i = function () {
                 var t = new egret.gui.UIAsset();
                 this.__s(t, ["source", "x", "y"], ["hslider_thumb_png", -9, -9]);
                 return t;
             };
             return SliderThumbSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.SliderThumbSkin = SliderThumbSkin;
-        egret.registerClass(SliderThumbSkin,"skins.simple.SliderThumbSkin");
+        egret.registerClass(SliderThumbSkin,'skins.simple.SliderThumbSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

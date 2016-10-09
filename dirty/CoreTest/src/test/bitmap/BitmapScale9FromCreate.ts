@@ -34,9 +34,6 @@ class BitmapScale9FromCreate extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
-
-        var icon = new egret.Bitmap(RES.getRes("talkingPanel_png"));
-
         var loader = new egret.URLLoader();
         loader.addEventListener(egret.Event.COMPLETE, function loadOver(e) {
             var loader = e.currentTarget;

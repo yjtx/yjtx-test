@@ -42,7 +42,10 @@ var WebSocketString = (function (_super) {
             egret.log("收到数据：" + msg);
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e) {
-            egret.log("WebSocketOpen");
+            egret.log("WebSocketOpen11");
+            socket.flush();
+            var msg = socket.readUTF();
+            // socket.writeUTF("Hello Egret WebSocket");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e) {
             egret.log("WebSocketClose");

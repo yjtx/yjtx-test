@@ -9,7 +9,7 @@ var ButtonOK = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=ButtonOK;p=c.prototype;
+    var d = __define,c=ButtonOK,p=c.prototype;
     p.init = function () {
         new LoadResources(this.testUrl, this, this.stage, ["resource/test/ButtonOK.exml"]);
     };
@@ -18,5 +18,5 @@ var ButtonOK = (function (_super) {
         this.addChild(ui);
     };
     return ButtonOK;
-})(eui.Group);
-egret.registerClass(ButtonOK,"ButtonOK");
+}(eui.Group));
+egret.registerClass(ButtonOK,'ButtonOK');

@@ -27,7 +27,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=CheckBoxSkin;p=c.prototype;
+            var d = __define,c=CheckBoxSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return CheckBoxSkin._skinParts;
@@ -59,8 +59,8 @@ var skins;
             };
             CheckBoxSkin._skinParts = ["labelDisplay"];
             return CheckBoxSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.CheckBoxSkin = CheckBoxSkin;
-        egret.registerClass(CheckBoxSkin,"skins.simple.CheckBoxSkin");
+        egret.registerClass(CheckBoxSkin,'skins.simple.CheckBoxSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

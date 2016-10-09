@@ -19,7 +19,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=DropDownListSkin;p=c.prototype;
+            var d = __define,c=DropDownListSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return DropDownListSkin._skinParts;
@@ -72,8 +72,8 @@ var skins;
             };
             DropDownListSkin._skinParts = ["openButton", "labelDisplay", "dataGroup", "scroller", "dropDown", "popUp"];
             return DropDownListSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.DropDownListSkin = DropDownListSkin;
-        egret.registerClass(DropDownListSkin,"skins.simple.DropDownListSkin");
+        egret.registerClass(DropDownListSkin,'skins.simple.DropDownListSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

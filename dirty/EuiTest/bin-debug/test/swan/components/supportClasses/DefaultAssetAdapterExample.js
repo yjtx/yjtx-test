@@ -12,7 +12,7 @@ var DefaultAssetAdapterExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.onAddedToStage, this);
     }
-    var d = __define,c=DefaultAssetAdapterExample;p=c.prototype;
+    var d = __define,c=DefaultAssetAdapterExample,p=c.prototype;
     p.onAddedToStage = function (e) {
         var assetAdapter = new eui.DefaultAssetAdapter();
         //Swan内置组件需要加载外部资源时会使用注册的 IAssetAdapter 加载，这里我们把 DefaultAssetAdapter 的一个实例作为默认实现
@@ -28,5 +28,5 @@ var DefaultAssetAdapterExample = (function (_super) {
         this.addChild(image);
     };
     return DefaultAssetAdapterExample;
-})(eui.Group);
-egret.registerClass(DefaultAssetAdapterExample,"DefaultAssetAdapterExample");
+}(eui.Group));
+egret.registerClass(DefaultAssetAdapterExample,'DefaultAssetAdapterExample');

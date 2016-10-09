@@ -34,7 +34,7 @@ var SoundNormal = (function (_super) {
     var d = __define,c=SoundNormal,p=c.prototype;
     p.initRoot = function () {
         var sound = RES.getRes("wf_mp3");
-        console.log("sound length: " + sound.length);
+        // console.log("sound length: " + sound.length);
         sound.play();
     };
     return SoundNormal;

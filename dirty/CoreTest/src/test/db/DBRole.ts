@@ -28,10 +28,9 @@ class DBRole extends EntryDisplayObjectContainer {
         container.addChild(armatureDisplay);
         armatureDisplay.x = 100;
         armatureDisplay.y = 100;
+        armature.getSlot("eyelidL").display = new egret.Bitmap(RES.getRes("role_1_eyelid_png"));
+        armature.getSlot("eyelidR").display = new egret.Bitmap(RES.getRes("role_1_eyelid_png"));
         armature.animation.gotoAndPlay("Blink");
-
-        armature.getSlot("eyelidL").display.texture   = RES.getRes("role_1_eyelid_png");
-        armature.getSlot("eyelidR").display.texture   = RES.getRes("role_1_eyelid_png");
 
         egret.Ticker.getInstance().register(function (advancedTime):boolean {
             dragonBones.WorldClock.clock.advanceTime(advancedTime / 1000);

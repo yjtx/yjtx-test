@@ -36,8 +36,20 @@ var Base64FromTexture = (function (_super) {
         var texture = RES.getRes("run_down_png");
         var icon = new egret.Bitmap(texture);
         this.addChild(icon);
-        var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
-        console.log(base64);
+        egret.setTimeout(function () {
+            var base64 = texture.toDataURL("image/png", new egret.Rectangle(20, 20, 100, 100));
+            egret.log(base64);
+            if (egret.Capabilities.runtimeType == egret.RuntimeType.WEB) {
+                var bitmap3 = new egret.Bitmap();
+                var texture3 = new egret.Texture();
+                var image = new Image();
+                image.src = base64;
+                texture3.bitmapData = new egret.BitmapData(image);
+                bitmap3.texture = texture3;
+                this.addChild(bitmap3);
+                bitmap3.y = 400;
+            }
+        }, this, 1000);
     };
     return Base64FromTexture;
 }(EntryDisplayObjectContainer));

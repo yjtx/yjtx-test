@@ -18,7 +18,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=DropDownListItemRendererSkin;p=c.prototype;
+            var d = __define,c=DropDownListItemRendererSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return DropDownListItemRendererSkin._skinParts;
@@ -43,8 +43,8 @@ var skins;
             };
             DropDownListItemRendererSkin._skinParts = ["labelDisplay"];
             return DropDownListItemRendererSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.DropDownListItemRendererSkin = DropDownListItemRendererSkin;
-        egret.registerClass(DropDownListItemRendererSkin,"skins.simple.DropDownListItemRendererSkin");
+        egret.registerClass(DropDownListItemRendererSkin,'skins.simple.DropDownListItemRendererSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

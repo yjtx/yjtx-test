@@ -35,7 +35,7 @@ class SoundNormal extends EntryDisplayObjectContainer {
 
     protected initRoot():void {
         var sound:egret.Sound = RES.getRes("wf_mp3");
-        console.log("sound length: " + sound.length);
+        // console.log("sound length: " + sound.length);
 
         sound.play();
 

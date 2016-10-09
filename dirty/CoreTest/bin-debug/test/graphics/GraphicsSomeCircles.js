@@ -21,15 +21,15 @@ var GraphicsSomeCircles = (function (_super) {
         this.addChild(emptySP);
         emptySP.touchEnabled = true;
         emptySP.addEventListener(egret.TouchEvent.TOUCH_BEGIN, function (e) {
-            drawSp.graphics.drawCircle(e.localX, e.localY, 50);
-            drawSp.graphics.endFill();
+            console.log(e.stageX, e.stageY);
+            drawSp.graphics.beginFill(0xFFFFFF, 0.5);
+            drawSp.graphics.drawCircle(e.stageX, e.stageY, 50);
         }, this);
         emptySP.addEventListener(egret.TouchEvent.TOUCH_MOVE, function (e) {
-            drawSp.graphics.drawCircle(e.localX, e.localY, 50);
-            drawSp.graphics.endFill();
+            drawSp.graphics.drawCircle(e.stageX, e.stageY, 50);
         }, this);
         emptySP.addEventListener(egret.TouchEvent.TOUCH_END, function (e) {
-            //drawSp.graphics.clear();
+            drawSp.graphics.endFill();
         }, this);
     };
     return GraphicsSomeCircles;

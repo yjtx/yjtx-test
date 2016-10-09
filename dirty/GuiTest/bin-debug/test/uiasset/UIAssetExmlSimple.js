@@ -31,7 +31,7 @@ var UIAssetExmlSimple = (function (_super) {
     function UIAssetExmlSimple() {
         _super.call(this);
     }
-    var d = __define,c=UIAssetExmlSimple;p=c.prototype;
+    var d = __define,c=UIAssetExmlSimple,p=c.prototype;
     p.initRoot = function () {
         var guiLayer = new egret.gui.UIStage();
         this.addChild(guiLayer);
@@ -39,8 +39,8 @@ var UIAssetExmlSimple = (function (_super) {
         guiLayer.addElement(ui);
     };
     return UIAssetExmlSimple;
-})(EntryDisplayObjectContainer);
-egret.registerClass(UIAssetExmlSimple,"UIAssetExmlSimple");
+}(EntryDisplayObjectContainer));
+egret.registerClass(UIAssetExmlSimple,'UIAssetExmlSimple');
 var SimpleUIAsset = (function (_super) {
     __extends(SimpleUIAsset, _super);
     function SimpleUIAsset() {
@@ -49,7 +49,7 @@ var SimpleUIAsset = (function (_super) {
         //  Assign the skin name used by this Component
         this.skinName = "skins.scene.SimpleUIAssetSkin";
     }
-    var d = __define,c=SimpleUIAsset;p=c.prototype;
+    var d = __define,c=SimpleUIAsset,p=c.prototype;
     return SimpleUIAsset;
-})(egret.gui.SkinnableComponent);
-egret.registerClass(SimpleUIAsset,"SimpleUIAsset");
+}(egret.gui.SkinnableComponent));
+egret.registerClass(SimpleUIAsset,'SimpleUIAsset');

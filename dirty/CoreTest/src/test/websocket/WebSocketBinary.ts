@@ -32,7 +32,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
     public constructor() {
         super();
     }
-
+    
     protected initRoot():void {
         var socket:egret.WebSocket = new egret.WebSocket();
         socket.type = egret.WebSocket.TYPE_BINARY;
@@ -49,7 +49,7 @@ class WebSocketBinary extends EntryDisplayObjectContainer {
 
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e:egret.Event) {
-            egret.log("WebSocketOpen");
+            egret.log("WebSocketOpen11");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e:egret.Event) {
             egret.log("WebSocketClose");

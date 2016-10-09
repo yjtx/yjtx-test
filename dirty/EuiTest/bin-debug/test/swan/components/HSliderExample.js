@@ -18,7 +18,7 @@ var HSliderExample = (function (_super) {
         hslider.y = 50;
         this.addChild(hslider);
     }
-    var d = __define,c=HSliderExample;p=c.prototype;
+    var d = __define,c=HSliderExample,p=c.prototype;
     return HSliderExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(HSliderExample,"HSliderExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(HSliderExample,'HSliderExample');

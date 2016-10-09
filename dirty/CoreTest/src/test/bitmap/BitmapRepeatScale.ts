@@ -38,9 +38,18 @@ class BitmapRepeatScale extends EntryDisplayObjectContainer {
         var icon:egret.Bitmap = new egret.Bitmap();
         icon.texture = texture;
         this.addChild(icon);
-        icon.width = 400;
-        icon.height = 500;
-        icon.scaleX = icon.scaleY = 1.1;
+        icon.width = 170;
+        icon.height = 300;
+        icon.fillMode = egret.BitmapFillMode.REPEAT;
+
+        var texture:egret.Texture = RES.getRes("img_scale9_png");
+        var icon:egret.Bitmap = new egret.Bitmap();
+        icon.texture = texture;
+        this.addChild(icon);
+        icon.y = 330;
+        icon.width = 170;
+        icon.height = 300;
+        icon.scaleX = icon.scaleY = 1.5;
         icon.fillMode = egret.BitmapFillMode.REPEAT;
     }
 }

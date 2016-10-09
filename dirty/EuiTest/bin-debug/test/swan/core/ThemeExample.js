@@ -12,7 +12,7 @@ var ThemeExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=ThemeExample;p=c.prototype;
+    var d = __define,c=ThemeExample,p=c.prototype;
     p.init = function () {
         var theme = new eui.Theme("resource/examples/green-theme.json", this.stage);
         this.progress = new eui.ProgressBar();
@@ -28,5 +28,5 @@ var ThemeExample = (function (_super) {
             this.progress.value = 0;
     };
     return ThemeExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ThemeExample,"ThemeExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ThemeExample,'ThemeExample');

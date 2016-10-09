@@ -9,7 +9,7 @@ var ButtonInGroupClick = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=ButtonInGroupClick;p=c.prototype;
+    var d = __define,c=ButtonInGroupClick,p=c.prototype;
     p.init = function () {
         //new LoadResources(, this, this.stage, ["resource/test/ButtonOK.exml"]);
         this.testUrl();
@@ -40,5 +40,5 @@ var ButtonInGroupClick = (function (_super) {
         egret.log(event.type);
     };
     return ButtonInGroupClick;
-})(eui.Group);
-egret.registerClass(ButtonInGroupClick,"ButtonInGroupClick");
+}(eui.Group));
+egret.registerClass(ButtonInGroupClick,'ButtonInGroupClick');

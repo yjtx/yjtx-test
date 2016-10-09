@@ -27,7 +27,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=RadioButtonSkin;p=c.prototype;
+            var d = __define,c=RadioButtonSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return RadioButtonSkin._skinParts;
@@ -59,8 +59,8 @@ var skins;
             };
             RadioButtonSkin._skinParts = ["labelDisplay"];
             return RadioButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.RadioButtonSkin = RadioButtonSkin;
-        egret.registerClass(RadioButtonSkin,"skins.simple.RadioButtonSkin");
+        egret.registerClass(RadioButtonSkin,'skins.simple.RadioButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

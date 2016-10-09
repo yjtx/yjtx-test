@@ -36,6 +36,7 @@ var CacheAsBitmapEmptyBitmap = (function (_super) {
         var bitmap = new egret.Bitmap();
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;
+        bitmap.cacheAsBitmap = false;
     };
     return CacheAsBitmapEmptyBitmap;
 }(EntryDisplayObjectContainer));

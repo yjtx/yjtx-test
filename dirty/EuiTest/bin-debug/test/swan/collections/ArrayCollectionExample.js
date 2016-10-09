@@ -26,7 +26,7 @@ var ArrayCollectionExample = (function (_super) {
         arrayCollection.source[1] = 8;
         arrayCollection.itemUpdated(1); //update
     }
-    var d = __define,c=ArrayCollectionExample;p=c.prototype;
+    var d = __define,c=ArrayCollectionExample,p=c.prototype;
     p.onCollectionChange = function (e) {
         switch (e.kind) {
             case eui.CollectionEventKind.ADD:
@@ -50,5 +50,5 @@ var ArrayCollectionExample = (function (_super) {
         }
     };
     return ArrayCollectionExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ArrayCollectionExample,"ArrayCollectionExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ArrayCollectionExample,'ArrayCollectionExample');

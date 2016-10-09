@@ -12,6 +12,8 @@ class TextFieldNormal extends EntryDisplayObjectContainer {
         textfield1.text = "asdf11sfsfsf 1dsfsfasdflj1\nsadaf\nfdsfs";
         textfield1.background = true;
         textfield1.backgroundColor = 0xff00ff;
+
+        egret.log(textfield1.width + "  " + textfield1.height);
         this.addChild(textfield1);
     }
 }

@@ -15,7 +15,6 @@ var GraphicsArcCircleDiff = (function (_super) {
         shape1.y = 300;
         shape1.graphics.lineStyle(6, 0xff0000);
         for (var i = 0; i < num; i++) {
-            //shape1.graphics.moveTo(100 + 90 * Math.cos(Math.PI / 12 * i), 100 + 90 * Math.sin(Math.PI / 12 * i));
             shape1.graphics.drawArc(100, 100, 90, Math.PI / 12 * i, Math.PI / 12 * (i + 1), false);
             shape1.graphics.endFill();
         }

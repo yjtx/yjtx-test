@@ -45,7 +45,7 @@ class LoaderTextTwice extends EntryDisplayObjectContainer {
             //alert(loader.data);
             //alert(JSON.parse(loader.data));
 
-            console.log("once");
+            egret.log("once");
 
             self.testText2();
         }, this);
@@ -60,7 +60,7 @@ class LoaderTextTwice extends EntryDisplayObjectContainer {
         this.loader = new egret.URLLoader();
         this.loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
             this.loader.removeEventListener(egret.Event.COMPLETE, loadOver, self);
-            console.log("twice");
+            egret.log("twice");
 
         }, this);
 

@@ -46,7 +46,7 @@ var WebSocketBinary = (function (_super) {
             egret.log("收到数据：" + msg + " " + boo.toString() + " " + num.toString());
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e) {
-            egret.log("WebSocketOpen");
+            egret.log("WebSocketOpen11");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e) {
             egret.log("WebSocketClose");

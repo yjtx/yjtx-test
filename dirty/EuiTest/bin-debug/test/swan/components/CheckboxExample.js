@@ -13,7 +13,7 @@ var CheckboxExample = (function (_super) {
         checkbox.y = 50;
         this.addChild(checkbox);
     }
-    var d = __define,c=CheckboxExample;p=c.prototype;
+    var d = __define,c=CheckboxExample,p=c.prototype;
     return CheckboxExample;
-})(eui.Group);
-egret.registerClass(CheckboxExample,"CheckboxExample");
+}(eui.Group));
+egret.registerClass(CheckboxExample,'CheckboxExample');

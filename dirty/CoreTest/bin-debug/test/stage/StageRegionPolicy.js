@@ -13,7 +13,7 @@ var StageRegionPolicy = (function (_super) {
         icon.texture = texture;
         this.addChild(icon);
         icon.scaleX = icon.scaleY = 1.5;
-        this.stage.dirtyRegionPolicy = egret.DirtyRegionPolicy.OFF;
+        // this.stage.dirtyRegionPolicy = egret.DirtyRegionPolicy.OFF;
     };
     return StageRegionPolicy;
 }(EntryDisplayObjectContainer));

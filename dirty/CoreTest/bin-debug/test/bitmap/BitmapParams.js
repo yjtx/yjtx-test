@@ -36,14 +36,14 @@ var BitmapParams = (function (_super) {
         var texture = RES.getRes("img_scale9_png");
         var icon = new egret.Bitmap(texture);
         this.addChild(icon);
-        console.log("1 bitmapData: " + icon.bitmapData);
-        console.dir("1 texture: " + icon.texture);
+        egret.log("1 bitmapData: " + icon.bitmapData);
+        egret.log("1 texture: " + icon.texture);
         var texture = RES.getRes("img_scale9_png");
         var icon = new egret.Bitmap(texture.bitmapData);
         this.addChild(icon);
         icon.y = 300;
-        console.dir("2 bitmapData: " + icon.bitmapData);
-        console.log("2 texture: " + icon.texture);
+        egret.log("2 bitmapData: " + icon.bitmapData);
+        egret.log("2 texture: " + icon.texture);
     };
     return BitmapParams;
 }(EntryDisplayObjectContainer));

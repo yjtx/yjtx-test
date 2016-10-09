@@ -1,0 +1,15 @@
+{
+	"resources": [
+		{
+			"name": "decode_error_mp3",
+			"type": "sound",
+			"url": "sound/decode_error.mp3"
+		}
+	],
+	"groups": [
+		{
+			"name": "preload",
+			"keys": "decode_error_mp3"
+		}
+	]
+}

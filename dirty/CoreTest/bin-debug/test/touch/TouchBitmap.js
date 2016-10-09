@@ -12,8 +12,16 @@ var TouchBitmap = (function (_super) {
         var icon = new egret.Bitmap(texture);
         icon.touchEnabled = true;
         this.addChild(icon);
-        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
             console.log("touch_tap");
+        }, this);
+        icon.addEventListener(egret.TouchEvent.TOUCH_BEGIN, function (e) {
+            console.log(e.type);
+            console.log(egret.TouchEvent.TOUCH_BEGIN);
+        }, this);
+        icon.addEventListener(egret.TouchEvent.TOUCH_END, function (e) {
+            console.log(e.type);
+            console.log(egret.TouchEvent.TOUCH_END);
         }, this);
         icon.x = 50;
         var icon = new egret.Bitmap(texture);
@@ -21,7 +29,7 @@ var TouchBitmap = (function (_super) {
         icon.pixelHitTest = true;
         icon.x = 300;
         this.addChild(icon);
-        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e) {
             console.log("touch_tap");
         }, this);
         icon.addEventListener(egret.TouchEvent.TOUCH_MOVE, function (e) {

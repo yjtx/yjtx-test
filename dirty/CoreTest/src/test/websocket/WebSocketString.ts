@@ -45,7 +45,11 @@ class WebSocketString extends EntryDisplayObjectContainer {
 
         }, this);
         socket.addEventListener(egret.Event.CONNECT, function (e:egret.Event) {
-            egret.log("WebSocketOpen");
+            egret.log("WebSocketOpen11");
+            
+            socket.flush();
+            var msg:string = socket.readUTF();
+            // socket.writeUTF("Hello Egret WebSocket");
         }, this);
         socket.addEventListener(egret.Event.CLOSE, function (e:egret.Event) {
             egret.log("WebSocketClose");

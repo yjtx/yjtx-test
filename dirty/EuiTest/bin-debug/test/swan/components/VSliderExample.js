@@ -15,7 +15,7 @@ var VSliderExample = (function (_super) {
         var vslider = new clazz();
         this.addChild(vslider);
     }
-    var d = __define,c=VSliderExample;p=c.prototype;
+    var d = __define,c=VSliderExample,p=c.prototype;
     return VSliderExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(VSliderExample,"VSliderExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(VSliderExample,'VSliderExample');

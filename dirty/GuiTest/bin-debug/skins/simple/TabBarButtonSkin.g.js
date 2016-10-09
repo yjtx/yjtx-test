@@ -28,7 +28,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=TabBarButtonSkin;p=c.prototype;
+            var d = __define,c=TabBarButtonSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return TabBarButtonSkin._skinParts;
@@ -48,8 +48,8 @@ var skins;
             };
             TabBarButtonSkin._skinParts = ["labelDisplay"];
             return TabBarButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.TabBarButtonSkin = TabBarButtonSkin;
-        egret.registerClass(TabBarButtonSkin,"skins.simple.TabBarButtonSkin");
+        egret.registerClass(TabBarButtonSkin,'skins.simple.TabBarButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

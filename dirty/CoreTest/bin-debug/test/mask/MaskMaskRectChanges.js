@@ -13,7 +13,7 @@ var MaskMaskRectChanges = (function (_super) {
         this.addChild(icon);
         icon.x = 30;
         icon.y = 100;
-        //icon.mask = new egret.Rectangle(0, 0, 231, 12);
+        icon.mask = new egret.Rectangle(0, 0, 231, 12);
         //icon.scrollRect = new egret.Rectangle(0, 0, 231, 12);
         egret.setTimeout(function () {
             icon.width = 0;

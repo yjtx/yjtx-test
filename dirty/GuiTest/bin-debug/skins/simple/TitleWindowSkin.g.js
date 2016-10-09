@@ -14,7 +14,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=TitleWindowSkin;p=c.prototype;
+            var d = __define,c=TitleWindowSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return TitleWindowSkin._skinParts;
@@ -57,8 +57,8 @@ var skins;
             };
             TitleWindowSkin._skinParts = ["titleDisplay", "closeButton", "moveArea", "contentGroup"];
             return TitleWindowSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.TitleWindowSkin = TitleWindowSkin;
-        egret.registerClass(TitleWindowSkin,"skins.simple.TitleWindowSkin");
+        egret.registerClass(TitleWindowSkin,'skins.simple.TitleWindowSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

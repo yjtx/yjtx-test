@@ -14,15 +14,15 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=VScrollBarThumbSkin;p=c.prototype;
+            var d = __define,c=VScrollBarThumbSkin,p=c.prototype;
             p.__4_i = function () {
                 var t = new egret.gui.UIAsset();
                 this.__s(t, ["fillMode", "percentHeight", "horizontalCenter", "source", "width"], ["scale", 100, 0, "vscrollbtn_png", 10]);
                 return t;
             };
             return VScrollBarThumbSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.VScrollBarThumbSkin = VScrollBarThumbSkin;
-        egret.registerClass(VScrollBarThumbSkin,"skins.simple.VScrollBarThumbSkin");
+        egret.registerClass(VScrollBarThumbSkin,'skins.simple.VScrollBarThumbSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

@@ -12,8 +12,16 @@ class TouchBitmap extends EntryDisplayObjectContainer {
         var icon:egret.Bitmap = new egret.Bitmap(texture);
         icon.touchEnabled = true;
         this.addChild(icon);
-        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e:egret.TouchEvent) {
             console.log("touch_tap");
+        }, this);
+        icon.addEventListener(egret.TouchEvent.TOUCH_BEGIN, function (e:egret.TouchEvent) {
+            console.log(e.type);
+            console.log(egret.TouchEvent.TOUCH_BEGIN);
+        }, this);
+        icon.addEventListener(egret.TouchEvent.TOUCH_END, function (e:egret.TouchEvent) {
+            console.log(e.type);
+            console.log(egret.TouchEvent.TOUCH_END);
         }, this);
         icon.x = 50;
 
@@ -22,7 +30,7 @@ class TouchBitmap extends EntryDisplayObjectContainer {
         icon.pixelHitTest = true;
         icon.x = 300;
         this.addChild(icon);
-        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function (e:egret.TouchEvent) {
             console.log("touch_tap");
         }, this);
 

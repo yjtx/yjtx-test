@@ -21,7 +21,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=ButtonSkin;p=c.prototype;
+            var d = __define,c=ButtonSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return ButtonSkin._skinParts;
@@ -58,8 +58,8 @@ var skins;
             };
             ButtonSkin._skinParts = ["iconDisplay", "labelDisplay"];
             return ButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.ButtonSkin = ButtonSkin;
-        egret.registerClass(ButtonSkin,"skins.simple.ButtonSkin");
+        egret.registerClass(ButtonSkin,'skins.simple.ButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

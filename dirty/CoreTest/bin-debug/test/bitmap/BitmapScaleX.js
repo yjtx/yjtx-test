@@ -51,7 +51,7 @@ var BitmapScaleX = (function (_super) {
         c.scaleX = 0.5;
         c.scaleY = 0.5;
         c.x = 100;
-        c.y = 400;
+        c.y = 300;
         this.addChild(c);
         var icon = new egret.Bitmap();
         icon.texture = texture;
@@ -60,7 +60,7 @@ var BitmapScaleX = (function (_super) {
         c.scaleX = -0.5;
         c.scaleY = -0.5;
         c.x = 100;
-        c.y = 600;
+        c.y = 400;
         this.addChild(c);
         var icon = new egret.Bitmap();
         icon.texture = texture;

@@ -32,7 +32,7 @@ var MainDemo = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
-    var d = __define,c=MainDemo;p=c.prototype;
+    var d = __define,c=MainDemo,p=c.prototype;
     p.onAddToStage = function (event) {
         //inject the custom material parser
         //注入自定义的素材解析器
@@ -116,5 +116,5 @@ var MainDemo = (function (_super) {
         this.guiLayer.addElement(showcase);
     };
     return MainDemo;
-})(egret.DisplayObjectContainer);
-egret.registerClass(MainDemo,"MainDemo");
+}(egret.DisplayObjectContainer));
+egret.registerClass(MainDemo,'MainDemo');

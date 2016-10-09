@@ -9,7 +9,7 @@ var LabelNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=LabelNormal;p=c.prototype;
+    var d = __define,c=LabelNormal,p=c.prototype;
     p.init = function () {
         this.testUrl();
     };
@@ -19,5 +19,5 @@ var LabelNormal = (function (_super) {
         this.addChild(ui);
     };
     return LabelNormal;
-})(eui.Group);
-egret.registerClass(LabelNormal,"LabelNormal");
+}(eui.Group));
+egret.registerClass(LabelNormal,'LabelNormal');

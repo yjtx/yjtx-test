@@ -15,7 +15,7 @@ var VScrollBarExample = (function (_super) {
         var scroller = new clazz();
         this.addChild(scroller);
     }
-    var d = __define,c=VScrollBarExample;p=c.prototype;
+    var d = __define,c=VScrollBarExample,p=c.prototype;
     return VScrollBarExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(VScrollBarExample,"VScrollBarExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(VScrollBarExample,'VScrollBarExample');

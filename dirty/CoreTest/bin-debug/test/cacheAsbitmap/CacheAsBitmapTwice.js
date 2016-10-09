@@ -33,8 +33,8 @@ var CacheAsBitmapTwice = (function (_super) {
     }
     var d = __define,c=CacheAsBitmapTwice,p=c.prototype;
     p.initRoot = function () {
-        //var texture1:egret.Texture = RES.getRes("img_scale9_png");
-        var bitmap = new egret.Bitmap();
+        var texture1 = RES.getRes("img_scale9_png");
+        var bitmap = new egret.Bitmap(texture1);
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;
         bitmap.cacheAsBitmap = false;

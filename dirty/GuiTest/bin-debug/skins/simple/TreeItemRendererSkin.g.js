@@ -15,7 +15,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=TreeItemRendererSkin;p=c.prototype;
+            var d = __define,c=TreeItemRendererSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return TreeItemRendererSkin._skinParts;
@@ -54,8 +54,8 @@ var skins;
             };
             TreeItemRendererSkin._skinParts = ["disclosureButton", "iconDisplay", "labelDisplay", "contentGroup"];
             return TreeItemRendererSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.TreeItemRendererSkin = TreeItemRendererSkin;
-        egret.registerClass(TreeItemRendererSkin,"skins.simple.TreeItemRendererSkin");
+        egret.registerClass(TreeItemRendererSkin,'skins.simple.TreeItemRendererSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

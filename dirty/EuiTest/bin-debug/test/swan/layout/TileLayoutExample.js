@@ -13,7 +13,7 @@ var TileLayoutExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=TileLayoutExample;p=c.prototype;
+    var d = __define,c=TileLayoutExample,p=c.prototype;
     p.init = function () {
         var group = new eui.Group();
         this.addChild(group);
@@ -35,5 +35,5 @@ var TileLayoutExample = (function (_super) {
         return btn;
     };
     return TileLayoutExample;
-})(egret.Sprite);
-egret.registerClass(TileLayoutExample,"TileLayoutExample");
+}(egret.Sprite));
+egret.registerClass(TileLayoutExample,'TileLayoutExample');

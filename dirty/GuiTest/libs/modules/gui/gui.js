@@ -56,7 +56,7 @@ var egret;
                     this._source = [];
                 }
             }
-            var d = __define,c=ArrayCollection;p=c.prototype;
+            var d = __define,c=ArrayCollection,p=c.prototype;
             d(p, "source"
                 /**
                  * 数据源
@@ -254,9 +254,9 @@ var egret;
                 gui.CollectionEvent.dispatchCollectionEvent(this, gui.CollectionEvent.COLLECTION_CHANGE, kind, location, oldLocation, items, oldItems);
             };
             return ArrayCollection;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.ArrayCollection = ArrayCollection;
-        egret.registerClass(ArrayCollection,"egret.gui.ArrayCollection",["egret.gui.ICollection","egret.IEventDispatcher"]);
+        egret.registerClass(ArrayCollection,'egret.gui.ArrayCollection',["egret.gui.ICollection","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -385,7 +385,7 @@ var egret;
                 this.childrenKey = childrenKey;
                 this.parentKey = parentKey;
             }
-            var d = __define,c=ObjectCollection;p=c.prototype;
+            var d = __define,c=ObjectCollection,p=c.prototype;
             d(p, "source"
                 /**
                  * 数据源。注意：设置source会同时清空openNodes。
@@ -667,9 +667,9 @@ var egret;
                 }
             };
             return ObjectCollection;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.ObjectCollection = ObjectCollection;
-        egret.registerClass(ObjectCollection,"egret.gui.ObjectCollection",["egret.gui.ICollection","egret.IEventDispatcher","egret.gui.ITreeCollection"]);
+        egret.registerClass(ObjectCollection,'egret.gui.ObjectCollection',["egret.gui.ICollection","egret.IEventDispatcher","egret.gui.ITreeCollection"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -733,7 +733,7 @@ var egret;
                 }
                 //this.$renderRegion = new sys.Region();
             }
-            var d = __define,c=UIComponent;p=c.prototype;
+            var d = __define,c=UIComponent,p=c.prototype;
             /**
              * 添加到舞台
              */
@@ -1883,9 +1883,9 @@ var egret;
             UIComponent.prototypeCanSet = undefined;
             UIComponent.emptyStyleChain = {};
             return UIComponent;
-        })(egret.DisplayObjectContainer);
+        }(egret.DisplayObjectContainer));
         gui.UIComponent = UIComponent;
-        egret.registerClass(UIComponent,"egret.gui.UIComponent",["egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.ILayoutManagerClient","egret.gui.IInvalidating","egret.gui.IStyleClient"]);
+        egret.registerClass(UIComponent,'egret.gui.UIComponent',["egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.ILayoutManagerClient","egret.gui.IInvalidating","egret.gui.IStyleClient"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -1964,7 +1964,7 @@ var egret;
                  */
                 this.explicitMouseEnabled = true;
             }
-            var d = __define,c=SkinnableComponent;p=c.prototype;
+            var d = __define,c=SkinnableComponent,p=c.prototype;
             d(p, "skinName"
                 /**
                  * 皮肤标识符。可以为Class,String,或DisplayObject实例等任意类型，具体规则由项目注入的素材适配器决定，
@@ -2399,9 +2399,9 @@ var egret;
              */
             SkinnableComponent._defaultTheme = null;
             return SkinnableComponent;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.SkinnableComponent = SkinnableComponent;
-        egret.registerClass(SkinnableComponent,"egret.gui.SkinnableComponent",["egret.gui.ISkinnableClient","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(SkinnableComponent,'egret.gui.SkinnableComponent',["egret.gui.ISkinnableClient","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -2464,7 +2464,7 @@ var egret;
                  */
                 this.contentGroupProperties = {};
             }
-            var d = __define,c=SkinnableContainer;p=c.prototype;
+            var d = __define,c=SkinnableContainer,p=c.prototype;
             /**
              * 获取当前的实体容器
              */
@@ -2689,9 +2689,9 @@ var egret;
                 this.dispatchEvent(event);
             };
             return SkinnableContainer;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.SkinnableContainer = SkinnableContainer;
-        egret.registerClass(SkinnableContainer,"egret.gui.SkinnableContainer",["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
+        egret.registerClass(SkinnableContainer,'egret.gui.SkinnableContainer',["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -2752,7 +2752,7 @@ var egret;
                 this.titleChanged = false;
                 this.touchEnabled = false;
             }
-            var d = __define,c=Panel;p=c.prototype;
+            var d = __define,c=Panel,p=c.prototype;
             d(p, "title"
                 /**
                  * 标题文本内容
@@ -2779,9 +2779,9 @@ var egret;
                 }
             };
             return Panel;
-        })(gui.SkinnableContainer);
+        }(gui.SkinnableContainer));
         gui.Panel = Panel;
-        egret.registerClass(Panel,"egret.gui.Panel");
+        egret.registerClass(Panel,'egret.gui.Panel');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -2848,7 +2848,7 @@ var egret;
                 this._offsetPointY = NaN;
                 this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onWindowMouseDown, this, true, 100);
             }
-            var d = __define,c=TitleWindow;p=c.prototype;
+            var d = __define,c=TitleWindow,p=c.prototype;
             /**
              * 在窗体上按下时前置窗口
              */
@@ -2988,9 +2988,9 @@ var egret;
                 this.y += stageY - pos.y;
             };
             return TitleWindow;
-        })(gui.Panel);
+        }(gui.Panel));
         gui.TitleWindow = TitleWindow;
-        egret.registerClass(TitleWindow,"egret.gui.TitleWindow");
+        egret.registerClass(TitleWindow,'egret.gui.TitleWindow');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -3072,7 +3072,7 @@ var egret;
                  */
                 this.secondButton = null;
             }
-            var d = __define,c=Alert;p=c.prototype;
+            var d = __define,c=Alert,p=c.prototype;
             /**
              * 弹出Alert控件的静态方法。在Alert控件中选择一个按钮，将关闭该控件。
              * @method egret.gui.Alert.show
@@ -3243,9 +3243,9 @@ var egret;
              */
             Alert.CLOSE_BUTTON = "closeButton";
             return Alert;
-        })(gui.TitleWindow);
+        }(gui.TitleWindow));
         gui.Alert = Alert;
-        egret.registerClass(Alert,"egret.gui.Alert");
+        egret.registerClass(Alert,'egret.gui.Alert');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -3299,6 +3299,7 @@ var egret;
                 this.fontChanged = false;
                 this._isLetterSpacingChanged = false;
                 this._letterSpacing = 0;
+                this._isSmoothingChanged = false;
                 this._isLineSpacingChanged = false;
                 this._lineSpacing = 0;
                 this.createChildrenCalled = false;
@@ -3326,9 +3327,10 @@ var egret;
                  * @private
                  */
                 this._paddingBottom = NaN;
+                this._smoothing = egret.Bitmap.defaultSmoothing;
                 this.addEventListener(gui.UIEvent.UPDATE_COMPLETE, this.updateCompleteHandler, this);
             }
-            var d = __define,c=BitmapLabel;p=c.prototype;
+            var d = __define,c=BitmapLabel,p=c.prototype;
             /**
              * 一个验证阶段完成
              */
@@ -3392,6 +3394,24 @@ var egret;
             p._setLetterSpacing = function (value) {
                 this._letterSpacing = value;
                 this._isLetterSpacingChanged = true;
+                this.invalidateProperties();
+                this.invalidateSize();
+                this.invalidateDisplayList();
+            };
+            d(p, "smoothing"
+                ,function () {
+                    return this._smoothing;
+                }
+                /**
+                 * 字符之间的距离
+                 */
+                ,function (value) {
+                    this._setSmoothing(value);
+                }
+            );
+            p._setSmoothing = function (value) {
+                this._smoothing = value;
+                this._isSmoothingChanged = true;
                 this.invalidateProperties();
                 this.invalidateSize();
                 this.invalidateDisplayList();
@@ -3661,9 +3681,11 @@ var egret;
                 this._bitmapText.text = this._text;
                 this._bitmapText.letterSpacing = this._letterSpacing;
                 this._bitmapText.lineSpacing = this._lineSpacing;
+                this._bitmapText.smoothing = this._smoothing;
                 this._textChanged = false;
                 this._isLetterSpacingChanged = false;
                 this._isLineSpacingChanged = false;
+                this._isSmoothingChanged = false;
                 this._addToDisplayList(this._bitmapText);
             };
             /**
@@ -3686,11 +3708,15 @@ var egret;
                     this._bitmapText.lineSpacing = this._lineSpacing;
                     this._isLineSpacingChanged = false;
                 }
+                if (this._isSmoothingChanged) {
+                    this._bitmapText.smoothing = this._smoothing;
+                    this._isSmoothingChanged = false;
+                }
             };
             return BitmapLabel;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.BitmapLabel = BitmapLabel;
-        egret.registerClass(BitmapLabel,"egret.gui.BitmapLabel",["egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(BitmapLabel,'egret.gui.BitmapLabel',["egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -3763,7 +3789,7 @@ var egret;
                 this.touchChildren = false;
                 this.addHandlers();
             }
-            var d = __define,c=ButtonBase;p=c.prototype;
+            var d = __define,c=ButtonBase,p=c.prototype;
             d(p, "autoRepeat"
                 /**
                  * 指定在用户按住鼠标按键时是否重复分派 buttonDown 事件。
@@ -4078,9 +4104,9 @@ var egret;
                 }
             };
             return ButtonBase;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.ButtonBase = ButtonBase;
-        egret.registerClass(ButtonBase,"egret.gui.ButtonBase");
+        egret.registerClass(ButtonBase,'egret.gui.ButtonBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -4135,7 +4161,7 @@ var egret;
                 this.iconDisplay = null;
                 this._icon = null;
             }
-            var d = __define,c=Button;p=c.prototype;
+            var d = __define,c=Button,p=c.prototype;
             d(p, "icon"
                 /**
                  * 要在按钮上显示的图标
@@ -4185,9 +4211,9 @@ var egret;
                 }
             };
             return Button;
-        })(gui.ButtonBase);
+        }(gui.ButtonBase));
         gui.Button = Button;
-        egret.registerClass(Button,"egret.gui.Button");
+        egret.registerClass(Button,'egret.gui.Button');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -4296,7 +4322,7 @@ var egret;
                 this.skinLayout = new gui.SkinBasicLayout();
                 this.skinLayout.target = this;
             }
-            var d = __define,c=Skin;p=c.prototype;
+            var d = __define,c=Skin,p=c.prototype;
             d(p, "width"
                 /**
                  * 组件宽度,默认值为NaN,设置为NaN将使用组件的measure()方法自动计算尺寸
@@ -4898,9 +4924,9 @@ var egret;
                 return duration;
             };
             return Skin;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.Skin = Skin;
-        egret.registerClass(Skin,"egret.gui.Skin",["egret.gui.IStateClient","egret.IEventDispatcher","egret.gui.ISkin","egret.gui.IContainer"]);
+        egret.registerClass(Skin,'egret.gui.Skin',["egret.gui.IStateClient","egret.IEventDispatcher","egret.gui.ISkin","egret.gui.IContainer"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -4964,7 +4990,7 @@ var egret;
                 this.stateMap = stateMap;
                 this._setStates(["up", "down", "disabled"]);
             }
-            var d = __define,c=ButtonSkin;p=c.prototype;
+            var d = __define,c=ButtonSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return ButtonSkin._skinParts;
@@ -5049,9 +5075,9 @@ var egret;
              */
             ButtonSkin._skinParts = ["labelDisplay", "iconDisplay"];
             return ButtonSkin;
-        })(gui.Skin);
+        }(gui.Skin));
         gui.ButtonSkin = ButtonSkin;
-        egret.registerClass(ButtonSkin,"egret.gui.ButtonSkin");
+        egret.registerClass(ButtonSkin,'egret.gui.ButtonSkin');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5112,7 +5138,7 @@ var egret;
                  */
                 this._autoSelected = true;
             }
-            var d = __define,c=ToggleButtonBase;p=c.prototype;
+            var d = __define,c=ToggleButtonBase,p=c.prototype;
             d(p, "selected"
                 /**
                  * 按钮处于按下状态时为 true，而按钮处于弹起状态时为 false。
@@ -5168,9 +5194,9 @@ var egret;
                 this.dispatchEventWith(egret.Event.CHANGE);
             };
             return ToggleButtonBase;
-        })(gui.ButtonBase);
+        }(gui.ButtonBase));
         gui.ToggleButtonBase = ToggleButtonBase;
-        egret.registerClass(ToggleButtonBase,"egret.gui.ToggleButtonBase");
+        egret.registerClass(ToggleButtonBase,'egret.gui.ToggleButtonBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5220,11 +5246,11 @@ var egret;
             function CheckBox() {
                 _super.call(this);
             }
-            var d = __define,c=CheckBox;p=c.prototype;
+            var d = __define,c=CheckBox,p=c.prototype;
             return CheckBox;
-        })(gui.ToggleButtonBase);
+        }(gui.ToggleButtonBase));
         gui.CheckBox = CheckBox;
-        egret.registerClass(CheckBox,"egret.gui.CheckBox");
+        egret.registerClass(CheckBox,'egret.gui.CheckBox');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5280,7 +5306,7 @@ var egret;
                 this.generator = null;
                 this.generator = generator;
             }
-            var d = __define,c=ClassFactory;p=c.prototype;
+            var d = __define,c=ClassFactory,p=c.prototype;
             /**
              * 生产一个新的实例
              * @method egret.egret#newInstance
@@ -5291,9 +5317,9 @@ var egret;
                 return instance;
             };
             return ClassFactory;
-        })(egret.HashObject);
+        }(egret.HashObject));
         gui.ClassFactory = ClassFactory;
-        egret.registerClass(ClassFactory,"egret.gui.ClassFactory",["egret.gui.IFactory"]);
+        egret.registerClass(ClassFactory,'egret.gui.ClassFactory',["egret.gui.IFactory"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5349,7 +5375,7 @@ var egret;
                 this._itemIndex = -1;
                 this.touchChildren = true;
             }
-            var d = __define,c=ItemRenderer;p=c.prototype;
+            var d = __define,c=ItemRenderer,p=c.prototype;
             d(p, "data"
                 /**
                  * @member egret.gui.ItemRenderer#data
@@ -5424,9 +5450,9 @@ var egret;
                 return _super.prototype.getCurrentSkinState.call(this);
             };
             return ItemRenderer;
-        })(gui.ButtonBase);
+        }(gui.ButtonBase));
         gui.ItemRenderer = ItemRenderer;
-        egret.registerClass(ItemRenderer,"egret.gui.ItemRenderer",["egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(ItemRenderer,'egret.gui.ItemRenderer',["egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5493,7 +5519,7 @@ var egret;
                 this._layoutInvalidateSizeFlag = false;
                 this.touchEnabled = false;
             }
-            var d = __define,c=GroupBase;p=c.prototype;
+            var d = __define,c=GroupBase,p=c.prototype;
             /**
              * 如果尚未设置布局对象，则 createChildren() 会为该容器指定默认布局对象 BasicLayout
              * @method egret.gui.GroupBase#createChildren
@@ -5830,9 +5856,9 @@ var egret;
                 return this.getElementAt(index);
             };
             return GroupBase;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.GroupBase = GroupBase;
-        egret.registerClass(GroupBase,"egret.gui.GroupBase",["egret.gui.IViewport","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(GroupBase,'egret.gui.GroupBase',["egret.gui.IViewport","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -5935,7 +5961,7 @@ var egret;
                  */
                 this.renderersBeingUpdated = false;
             }
-            var d = __define,c=DataGroup;p=c.prototype;
+            var d = __define,c=DataGroup,p=c.prototype;
             d(p, "layout"
                 /**
                  * @member egret.gui.DataGroup#layout
@@ -5981,9 +6007,9 @@ var egret;
                     this.virtualRendererIndices.push(i);
                 }
                 for (var index in this.indexToRenderer) {
-                    index = parseInt(index);
-                    if (this.virtualRendererIndices.indexOf(index) == -1) {
-                        this.freeRendererByIndex(index);
+                    var index2 = parseInt(index);
+                    if (this.virtualRendererIndices.indexOf(index2) == -1) {
+                        this.freeRendererByIndex(index2);
                     }
                 }
             };
@@ -6215,8 +6241,8 @@ var egret;
                     case gui.CollectionEventKind.REFRESH:
                         if (this.layout && this.layout.useVirtualLayout) {
                             for (var index in this.indexToRenderer) {
-                                index = parseInt(index);
-                                this.freeRendererByIndex(index);
+                                var index2 = parseInt(index);
+                                this.freeRendererByIndex(index2);
                             }
                         }
                         this.dataProviderChanged = true;
@@ -6759,9 +6785,9 @@ var egret;
              */
             DataGroup.defaultRendererFactory = new gui.ClassFactory(gui.ItemRenderer);
             return DataGroup;
-        })(gui.GroupBase);
+        }(gui.GroupBase));
         gui.DataGroup = DataGroup;
-        egret.registerClass(DataGroup,"egret.gui.DataGroup");
+        egret.registerClass(DataGroup,'egret.gui.DataGroup');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -6821,7 +6847,7 @@ var egret;
                  */
                 this._dataGroupProperties = {};
             }
-            var d = __define,c=SkinnableDataContainer;p=c.prototype;
+            var d = __define,c=SkinnableDataContainer,p=c.prototype;
             /**
              * 更新项呈示器，以备使用或重用
              * @method egret.gui.SkinnableDataContainer#updateRenderer
@@ -7085,9 +7111,9 @@ var egret;
                 }
             };
             return SkinnableDataContainer;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.SkinnableDataContainer = SkinnableDataContainer;
-        egret.registerClass(SkinnableDataContainer,"egret.gui.SkinnableDataContainer",["egret.gui.IItemRendererOwner"]);
+        egret.registerClass(SkinnableDataContainer,'egret.gui.SkinnableDataContainer',["egret.gui.IItemRendererOwner"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -7168,7 +7194,7 @@ var egret;
                 this._useVirtualLayout = false;
                 this.selectedIndexAdjusted = false;
             }
-            var d = __define,c=ListBase;p=c.prototype;
+            var d = __define,c=ListBase,p=c.prototype;
             p._setDataProvider = function (value) {
                 if (this.dataProvider)
                     this.dataProvider.removeEventListener(gui.CollectionEvent.COLLECTION_CHANGE, this.dataProvider_collectionChangeHandler, this);
@@ -7729,9 +7755,9 @@ var egret;
             ListBase.TYPE_MAP = { rollOver: "itemRollOver",
                 rollOut: "itemRollOut" };
             return ListBase;
-        })(gui.SkinnableDataContainer);
+        }(gui.SkinnableDataContainer));
         gui.ListBase = ListBase;
-        egret.registerClass(ListBase,"egret.gui.ListBase");
+        egret.registerClass(ListBase,'egret.gui.ListBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -7792,7 +7818,7 @@ var egret;
                 this._mouseDownItemRenderer = null;
                 this.useVirtualLayout = true;
             }
-            var d = __define,c=List;p=c.prototype;
+            var d = __define,c=List,p=c.prototype;
             /**
              * 创建容器的子元素
              */
@@ -8118,9 +8144,9 @@ var egret;
                 this._mouseDownItemRenderer = null;
             };
             return List;
-        })(gui.ListBase);
+        }(gui.ListBase));
         gui.List = List;
-        egret.registerClass(List,"egret.gui.List");
+        egret.registerClass(List,'egret.gui.List');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -8188,7 +8214,7 @@ var egret;
                 this._captureItemRenderer = false;
                 this.dropDownController = new gui.DropDownController();
             }
-            var d = __define,c=DropDownListBase;p=c.prototype;
+            var d = __define,c=DropDownListBase,p=c.prototype;
             /**
              * @inheritDoc
              */
@@ -8414,9 +8440,9 @@ var egret;
              */
             DropDownListBase.PAGE_SIZE = 5;
             return DropDownListBase;
-        })(gui.List);
+        }(gui.List));
         gui.DropDownListBase = DropDownListBase;
-        egret.registerClass(DropDownListBase,"egret.gui.DropDownListBase");
+        egret.registerClass(DropDownListBase,'egret.gui.DropDownListBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -8472,7 +8498,7 @@ var egret;
                 this.labelDisplay = null;
                 this._prompt = "";
             }
-            var d = __define,c=DropDownList;p=c.prototype;
+            var d = __define,c=DropDownList,p=c.prototype;
             d(p, "prompt"
                 /**
                  * 当没有选中项时在DropDownList上要显示的字符串。<p/>
@@ -8519,9 +8545,9 @@ var egret;
                 }
             };
             return DropDownList;
-        })(gui.DropDownListBase);
+        }(gui.DropDownListBase));
         gui.DropDownList = DropDownList;
-        egret.registerClass(DropDownList,"egret.gui.DropDownList");
+        egret.registerClass(DropDownList,'egret.gui.DropDownList');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -8602,7 +8628,7 @@ var egret;
                 this._textFlowChanged = false;
                 this._UIC_Props_._hasNoStyleChild = true;
             }
-            var d = __define,c=TextBase;p=c.prototype;
+            var d = __define,c=TextBase,p=c.prototype;
             /**
              * 检测对样式属性的更改
              * @param styleProp
@@ -9001,9 +9027,9 @@ var egret;
              */
             TextBase.DEFAULT_MEASURED_HEIGHT = 22;
             return TextBase;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.TextBase = TextBase;
-        egret.registerClass(TextBase,"egret.gui.TextBase",["egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(TextBase,'egret.gui.TextBase',["egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -9077,7 +9103,7 @@ var egret;
                 this.isValidating = false;
                 this.selectable = true;
             }
-            var d = __define,c=EditableText;p=c.prototype;
+            var d = __define,c=EditableText,p=c.prototype;
             d(p, "selectable"
                 /**
                  * @inheritDoc
@@ -9614,9 +9640,9 @@ var egret;
                     event.preventDefault();
             };
             return EditableText;
-        })(gui.TextBase);
+        }(gui.TextBase));
         gui.EditableText = EditableText;
-        egret.registerClass(EditableText,"egret.gui.EditableText",["egret.gui.IEditableText","egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IViewport"]);
+        egret.registerClass(EditableText,'egret.gui.EditableText',["egret.gui.IEditableText","egret.gui.IDisplayText","egret.gui.IUIComponent","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IViewport"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -9675,7 +9701,7 @@ var egret;
                 this.elementsContentChanged = false;
                 this._elementsContent = [];
             }
-            var d = __define,c=Group;p=c.prototype;
+            var d = __define,c=Group,p=c.prototype;
             /**
              * 创建子对象
              * @method egret.gui.Group#createChildren
@@ -10004,9 +10030,9 @@ var egret;
                 egret.$error(3010, egret.sys.tr(3003));
             };
             return Group;
-        })(gui.GroupBase);
+        }(gui.GroupBase));
         gui.Group = Group;
-        egret.registerClass(Group,"egret.gui.Group",["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
+        egret.registerClass(Group,'egret.gui.Group',["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -10080,7 +10106,7 @@ var egret;
                 this.snapIntervalChanged = false;
                 this._explicitSnapInterval = false;
             }
-            var d = __define,c=Range;p=c.prototype;
+            var d = __define,c=Range,p=c.prototype;
             d(p, "maximum"
                 /**
                  * 最大有效值
@@ -10282,9 +10308,9 @@ var egret;
                 this.setValue(this.nearestValidValue(newValue, this.snapInterval));
             };
             return Range;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.Range = Range;
-        egret.registerClass(Range,"egret.gui.Range");
+        egret.registerClass(Range,'egret.gui.Range');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -10375,7 +10401,7 @@ var egret;
                 this.addEventListener(egret.Event.ADDED_TO_STAGE, this.addedToStageHandler, this);
                 this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDownHandler, this);
             }
-            var d = __define,c=TrackBase;p=c.prototype;
+            var d = __define,c=TrackBase,p=c.prototype;
             d(p, "slideDuration"
                 /**
                  * 在轨道上单击以移动滑块时，滑动动画持续的时间（以毫秒为单位）。<br/>
@@ -10656,9 +10682,9 @@ var egret;
                 this.mouseDownTarget = null;
             };
             return TrackBase;
-        })(gui.Range);
+        }(gui.Range));
         gui.TrackBase = TrackBase;
-        egret.registerClass(TrackBase,"egret.gui.TrackBase");
+        egret.registerClass(TrackBase,'egret.gui.TrackBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -10725,7 +10751,7 @@ var egret;
                 this._liveDragging = true;
                 this.maximum = 10;
             }
-            var d = __define,c=SliderBase;p=c.prototype;
+            var d = __define,c=SliderBase,p=c.prototype;
             d(p, "showTrackHighlight"
                 /**
                  * 是否启用轨道高亮效果。默认值为true。
@@ -10897,9 +10923,9 @@ var egret;
                 }
             };
             return SliderBase;
-        })(gui.TrackBase);
+        }(gui.TrackBase));
         gui.SliderBase = SliderBase;
-        egret.registerClass(SliderBase,"egret.gui.SliderBase");
+        egret.registerClass(SliderBase,'egret.gui.SliderBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -10949,7 +10975,7 @@ var egret;
             function HSlider() {
                 _super.call(this);
             }
-            var d = __define,c=HSlider;p=c.prototype;
+            var d = __define,c=HSlider,p=c.prototype;
             /**
              * 将相对于轨道的 x,y 像素位置转换为介于最小值和最大值（包括两者）之间的一个值
              * @param x
@@ -10984,9 +11010,9 @@ var egret;
                 }
             };
             return HSlider;
-        })(gui.SliderBase);
+        }(gui.SliderBase));
         gui.HSlider = HSlider;
-        egret.registerClass(HSlider,"egret.gui.HSlider");
+        egret.registerClass(HSlider,'egret.gui.HSlider');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -11032,7 +11058,7 @@ var egret;
                 _super.apply(this, arguments);
                 this._thumbLengthRatio = 1;
             }
-            var d = __define,c=HScrollBar;p=c.prototype;
+            var d = __define,c=HScrollBar,p=c.prototype;
             /**
              *
              * @param width
@@ -11119,9 +11145,9 @@ var egret;
                     this.thumb.setLayoutBoundsSize(thumbWidth, this.thumb.layoutBoundsHeight);
             };
             return HScrollBar;
-        })(gui.HSlider);
+        }(gui.HSlider));
         gui.HScrollBar = HScrollBar;
-        egret.registerClass(HScrollBar,"egret.gui.HScrollBar");
+        egret.registerClass(HScrollBar,'egret.gui.HScrollBar');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -11269,7 +11295,7 @@ var egret;
                 this._paddingBottom = NaN;
                 this.addEventListener(gui.UIEvent.UPDATE_COMPLETE, this.updateCompleteHandler, this);
             }
-            var d = __define,c=Label;p=c.prototype;
+            var d = __define,c=Label,p=c.prototype;
             /**
              * 一个验证阶段完成
              */
@@ -11540,9 +11566,9 @@ var egret;
                 }
             };
             return Label;
-        })(gui.TextBase);
+        }(gui.TextBase));
         gui.Label = Label;
-        egret.registerClass(Label,"egret.gui.Label");
+        egret.registerClass(Label,'egret.gui.Label');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -11619,7 +11645,7 @@ var egret;
                 this.addEventListener(egret.Event.ADDED_TO_STAGE, this.addedToStageHandler, this);
                 this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.removedFromStageHandler, this);
             }
-            var d = __define,c=PopUpAnchor;p=c.prototype;
+            var d = __define,c=PopUpAnchor,p=c.prototype;
             d(p, "popUpHeightMatchesAnchorHeight"
                 /**
                  * 如果为 true，则将popUp控件的高度设置为 PopUpAnchor的高度值。
@@ -11964,9 +11990,9 @@ var egret;
                 egret.callLater(this.checkPopUpState, this);
             };
             return PopUpAnchor;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.PopUpAnchor = PopUpAnchor;
-        egret.registerClass(PopUpAnchor,"egret.gui.PopUpAnchor");
+        egret.registerClass(PopUpAnchor,'egret.gui.PopUpAnchor');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -12043,7 +12069,7 @@ var egret;
                 this.animationValue = 0;
                 this.trackResizedOrMoved = false;
             }
-            var d = __define,c=ProgressBar;p=c.prototype;
+            var d = __define,c=ProgressBar,p=c.prototype;
             d(p, "labelFunction"
                 /**
                  * 进度条文本格式化回调函数。示例：labelFunction(value:Number,maximum:Number):String;
@@ -12274,9 +12300,9 @@ var egret;
                 }
             };
             return ProgressBar;
-        })(gui.Range);
+        }(gui.Range));
         gui.ProgressBar = ProgressBar;
-        egret.registerClass(ProgressBar,"egret.gui.ProgressBar");
+        egret.registerClass(ProgressBar,'egret.gui.ProgressBar');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -12319,7 +12345,7 @@ var egret;
         var ProgressBarDirection = (function () {
             function ProgressBarDirection() {
             }
-            var d = __define,c=ProgressBarDirection;p=c.prototype;
+            var d = __define,c=ProgressBarDirection,p=c.prototype;
             /**
              * 水平从左到右增长
              * @constant egret.gui.ProgressBarDirection.LEFT_TO_RIGHT
@@ -12341,9 +12367,9 @@ var egret;
              */
             ProgressBarDirection.BOTTOM_TO_TOP = "bottomToTop";
             return ProgressBarDirection;
-        })();
+        }());
         gui.ProgressBarDirection = ProgressBarDirection;
-        egret.registerClass(ProgressBarDirection,"egret.gui.ProgressBarDirection");
+        egret.registerClass(ProgressBarDirection,'egret.gui.ProgressBarDirection');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -12406,7 +12432,7 @@ var egret;
                 this._value = null;
                 this.groupName = "radioGroup";
             }
-            var d = __define,c=RadioButton;p=c.prototype;
+            var d = __define,c=RadioButton,p=c.prototype;
             d(p, "enabled"
                 /**
                  * 组件是否可以接受用户交互。默认值为true。设置此属性将影响组内所有单选按钮
@@ -12556,9 +12582,9 @@ var egret;
              */
             RadioButton.automaticRadioButtonGroups = null;
             return RadioButton;
-        })(gui.ToggleButtonBase);
+        }(gui.ToggleButtonBase));
         gui.RadioButton = RadioButton;
-        egret.registerClass(RadioButton,"egret.gui.RadioButton");
+        egret.registerClass(RadioButton,'egret.gui.RadioButton');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -12621,7 +12647,7 @@ var egret;
                 this._name = "_radioButtonGroup" + RadioButtonGroup.groupCount;
                 RadioButtonGroup.groupCount++;
             }
-            var d = __define,c=RadioButtonGroup;p=c.prototype;
+            var d = __define,c=RadioButtonGroup,p=c.prototype;
             d(p, "enabled"
                 /**
                  * 组件是否可以接受用户交互。默认值为true。设置此属性将影响组内所有单选按钮。
@@ -12850,9 +12876,9 @@ var egret;
             };
             RadioButtonGroup.groupCount = 0;
             return RadioButtonGroup;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.RadioButtonGroup = RadioButtonGroup;
-        egret.registerClass(RadioButtonGroup,"egret.gui.RadioButtonGroup");
+        egret.registerClass(RadioButtonGroup,'egret.gui.RadioButtonGroup');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -12907,23 +12933,15 @@ var egret;
                 this._strokeAlpha = 0;
                 this._strokeWeight = 1;
                 this.touchChildren = false;
-                this.$renderRegion = new egret.sys.Region();
+                this.$graphics = new egret.Graphics();
+                this.$graphics.$setTarget(this);
             }
-            var d = __define,c=Rect;p=c.prototype;
+            var d = __define,c=Rect,p=c.prototype;
             d(p, "graphics"
                 ,function () {
-                    if (!this.$graphics) {
-                        this.$graphics = new egret.Graphics();
-                        this.$graphics.$renderContext.$targetDisplay = this;
-                    }
                     return this.$graphics;
                 }
             );
-            p.$render = function (context) {
-                if (this.$graphics)
-                    this.$graphics.$render(context);
-                _super.prototype.$render.call(this, context);
-            };
             p.$hitTest = function (stageX, stageY) {
                 var target = _super.prototype.$hitTest.call(this, stageX, stageY);
                 if (target == this) {
@@ -13057,9 +13075,9 @@ var egret;
                 g.endFill();
             };
             return Rect;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.Rect = Rect;
-        egret.registerClass(Rect,"egret.gui.Rect");
+        egret.registerClass(Rect,'egret.gui.Rect');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -13162,7 +13180,7 @@ var egret;
                     this.setContent(content);
                 }
             }
-            var d = __define,c=ScrollerView;p=c.prototype;
+            var d = __define,c=ScrollerView,p=c.prototype;
             d(p, "bounces"
                 /**
                  * @language en_US
@@ -14063,9 +14081,9 @@ var egret;
              */
             ScrollerView.weight = [1, 1.33, 1.66, 2, 2.33];
             return ScrollerView;
-        })(egret.DisplayObjectContainer);
+        }(egret.DisplayObjectContainer));
         gui.ScrollerView = ScrollerView;
-        egret.registerClass(ScrollerView,"egret.gui.ScrollerView");
+        egret.registerClass(ScrollerView,'egret.gui.ScrollerView');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -14127,7 +14145,7 @@ var egret;
                 gui.ScrollerView.call(this);
                 this._Scr_Props_ = new egret.gui.ScrollerProperties();
             }
-            var d = __define,c=Scroller;p=c.prototype;
+            var d = __define,c=Scroller,p=c.prototype;
             p.setContent = function (content) {
                 this._content = content;
                 this._removeEvents();
@@ -14717,9 +14735,9 @@ var egret;
                 this.setViewportVScrollPosition(this.verticalScrollBar.getPosition());
             };
             return Scroller;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.Scroller = Scroller;
-        egret.registerClass(Scroller,"egret.gui.Scroller",["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
+        egret.registerClass(Scroller,'egret.gui.Scroller',["egret.gui.IVisualElementContainer","egret.gui.IVisualElement","egret.gui.ILayoutElement","egret.IEventDispatcher","egret.gui.IContainer"]);
         //增加ScrollView方法
         for (var p in gui.ScrollerView.prototype) {
             //跳过Scroller，SkinnableComponent，UIComponent 重写的方法
@@ -14780,11 +14798,11 @@ var egret;
                 this._autoHideShowAnimat = null;
                 this._animatTargetIsShow = false;
             }
-            var d = __define,c=ScrollerProperties;p=c.prototype;
+            var d = __define,c=ScrollerProperties,p=c.prototype;
             return ScrollerProperties;
-        })();
+        }());
         gui.ScrollerProperties = ScrollerProperties;
-        egret.registerClass(ScrollerProperties,"egret.gui.ScrollerProperties");
+        egret.registerClass(ScrollerProperties,'egret.gui.ScrollerProperties');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -14835,11 +14853,11 @@ var egret;
             function Spacer() {
                 _super.call(this);
             }
-            var d = __define,c=Spacer;p=c.prototype;
+            var d = __define,c=Spacer,p=c.prototype;
             return Spacer;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.Spacer = Spacer;
-        egret.registerClass(Spacer,"egret.gui.Spacer");
+        egret.registerClass(Spacer,'egret.gui.Spacer');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -14894,7 +14912,7 @@ var egret;
                 this.requireSelectionChanged_tabBar = false;
                 this.requireSelection = true;
             }
-            var d = __define,c=TabBar;p=c.prototype;
+            var d = __define,c=TabBar,p=c.prototype;
             /**
              * 创建容器的子元素
              */
@@ -14988,9 +15006,9 @@ var egret;
                 this._dispatchListEvent(event, gui.ListEvent.ITEM_CLICK, itemRenderer);
             };
             return TabBar;
-        })(gui.List);
+        }(gui.List));
         gui.TabBar = TabBar;
-        egret.registerClass(TabBar,"egret.gui.TabBar");
+        egret.registerClass(TabBar,'egret.gui.TabBar');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -15040,7 +15058,7 @@ var egret;
                 this._data = null;
                 this._itemIndex = NaN;
             }
-            var d = __define,c=TabBarButton;p=c.prototype;
+            var d = __define,c=TabBarButton,p=c.prototype;
             d(p, "allowDeselection"
                 /**
                  * 如果为 true，用户单击当前选定的按钮时即会将其取消选择。
@@ -15093,9 +15111,9 @@ var egret;
                 _super.prototype.buttonReleased.call(this);
             };
             return TabBarButton;
-        })(gui.ToggleButtonBase);
+        }(gui.ToggleButtonBase));
         gui.TabBarButton = TabBarButton;
-        egret.registerClass(TabBarButton,"egret.gui.TabBarButton",["egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(TabBarButton,'egret.gui.TabBarButton',["egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -15154,7 +15172,7 @@ var egret;
                 this._prompt = null;
                 this.focusEnabled = true;
             }
-            var d = __define,c=SkinnableTextBase;p=c.prototype;
+            var d = __define,c=SkinnableTextBase,p=c.prototype;
             d(p, "focusEnabled"
                 /**
                  * 是否能够自动获得焦点的标志
@@ -15690,9 +15708,9 @@ var egret;
                     event.preventDefault();
             };
             return SkinnableTextBase;
-        })(gui.SkinnableComponent);
+        }(gui.SkinnableComponent));
         gui.SkinnableTextBase = SkinnableTextBase;
-        egret.registerClass(SkinnableTextBase,"egret.gui.SkinnableTextBase");
+        egret.registerClass(SkinnableTextBase,'egret.gui.SkinnableTextBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -15749,7 +15767,7 @@ var egret;
                  */
                 this.scroller = null;
             }
-            var d = __define,c=TextArea;p=c.prototype;
+            var d = __define,c=TextArea,p=c.prototype;
             d(p, "widthInChars"
                 /**
                  * 控件的默认宽度（使用字号：size为单位测量）。 若同时设置了maxChars属性，将会根据两者测量结果的最小值作为测量宽度。
@@ -15847,9 +15865,9 @@ var egret;
                 this.partAdded("textDisplay", this.textDisplay);
             };
             return TextArea;
-        })(gui.SkinnableTextBase);
+        }(gui.SkinnableTextBase));
         gui.TextArea = TextArea;
-        egret.registerClass(TextArea,"egret.gui.TextArea");
+        egret.registerClass(TextArea,'egret.gui.TextArea');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -15896,7 +15914,7 @@ var egret;
             function TextInput() {
                 _super.call(this);
             }
-            var d = __define,c=TextInput;p=c.prototype;
+            var d = __define,c=TextInput,p=c.prototype;
             d(p, "widthInChars"
                 /**
                  * 控件的默认宽度（使用字号：size为单位测量）。 若同时设置了maxChars属性，将会根据两者测量结果的最小值作为测量宽度。
@@ -15938,9 +15956,9 @@ var egret;
                 this.partAdded("textDisplay", this.textDisplay);
             };
             return TextInput;
-        })(gui.SkinnableTextBase);
+        }(gui.SkinnableTextBase));
         gui.TextInput = TextInput;
-        egret.registerClass(TextInput,"egret.gui.TextInput");
+        egret.registerClass(TextInput,'egret.gui.TextInput');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -15996,7 +16014,7 @@ var egret;
                 this.iconDisplay = null;
                 this._icon = null;
             }
-            var d = __define,c=ToggleButton;p=c.prototype;
+            var d = __define,c=ToggleButton,p=c.prototype;
             d(p, "icon"
                 /**
                  * 要在按钮上显示的图标
@@ -16035,9 +16053,9 @@ var egret;
                 }
             };
             return ToggleButton;
-        })(gui.ToggleButtonBase);
+        }(gui.ToggleButtonBase));
         gui.ToggleButton = ToggleButton;
-        egret.registerClass(ToggleButton,"egret.gui.ToggleButton");
+        egret.registerClass(ToggleButton,'egret.gui.ToggleButton');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -16087,11 +16105,11 @@ var egret;
             function ToggleSwitch() {
                 _super.call(this);
             }
-            var d = __define,c=ToggleSwitch;p=c.prototype;
+            var d = __define,c=ToggleSwitch,p=c.prototype;
             return ToggleSwitch;
-        })(gui.ToggleButtonBase);
+        }(gui.ToggleButtonBase));
         gui.ToggleSwitch = ToggleSwitch;
-        egret.registerClass(ToggleSwitch,"egret.gui.ToggleSwitch");
+        egret.registerClass(ToggleSwitch,'egret.gui.ToggleSwitch');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -16188,7 +16206,7 @@ var egret;
                 this._isOpen = false;
                 this.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onItemMouseDown, this, false, 1000);
             }
-            var d = __define,c=TreeItemRenderer;p=c.prototype;
+            var d = __define,c=TreeItemRenderer,p=c.prototype;
             p.onItemMouseDown = function (event) {
                 if (event.target == this.disclosureButton) {
                     event.stopImmediatePropagation();
@@ -16317,9 +16335,9 @@ var egret;
                 gui.TreeEvent.dispatchTreeEvent(this, gui.TreeEvent.ITEM_OPENING, this.itemIndex, this.data, this, !this._isOpen, false, true);
             };
             return TreeItemRenderer;
-        })(gui.ItemRenderer);
+        }(gui.ItemRenderer));
         gui.TreeItemRenderer = TreeItemRenderer;
-        egret.registerClass(TreeItemRenderer,"egret.gui.TreeItemRenderer",["egret.gui.ITreeItemRenderer","egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
+        egret.registerClass(TreeItemRenderer,'egret.gui.TreeItemRenderer',["egret.gui.ITreeItemRenderer","egret.gui.IItemRenderer","egret.gui.ILayoutElement","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -16377,7 +16395,7 @@ var egret;
                 this._iconField = null;
                 this._iconFunction = null;
             }
-            var d = __define,c=Tree;p=c.prototype;
+            var d = __define,c=Tree,p=c.prototype;
             /**
              * 创建该容器的子元素对象
              * @method egret.gui.Tree#createChildren
@@ -16577,9 +16595,9 @@ var egret;
             };
             Tree.defaultTreeRendererFactory = new gui.ClassFactory(gui.TreeItemRenderer);
             return Tree;
-        })(gui.List);
+        }(gui.List));
         gui.Tree = Tree;
-        egret.registerClass(Tree,"egret.gui.Tree");
+        egret.registerClass(Tree,'egret.gui.Tree');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -16654,18 +16672,15 @@ var egret;
                  * 是自动否缩放content对象，以符合UIAsset的尺寸。默认值true。
                  */
                 this.autoScale = true;
-                /**
-                 * @private
-                 */
-                this.$smoothing = true;
+                this.$smoothing = egret.Bitmap.defaultSmoothing;
                 this.touchChildren = false;
                 if (source) {
                     this.source = source;
                 }
-                this.$renderRegion = new egret.sys.Region();
+                this.$renderNode = new egret.sys.BitmapNode();
                 this.autoScale = autoScale;
             }
-            var d = __define,c=UIAsset;p=c.prototype;
+            var d = __define,c=UIAsset,p=c.prototype;
             d(p, "source"
                 /**
                  * 素材标识符。可以为Class,String,或DisplayObject实例等任意类型，具体规则由项目注入的素材适配器决定，
@@ -16824,14 +16839,12 @@ var egret;
                 /**
                  * @language en_US
                  * Whether or not the bitmap is smoothed when scaled.
-                 * @default true。
                  * @version Egret 2.4
                  * @platform Web
                  */
                 /**
                  * @language zh_CN
                  * 控制在缩放时是否对位图进行平滑处理。
-                 * @default true。
                  * @version Egret 2.4
                  * @platform Web
                  */
@@ -16850,10 +16863,9 @@ var egret;
             /**
              * @private
              */
-            p.$render = function (context) {
+            p.$render = function () {
                 if (this._contentIsTexture) {
                     var bitmapData = this._content;
-                    context.imageSmoothingEnabled = false;
                     var destW;
                     var destH;
                     if (this.autoScale) {
@@ -16864,9 +16876,9 @@ var egret;
                         destW = bitmapData.$getTextureWidth();
                         destH = bitmapData.$getTextureHeight();
                     }
-                    egret.Bitmap.$drawImage(context, bitmapData._bitmapData, bitmapData._bitmapX, bitmapData._bitmapY, bitmapData._bitmapWidth, bitmapData._bitmapHeight, bitmapData._offsetX, bitmapData._offsetY, bitmapData.$getTextureWidth(), bitmapData.$getTextureHeight(), destW, destH, this.scale9Grid || bitmapData["scale9Grid"], this.fillMode, this.$smoothing);
+                    egret.Bitmap.$drawImage(this.$renderNode, bitmapData._bitmapData, bitmapData._bitmapX, bitmapData._bitmapY, bitmapData._bitmapWidth, bitmapData._bitmapHeight, bitmapData._offsetX, bitmapData._offsetY, bitmapData.$getTextureWidth(), bitmapData.$getTextureHeight(), destW, destH, this.scale9Grid || bitmapData["scale9Grid"], this.fillMode, this.$smoothing);
                 }
-                _super.prototype.$render.call(this, context);
+                _super.prototype.$render.call(this);
             };
             /**
              * @private
@@ -16965,9 +16977,9 @@ var egret;
              */
             UIAsset.assetAdapter = null;
             return UIAsset;
-        })(gui.UIComponent);
+        }(gui.UIComponent));
         gui.UIAsset = UIAsset;
-        egret.registerClass(UIAsset,"egret.gui.UIAsset");
+        egret.registerClass(UIAsset,'egret.gui.UIAsset');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -17017,7 +17029,7 @@ var egret;
             function VSlider() {
                 _super.call(this);
             }
-            var d = __define,c=VSlider;p=c.prototype;
+            var d = __define,c=VSlider,p=c.prototype;
             /**
              * 将相对于轨道的 x,y 像素位置转换为介于最小值和最大值（包括两者）之间的一个值
              * @param x {number}
@@ -17053,9 +17065,9 @@ var egret;
                 }
             };
             return VSlider;
-        })(gui.SliderBase);
+        }(gui.SliderBase));
         gui.VSlider = VSlider;
-        egret.registerClass(VSlider,"egret.gui.VSlider");
+        egret.registerClass(VSlider,'egret.gui.VSlider');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -17100,7 +17112,7 @@ var egret;
                 _super.call(this);
                 this._thumbLengthRatio = 1;
             }
-            var d = __define,c=VScrollBar;p=c.prototype;
+            var d = __define,c=VScrollBar,p=c.prototype;
             /**
              *
              * @param height
@@ -17186,9 +17198,9 @@ var egret;
                     this.thumb.setLayoutBoundsSize(this.thumb.layoutBoundsWidth, thumbHeight);
             };
             return VScrollBar;
-        })(gui.VSlider);
+        }(gui.VSlider));
         gui.VScrollBar = VScrollBar;
-        egret.registerClass(VScrollBar,"egret.gui.VScrollBar");
+        egret.registerClass(VScrollBar,'egret.gui.VScrollBar');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -17253,7 +17265,7 @@ var egret;
                 this.childOrderingChanged = false;
                 this._setLayout(new gui.BasicLayout());
             }
-            var d = __define,c=ViewStack;p=c.prototype;
+            var d = __define,c=ViewStack,p=c.prototype;
             d(p, "layout"
                 /**
                  * 此容器的布局对象为只读,默认限制为BasicLayout。
@@ -17496,9 +17508,9 @@ var egret;
              */
             ViewStack.NO_PROPOSED_SELECTION = -2;
             return ViewStack;
-        })(gui.Group);
+        }(gui.Group));
         gui.ViewStack = ViewStack;
-        egret.registerClass(ViewStack,"egret.gui.ViewStack",["egret.gui.IViewStack","egret.gui.ICollection","egret.IEventDispatcher"]);
+        egret.registerClass(ViewStack,'egret.gui.ViewStack',["egret.gui.IViewStack","egret.gui.ICollection","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -17578,11 +17590,12 @@ var egret;
             var dt = timeStamp - lastTime;
             lastTime = timeStamp;
             for (var key in setTimeoutCache) {
-                var data = setTimeoutCache[key];
+                var key2 = key;
+                var data = setTimeoutCache[key2];
                 data.delay -= dt;
                 if (data.delay <= 0) {
                     data.listener.apply(data.thisObject, data.params);
-                    $clearTimer(key);
+                    $clearTimer(key2);
                 }
             }
             return false;
@@ -17632,7 +17645,7 @@ var egret;
             function ScrollerEase() {
                 egret.$error(1014);
             }
-            var d = __define,c=ScrollerEase;p=c.prototype;
+            var d = __define,c=ScrollerEase,p=c.prototype;
             /**
              *
              * @param amount
@@ -17680,9 +17693,9 @@ var egret;
              */
             ScrollerEase.quartOut = ScrollerEase.getPowOut(4);
             return ScrollerEase;
-        })();
+        }());
         gui.ScrollerEase = ScrollerEase;
-        egret.registerClass(ScrollerEase,"egret.gui.ScrollerEase");
+        egret.registerClass(ScrollerEase,'egret.gui.ScrollerEase');
         /**
          * @private
          */
@@ -17754,7 +17767,7 @@ var egret;
                 this.passive = false;
                 this.initialize(target, props, pluginData);
             }
-            var d = __define,c=ScrollerTween;p=c.prototype;
+            var d = __define,c=ScrollerTween,p=c.prototype;
             /**
              * @language en_US
              * Activate an object and add a ScrollerTween animation to the object
@@ -17904,7 +17917,8 @@ var egret;
              * @param actionsMode
              * @returns
              */
-            p.setPosition = function (value) {
+            p.setPosition = function (value, actionsMode) {
+                if (actionsMode === void 0) { actionsMode = 1; }
                 if (value < 0) {
                     value = 0;
                 }
@@ -17923,6 +17937,7 @@ var egret;
                 if (t == this._prevPos) {
                     return end;
                 }
+                var prevPos = this._prevPos;
                 this.position = this._prevPos = t;
                 this._prevPosition = value;
                 if (this._target) {
@@ -17943,6 +17958,21 @@ var egret;
                 }
                 if (end) {
                     this.setPaused(true);
+                }
+                //执行actions
+                if (actionsMode != 0 && this._actions.length > 0) {
+                    if (this._useTicks) {
+                        this._runActions(t, t);
+                    }
+                    else if (actionsMode == 1 && t < prevPos) {
+                        if (prevPos != this.duration) {
+                            this._runActions(prevPos, this.duration);
+                        }
+                        this._runActions(0, t, true);
+                    }
+                    else {
+                        this._runActions(prevPos, t);
+                    }
                 }
                 this.dispatchEventWith("change");
                 return end;
@@ -18088,7 +18118,7 @@ var egret;
             p._appendQueueProps = function (o) {
                 var arr, oldValue, i, l, injectProps;
                 for (var n in o) {
-                    if (egret.sys.isUndefined(this._initQueueProps[n])) {
+                    if (this._initQueueProps[n] === undefined) {
                         oldValue = this._target[n];
                         //设置plugins
                         if (arr = ScrollerTween._plugins[n]) {
@@ -18213,9 +18243,9 @@ var egret;
             ScrollerTween._inited = false;
             ScrollerTween._lastTime = 0;
             return ScrollerTween;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.ScrollerTween = ScrollerTween;
-        egret.registerClass(ScrollerTween,"egret.gui.ScrollerTween");
+        egret.registerClass(ScrollerTween,'egret.gui.ScrollerTween');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -18324,11 +18354,11 @@ var egret;
                  */
                 this._bounces = true;
             }
-            var d = __define,c=ScrollerViewProperties;p=c.prototype;
+            var d = __define,c=ScrollerViewProperties,p=c.prototype;
             return ScrollerViewProperties;
-        })();
+        }());
         gui.ScrollerViewProperties = ScrollerViewProperties;
-        egret.registerClass(ScrollerViewProperties,"egret.gui.ScrollerViewProperties");
+        egret.registerClass(ScrollerViewProperties,'egret.gui.ScrollerViewProperties');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -18376,7 +18406,7 @@ var egret;
              */
             function DefaultAssetAdapter() {
             }
-            var d = __define,c=DefaultAssetAdapter;p=c.prototype;
+            var d = __define,c=DefaultAssetAdapter,p=c.prototype;
             /**
              * 解析素材
              * @param source {any} 待解析的新素材标识符
@@ -18428,9 +18458,9 @@ var egret;
                 loader.send();
             };
             return DefaultAssetAdapter;
-        })();
+        }());
         gui.DefaultAssetAdapter = DefaultAssetAdapter;
-        egret.registerClass(DefaultAssetAdapter,"egret.gui.DefaultAssetAdapter",["egret.gui.IAssetAdapter"]);
+        egret.registerClass(DefaultAssetAdapter,'egret.gui.DefaultAssetAdapter',["egret.gui.IAssetAdapter"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -18478,7 +18508,7 @@ var egret;
              */
             function DefaultSkinAdapter() {
             }
-            var d = __define,c=DefaultSkinAdapter;p=c.prototype;
+            var d = __define,c=DefaultSkinAdapter,p=c.prototype;
             /**
              * 获取皮肤显示对象
              * @method egret.gui.ISkinAdapter#getSkin
@@ -18506,9 +18536,9 @@ var egret;
                 }
             };
             return DefaultSkinAdapter;
-        })();
+        }());
         gui.DefaultSkinAdapter = DefaultSkinAdapter;
-        egret.registerClass(DefaultSkinAdapter,"egret.gui.DefaultSkinAdapter",["egret.gui.ISkinAdapter"]);
+        egret.registerClass(DefaultSkinAdapter,'egret.gui.DefaultSkinAdapter',["egret.gui.ISkinAdapter"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -18554,7 +18584,7 @@ var egret;
              */
             function DefaultThemeAdapter() {
             }
-            var d = __define,c=DefaultThemeAdapter;p=c.prototype;
+            var d = __define,c=DefaultThemeAdapter,p=c.prototype;
             /**
              * 解析主题
              * @param url 待解析的主题url
@@ -18575,9 +18605,9 @@ var egret;
                 loader.send();
             };
             return DefaultThemeAdapter;
-        })();
+        }());
         gui.DefaultThemeAdapter = DefaultThemeAdapter;
-        egret.registerClass(DefaultThemeAdapter,"egret.gui.DefaultThemeAdapter",["egret.gui.IThemeAdapter"]);
+        egret.registerClass(DefaultThemeAdapter,'egret.gui.DefaultThemeAdapter',["egret.gui.IThemeAdapter"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -18637,7 +18667,7 @@ var egret;
                 this._rollOverOpenDelay = NaN;
                 this.rollOverOpenDelayTimer = null;
             }
-            var d = __define,c=DropDownController;p=c.prototype;
+            var d = __define,c=DropDownController,p=c.prototype;
             d(p, "openButton"
                 /**
                  * 下拉按钮实例
@@ -18973,9 +19003,9 @@ var egret;
                     this.closeDropDown(false);
             };
             return DropDownController;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.DropDownController = DropDownController;
-        egret.registerClass(DropDownController,"egret.gui.DropDownController");
+        egret.registerClass(DropDownController,'egret.gui.DropDownController');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -19026,7 +19056,7 @@ var egret;
                 _super.call(this);
                 this._target = null;
             }
-            var d = __define,c=SkinBasicLayout;p=c.prototype;
+            var d = __define,c=SkinBasicLayout,p=c.prototype;
             d(p, "target"
                 /**
                  * 目标布局对象
@@ -19157,9 +19187,9 @@ var egret;
                 }
             };
             return SkinBasicLayout;
-        })(egret.HashObject);
+        }(egret.HashObject));
         gui.SkinBasicLayout = SkinBasicLayout;
-        egret.registerClass(SkinBasicLayout,"egret.gui.SkinBasicLayout");
+        egret.registerClass(SkinBasicLayout,'egret.gui.SkinBasicLayout');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -19204,7 +19234,7 @@ var egret;
                 this.delyList = [];
                 this.loadConfig(configURL);
             }
-            var d = __define,c=Theme;p=c.prototype;
+            var d = __define,c=Theme,p=c.prototype;
             Theme.load = function (configURL) {
                 if (this.initialized) {
                     return;
@@ -19291,9 +19321,9 @@ var egret;
             };
             Theme.initialized = false;
             return Theme;
-        })();
+        }());
         gui.Theme = Theme;
-        egret.registerClass(Theme,"egret.gui.Theme");
+        egret.registerClass(Theme,'egret.gui.Theme');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -19891,7 +19921,7 @@ var egret;
         var NavigationUnit = (function () {
             function NavigationUnit() {
             }
-            var d = __define,c=NavigationUnit;p=c.prototype;
+            var d = __define,c=NavigationUnit,p=c.prototype;
             NavigationUnit.DOWN = 40;
             NavigationUnit.END = 35;
             NavigationUnit.HOME = 36;
@@ -19903,9 +19933,9 @@ var egret;
             NavigationUnit.RIGHT = 39;
             NavigationUnit.UP = 38;
             return NavigationUnit;
-        })();
+        }());
         gui.NavigationUnit = NavigationUnit;
-        egret.registerClass(NavigationUnit,"egret.gui.NavigationUnit");
+        egret.registerClass(NavigationUnit,'egret.gui.NavigationUnit');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -19949,7 +19979,7 @@ var egret;
         var PopUpPosition = (function () {
             function PopUpPosition() {
             }
-            var d = __define,c=PopUpPosition;p=c.prototype;
+            var d = __define,c=PopUpPosition,p=c.prototype;
             /**
              * 在组件上方弹出
              * @constant egret.gui.PopUpPosition.ABOVE
@@ -19986,9 +20016,9 @@ var egret;
              */
             PopUpPosition.SCREEN_CENTER = "screenCenter";
             return PopUpPosition;
-        })();
+        }());
         gui.PopUpPosition = PopUpPosition;
-        egret.registerClass(PopUpPosition,"egret.gui.PopUpPosition");
+        egret.registerClass(PopUpPosition,'egret.gui.PopUpPosition');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20031,7 +20061,7 @@ var egret;
         var ScrollPolicy = (function () {
             function ScrollPolicy() {
             }
-            var d = __define,c=ScrollPolicy;p=c.prototype;
+            var d = __define,c=ScrollPolicy,p=c.prototype;
             /**
              * 如果子项超出父级的尺寸，则允许滚动，反之不允许滚动。
              * @constant egret.gui.ScrollPolicy.AUTO
@@ -20048,9 +20078,9 @@ var egret;
              */
             ScrollPolicy.ON = "on";
             return ScrollPolicy;
-        })();
+        }());
         gui.ScrollPolicy = ScrollPolicy;
-        egret.registerClass(ScrollPolicy,"egret.gui.ScrollPolicy");
+        egret.registerClass(ScrollPolicy,'egret.gui.ScrollPolicy');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20179,11 +20209,11 @@ var egret;
                  */
                 this._layoutHeightExplicitlySet = false;
             }
-            var d = __define,c=UIComponentProperties;p=c.prototype;
+            var d = __define,c=UIComponentProperties,p=c.prototype;
             return UIComponentProperties;
-        })();
+        }());
         gui.UIComponentProperties = UIComponentProperties;
-        egret.registerClass(UIComponentProperties,"egret.gui.UIComponentProperties");
+        egret.registerClass(UIComponentProperties,'egret.gui.UIComponentProperties');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20225,7 +20255,7 @@ var egret;
         var UIGlobals = (function () {
             function UIGlobals() {
             }
-            var d = __define,c=UIGlobals;p=c.prototype;
+            var d = __define,c=UIGlobals,p=c.prototype;
             d(UIGlobals, "stage"
                 /**
                  * 舞台引用，当第一个UIComponent添加到舞台时此属性被自动赋值
@@ -20260,9 +20290,9 @@ var egret;
              */
             UIGlobals.initlized = false;
             return UIGlobals;
-        })();
+        }());
         gui.UIGlobals = UIGlobals;
-        egret.registerClass(UIGlobals,"egret.gui.UIGlobals");
+        egret.registerClass(UIGlobals,'egret.gui.UIGlobals');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20330,7 +20360,7 @@ var egret;
                 this.lowerBoundReference = lowerBoundReference;
                 this.upperBoundReference = upperBoundReference;
             }
-            var d = __define,c=UILayer;p=c.prototype;
+            var d = __define,c=UILayer,p=c.prototype;
             d(p, "numElements"
                 ,function () {
                     return this.owner[this.upperBoundReference] - this.owner[this.lowerBoundReference];
@@ -20421,9 +20451,9 @@ var egret;
                 this.owner[this.raw_setElementIndex](element, this.owner[this.lowerBoundReference] + index);
             };
             return UILayer;
-        })();
+        }());
         gui.UILayer = UILayer;
-        egret.registerClass(UILayer,"egret.gui.UILayer",["egret.gui.IContainer"]);
+        egret.registerClass(UILayer,'egret.gui.UILayer',["egret.gui.IContainer"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20487,7 +20517,7 @@ var egret;
                 this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
                 this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoveFromStage, this);
             }
-            var d = __define,c=UIStage;p=c.prototype;
+            var d = __define,c=UIStage,p=c.prototype;
             /**
              * 添加到舞台
              */
@@ -20902,9 +20932,9 @@ var egret;
                 _super.prototype.swapElementsAt.call(this, index1, index2);
             };
             return UIStage;
-        })(gui.Group);
+        }(gui.Group));
         gui.UIStage = UIStage;
-        egret.registerClass(UIStage,"egret.gui.UIStage",["egret.gui.IUIStage","egret.IEventDispatcher"]);
+        egret.registerClass(UIStage,'egret.gui.UIStage',["egret.gui.IUIStage","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -20980,7 +21010,7 @@ var egret;
                 this._playheadTime = 0;
                 this.target = target;
             }
-            var d = __define,c=Effect;p=c.prototype;
+            var d = __define,c=Effect,p=c.prototype;
             d(p, "duration"
                 /**
                  * 效果的持续时间（以毫秒为单位）。
@@ -21289,9 +21319,9 @@ var egret;
                 this.dispatchEvent(event);
             };
             return Effect;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.Effect = Effect;
-        egret.registerClass(Effect,"egret.gui.Effect",["egret.gui.IEffect","egret.IEventDispatcher"]);
+        egret.registerClass(Effect,'egret.gui.Effect',["egret.gui.IEffect","egret.IEventDispatcher"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -21346,7 +21376,7 @@ var egret;
                 this._disableLayout = false;
                 this.instanceClass = gui.AnimateInstance;
             }
-            var d = __define,c=Animate;p=c.prototype;
+            var d = __define,c=Animate,p=c.prototype;
             d(p, "motionPaths"
                 /**
                  * MotionPath 对象的 Array，其中的每个对象都带有正在设置动画的属性的名称以及该属性在动画过程中所采用的值。
@@ -21452,9 +21482,9 @@ var egret;
                 this.dispatchEvent(event);
             };
             return Animate;
-        })(gui.Effect);
+        }(gui.Effect));
         gui.Animate = Animate;
-        egret.registerClass(Animate,"egret.gui.Animate");
+        egret.registerClass(Animate,'egret.gui.Animate');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -21509,7 +21539,7 @@ var egret;
                 this.easeInFraction = easeInFraction;
                 this.easeOutFraction = easeOutFraction;
             }
-            var d = __define,c=Linear;p=c.prototype;
+            var d = __define,c=Linear,p=c.prototype;
             d(p, "easeInFraction"
                 /**
                  * 在加速阶段中持续时间占总时间的百分比，在 0.0 和 1.0 之间。
@@ -21547,9 +21577,9 @@ var egret;
                 return runRate * (fraction - this.easeInFraction / 2);
             };
             return Linear;
-        })();
+        }());
         gui.Linear = Linear;
-        egret.registerClass(Linear,"egret.gui.Linear",["egret.gui.IEaser"]);
+        egret.registerClass(Linear,'egret.gui.Linear',["egret.gui.IEaser"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -21607,7 +21637,7 @@ var egret;
                 this.autoCenterTransform = false;
                 this.instanceClass = gui.AnimateTransformInstance;
             }
-            var d = __define,c=AnimateTransform;p=c.prototype;
+            var d = __define,c=AnimateTransform,p=c.prototype;
             /**
              * 获取效果所属的复合效果
              */
@@ -21832,9 +21862,9 @@ var egret;
             AnimateTransform.sharedObjectMaps = {};
             AnimateTransform.sharedObjectRefcounts = {};
             return AnimateTransform;
-        })(gui.Animate);
+        }(gui.Animate));
         gui.AnimateTransform = AnimateTransform;
-        egret.registerClass(AnimateTransform,"egret.gui.AnimateTransform");
+        egret.registerClass(AnimateTransform,'egret.gui.AnimateTransform');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -21886,7 +21916,7 @@ var egret;
                 this._children = [];
                 this.instanceClass = gui.CompositeEffectInstance;
             }
-            var d = __define,c=CompositeEffect;p=c.prototype;
+            var d = __define,c=CompositeEffect,p=c.prototype;
             d(p, "children"
                 /**
                  * 子效果的数组。
@@ -21962,9 +21992,9 @@ var egret;
                 childEffect._parentCompositeEffect = this;
             };
             return CompositeEffect;
-        })(gui.Effect);
+        }(gui.Effect));
         gui.CompositeEffect = CompositeEffect;
-        egret.registerClass(CompositeEffect,"egret.gui.CompositeEffect");
+        egret.registerClass(CompositeEffect,'egret.gui.CompositeEffect');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22038,7 +22068,7 @@ var egret;
                 this._startDelay = 0;
                 this.target = target;
             }
-            var d = __define,c=EffectInstance;p=c.prototype;
+            var d = __define,c=EffectInstance,p=c.prototype;
             d(p, "_actualDuration"
                 /**
                  * 实际的持续时间包含startDelay，repeatDelay，repeatCount这些值
@@ -22308,9 +22338,9 @@ var egret;
                 this.play();
             };
             return EffectInstance;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.EffectInstance = EffectInstance;
-        egret.registerClass(EffectInstance,"egret.gui.EffectInstance",["egret.gui.IEffectInstance"]);
+        egret.registerClass(EffectInstance,'egret.gui.EffectInstance',["egret.gui.IEffectInstance"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22361,7 +22391,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.FadeInstance;
             }
-            var d = __define,c=Fade;p=c.prototype;
+            var d = __define,c=Fade,p=c.prototype;
             p._initInstance = function (instance) {
                 _super.prototype._initInstance.call(this, instance);
                 var fadeInstance = instance;
@@ -22369,9 +22399,9 @@ var egret;
                 fadeInstance.alphaTo = this.alphaTo;
             };
             return Fade;
-        })(gui.Animate);
+        }(gui.Animate));
         gui.Fade = Fade;
-        egret.registerClass(Fade,"egret.gui.Fade");
+        egret.registerClass(Fade,'egret.gui.Fade');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22478,7 +22508,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.AnimateTransformInstance;
             }
-            var d = __define,c=Move;p=c.prototype;
+            var d = __define,c=Move,p=c.prototype;
             p.createInstance = function (target) {
                 if (target === void 0) { target = null; }
                 this.motionPaths = new Array();
@@ -22490,9 +22520,9 @@ var egret;
                 _super.prototype._initInstance.call(this, instance);
             };
             return Move;
-        })(gui.AnimateTransform);
+        }(gui.AnimateTransform));
         gui.Move = Move;
-        egret.registerClass(Move,"egret.gui.Move");
+        egret.registerClass(Move,'egret.gui.Move');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22543,7 +22573,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.ParallelInstance;
             }
-            var d = __define,c=Parallel;p=c.prototype;
+            var d = __define,c=Parallel,p=c.prototype;
             d(p, "compositeDuration"
                 ,function () {
                     var parallelDuration = 0;
@@ -22564,9 +22594,9 @@ var egret;
                 }
             );
             return Parallel;
-        })(gui.CompositeEffect);
+        }(gui.CompositeEffect));
         gui.Parallel = Parallel;
-        egret.registerClass(Parallel,"egret.gui.Parallel");
+        egret.registerClass(Parallel,'egret.gui.Parallel');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22617,7 +22647,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.AnimateTransformInstance;
             }
-            var d = __define,c=Rotate;p=c.prototype;
+            var d = __define,c=Rotate,p=c.prototype;
             p.createInstance = function (target) {
                 if (target === void 0) { target = null; }
                 this.motionPaths = new Array();
@@ -22628,9 +22658,9 @@ var egret;
                 _super.prototype._initInstance.call(this, instance);
             };
             return Rotate;
-        })(gui.AnimateTransform);
+        }(gui.AnimateTransform));
         gui.Rotate = Rotate;
-        egret.registerClass(Rotate,"egret.gui.Rotate");
+        egret.registerClass(Rotate,'egret.gui.Rotate');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22681,7 +22711,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.AnimateTransformInstance;
             }
-            var d = __define,c=Scale;p=c.prototype;
+            var d = __define,c=Scale,p=c.prototype;
             p.createInstance = function (target) {
                 if (target === void 0) { target = null; }
                 this.motionPaths = new Array();
@@ -22693,9 +22723,9 @@ var egret;
                 _super.prototype._initInstance.call(this, instance);
             };
             return Scale;
-        })(gui.AnimateTransform);
+        }(gui.AnimateTransform));
         gui.Scale = Scale;
-        egret.registerClass(Scale,"egret.gui.Scale");
+        egret.registerClass(Scale,'egret.gui.Scale');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22746,7 +22776,7 @@ var egret;
                 _super.call(this, target);
                 this.instanceClass = gui.SequenceInstance;
             }
-            var d = __define,c=Sequence;p=c.prototype;
+            var d = __define,c=Sequence,p=c.prototype;
             d(p, "compositeDuration"
                 ,function () {
                     var sequenceDuration = 0;
@@ -22767,9 +22797,9 @@ var egret;
                 }
             );
             return Sequence;
-        })(gui.CompositeEffect);
+        }(gui.CompositeEffect));
         gui.Sequence = Sequence;
-        egret.registerClass(Sequence,"egret.gui.Sequence");
+        egret.registerClass(Sequence,'egret.gui.Sequence');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22821,7 +22851,7 @@ var egret;
                 this._easeInFraction = .5;
                 this.easeInFraction = easeInFraction;
             }
-            var d = __define,c=EaseInOutBase;p=c.prototype;
+            var d = __define,c=EaseInOutBase,p=c.prototype;
             d(p, "easeInFraction"
                 /**
                  * 缓入过程所占动画播放时间的百分比。剩余即为缓出的时间。
@@ -22855,9 +22885,9 @@ var egret;
                 return fraction;
             };
             return EaseInOutBase;
-        })();
+        }());
         gui.EaseInOutBase = EaseInOutBase;
-        egret.registerClass(EaseInOutBase,"egret.gui.EaseInOutBase",["egret.gui.IEaser"]);
+        egret.registerClass(EaseInOutBase,'egret.gui.EaseInOutBase',["egret.gui.IEaser"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -22908,7 +22938,7 @@ var egret;
                 if (easeInFraction === void 0) { easeInFraction = 0.5; }
                 _super.call(this, easeInFraction);
             }
-            var d = __define,c=Sine;p=c.prototype;
+            var d = __define,c=Sine,p=c.prototype;
             /**
              * @inheritDoc
              */
@@ -22922,9 +22952,9 @@ var egret;
                 return Math.sin(fraction * Math.PI / 2);
             };
             return Sine;
-        })(gui.EaseInOutBase);
+        }(gui.EaseInOutBase));
         gui.Sine = Sine;
-        egret.registerClass(Sine,"egret.gui.Sine");
+        egret.registerClass(Sine,'egret.gui.Sine');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23028,7 +23058,7 @@ var egret;
                 this.updateFunction = updateFunction;
                 this.thisObject = thisObject;
             }
-            var d = __define,c=Animation;p=c.prototype;
+            var d = __define,c=Animation,p=c.prototype;
             d(p, "easer"
                 /**
                  * 此效果的缓动行为，默认为Sine(.5)
@@ -23599,9 +23629,9 @@ var egret;
             Animation.startTime = -1;
             Animation._currentTime = -1;
             return Animation;
-        })();
+        }());
         gui.Animation = Animation;
-        egret.registerClass(Animation,"egret.gui.Animation");
+        egret.registerClass(Animation,'egret.gui.Animation');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23658,7 +23688,7 @@ var egret;
                 this.time = time;
                 this.valueBy = valueBy;
             }
-            var d = __define,c=Keyframe;p=c.prototype;
+            var d = __define,c=Keyframe,p=c.prototype;
             /**
              * 返回此 Keyframe 对象的副本。
              */
@@ -23669,9 +23699,9 @@ var egret;
                 return kf;
             };
             return Keyframe;
-        })();
+        }());
         gui.Keyframe = Keyframe;
-        egret.registerClass(Keyframe,"egret.gui.Keyframe");
+        egret.registerClass(Keyframe,'egret.gui.Keyframe');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23721,7 +23751,7 @@ var egret;
                 this.interpolator = gui.NumberInterpolator.getInstance();
                 this.property = property;
             }
-            var d = __define,c=MotionPath;p=c.prototype;
+            var d = __define,c=MotionPath,p=c.prototype;
             /**
              * 返回此 MotionPath 对象的副本（包含每个关键帧的副本）。
              */
@@ -23779,9 +23809,9 @@ var egret;
                 return this.keyframes[n - 1].value;
             };
             return MotionPath;
-        })();
+        }());
         gui.MotionPath = MotionPath;
-        egret.registerClass(MotionPath,"egret.gui.MotionPath");
+        egret.registerClass(MotionPath,'egret.gui.MotionPath');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23824,7 +23854,7 @@ var egret;
         var RepeatBehavior = (function () {
             function RepeatBehavior() {
             }
-            var d = __define,c=RepeatBehavior;p=c.prototype;
+            var d = __define,c=RepeatBehavior,p=c.prototype;
             /**
              * 指定在每个迭代上重复的动画在前进方向上的进度。
              */
@@ -23835,9 +23865,9 @@ var egret;
              */
             RepeatBehavior.REVERSE = "reverse";
             return RepeatBehavior;
-        })();
+        }());
         gui.RepeatBehavior = RepeatBehavior;
-        egret.registerClass(RepeatBehavior,"egret.gui.RepeatBehavior");
+        egret.registerClass(RepeatBehavior,'egret.gui.RepeatBehavior');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23899,7 +23929,7 @@ var egret;
                 this.property = property;
                 this.keyframes = [new gui.Keyframe(0, valueFrom), new gui.Keyframe(NaN, valueTo, valueBy)];
             }
-            var d = __define,c=SimpleMotionPath;p=c.prototype;
+            var d = __define,c=SimpleMotionPath,p=c.prototype;
             d(p, "valueFrom"
                 /**
                  * 动画过程中属性的起始值。
@@ -23934,9 +23964,9 @@ var egret;
                 }
             );
             return SimpleMotionPath;
-        })(gui.MotionPath);
+        }(gui.MotionPath));
         gui.SimpleMotionPath = SimpleMotionPath;
-        egret.registerClass(SimpleMotionPath,"egret.gui.SimpleMotionPath");
+        egret.registerClass(SimpleMotionPath,'egret.gui.SimpleMotionPath');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -23983,7 +24013,7 @@ var egret;
              */
             function Bounce() {
             }
-            var d = __define,c=Bounce;p=c.prototype;
+            var d = __define,c=Bounce,p=c.prototype;
             p.ease = function (fraction) {
                 return this.easeOut(fraction, 0, 1, 1);
             };
@@ -23998,9 +24028,9 @@ var egret;
                     return c * (7.5625 * (t -= (2.625 / 2.75)) * t + 0.984375) + b;
             };
             return Bounce;
-        })();
+        }());
         gui.Bounce = Bounce;
-        egret.registerClass(Bounce,"egret.gui.Bounce",["egret.gui.IEaser"]);
+        egret.registerClass(Bounce,'egret.gui.Bounce',["egret.gui.IEaser"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -24047,7 +24077,7 @@ var egret;
              */
             function Elastic() {
             }
-            var d = __define,c=Elastic;p=c.prototype;
+            var d = __define,c=Elastic,p=c.prototype;
             p.ease = function (fraction) {
                 return this.easeOut(fraction, 0, 1, 1);
             };
@@ -24072,9 +24102,9 @@ var egret;
                     Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b;
             };
             return Elastic;
-        })();
+        }());
         gui.Elastic = Elastic;
-        egret.registerClass(Elastic,"egret.gui.Elastic",["egret.gui.IEaser"]);
+        egret.registerClass(Elastic,'egret.gui.Elastic',["egret.gui.IEaser"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -24156,7 +24186,7 @@ var egret;
                 _super.call(this, easeInFraction);
                 this.exponent = exponent;
             }
-            var d = __define,c=Power;p=c.prototype;
+            var d = __define,c=Power,p=c.prototype;
             d(p, "exponent"
                 /**
                  * 在缓动计算中使用的指数。exponent 属性的值越大，加速和减速的速率越快。
@@ -24181,9 +24211,9 @@ var egret;
                 return 1 - Math.pow((1 - fraction), this._exponent);
             };
             return Power;
-        })(gui.EaseInOutBase);
+        }(gui.EaseInOutBase));
         gui.Power = Power;
-        egret.registerClass(Power,"egret.gui.Power");
+        egret.registerClass(Power,'egret.gui.Power');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -24238,7 +24268,7 @@ var egret;
                 this._seekTime = 0;
                 this.numUpdateListeners = 0;
             }
-            var d = __define,c=AnimateInstance;p=c.prototype;
+            var d = __define,c=AnimateInstance,p=c.prototype;
             d(p, "motionPaths"
                 /**
                  * MotionPath 对象集，它定义随着时间的推移 Animation 将设置动画的属性和值。
@@ -24634,9 +24664,9 @@ var egret;
                     return this.target.getStyle(property);
             };
             return AnimateInstance;
-        })(gui.EffectInstance);
+        }(gui.EffectInstance));
         gui.AnimateInstance = AnimateInstance;
-        egret.registerClass(AnimateInstance,"egret.gui.AnimateInstance");
+        egret.registerClass(AnimateInstance,'egret.gui.AnimateInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -24702,7 +24732,7 @@ var egret;
                  */
                 this.initialized = false;
             }
-            var d = __define,c=AnimateTransformInstance;p=c.prototype;
+            var d = __define,c=AnimateTransformInstance,p=c.prototype;
             p.startEffect = function () {
                 if (!this.started) {
                     this.started = true;
@@ -24882,9 +24912,9 @@ var egret;
             };
             AnimateTransformInstance.position = new egret.Point();
             return AnimateTransformInstance;
-        })(gui.AnimateInstance);
+        }(gui.AnimateInstance));
         gui.AnimateTransformInstance = AnimateTransformInstance;
-        egret.registerClass(AnimateTransformInstance,"egret.gui.AnimateTransformInstance");
+        egret.registerClass(AnimateTransformInstance,'egret.gui.AnimateTransformInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -24939,7 +24969,7 @@ var egret;
                 this._playheadTime = 0;
                 this._childSets = [];
             }
-            var d = __define,c=CompositeEffectInstance;p=c.prototype;
+            var d = __define,c=CompositeEffectInstance,p=c.prototype;
             d(p, "_actualDuration"
                 /**
                  * @inheritDoc
@@ -25081,9 +25111,9 @@ var egret;
                 this._onEffectEnd(event.effectInstance);
             };
             return CompositeEffectInstance;
-        })(gui.EffectInstance);
+        }(gui.EffectInstance));
         gui.CompositeEffectInstance = CompositeEffectInstance;
-        egret.registerClass(CompositeEffectInstance,"egret.gui.CompositeEffectInstance");
+        egret.registerClass(CompositeEffectInstance,'egret.gui.CompositeEffectInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -25132,7 +25162,7 @@ var egret;
             function FadeInstance(target) {
                 _super.call(this, target);
             }
-            var d = __define,c=FadeInstance;p=c.prototype;
+            var d = __define,c=FadeInstance,p=c.prototype;
             p.play = function () {
                 var fromValue = this.alphaFrom;
                 var toValue = this.alphaTo;
@@ -25152,9 +25182,9 @@ var egret;
                 _super.prototype.play.call(this);
             };
             return FadeInstance;
-        })(gui.AnimateInstance);
+        }(gui.AnimateInstance));
         gui.FadeInstance = FadeInstance;
-        egret.registerClass(FadeInstance,"egret.gui.FadeInstance");
+        egret.registerClass(FadeInstance,'egret.gui.FadeInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -25204,7 +25234,7 @@ var egret;
                 _super.call(this, target);
                 this.isReversed = false;
             }
-            var d = __define,c=ParallelInstance;p=c.prototype;
+            var d = __define,c=ParallelInstance,p=c.prototype;
             d(p, "_durationWithoutRepeat"
                 /**
                  * @inheritDoc
@@ -25432,9 +25462,9 @@ var egret;
                 }
             };
             return ParallelInstance;
-        })(gui.CompositeEffectInstance);
+        }(gui.CompositeEffectInstance));
         gui.ParallelInstance = ParallelInstance;
-        egret.registerClass(ParallelInstance,"egret.gui.ParallelInstance");
+        egret.registerClass(ParallelInstance,'egret.gui.ParallelInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -25489,7 +25519,7 @@ var egret;
                 this.currentSetIndex = -1;
                 this.isPaused = false;
             }
-            var d = __define,c=SequenceInstance;p=c.prototype;
+            var d = __define,c=SequenceInstance,p=c.prototype;
             d(p, "_durationWithoutRepeat"
                 /**
                  * @inheritDoc
@@ -25779,9 +25809,9 @@ var egret;
                 return true;
             };
             return SequenceInstance;
-        })(gui.CompositeEffectInstance);
+        }(gui.CompositeEffectInstance));
         gui.SequenceInstance = SequenceInstance;
-        egret.registerClass(SequenceInstance,"egret.gui.SequenceInstance");
+        egret.registerClass(SequenceInstance,'egret.gui.SequenceInstance');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -25822,7 +25852,7 @@ var egret;
         var TransformUtil = (function () {
             function TransformUtil() {
             }
-            var d = __define,c=TransformUtil;p=c.prototype;
+            var d = __define,c=TransformUtil,p=c.prototype;
             /**
              * 将显示对象按照给定的转换中心调整位置
              * @param obj 要转换的显示对象
@@ -25882,9 +25912,9 @@ var egret;
                 return resultPoint;
             };
             return TransformUtil;
-        })();
+        }());
         gui.TransformUtil = TransformUtil;
-        egret.registerClass(TransformUtil,"egret.gui.TransformUtil");
+        egret.registerClass(TransformUtil,'egret.gui.TransformUtil');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -25959,7 +25989,7 @@ var egret;
              */
             function NumberInterpolator() {
             }
-            var d = __define,c=NumberInterpolator;p=c.prototype;
+            var d = __define,c=NumberInterpolator,p=c.prototype;
             NumberInterpolator.getInstance = function () {
                 if (!NumberInterpolator.theInstance)
                     NumberInterpolator.theInstance = new NumberInterpolator();
@@ -25979,9 +26009,9 @@ var egret;
                 return baseValue - decrementValue;
             };
             return NumberInterpolator;
-        })();
+        }());
         gui.NumberInterpolator = NumberInterpolator;
-        egret.registerClass(NumberInterpolator,"egret.gui.NumberInterpolator",["egret.gui.IInterpolator"]);
+        egret.registerClass(NumberInterpolator,'egret.gui.NumberInterpolator',["egret.gui.IInterpolator"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26044,7 +26074,7 @@ var egret;
                 this.detail = null;
                 this.detail = detail;
             }
-            var d = __define,c=CloseEvent;p=c.prototype;
+            var d = __define,c=CloseEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.CloseEvent.dispatchCloseEvent
@@ -26066,9 +26096,9 @@ var egret;
              */
             CloseEvent.CLOSE = "close";
             return CloseEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.CloseEvent = CloseEvent;
-        egret.registerClass(CloseEvent,"egret.gui.CloseEvent");
+        egret.registerClass(CloseEvent,'egret.gui.CloseEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26152,7 +26182,7 @@ var egret;
                 this.items = items ? items : [];
                 this.oldItems = oldItems ? oldItems : [];
             }
-            var d = __define,c=CollectionEvent;p=c.prototype;
+            var d = __define,c=CollectionEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.CollectionEvent.dispatchCollectionEvent
@@ -26186,9 +26216,9 @@ var egret;
              */
             CollectionEvent.COLLECTION_CHANGE = "collectionChange";
             return CollectionEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.CollectionEvent = CollectionEvent;
-        egret.registerClass(CollectionEvent,"egret.gui.CollectionEvent");
+        egret.registerClass(CollectionEvent,'egret.gui.CollectionEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26232,7 +26262,7 @@ var egret;
         var CollectionEventKind = (function () {
             function CollectionEventKind() {
             }
-            var d = __define,c=CollectionEventKind;p=c.prototype;
+            var d = __define,c=CollectionEventKind,p=c.prototype;
             /**
              * 指示集合添加了一个或多个项目。
              * @constant egret.gui.CollectionEventKind.ADD
@@ -26279,9 +26309,9 @@ var egret;
              */
             CollectionEventKind.CLOSE = "close";
             return CollectionEventKind;
-        })();
+        }());
         gui.CollectionEventKind = CollectionEventKind;
-        egret.registerClass(CollectionEventKind,"egret.gui.CollectionEventKind");
+        egret.registerClass(CollectionEventKind,'egret.gui.CollectionEventKind');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 var egret;
@@ -26300,7 +26330,7 @@ var egret;
                 _super.call(this, eventType, bubbles, cancelable);
                 this.effectInstance = effectInstance;
             }
-            var d = __define,c=EffectEvent;p=c.prototype;
+            var d = __define,c=EffectEvent,p=c.prototype;
             /**
              * 动画播放结束
              */
@@ -26322,9 +26352,9 @@ var egret;
              */
             EffectEvent.EFFECT_UPDATE = "effectUpdate";
             return EffectEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.EffectEvent = EffectEvent;
-        egret.registerClass(EffectEvent,"egret.gui.EffectEvent");
+        egret.registerClass(EffectEvent,'egret.gui.EffectEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26389,7 +26419,7 @@ var egret;
                 this.element = element;
                 this.index = index;
             }
-            var d = __define,c=ElementExistenceEvent;p=c.prototype;
+            var d = __define,c=ElementExistenceEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.ElementExistenceEvent.dispatchElementExistenceEvent
@@ -26420,9 +26450,9 @@ var egret;
              */
             ElementExistenceEvent.ELEMENT_REMOVE = "elementRemove";
             return ElementExistenceEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.ElementExistenceEvent = ElementExistenceEvent;
-        egret.registerClass(ElementExistenceEvent,"egret.gui.ElementExistenceEvent");
+        egret.registerClass(ElementExistenceEvent,'egret.gui.ElementExistenceEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26492,7 +26522,7 @@ var egret;
                 this.oldIndex = oldIndex;
                 this.newIndex = newIndex;
             }
-            var d = __define,c=IndexChangeEvent;p=c.prototype;
+            var d = __define,c=IndexChangeEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.IndexChangeEvent.dispatchIndexChangeEvent
@@ -26524,9 +26554,9 @@ var egret;
              */
             IndexChangeEvent.CHANGING = "changing";
             return IndexChangeEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.IndexChangeEvent = IndexChangeEvent;
-        egret.registerClass(IndexChangeEvent,"egret.gui.IndexChangeEvent");
+        egret.registerClass(IndexChangeEvent,'egret.gui.IndexChangeEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26608,7 +26638,7 @@ var egret;
                  */
                 this.itemIndex = NaN;
             }
-            var d = __define,c=ListEvent;p=c.prototype;
+            var d = __define,c=ListEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.ListEvent.dispatchListEvent
@@ -26655,9 +26685,9 @@ var egret;
              */
             ListEvent.ITEM_CLICK = "itemClick";
             return ListEvent;
-        })(egret.TouchEvent);
+        }(egret.TouchEvent));
         gui.ListEvent = ListEvent;
-        egret.registerClass(ListEvent,"egret.gui.ListEvent");
+        egret.registerClass(ListEvent,'egret.gui.ListEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26723,7 +26753,7 @@ var egret;
                  */
                 this.oldY = NaN;
             }
-            var d = __define,c=MoveEvent;p=c.prototype;
+            var d = __define,c=MoveEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.MoveEvent.dispatchMoveEvent
@@ -26743,9 +26773,9 @@ var egret;
              */
             MoveEvent.MOVE = "move";
             return MoveEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.MoveEvent = MoveEvent;
-        egret.registerClass(MoveEvent,"egret.gui.MoveEvent");
+        egret.registerClass(MoveEvent,'egret.gui.MoveEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26816,7 +26846,7 @@ var egret;
                 this.popUp = popUp;
                 this.modal = modal;
             }
-            var d = __define,c=PopUpEvent;p=c.prototype;
+            var d = __define,c=PopUpEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.PopUpEvent.dispatchPopUpEvent
@@ -26824,7 +26854,7 @@ var egret;
             PopUpEvent.dispatchPopUpEvent = function (target, type, popUp, modal) {
                 if (popUp === void 0) { popUp = null; }
                 if (modal === void 0) { modal = false; }
-                var event = egret.Event.create(PopUpEvent, egret.HTTPStatusEvent.HTTP_STATUS);
+                var event = egret.Event.create(PopUpEvent, type);
                 event.popUp = popUp;
                 event.modal = modal;
                 var result = target.dispatchEvent(event);
@@ -26851,9 +26881,9 @@ var egret;
              */
             PopUpEvent.BRING_TO_FRONT = "bringToFront";
             return PopUpEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.PopUpEvent = PopUpEvent;
-        egret.registerClass(PopUpEvent,"egret.gui.PopUpEvent");
+        egret.registerClass(PopUpEvent,'egret.gui.PopUpEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -26948,7 +26978,7 @@ var egret;
                 this.newValue = newValue;
                 this.source = source;
             }
-            var d = __define,c=PropertyChangeEvent;p=c.prototype;
+            var d = __define,c=PropertyChangeEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.PropertyChangeEvent.dispatchPropertyChangeEvent
@@ -26983,9 +27013,9 @@ var egret;
              */
             PropertyChangeEvent.PROPERTY_CHANGE = "propertyChange";
             return PropertyChangeEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.PropertyChangeEvent = PropertyChangeEvent;
-        egret.registerClass(PropertyChangeEvent,"egret.gui.PropertyChangeEvent");
+        egret.registerClass(PropertyChangeEvent,'egret.gui.PropertyChangeEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27028,7 +27058,7 @@ var egret;
         var PropertyChangeEventKind = (function () {
             function PropertyChangeEventKind() {
             }
-            var d = __define,c=PropertyChangeEventKind;p=c.prototype;
+            var d = __define,c=PropertyChangeEventKind,p=c.prototype;
             /**
              * 指示该属性的值已更改。
              * @constant egret.gui.PropertyChangeEventKind.UPDATE
@@ -27040,9 +27070,9 @@ var egret;
              */
             PropertyChangeEventKind.DELETE = "delete";
             return PropertyChangeEventKind;
-        })();
+        }());
         gui.PropertyChangeEventKind = PropertyChangeEventKind;
-        egret.registerClass(PropertyChangeEventKind,"egret.gui.PropertyChangeEventKind");
+        egret.registerClass(PropertyChangeEventKind,'egret.gui.PropertyChangeEventKind');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27120,7 +27150,7 @@ var egret;
                 this.index = index;
                 this.data = data;
             }
-            var d = __define,c=RendererExistenceEvent;p=c.prototype;
+            var d = __define,c=RendererExistenceEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.RendererExistenceEvent.dispatchRendererExistenceEvent
@@ -27154,9 +27184,9 @@ var egret;
              */
             RendererExistenceEvent.RENDERER_REMOVE = "rendererRemove";
             return RendererExistenceEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.RendererExistenceEvent = RendererExistenceEvent;
-        egret.registerClass(RendererExistenceEvent,"egret.gui.RendererExistenceEvent");
+        egret.registerClass(RendererExistenceEvent,'egret.gui.RendererExistenceEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27222,7 +27252,7 @@ var egret;
                  */
                 this.oldWidth = NaN;
             }
-            var d = __define,c=ResizeEvent;p=c.prototype;
+            var d = __define,c=ResizeEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.ResizeEvent.dispatchResizeEvent
@@ -27242,9 +27272,9 @@ var egret;
              */
             ResizeEvent.RESIZE = "resize";
             return ResizeEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.ResizeEvent = ResizeEvent;
-        egret.registerClass(ResizeEvent,"egret.gui.ResizeEvent");
+        egret.registerClass(ResizeEvent,'egret.gui.ResizeEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27314,7 +27344,7 @@ var egret;
                 this.partName = partName;
                 this.instance = instance;
             }
-            var d = __define,c=SkinPartEvent;p=c.prototype;
+            var d = __define,c=SkinPartEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.SkinPartEvent.dispatchSkinPartEvent
@@ -27345,9 +27375,9 @@ var egret;
              */
             SkinPartEvent.PART_REMOVED = "partRemoved";
             return SkinPartEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.SkinPartEvent = SkinPartEvent;
-        egret.registerClass(SkinPartEvent,"egret.gui.SkinPartEvent");
+        egret.registerClass(SkinPartEvent,'egret.gui.SkinPartEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27417,7 +27447,7 @@ var egret;
                 this.oldState = oldState;
                 this.newState = newState;
             }
-            var d = __define,c=StateChangeEvent;p=c.prototype;
+            var d = __define,c=StateChangeEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.StateChangeEvent.dispatchStateChangeEvent
@@ -27447,9 +27477,9 @@ var egret;
              */
             StateChangeEvent.STATE_CHANGE_COMPLETE = "stateChangeComplete";
             return StateChangeEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.StateChangeEvent = StateChangeEvent;
-        egret.registerClass(StateChangeEvent,"egret.gui.StateChangeEvent");
+        egret.registerClass(StateChangeEvent,'egret.gui.StateChangeEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27504,7 +27534,7 @@ var egret;
                 if (cancelable === void 0) { cancelable = false; }
                 _super.call(this, type, bubbles, cancelable);
             }
-            var d = __define,c=TrackBaseEvent;p=c.prototype;
+            var d = __define,c=TrackBaseEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.TrackBaseEvent.dispatchTrackBaseEvent
@@ -27531,9 +27561,9 @@ var egret;
              */
             TrackBaseEvent.THUMB_RELEASE = "thumbRelease";
             return TrackBaseEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.TrackBaseEvent = TrackBaseEvent;
-        egret.registerClass(TrackBaseEvent,"egret.gui.TrackBaseEvent");
+        egret.registerClass(TrackBaseEvent,'egret.gui.TrackBaseEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27616,7 +27646,7 @@ var egret;
                 this.itemRenderer = itemRenderer;
                 this.itemIndex = itemIndex;
             }
-            var d = __define,c=TreeEvent;p=c.prototype;
+            var d = __define,c=TreeEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.TreeEvent.dispatchTreeEvent
@@ -27658,9 +27688,9 @@ var egret;
              */
             TreeEvent.ITEM_OPENING = "itemOpening";
             return TreeEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.TreeEvent = TreeEvent;
-        egret.registerClass(TreeEvent,"egret.gui.TreeEvent");
+        egret.registerClass(TreeEvent,'egret.gui.TreeEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27714,7 +27744,7 @@ var egret;
                 if (cancelable === void 0) { cancelable = false; }
                 _super.call(this, type, bubbles, cancelable);
             }
-            var d = __define,c=UIEvent;p=c.prototype;
+            var d = __define,c=UIEvent,p=c.prototype;
             /**
              * 使用指定的EventDispatcher对象来抛出事件对象。抛出的对象将会缓存在对象池上，供下次循环复用。
              * @method egret.gui.UIEvent.dispatchUIEvent
@@ -27791,9 +27821,9 @@ var egret;
              */
             UIEvent.PLAY_COMPLETE = "playComplete";
             return UIEvent;
-        })(egret.Event);
+        }(egret.Event));
         gui.UIEvent = UIEvent;
-        egret.registerClass(UIEvent,"egret.gui.UIEvent");
+        egret.registerClass(UIEvent,'egret.gui.UIEvent');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27845,7 +27875,7 @@ var egret;
                 this._useVirtualLayout = false;
                 this._typicalLayoutRect = null;
             }
-            var d = __define,c=LayoutBase;p=c.prototype;
+            var d = __define,c=LayoutBase,p=c.prototype;
             d(p, "target"
                 /**
                  * 目标容器
@@ -27942,9 +27972,9 @@ var egret;
             p.updateDisplayList = function (width, height) {
             };
             return LayoutBase;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.LayoutBase = LayoutBase;
-        egret.registerClass(LayoutBase,"egret.gui.LayoutBase");
+        egret.registerClass(LayoutBase,'egret.gui.LayoutBase');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -27994,7 +28024,7 @@ var egret;
                 _super.call(this);
                 this._mouseWheelSpeed = 20;
             }
-            var d = __define,c=BasicLayout;p=c.prototype;
+            var d = __define,c=BasicLayout,p=c.prototype;
             d(p, "useVirtualLayout",undefined
                 /**
                  * 此布局不支持虚拟布局，设置这个属性无效
@@ -28163,9 +28193,9 @@ var egret;
                 this.target.setContentSize(maxX, maxY);
             };
             return BasicLayout;
-        })(gui.LayoutBase);
+        }(gui.LayoutBase));
         gui.BasicLayout = BasicLayout;
-        egret.registerClass(BasicLayout,"egret.gui.BasicLayout");
+        egret.registerClass(BasicLayout,'egret.gui.BasicLayout');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -28208,7 +28238,7 @@ var egret;
         var ColumnAlign = (function () {
             function ColumnAlign() {
             }
-            var d = __define,c=ColumnAlign;p=c.prototype;
+            var d = __define,c=ColumnAlign,p=c.prototype;
             /**
              * 不将行两端对齐。
              * @constant egret.gui.ColumnAlign.LEFT
@@ -28225,9 +28255,9 @@ var egret;
              */
             ColumnAlign.JUSTIFY_USING_WIDTH = "justifyUsingWidth";
             return ColumnAlign;
-        })();
+        }());
         gui.ColumnAlign = ColumnAlign;
-        egret.registerClass(ColumnAlign,"egret.gui.ColumnAlign");
+        egret.registerClass(ColumnAlign,'egret.gui.ColumnAlign');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -28304,7 +28334,7 @@ var egret;
                  */
                 this.maxElementHeight = 0;
             }
-            var d = __define,c=HorizontalLayout;p=c.prototype;
+            var d = __define,c=HorizontalLayout,p=c.prototype;
             d(p, "horizontalAlign"
                 /**
                  * 布局元素的水平对齐策略。参考HorizontalAlign定义的常量。
@@ -29013,9 +29043,9 @@ var egret;
                 } while (!done);
             };
             return HorizontalLayout;
-        })(gui.LayoutBase);
+        }(gui.LayoutBase));
         gui.HorizontalLayout = HorizontalLayout;
-        egret.registerClass(HorizontalLayout,"egret.gui.HorizontalLayout");
+        egret.registerClass(HorizontalLayout,'egret.gui.HorizontalLayout');
         var ChildInfo = (function () {
             function ChildInfo() {
                 /**
@@ -29039,10 +29069,10 @@ var egret;
                  */
                 this.max = NaN;
             }
-            var d = __define,c=ChildInfo;p=c.prototype;
+            var d = __define,c=ChildInfo,p=c.prototype;
             return ChildInfo;
-        })();
-        egret.registerClass(ChildInfo,"ChildInfo");
+        }());
+        egret.registerClass(ChildInfo,'ChildInfo');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -29085,7 +29115,7 @@ var egret;
         var RowAlign = (function () {
             function RowAlign() {
             }
-            var d = __define,c=RowAlign;p=c.prototype;
+            var d = __define,c=RowAlign,p=c.prototype;
             /**
              * 不进行两端对齐。
              * @constant egret.gui.RowAlign.TOP
@@ -29102,9 +29132,9 @@ var egret;
              */
             RowAlign.JUSTIFY_USING_HEIGHT = "justifyUsingHeight";
             return RowAlign;
-        })();
+        }());
         gui.RowAlign = RowAlign;
-        egret.registerClass(RowAlign,"egret.gui.RowAlign");
+        egret.registerClass(RowAlign,'egret.gui.RowAlign');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -29208,7 +29238,7 @@ var egret;
                  */
                 this.indexInViewCalculated = false;
             }
-            var d = __define,c=TileLayout;p=c.prototype;
+            var d = __define,c=TileLayout,p=c.prototype;
             d(p, "horizontalGap"
                 /**
                  * 列之间的水平空间（以像素为单位）。
@@ -29928,9 +29958,9 @@ var egret;
                 }
             };
             return TileLayout;
-        })(gui.LayoutBase);
+        }(gui.LayoutBase));
         gui.TileLayout = TileLayout;
-        egret.registerClass(TileLayout,"egret.gui.TileLayout");
+        egret.registerClass(TileLayout,'egret.gui.TileLayout');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -29973,7 +30003,7 @@ var egret;
         var TileOrientation = (function () {
             function TileOrientation() {
             }
-            var d = __define,c=TileOrientation;p=c.prototype;
+            var d = __define,c=TileOrientation,p=c.prototype;
             /**
              * 逐行排列元素。
              * @constant egret.gui.TileOrientation.ROWS
@@ -29985,9 +30015,9 @@ var egret;
              */
             TileOrientation.COLUMNS = "columns";
             return TileOrientation;
-        })();
+        }());
         gui.TileOrientation = TileOrientation;
-        egret.registerClass(TileOrientation,"egret.gui.TileOrientation");
+        egret.registerClass(TileOrientation,'egret.gui.TileOrientation');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -30064,7 +30094,7 @@ var egret;
                  */
                 this.maxElementWidth = 0;
             }
-            var d = __define,c=VerticalLayout;p=c.prototype;
+            var d = __define,c=VerticalLayout,p=c.prototype;
             d(p, "horizontalAlign"
                 /**
                  * 布局元素的水平对齐策略。参考HorizontalAlign定义的常量。
@@ -30771,9 +30801,9 @@ var egret;
                 } while (!done);
             };
             return VerticalLayout;
-        })(gui.LayoutBase);
+        }(gui.LayoutBase));
         gui.VerticalLayout = VerticalLayout;
-        egret.registerClass(VerticalLayout,"egret.gui.VerticalLayout");
+        egret.registerClass(VerticalLayout,'egret.gui.VerticalLayout');
         var ChildInfo = (function () {
             function ChildInfo() {
                 /**
@@ -30797,10 +30827,10 @@ var egret;
                  */
                 this.max = NaN;
             }
-            var d = __define,c=ChildInfo;p=c.prototype;
+            var d = __define,c=ChildInfo,p=c.prototype;
             return ChildInfo;
-        })();
-        egret.registerClass(ChildInfo,"ChildInfo");
+        }());
+        egret.registerClass(ChildInfo,'ChildInfo');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -30922,7 +30952,7 @@ var egret;
                  */
                 this.listenersAttached = false;
             }
-            var d = __define,c=LayoutManager;p=c.prototype;
+            var d = __define,c=LayoutManager,p=c.prototype;
             /**
              * 标记组件提交过属性
              * @method egret.gui.LayoutManager#invalidateProperties
@@ -31180,9 +31210,9 @@ var egret;
                 }
             };
             return LayoutManager;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.LayoutManager = LayoutManager;
-        egret.registerClass(LayoutManager,"egret.gui.LayoutManager");
+        egret.registerClass(LayoutManager,'egret.gui.LayoutManager');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -31230,7 +31260,7 @@ var egret;
              */
             function PopUpManager() {
             }
-            var d = __define,c=PopUpManager;p=c.prototype;
+            var d = __define,c=PopUpManager,p=c.prototype;
             /**
              * 获取单例
              */
@@ -31344,9 +31374,9 @@ var egret;
                 PopUpManager.getImpl().removeEventListener(type, listener, thisObject, useCapture);
             };
             return PopUpManager;
-        })();
+        }());
         gui.PopUpManager = PopUpManager;
-        egret.registerClass(PopUpManager,"egret.gui.PopUpManager");
+        egret.registerClass(PopUpManager,'egret.gui.PopUpManager');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -31406,7 +31436,7 @@ var egret;
                 this.invalidateModalFlag = false;
                 this.modalMask = null;
             }
-            var d = __define,c=PopUpManagerImpl;p=c.prototype;
+            var d = __define,c=PopUpManagerImpl,p=c.prototype;
             d(p, "popUpList"
                 /**
                  * 已经弹出的窗口列表
@@ -31609,9 +31639,9 @@ var egret;
             };
             PopUpManagerImpl.REMOVE_FROM_UISTAGE = "removeFromUIStage";
             return PopUpManagerImpl;
-        })(egret.EventDispatcher);
+        }(egret.EventDispatcher));
         gui.PopUpManagerImpl = PopUpManagerImpl;
-        egret.registerClass(PopUpManagerImpl,"egret.gui.PopUpManagerImpl",["egret.gui.IPopUpManager","egret.IEventDispatcher"]);
+        egret.registerClass(PopUpManagerImpl,'egret.gui.PopUpManagerImpl',["egret.gui.IPopUpManager","egret.IEventDispatcher"]);
         var PopUpData = (function () {
             /**
              * @method egret.PopUpData#constructor
@@ -31630,10 +31660,10 @@ var egret;
                 this.popUp = popUp;
                 this.modal = modal;
             }
-            var d = __define,c=PopUpData;p=c.prototype;
+            var d = __define,c=PopUpData,p=c.prototype;
             return PopUpData;
-        })();
-        egret.registerClass(PopUpData,"PopUpData");
+        }());
+        egret.registerClass(PopUpData,'PopUpData');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -31691,7 +31721,7 @@ var egret;
                  */
                 this.maxDepth = -1;
             }
-            var d = __define,c=DepthQueue;p=c.prototype;
+            var d = __define,c=DepthQueue,p=c.prototype;
             /**
              * 插入一个元素
              * @method egret.gui.DepthQueue#insert
@@ -31903,9 +31933,9 @@ var egret;
                 return this.minDepth > this.maxDepth;
             };
             return DepthQueue;
-        })();
+        }());
         gui.DepthQueue = DepthQueue;
-        egret.registerClass(DepthQueue,"egret.gui.DepthQueue");
+        egret.registerClass(DepthQueue,'egret.gui.DepthQueue');
         /**
          * 列表项
          */
@@ -31914,11 +31944,11 @@ var egret;
                 this.length = 0;
                 this.items = [];
             }
-            var d = __define,c=DepthBin;p=c.prototype;
+            var d = __define,c=DepthBin,p=c.prototype;
             return DepthBin;
-        })();
+        }());
         gui.DepthBin = DepthBin;
-        egret.registerClass(DepthBin,"egret.gui.DepthBin");
+        egret.registerClass(DepthBin,'egret.gui.DepthBin');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -31965,7 +31995,7 @@ var egret;
             function OverrideBase() {
                 _super.call(this);
             }
-            var d = __define,c=OverrideBase;p=c.prototype;
+            var d = __define,c=OverrideBase,p=c.prototype;
             p.initialize = function (parent) {
             };
             p.apply = function (parent) {
@@ -31987,9 +32017,9 @@ var egret;
                 return this;
             };
             return OverrideBase;
-        })(egret.HashObject);
+        }(egret.HashObject));
         gui.OverrideBase = OverrideBase;
-        egret.registerClass(OverrideBase,"egret.gui.OverrideBase",["egret.gui.IOverride"]);
+        egret.registerClass(OverrideBase,'egret.gui.OverrideBase',["egret.gui.IOverride"]);
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32063,7 +32093,7 @@ var egret;
                 this.position = position;
                 this.relativeTo = relativeTo;
             }
-            var d = __define,c=AddItems;p=c.prototype;
+            var d = __define,c=AddItems,p=c.prototype;
             /**
              * @method egret.gui.AddItems#initialize
              * @param parent {IStateClient}
@@ -32150,9 +32180,9 @@ var egret;
              */
             AddItems.AFTER = "after";
             return AddItems;
-        })(gui.OverrideBase);
+        }(gui.OverrideBase));
         gui.AddItems = AddItems;
-        egret.registerClass(AddItems,"egret.gui.AddItems");
+        egret.registerClass(AddItems,'egret.gui.AddItems');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32190,7 +32220,7 @@ var egret;
         var InterruptionBehavior = (function () {
             function InterruptionBehavior() {
             }
-            var d = __define,c=InterruptionBehavior;p=c.prototype;
+            var d = __define,c=InterruptionBehavior,p=c.prototype;
             /**
              * 指定一个过渡（可中断另一个正在运行的过渡）在开始之前结束另一个过渡。
              * 通过对过渡中的所有效果调用 end() 方法来结束过渡。end() 方法导致所有效果到达结束状态。
@@ -32202,9 +32232,9 @@ var egret;
              */
             InterruptionBehavior.STOP = "stop";
             return InterruptionBehavior;
-        })();
+        }());
         gui.InterruptionBehavior = InterruptionBehavior;
-        egret.registerClass(InterruptionBehavior,"egret.gui.InterruptionBehavior");
+        egret.registerClass(InterruptionBehavior,'egret.gui.InterruptionBehavior');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32276,7 +32306,7 @@ var egret;
                 this.name = name;
                 this.value = value;
             }
-            var d = __define,c=SetProperty;p=c.prototype;
+            var d = __define,c=SetProperty,p=c.prototype;
             /**
              * @method egret.gui.SetProperty#apply
              * @param parent {IContainer}
@@ -32321,9 +32351,9 @@ var egret;
                 return value != false;
             };
             return SetProperty;
-        })(gui.OverrideBase);
+        }(gui.OverrideBase));
         gui.SetProperty = SetProperty;
-        egret.registerClass(SetProperty,"egret.gui.SetProperty");
+        egret.registerClass(SetProperty,'egret.gui.SetProperty');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32377,7 +32407,7 @@ var egret;
                 this.name = name;
                 this.value = value;
             }
-            var d = __define,c=SetStyle;p=c.prototype;
+            var d = __define,c=SetStyle,p=c.prototype;
             /**
              * @method egret.gui.SetStyle#apply
              * @param parent {IContainer}
@@ -32425,9 +32455,9 @@ var egret;
                 return value != false;
             };
             return SetStyle;
-        })(gui.OverrideBase);
+        }(gui.OverrideBase));
         gui.SetStyle = SetStyle;
-        egret.registerClass(SetStyle,"egret.gui.SetStyle");
+        egret.registerClass(SetStyle,'egret.gui.SetStyle');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32488,7 +32518,7 @@ var egret;
                 this.name = name;
                 this.overrides = overrides;
             }
-            var d = __define,c=State;p=c.prototype;
+            var d = __define,c=State,p=c.prototype;
             /**
              * 初始化视图
              * @method egret.gui.State#initialize
@@ -32503,9 +32533,9 @@ var egret;
                 }
             };
             return State;
-        })(egret.HashObject);
+        }(egret.HashObject));
         gui.State = State;
-        egret.registerClass(State,"egret.gui.State");
+        egret.registerClass(State,'egret.gui.State');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 var egret;
@@ -32536,11 +32566,11 @@ var egret;
                  */
                 this.interruptionBehavior = gui.InterruptionBehavior.END;
             }
-            var d = __define,c=Transition;p=c.prototype;
+            var d = __define,c=Transition,p=c.prototype;
             return Transition;
-        })();
+        }());
         gui.Transition = Transition;
-        egret.registerClass(Transition,"egret.gui.Transition");
+        egret.registerClass(Transition,'egret.gui.Transition');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
@@ -32655,7 +32685,7 @@ var egret;
                  */
                 this.mapValueDic = {};
             }
-            var d = __define,c=Adapter;p=c.prototype;
+            var d = __define,c=Adapter,p=c.prototype;
             p.mapClass = function (whenAskedFor, instantiateClass, named) {
                 if (named === void 0) { named = ""; }
                 var requestName = this.getKey(whenAskedFor) + "#" + named;
@@ -32715,9 +32745,9 @@ var egret;
                 throw new Error("#" + egret.sys.tr(1028) + ": " + requestName);
             };
             return Adapter;
-        })();
+        }());
         gui.Adapter = Adapter;
-        egret.registerClass(Adapter,"egret.gui.Adapter");
+        egret.registerClass(Adapter,'egret.gui.Adapter');
         /**
          * Resource单例
          */
@@ -32764,7 +32794,7 @@ var egret;
         var LayoutUtil = (function () {
             function LayoutUtil() {
             }
-            var d = __define,c=LayoutUtil;p=c.prototype;
+            var d = __define,c=LayoutUtil,p=c.prototype;
             /**
              * 根据对象当前的xy坐标调整其相对位置属性，使其在下一次的父级布局中过程中保持当前位置不变。
              * @method egret.gui.LayoutUtil.adjustRelativeByXY
@@ -32805,9 +32835,9 @@ var egret;
                 }
             };
             return LayoutUtil;
-        })();
+        }());
         gui.LayoutUtil = LayoutUtil;
-        egret.registerClass(LayoutUtil,"egret.gui.LayoutUtil");
+        egret.registerClass(LayoutUtil,'egret.gui.LayoutUtil');
     })(gui = egret.gui || (egret.gui = {}));
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////

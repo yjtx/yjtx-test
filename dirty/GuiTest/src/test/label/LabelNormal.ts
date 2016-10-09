@@ -11,7 +11,9 @@
 
     private testUrl():void {
         var ui = new egret.gui.Label();
-        ui.text = "sdasdfdas\nfsdf";
+        ui.text = "sdasdfdasaasdnfsdf";
+        ui.width = 100;
+        ui.height = 60;
         this.addChild(ui);
     }
 }

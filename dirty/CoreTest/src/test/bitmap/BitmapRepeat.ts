@@ -38,7 +38,7 @@ class BitmapRepeat extends EntryDisplayObjectContainer {
         var icon:egret.Bitmap = new egret.Bitmap();
         icon.texture = texture;
         this.addChild(icon);
-        icon.width = 400;
+        icon.width = 270;
         icon.height = 500;
         icon.fillMode = egret.BitmapFillMode.REPEAT;
     }

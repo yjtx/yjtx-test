@@ -21,6 +21,11 @@ class MaskMaskGraphics extends EntryDisplayObjectContainer {
         shape.y = 100;
 
         icon.mask = shape;
+
+        icon.touchEnabled = true;
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            console.log(1111)
+        }, this);
     }
 
     private circle():void {
@@ -34,5 +39,10 @@ class MaskMaskGraphics extends EntryDisplayObjectContainer {
         shape.graphics.endFill();
         shape.x = 200;
         icon.mask = shape;
+        
+        icon.touchEnabled = true;
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            console.log(1111)
+        }, this);
     }
 }

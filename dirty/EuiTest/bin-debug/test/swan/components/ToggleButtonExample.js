@@ -7,7 +7,7 @@ var ToggleButtonExample = (function (_super) {
         var button = new clazz();
         this.addChild(button);
     }
-    var d = __define,c=ToggleButtonExample;p=c.prototype;
+    var d = __define,c=ToggleButtonExample,p=c.prototype;
     return ToggleButtonExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ToggleButtonExample,"ToggleButtonExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ToggleButtonExample,'ToggleButtonExample');

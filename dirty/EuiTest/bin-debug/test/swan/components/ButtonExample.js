@@ -21,7 +21,7 @@ var ButtonExample = (function (_super) {
         button.y = 50;
         this.addChild(button);
     }
-    var d = __define,c=ButtonExample;p=c.prototype;
+    var d = __define,c=ButtonExample,p=c.prototype;
     return ButtonExample;
-})(eui.Group);
-egret.registerClass(ButtonExample,"ButtonExample");
+}(eui.Group));
+egret.registerClass(ButtonExample,'ButtonExample');

@@ -17,13 +17,13 @@ var ItemTapEventExample = (function (_super) {
         this.addChild(list);
         list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onItemTapHandler, this);
     }
-    var d = __define,c=ItemTapEventExample;p=c.prototype;
+    var d = __define,c=ItemTapEventExample,p=c.prototype;
     p.onItemTapHandler = function (e) {
         console.log(e.item, e.itemRenderer, e.itemIndex);
     };
     return ItemTapEventExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ItemTapEventExample,"ItemTapEventExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ItemTapEventExample,'ItemTapEventExample');
 var IR_ItemTapEvent = (function (_super) {
     __extends(IR_ItemTapEvent, _super);
     function IR_ItemTapEvent() {
@@ -31,10 +31,10 @@ var IR_ItemTapEvent = (function (_super) {
         this.label = new eui.Label();
         this.addChild(this.label);
     }
-    var d = __define,c=IR_ItemTapEvent;p=c.prototype;
+    var d = __define,c=IR_ItemTapEvent,p=c.prototype;
     p.dataChanged = function () {
         this.label.text = "label:" + this.data.toString();
     };
     return IR_ItemTapEvent;
-})(eui.ItemRenderer);
-egret.registerClass(IR_ItemTapEvent,"IR_ItemTapEvent");
+}(eui.ItemRenderer));
+egret.registerClass(IR_ItemTapEvent,'IR_ItemTapEvent');

@@ -4,7 +4,7 @@ var TextInputNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=TextInputNormal;p=c.prototype;
+    var d = __define,c=TextInputNormal,p=c.prototype;
     p.init = function () {
         this.testUrl();
     };
@@ -22,5 +22,5 @@ var TextInputNormal = (function (_super) {
         this.addChild(ui);
     };
     return TextInputNormal;
-})(egret.DisplayObjectContainer);
-egret.registerClass(TextInputNormal,"TextInputNormal");
+}(egret.DisplayObjectContainer));
+egret.registerClass(TextInputNormal,'TextInputNormal');

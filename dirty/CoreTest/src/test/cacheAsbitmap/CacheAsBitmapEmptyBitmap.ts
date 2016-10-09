@@ -37,6 +37,7 @@ class CacheAsBitmapEmptyBitmap extends EntryDisplayObjectContainer {
         var bitmap = new egret.Bitmap();
         this.addChild(bitmap);
         bitmap.cacheAsBitmap = true;
+        bitmap.cacheAsBitmap = false;
     }
 
 }

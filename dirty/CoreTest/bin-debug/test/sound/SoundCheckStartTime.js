@@ -35,7 +35,7 @@ var SoundCheckStartTime = (function (_super) {
     p.initRoot = function () {
         var s1 = RES.getRes("wf_mp3");
         var sChannel1;
-        console.log("sound length: " + s1.length);
+        // console.log("sound length: " + s1.length);
         var text1_1 = new egret.TextField();
         text1_1.text = "playMusic";
         text1_1.size = 60;

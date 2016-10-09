@@ -39,7 +39,7 @@ var BitmapFillModeExample = (function (_super) {
         this.addChild(txt);
         this.addChild(image_scale);
     }
-    var d = __define,c=BitmapFillModeExample;p=c.prototype;
+    var d = __define,c=BitmapFillModeExample,p=c.prototype;
     p.getTxt = function (value) {
         var txt = new egret.TextField;
         txt.text = value;
@@ -47,5 +47,5 @@ var BitmapFillModeExample = (function (_super) {
         return txt;
     };
     return BitmapFillModeExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(BitmapFillModeExample,"BitmapFillModeExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(BitmapFillModeExample,'BitmapFillModeExample');

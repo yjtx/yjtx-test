@@ -7,7 +7,7 @@ var ViewStackExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=ViewStackExample;p=c.prototype;
+    var d = __define,c=ViewStackExample,p=c.prototype;
     return ViewStackExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ViewStackExample,"ViewStackExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ViewStackExample,'ViewStackExample');

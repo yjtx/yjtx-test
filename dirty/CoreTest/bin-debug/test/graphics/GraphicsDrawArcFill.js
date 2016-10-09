@@ -27,8 +27,8 @@ var GraphicsDrawArcFill = (function (_super) {
                 g.x = x;
                 g.y = 200;
                 g.graphics.beginFill(0xffff00);
-                g.graphics.lineStyle(21, 0xffff00);
-                g.graphics.drawArc(0, 0, 100, 0, 0.5);
+                g.graphics.lineStyle(12, 0xff0000);
+                g.graphics.drawArc(0, 0, 100, 0, 145 * Math.PI / 180);
                 g.graphics.endFill();
                 this.addChild(g);
             }

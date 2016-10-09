@@ -30,7 +30,6 @@ var BlendModeErase = (function (_super) {
         erase.x = 200;
         erase.y = 200;
         erase.blendMode = egret.BlendMode.ERASE;
-        //this.addChild(container);
         var renderTexture = new egret.RenderTexture();
         renderTexture.drawToTexture(container);
         var bitmap = new egret.Bitmap();

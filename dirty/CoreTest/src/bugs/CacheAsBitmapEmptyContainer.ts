@@ -44,6 +44,7 @@ class CacheAsBitmapEmptyContainer extends EntryDisplayObjectContainer {
     }
     
     static instance:CacheAsBitmapEmptyContainer;
+    
     public static getInstance():CacheAsBitmapEmptyContainer {
         if (this.instance == null) {
             this.instance = new CacheAsBitmapEmptyContainer();

@@ -1,5 +1,5 @@
-.idea/
-.wing/
+.idea
+.wing
 
 resource_Publish
 
@@ -15,3 +15,5 @@ IosOldCore/
 dirty/CoreTest/resource/resource_publish.json
 dirty/CoreTest/resource/sound-no.zip
 dirty/CoreTest/resource/sound-ok.zip
+wingProperties.json
+tsconfig.json

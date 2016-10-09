@@ -1,17 +1,20 @@
 var examples = {
-    "Button": ["WithInput"],
+    "Button": ["WithInput", "WithFilters"],
+    "EditText": ["LineSpacing"],
     "Function": ["DivSetterAndGetter"],
+    "Image": ["Normal", "ExmlIn", "ExmlOut", "ExmlPosition"],
+    "List": ["Tile"],
+    "Panel": ["WithButton"],
     "Rect": ["ExmlSimple"],
-    "Image": ["Normal", "ExmlIn", "ExmlOut"],
-    "Scroller": ["ExmlIn"],
-    "EditText": ["LineSpacing"]
+    "Scroller": ["ExmlIn", "WithBitmap", "ExmlOut"],
+    "Skin": ["Button"],
+    "TextInput": ["WithEXML"]
 };
 
 function returnHref(thirdName, forthName) {
     if (thirdName.indexOf("examples") < 0) {
         return "dirty/Eui/index.html?mainClass=" + (thirdName + forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
-    }
-    else {
+    } else {
         return "dirty/Eui/index.html?mainClass=" + (forthName) + "&factor=" + input_size.value + "&r=" + Math.random();
     }
 }

@@ -34,12 +34,26 @@ class LoaderHttpReqeustGet extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
+        this.testText1();
+        this.testText2();
+    }
+
+    private testText1():void {
         var request = new egret.HttpRequest();
         request.responseType = egret.HttpResponseType.TEXT;
-        request.open("http://101.201.151.177:9995?mid=102&uid=0&sid=123&sign=1021230&user=q01&pwd=1&", egret.HttpMethod.GET);
-        //request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.open("http://10.0.4.63/Yjtx/server/a.php?p1=postP1&p2=postP2", egret.HttpMethod.GET);
+        // request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         request.send();
+
+        var count = 0;
         request.addEventListener(egret.Event.COMPLETE, function () {
+            egret.log(111);
+
+            count++;
+            if (count < 2) {
+                request.open("http://10.0.4.63/Yjtx/server/a.php?p1=postP1&p2=postP2", egret.HttpMethod.GET);
+                request.send();
+            }
 
         },this);
         request.addEventListener(egret.IOErrorEvent.IO_ERROR, function () {
@@ -49,28 +63,23 @@ class LoaderHttpReqeustGet extends EntryDisplayObjectContainer {
 
         },this);
 
-        this.testText1();
-        this.testText2();
-    }
-
-    private testText1():void {
-        var loader = new egret.URLLoader();
-        loader.addEventListener(egret.Event.COMPLETE, function loadOver(event:egret.Event) {
-            egret.log("2222");
-            egret.log(loader.data);
-        }, this);
-
-        loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-
-        var request = new egret.URLRequest("http://101.201.151.177:9995");
-        request.method = egret.URLRequestMethod.GET;
-
-        var variables = new egret.URLVariables("mid=102&uid=0&sid=123&sign=1021230&user=q01&pwd=1");
-        request.data = variables;
-        loader.load(request);
     }
 
     private testText2():void {
+        var request = new egret.HttpRequest();
+        request.responseType = egret.HttpResponseType.TEXT;
+        request.open("http://10.0.4.63/Yjtx/server/a.php", egret.HttpMethod.GET);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        request.send('p1=postP1&p2=postP2');
+        request.addEventListener(egret.Event.COMPLETE, function () {
+            egret.log(111);
+        },this);
+        request.addEventListener(egret.IOErrorEvent.IO_ERROR, function () {
+
+        },this);
+        request.addEventListener(egret.ProgressEvent.PROGRESS, function () {
+
+        },this);
 
     }
 

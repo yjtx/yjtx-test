@@ -33,7 +33,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=ToggleButtonSkin;p=c.prototype;
+            var d = __define,c=ToggleButtonSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return ToggleButtonSkin._skinParts;
@@ -70,8 +70,8 @@ var skins;
             };
             ToggleButtonSkin._skinParts = ["iconDisplay", "labelDisplay"];
             return ToggleButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.ToggleButtonSkin = ToggleButtonSkin;
-        egret.registerClass(ToggleButtonSkin,"skins.simple.ToggleButtonSkin");
+        egret.registerClass(ToggleButtonSkin,'skins.simple.ToggleButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

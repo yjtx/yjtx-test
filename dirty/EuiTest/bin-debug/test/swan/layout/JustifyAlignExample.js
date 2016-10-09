@@ -13,7 +13,7 @@ var JustifyAlignExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=JustifyAlignExample;p=c.prototype;
+    var d = __define,c=JustifyAlignExample,p=c.prototype;
     p.init = function () {
         var arrAlign = [eui.JustifyAlign.JUSTIFY, eui.JustifyAlign.CONTENT_JUSTIFY];
         for (var i = 0, max = arrAlign.length; i < max; i++) {
@@ -49,5 +49,5 @@ var JustifyAlignExample = (function (_super) {
         return btn;
     };
     return JustifyAlignExample;
-})(egret.Sprite);
-egret.registerClass(JustifyAlignExample,"JustifyAlignExample");
+}(egret.Sprite));
+egret.registerClass(JustifyAlignExample,'JustifyAlignExample');

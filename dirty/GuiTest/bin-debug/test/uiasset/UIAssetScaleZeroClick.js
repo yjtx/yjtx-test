@@ -31,7 +31,7 @@ var UIAssetScaleZeroClick = (function (_super) {
     function UIAssetScaleZeroClick() {
         _super.call(this, ["preload"]);
     }
-    var d = __define,c=UIAssetScaleZeroClick;p=c.prototype;
+    var d = __define,c=UIAssetScaleZeroClick,p=c.prototype;
     p.initRoot = function () {
         var guiLayer = new egret.gui.UIStage();
         this.addChild(guiLayer);
@@ -55,5 +55,5 @@ var UIAssetScaleZeroClick = (function (_super) {
         }, this);
     };
     return UIAssetScaleZeroClick;
-})(EntryDisplayObjectContainer);
-egret.registerClass(UIAssetScaleZeroClick,"UIAssetScaleZeroClick");
+}(EntryDisplayObjectContainer));
+egret.registerClass(UIAssetScaleZeroClick,'UIAssetScaleZeroClick');

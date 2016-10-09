@@ -12,7 +12,7 @@ var DirectionExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=DirectionExample;p=c.prototype;
+    var d = __define,c=DirectionExample,p=c.prototype;
     p.init = function () {
         this.progress_LTR = this.getProgressBar();
         this.progress_LTR.direction = eui.Direction.LTR;
@@ -61,5 +61,5 @@ var DirectionExample = (function (_super) {
         return bar;
     };
     return DirectionExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(DirectionExample,"DirectionExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(DirectionExample,'DirectionExample');

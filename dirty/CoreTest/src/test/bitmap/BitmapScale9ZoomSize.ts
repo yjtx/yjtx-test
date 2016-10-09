@@ -49,12 +49,6 @@ class BitmapScale9ZoomSize extends EntryDisplayObjectContainer {
         icon.width = 200;
         icon.height = 180;
 
-        var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
-        this.addChild(icon);
-        icon.x = 320;
-        icon.scaleX = icon.scaleY = 1.5;
-        icon.width = 200;
-        icon.height = 180;
     }
 
 }

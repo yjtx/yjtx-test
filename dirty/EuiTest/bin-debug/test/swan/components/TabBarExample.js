@@ -7,7 +7,7 @@ var TabBarExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=TabBarExample;p=c.prototype;
+    var d = __define,c=TabBarExample,p=c.prototype;
     return TabBarExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(TabBarExample,"TabBarExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(TabBarExample,'TabBarExample');

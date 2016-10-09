@@ -12,7 +12,7 @@ var BasicLayoutExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=BasicLayoutExample;p=c.prototype;
+    var d = __define,c=BasicLayoutExample,p=c.prototype;
     p.init = function () {
         var group = new eui.Group();
         this.addChild(group);
@@ -37,5 +37,5 @@ var BasicLayoutExample = (function (_super) {
         return btn;
     };
     return BasicLayoutExample;
-})(egret.Sprite);
-egret.registerClass(BasicLayoutExample,"BasicLayoutExample");
+}(egret.Sprite));
+egret.registerClass(BasicLayoutExample,'BasicLayoutExample');

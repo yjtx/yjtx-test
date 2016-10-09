@@ -9,7 +9,10 @@
 		"web": 0,
 		"native": 1
 	},
-	"egret_version": "3.0.8",
+	"resources": [
+		"resource"
+	],
+	"egret_version": "3.2.0",
 	"modules": [
 		{
 			"name": "egret"

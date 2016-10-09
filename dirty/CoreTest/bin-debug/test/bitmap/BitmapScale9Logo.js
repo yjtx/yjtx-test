@@ -37,13 +37,18 @@ var BitmapScale9Logo = (function (_super) {
         this.addChildAt(btp3, 2);
         btp3.scaleX = btp3.scaleY = 0.5;
         btp3.x = 200;
-        btp3.y = 200;
+        btp3.y = 100;
+        btp3.width = 300;
+        btp3.height = 300;
+        // btp3.scale9Grid = new egret.Rectangle(20, 20, 48, 44);
+        var btp3 = new egret.Bitmap(RES.getRes("egret_icon_png"));
+        this.addChildAt(btp3, 2);
+        btp3.scaleX = btp3.scaleY = 0.5;
+        btp3.x = 200;
+        btp3.y = 300;
+        btp3.width = 300;
+        btp3.height = 300;
         btp3.scale9Grid = new egret.Rectangle(20, 20, 48, 44);
-        egret.setTimeout(function () {
-            egret.setInterval(function () {
-                btp3.rotation += 10;
-            }, this, 16);
-        }, this, 3000);
     };
     return BitmapScale9Logo;
 }(EntryDisplayObjectContainer));

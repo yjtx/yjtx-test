@@ -48,6 +48,10 @@ class RESDisposeSheetAfterSheet extends EntryDisplayObjectContainer {
     private load() {
         RES.getResAsync("icons_json", function () {
             this._bitmap.texture = RES.getRes("icon_1_png");
+
+            egret.log("load " + RES.hasRes("icons_json.icon_1_png"));
+            egret.log("load " + RES.hasRes("icons_json.111"));
+
             egret.setTimeout(function () {
 
                 this.destroy();
@@ -58,6 +62,8 @@ class RESDisposeSheetAfterSheet extends EntryDisplayObjectContainer {
     private destroy() {
         var result = RES.destroyRes("icons_json");
         console.log(result);
+        egret.log("destroy " + RES.hasRes("icons_json.icon_1_png"));
+        egret.log("destroy " + RES.hasRes("icons_json.111"));
 
         egret.setTimeout(function () {
             this.load();

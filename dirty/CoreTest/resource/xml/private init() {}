@@ -1,0 +1,17 @@
+private init() {}
+    egret3d.Input.addEventListener(egret3d.TouchEvent3D.TOUCH_START, this.onTouchDown, this);
+    egret3d.Input.addEventListener(egret3d.TouchEvent3D.TOUCH_END, this.onTouchUp, this);
+    egret3d.Input.addEventListener(egret3d.TouchEvent3D.TOUCH_MOVE, this.onTouchMove, this);
+}
+
+private onTouchDown(code: egret3d.TouchEvent3D): void {
+    console.log("OnTouchDown");
+}
+
+private onTouchWheel(e: egret3d.TouchEvent3D): void {
+    console.log("onTouchWheel：" + egret3d.Input.wheelDelta);
+}
+
+private onTouchUp(code: egret3d.TouchEvent3D): void {
+    console.log("onTouchUp");
+}

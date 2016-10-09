@@ -36,12 +36,12 @@ var BitmapNormal = (function (_super) {
         var texture = RES.getRes("img_scale9_png");
         var icon = new egret.Bitmap();
         icon.texture = texture;
-        icon.width = this.stage.stageWidth;
-        icon.height = this.stage.stageHeight;
+        // icon.width = this.stage.stageWidth;
+        // icon.height = this.stage.stageHeight;
         this.addChild(icon);
         console.log(this.width);
-        icon.visible = false;
-        this.removeChild(icon);
+        // icon.visible = false;
+        // this.removeChild(icon);
         console.log(this.width);
     };
     return BitmapNormal;

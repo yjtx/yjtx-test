@@ -42,6 +42,8 @@ var RESDisposeSheetAfterSheet = (function (_super) {
     p.load = function () {
         RES.getResAsync("icons_json", function () {
             this._bitmap.texture = RES.getRes("icon_1_png");
+            egret.log("load " + RES.hasRes("icons_json.icon_1_png"));
+            egret.log("load " + RES.hasRes("icons_json.111"));
             egret.setTimeout(function () {
                 this.destroy();
             }, this, 4000);
@@ -50,6 +52,8 @@ var RESDisposeSheetAfterSheet = (function (_super) {
     p.destroy = function () {
         var result = RES.destroyRes("icons_json");
         console.log(result);
+        egret.log("destroy " + RES.hasRes("icons_json.icon_1_png"));
+        egret.log("destroy " + RES.hasRes("icons_json.111"));
         egret.setTimeout(function () {
             this.load();
         }, this, 4000);

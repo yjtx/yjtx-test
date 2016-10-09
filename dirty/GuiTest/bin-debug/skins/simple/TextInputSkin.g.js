@@ -23,7 +23,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=TextInputSkin;p=c.prototype;
+            var d = __define,c=TextInputSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return TextInputSkin._skinParts;
@@ -48,8 +48,8 @@ var skins;
             };
             TextInputSkin._skinParts = ["textDisplay", "promptDisplay"];
             return TextInputSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.TextInputSkin = TextInputSkin;
-        egret.registerClass(TextInputSkin,"skins.simple.TextInputSkin");
+        egret.registerClass(TextInputSkin,'skins.simple.TextInputSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

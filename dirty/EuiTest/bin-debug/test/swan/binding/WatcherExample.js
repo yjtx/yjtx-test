@@ -16,10 +16,10 @@ var WatcherExample = (function (_super) {
         this.porp = 666;
         this.porp = 123;
     }
-    var d = __define,c=WatcherExample;p=c.prototype;
+    var d = __define,c=WatcherExample,p=c.prototype;
     p.watcherHander = function (value) {
         console.log("watcherHander:", value, this.porp);
     };
     return WatcherExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(WatcherExample,"WatcherExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(WatcherExample,'WatcherExample');

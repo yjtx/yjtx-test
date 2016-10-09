@@ -15,7 +15,7 @@ var LabelExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=LabelExample;p=c.prototype;
+    var d = __define,c=LabelExample,p=c.prototype;
     return LabelExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(LabelExample,"LabelExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(LabelExample,'LabelExample');

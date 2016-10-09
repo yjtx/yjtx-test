@@ -13,7 +13,7 @@ var DataGroupExample = (function (_super) {
         this.createDataGroupByTypeScript();
         this.createDataGroupByEXML();
     }
-    var d = __define,c=DataGroupExample;p=c.prototype;
+    var d = __define,c=DataGroupExample,p=c.prototype;
     p.createDataGroupByTypeScript = function () {
         var dataGroup = new eui.DataGroup();
         dataGroup.layout = new eui.VerticalLayout();
@@ -35,8 +35,8 @@ var DataGroupExample = (function (_super) {
         this.addChild(dataGroup2);
     };
     return DataGroupExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(DataGroupExample,"DataGroupExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(DataGroupExample,'DataGroupExample');
 var LabelRender = (function (_super) {
     __extends(LabelRender, _super);
     function LabelRender() {
@@ -44,7 +44,7 @@ var LabelRender = (function (_super) {
         this.label = new eui.Label();
         this.addChild(this.label);
     }
-    var d = __define,c=LabelRender;p=c.prototype;
+    var d = __define,c=LabelRender,p=c.prototype;
     p.dataChanged = function () {
         if (this.data) {
             this.label.text = this.data.label;
@@ -52,5 +52,5 @@ var LabelRender = (function (_super) {
         }
     };
     return LabelRender;
-})(eui.ItemRenderer);
-egret.registerClass(LabelRender,"LabelRender");
+}(eui.ItemRenderer));
+egret.registerClass(LabelRender,'LabelRender');

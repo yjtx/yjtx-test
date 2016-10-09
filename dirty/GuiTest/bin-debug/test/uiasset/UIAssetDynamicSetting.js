@@ -31,7 +31,7 @@ var UIAssetDynamicSetting = (function (_super) {
     function UIAssetDynamicSetting() {
         _super.call(this);
     }
-    var d = __define,c=UIAssetDynamicSetting;p=c.prototype;
+    var d = __define,c=UIAssetDynamicSetting,p=c.prototype;
     p.initRoot = function () {
         var guiLayer = new egret.gui.UIStage();
         this.addChild(guiLayer);
@@ -44,5 +44,5 @@ var UIAssetDynamicSetting = (function (_super) {
         }, this);
     };
     return UIAssetDynamicSetting;
-})(EntryDisplayObjectContainer);
-egret.registerClass(UIAssetDynamicSetting,"UIAssetDynamicSetting");
+}(EntryDisplayObjectContainer));
+egret.registerClass(UIAssetDynamicSetting,'UIAssetDynamicSetting');

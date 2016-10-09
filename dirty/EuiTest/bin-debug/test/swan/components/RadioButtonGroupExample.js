@@ -11,7 +11,7 @@ var RadioButtonGroupExample = (function (_super) {
         group.x = 50;
         group.y = 50;
     }
-    var d = __define,c=RadioButtonGroupExample;p=c.prototype;
+    var d = __define,c=RadioButtonGroupExample,p=c.prototype;
     return RadioButtonGroupExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(RadioButtonGroupExample,"RadioButtonGroupExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(RadioButtonGroupExample,'RadioButtonGroupExample');

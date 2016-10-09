@@ -17,7 +17,7 @@ var PanelExample = (function (_super) {
         panel.height = 400;
         this.addChild(panel);
     }
-    var d = __define,c=PanelExample;p=c.prototype;
+    var d = __define,c=PanelExample,p=c.prototype;
     return PanelExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(PanelExample,"PanelExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(PanelExample,'PanelExample');

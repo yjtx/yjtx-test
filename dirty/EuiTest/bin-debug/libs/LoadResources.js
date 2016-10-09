@@ -9,7 +9,7 @@ var LoadResources = (function () {
         this._skins = skins;
         this.loadTheme();
     }
-    var d = __define,c=LoadResources;p=c.prototype;
+    var d = __define,c=LoadResources,p=c.prototype;
     p.loadTheme = function () {
         var _this = this;
         TempLoader.load(this._skins, function () { return _this.loaded(); });
@@ -19,12 +19,12 @@ var LoadResources = (function () {
         this._callback.call(this._thisObj);
     };
     return LoadResources;
-})();
-egret.registerClass(LoadResources,"LoadResources");
+}());
+egret.registerClass(LoadResources,'LoadResources');
 var TempLoader = (function () {
     function TempLoader() {
     }
-    var d = __define,c=TempLoader;p=c.prototype;
+    var d = __define,c=TempLoader,p=c.prototype;
     TempLoader.load = function (urls, callback) {
         var _this = this;
         var total = urls.length;
@@ -38,5 +38,5 @@ var TempLoader = (function () {
         });
     };
     return TempLoader;
-})();
-egret.registerClass(TempLoader,"TempLoader");
+}());
+egret.registerClass(TempLoader,'TempLoader');

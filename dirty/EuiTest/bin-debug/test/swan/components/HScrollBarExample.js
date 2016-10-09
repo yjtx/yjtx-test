@@ -7,7 +7,7 @@ var HScrollBarExample = (function (_super) {
         var scroller = new clazz();
         this.addChild(scroller);
     }
-    var d = __define,c=HScrollBarExample;p=c.prototype;
+    var d = __define,c=HScrollBarExample,p=c.prototype;
     return HScrollBarExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(HScrollBarExample,"HScrollBarExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(HScrollBarExample,'HScrollBarExample');

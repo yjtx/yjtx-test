@@ -26,7 +26,7 @@ var CollectionEventExample = (function (_super) {
         arrayCollection.source[1] = 8;
         arrayCollection.itemUpdated(1); //update
     }
-    var d = __define,c=CollectionEventExample;p=c.prototype;
+    var d = __define,c=CollectionEventExample,p=c.prototype;
     p.onCollectionChange = function (e) {
         switch (e.kind) {
             case eui.CollectionEventKind.ADD:
@@ -50,5 +50,5 @@ var CollectionEventExample = (function (_super) {
         }
     };
     return CollectionEventExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(CollectionEventExample,"CollectionEventExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(CollectionEventExample,'CollectionEventExample');

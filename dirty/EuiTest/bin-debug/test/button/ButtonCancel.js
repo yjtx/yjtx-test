@@ -9,7 +9,7 @@ var ButtonCancel = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=ButtonCancel;p=c.prototype;
+    var d = __define,c=ButtonCancel,p=c.prototype;
     p.init = function () {
         new LoadResources(this.testUrl, this, this.stage, ["resource/components/CancelButton.exml"]);
     };
@@ -18,5 +18,5 @@ var ButtonCancel = (function (_super) {
         this.addChild(ui);
     };
     return ButtonCancel;
-})(eui.Group);
-egret.registerClass(ButtonCancel,"ButtonCancel");
+}(eui.Group));
+egret.registerClass(ButtonCancel,'ButtonCancel');

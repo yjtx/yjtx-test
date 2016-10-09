@@ -9,7 +9,7 @@ var EditableTextSkinNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=EditableTextSkinNormal;p=c.prototype;
+    var d = __define,c=EditableTextSkinNormal,p=c.prototype;
     p.init = function () {
         new LoadResources(this.testUrl, this, this.stage, ["resource/test/EditableTextNormal.exml"]);
     };
@@ -18,5 +18,5 @@ var EditableTextSkinNormal = (function (_super) {
         this.addChild(ui);
     };
     return EditableTextSkinNormal;
-})(eui.Group);
-egret.registerClass(EditableTextSkinNormal,"EditableTextSkinNormal");
+}(eui.Group));
+egret.registerClass(EditableTextSkinNormal,'EditableTextSkinNormal');

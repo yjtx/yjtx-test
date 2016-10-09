@@ -45,7 +45,7 @@ var ScrollPolicyExample = (function (_super) {
         txt4.y = 400;
         this.addChild(txt4);
     }
-    var d = __define,c=ScrollPolicyExample;p=c.prototype;
+    var d = __define,c=ScrollPolicyExample,p=c.prototype;
     p.getScroller = function () {
         var list = new eui.List();
         var arr = new eui.ArrayCollection([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
@@ -63,8 +63,8 @@ var ScrollPolicyExample = (function (_super) {
         return txt;
     };
     return ScrollPolicyExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ScrollPolicyExample,"ScrollPolicyExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ScrollPolicyExample,'ScrollPolicyExample');
 var IR_ScrollPolicy = (function (_super) {
     __extends(IR_ScrollPolicy, _super);
     function IR_ScrollPolicy() {
@@ -72,10 +72,10 @@ var IR_ScrollPolicy = (function (_super) {
         this.label = new eui.Label();
         this.addChild(this.label);
     }
-    var d = __define,c=IR_ScrollPolicy;p=c.prototype;
+    var d = __define,c=IR_ScrollPolicy,p=c.prototype;
     p.dataChanged = function () {
         this.label.text = "label:" + this.data.toString();
     };
     return IR_ScrollPolicy;
-})(eui.ItemRenderer);
-egret.registerClass(IR_ScrollPolicy,"IR_ScrollPolicy");
+}(eui.ItemRenderer));
+egret.registerClass(IR_ScrollPolicy,'IR_ScrollPolicy');

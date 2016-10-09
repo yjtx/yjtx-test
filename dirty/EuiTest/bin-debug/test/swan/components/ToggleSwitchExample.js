@@ -7,7 +7,7 @@ var ToggleSwitchExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=ToggleSwitchExample;p=c.prototype;
+    var d = __define,c=ToggleSwitchExample,p=c.prototype;
     return ToggleSwitchExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ToggleSwitchExample,"ToggleSwitchExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ToggleSwitchExample,'ToggleSwitchExample');

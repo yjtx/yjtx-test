@@ -12,8 +12,9 @@ var ImageNormal = (function (_super) {
         console.log(e.type);
     };
     p.initRoot = function () {
-        this.skinName = "ImageNormalSkin";
-        var loadingBg = new eui.Image(RES.getRes("checkbox_select_down_png"));
+        // this.skinName = "ImageNormalSkin";
+        var loadingBg = new eui.Image();
+        loadingBg.source = "checkbox_select_disabled_png";
         this.addChild(loadingBg);
         console.log(loadingBg.width);
         console.log(loadingBg.width);

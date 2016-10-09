@@ -39,7 +39,7 @@ var LoaderTextTwice = (function (_super) {
             this.loader.removeEventListener(egret.Event.COMPLETE, loadOver, self);
             //alert(loader.data);
             //alert(JSON.parse(loader.data));
-            console.log("once");
+            egret.log("once");
             self.testText2();
         }, this);
         this.loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
@@ -50,7 +50,7 @@ var LoaderTextTwice = (function (_super) {
         this.loader = new egret.URLLoader();
         this.loader.addEventListener(egret.Event.COMPLETE, function loadOver(event) {
             this.loader.removeEventListener(egret.Event.COMPLETE, loadOver, self);
-            console.log("twice");
+            egret.log("twice");
         }, this);
         this.loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
         var request = new egret.URLRequest("resource/resource.json");

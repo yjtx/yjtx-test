@@ -14,7 +14,7 @@ var PropertyEventExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=PropertyEventExample;p=c.prototype;
+    var d = __define,c=PropertyEventExample,p=c.prototype;
     p.init = function () {
         this.group = new eui.Group();
         this.group.addEventListener(eui.PropertyEvent.PROPERTY_CHANGE, this.onChangeHandler, this);
@@ -41,5 +41,5 @@ var PropertyEventExample = (function (_super) {
         return btn;
     };
     return PropertyEventExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(PropertyEventExample,"PropertyEventExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(PropertyEventExample,'PropertyEventExample');

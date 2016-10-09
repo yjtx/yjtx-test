@@ -10,8 +10,8 @@ var GraphicsDrawCurve = (function (_super) {
     p.initRoot = function () {
         var shp = new egret.Shape();
         shp.graphics.lineStyle(2, 0x00ff00);
-        shp.graphics.moveTo(100, 100);
-        shp.graphics.curveTo(100, 100, 200, 50);
+        shp.graphics.moveTo(150, 150);
+        shp.graphics.curveTo(100, 100, 200, 250);
         shp.graphics.endFill();
         shp.name = "test";
         shp.x = 200;

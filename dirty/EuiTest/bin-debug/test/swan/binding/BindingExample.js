@@ -17,10 +17,10 @@ var BindingExample = (function (_super) {
         this.porp = 666;
         this.porp = 123;
     }
-    var d = __define,c=BindingExample;p=c.prototype;
+    var d = __define,c=BindingExample,p=c.prototype;
     p.watcherHander = function (value) {
         console.log("watcherHander:", value, this.porp, this.porp2);
     };
     return BindingExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(BindingExample,"BindingExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(BindingExample,'BindingExample');

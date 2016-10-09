@@ -1,0 +1,30 @@
+{
+	"resources": [
+		{
+			"name": "decode_error_mp3",
+			"type": "sound",
+			"url": "sound/decode_error.mp3"
+		},
+		{
+			"name": "binTest_json",
+			"type": "json",
+			"url": "binTest.json"
+		},
+		{
+			"name": "sunwukong_attack1_json",
+			"type": "json",
+			"url": "mc/dasheng/sunwukong_attack1.json"
+		},
+		{
+			"name": "sunwukong_attack1_png",
+			"type": "image",
+			"url": "mc/dasheng/sunwukong_attack1.png"
+		}
+	],
+	"groups": [
+		{
+			"name": "preload",
+			"keys": "decode_error_mp3,binTest_json,sunwukong_attack1_json,sunwukong_attack1_png"
+		}
+	]
+}

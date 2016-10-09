@@ -42,7 +42,9 @@ var SoundClickLoop = (function (_super) {
         this.addChild(text1_1);
         text1_1.touchEnabled = true;
         text1_1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            sChannel1 = s1.play(1, 0);
+            egret.setTimeout(function () {
+                sChannel1 = s1.play(1, 0);
+            }, this, 100);
         }, this);
         var text2_1 = new egret.TextField();
         text2_1.text = "pauseMusic";

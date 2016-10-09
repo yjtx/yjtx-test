@@ -37,13 +37,13 @@ class BitmapNormal extends EntryDisplayObjectContainer {
         var texture:egret.Texture = RES.getRes("img_scale9_png");
         var icon:egret.Bitmap = new egret.Bitmap();
         icon.texture = texture;
-        icon.width = this.stage.stageWidth;
-        icon.height = this.stage.stageHeight;
+        // icon.width = this.stage.stageWidth;
+        // icon.height = this.stage.stageHeight;
         this.addChild(icon);
         console.log(this.width);
 
-        icon.visible = false;
-        this.removeChild(icon);
+        // icon.visible = false;
+        // this.removeChild(icon);
         console.log(this.width);
     }
 }

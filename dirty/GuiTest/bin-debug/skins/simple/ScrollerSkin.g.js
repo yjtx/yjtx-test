@@ -10,7 +10,7 @@ var skins;
                 this.__s(this, ["maxWidth", "minHeight", "minWidth"], [710, 230, 370]);
                 this.elementsContent = [this.horizontalScrollBar_i(), this.verticalScrollBar_i()];
             }
-            var d = __define,c=ScrollerSkin;p=c.prototype;
+            var d = __define,c=ScrollerSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return ScrollerSkin._skinParts;
@@ -30,8 +30,8 @@ var skins;
             };
             ScrollerSkin._skinParts = ["horizontalScrollBar", "verticalScrollBar"];
             return ScrollerSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.ScrollerSkin = ScrollerSkin;
-        egret.registerClass(ScrollerSkin,"skins.simple.ScrollerSkin");
+        egret.registerClass(ScrollerSkin,'skins.simple.ScrollerSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

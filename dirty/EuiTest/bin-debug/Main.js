@@ -13,7 +13,7 @@ var Main = (function (_super) {
             "resource/components/MainGroup.exml"
         ];
     }
-    var d = __define,c=Main;p=c.prototype;
+    var d = __define,c=Main,p=c.prototype;
     p.createChildren = function () {
         _super.prototype.createChildren.call(this);
         this.width = this.stage.stageWidth;
@@ -77,12 +77,12 @@ var Main = (function (_super) {
         this.addChild(ui);
     };
     return Main;
-})(eui.Group);
-egret.registerClass(Main,"Main");
+}(eui.Group));
+egret.registerClass(Main,'Main');
 var Loader = (function () {
     function Loader() {
     }
-    var d = __define,c=Loader;p=c.prototype;
+    var d = __define,c=Loader,p=c.prototype;
     Loader.load = function (urls, callback) {
         var _this = this;
         var total = urls.length;
@@ -96,5 +96,5 @@ var Loader = (function () {
         });
     };
     return Loader;
-})();
-egret.registerClass(Loader,"Loader");
+}());
+egret.registerClass(Loader,'Loader');

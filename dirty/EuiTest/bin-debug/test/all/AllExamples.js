@@ -4,7 +4,7 @@ var AllExamples = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=AllExamples;p=c.prototype;
+    var d = __define,c=AllExamples,p=c.prototype;
     p.init = function () {
         var skins = [
             "resource/components/blue/ListGroup.exml",
@@ -20,5 +20,5 @@ var AllExamples = (function (_super) {
         this.addChild(ui);
     };
     return AllExamples;
-})(eui.Group);
-egret.registerClass(AllExamples,"AllExamples");
+}(eui.Group));
+egret.registerClass(AllExamples,'AllExamples');

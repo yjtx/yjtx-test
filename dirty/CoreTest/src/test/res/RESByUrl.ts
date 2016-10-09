@@ -30,11 +30,12 @@
 class RESByUrl extends EntryDisplayObjectContainer {
 
     public constructor() {
-        super();
+        super(['sounds']);
     }
 
     protected initRoot():void {
         this.testUrl();
+        this.testUrl2();
     }
 
     private testUrl():void {
@@ -46,6 +47,24 @@ class RESByUrl extends EntryDisplayObjectContainer {
             this.addChild(bitmap);
 
             RES.getResByUrl("https://www.httpwatch.com/assets/images/logo.png", function (texture) {
+                console.log(arguments);
+            }, this, RES.ResourceItem.TYPE_IMAGE);
+
+            console.log(2222);
+        }, this, RES.ResourceItem.TYPE_IMAGE);
+    }
+
+    private testUrl2():void {
+        alert("开始加载");
+        RES.getResByUrl("resource/egret_icon.png", function (texture) {
+            alert("加载完毕");
+            console.log(arguments);
+            var bitmap = new egret.Bitmap(texture);
+            this.addChild(bitmap);
+            bitmap.x = 200;
+            bitmap.y = 200;
+
+            RES.getResByUrl("resource/egret_icon.png", function (texture) {
                 console.log(arguments);
             }, this, RES.ResourceItem.TYPE_IMAGE);
 

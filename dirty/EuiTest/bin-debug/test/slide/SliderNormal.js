@@ -9,7 +9,7 @@ var SliderNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=SliderNormal;p=c.prototype;
+    var d = __define,c=SliderNormal,p=c.prototype;
     p.init = function () {
         new LoadResources(this.testUrl, this, this.stage, ["resource/test/SliderNormal.exml"]);
     };
@@ -18,5 +18,5 @@ var SliderNormal = (function (_super) {
         this.addChild(ui);
     };
     return SliderNormal;
-})(eui.Group);
-egret.registerClass(SliderNormal,"SliderNormal");
+}(eui.Group));
+egret.registerClass(SliderNormal,'SliderNormal');

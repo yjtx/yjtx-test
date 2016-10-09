@@ -13,7 +13,7 @@ var RowAlignExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=RowAlignExample;p=c.prototype;
+    var d = __define,c=RowAlignExample,p=c.prototype;
     p.init = function () {
         var arrAlign = [eui.RowAlign.TOP, eui.RowAlign.JUSTIFY_USING_GAP, eui.RowAlign.JUSTIFY_USING_HEIGHT];
         for (var i = 0, max = arrAlign.length; i < max; i++) {
@@ -52,5 +52,5 @@ var RowAlignExample = (function (_super) {
         return btn;
     };
     return RowAlignExample;
-})(egret.Sprite);
-egret.registerClass(RowAlignExample,"RowAlignExample");
+}(egret.Sprite));
+egret.registerClass(RowAlignExample,'RowAlignExample');

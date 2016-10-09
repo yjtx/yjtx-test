@@ -37,7 +37,7 @@ var LoadResources = (function () {
         RES.addEventListener(RES.ResourceEvent.CONFIG_COMPLETE, this.onConfigComplete, this);
         RES.loadConfig(ResourceUtils.getRoot(factor) + "resource.json", ResourceUtils.getRoot(factor));
     }
-    var d = __define,c=LoadResources;p=c.prototype;
+    var d = __define,c=LoadResources,p=c.prototype;
     /**
      * 配置文件加载完成,开始预加载preload资源组。
      * configuration file loading is completed, start to pre-load the preload resource group
@@ -95,5 +95,5 @@ var LoadResources = (function () {
         this._callback.call(this._thisObj);
     };
     return LoadResources;
-})();
-egret.registerClass(LoadResources,"LoadResources");
+}());
+egret.registerClass(LoadResources,'LoadResources');

@@ -13,9 +13,10 @@ class ImageNormal extends EntryEuiDocument {
     }
 
     protected initRoot():void {
-        this.skinName = "ImageNormalSkin";
+        // this.skinName = "ImageNormalSkin";
 
-        var loadingBg:eui.Image = new eui.Image(RES.getRes("checkbox_select_down_png"));
+        var loadingBg:eui.Image = new eui.Image();
+        loadingBg.source = "checkbox_select_disabled_png";
         this.addChild(loadingBg);
         console.log(loadingBg.width);
         console.log(loadingBg.width);

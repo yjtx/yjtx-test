@@ -22,7 +22,7 @@ var ComponentExample = (function (_super) {
         component.skinName = exml;
         this.addChild(component);
     }
-    var d = __define,c=ComponentExample;p=c.prototype;
+    var d = __define,c=ComponentExample,p=c.prototype;
     return ComponentExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ComponentExample,"ComponentExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ComponentExample,'ComponentExample');

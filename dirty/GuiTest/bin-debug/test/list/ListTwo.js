@@ -32,7 +32,7 @@ var ListTwo = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
-    var d = __define,c=ListTwo;p=c.prototype;
+    var d = __define,c=ListTwo,p=c.prototype;
     p.onAddToStage = function (event) {
         //inject the custom material parser
         //注入自定义的素材解析器
@@ -124,5 +124,5 @@ var ListTwo = (function (_super) {
         guiLayer.addElement(list);
     };
     return ListTwo;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ListTwo,"ListTwo");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ListTwo,'ListTwo');

@@ -7,7 +7,7 @@ var EditablTextExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=EditablTextExample;p=c.prototype;
+    var d = __define,c=EditablTextExample,p=c.prototype;
     return EditablTextExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(EditablTextExample,"EditablTextExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(EditablTextExample,'EditablTextExample');

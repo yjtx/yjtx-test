@@ -41,7 +41,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=ToggleSwitchSkin;p=c.prototype;
+            var d = __define,c=ToggleSwitchSkin,p=c.prototype;
             p.__10_i = function () {
                 var t = new egret.gui.UIAsset();
                 this.__10 = t;
@@ -79,8 +79,8 @@ var skins;
                 return t;
             };
             return ToggleSwitchSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.ToggleSwitchSkin = ToggleSwitchSkin;
-        egret.registerClass(ToggleSwitchSkin,"skins.simple.ToggleSwitchSkin");
+        egret.registerClass(ToggleSwitchSkin,'skins.simple.ToggleSwitchSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

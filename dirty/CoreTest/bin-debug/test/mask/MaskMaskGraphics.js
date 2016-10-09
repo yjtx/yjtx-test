@@ -19,6 +19,10 @@ var MaskMaskGraphics = (function (_super) {
         shape.graphics.endFill();
         shape.y = 100;
         icon.mask = shape;
+        icon.touchEnabled = true;
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            console.log(1111);
+        }, this);
     };
     p.circle = function () {
         var texture = RES.getRes("bg_jpg");
@@ -31,6 +35,10 @@ var MaskMaskGraphics = (function (_super) {
         shape.graphics.endFill();
         shape.x = 200;
         icon.mask = shape;
+        icon.touchEnabled = true;
+        icon.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            console.log(1111);
+        }, this);
     };
     return MaskMaskGraphics;
 }(EntryDisplayObjectContainer));

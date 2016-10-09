@@ -28,7 +28,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=TreeDisclosureButtonSkin;p=c.prototype;
+            var d = __define,c=TreeDisclosureButtonSkin,p=c.prototype;
             p.__7_i = function () {
                 var t = new egret.gui.UIAsset();
                 this.__7 = t;
@@ -36,8 +36,8 @@ var skins;
                 return t;
             };
             return TreeDisclosureButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.TreeDisclosureButtonSkin = TreeDisclosureButtonSkin;
-        egret.registerClass(TreeDisclosureButtonSkin,"skins.simple.TreeDisclosureButtonSkin");
+        egret.registerClass(TreeDisclosureButtonSkin,'skins.simple.TreeDisclosureButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

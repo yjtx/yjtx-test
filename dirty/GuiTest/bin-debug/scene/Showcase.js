@@ -45,7 +45,7 @@ var Showcase = (function (_super) {
         this.skinName = "skins.scene.ShowcaseSkin";
         this.initListData();
     }
-    var d = __define,c=Showcase;p=c.prototype;
+    var d = __define,c=Showcase,p=c.prototype;
     p.initListData = function () {
         for (var i = 1; i < 50; i++) {
             this.dataSource.push({ label: "List Item " + i });
@@ -86,5 +86,5 @@ var Showcase = (function (_super) {
         console.log("You have selected " + this.list.selectedItem.label);
     };
     return Showcase;
-})(egret.gui.SkinnableComponent);
-egret.registerClass(Showcase,"Showcase");
+}(egret.gui.SkinnableComponent));
+egret.registerClass(Showcase,'Showcase');

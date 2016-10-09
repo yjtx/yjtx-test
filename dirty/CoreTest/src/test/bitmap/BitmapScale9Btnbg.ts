@@ -36,6 +36,14 @@ class BitmapScale9Btnbg extends EntryDisplayObjectContainer {
     protected initRoot():void {
         var btp3 = new egret.Bitmap(RES.getRes("publicsheet_json.a10_png"));
         this.addChild(btp3);
+        btp3.x = 200;
+        btp3.y = 40;
+        btp3.width = 122;
+        btp3.height = 44;
+        btp3.scale9Grid = new egret.Rectangle(9, 13, 202, 56);
+
+        var btp3 = new egret.Bitmap(RES.getRes("publicsheet_json.a10_png"));
+        this.addChild(btp3);
         btp3.x = 200.5;
         btp3.y = 200.5;
         btp3.width = 222;

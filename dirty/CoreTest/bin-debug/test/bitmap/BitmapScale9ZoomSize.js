@@ -46,12 +46,6 @@ var BitmapScale9ZoomSize = (function (_super) {
         icon.scaleX = icon.scaleY = 1.5;
         icon.width = 200;
         icon.height = 180;
-        var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
-        this.addChild(icon);
-        icon.x = 320;
-        icon.scaleX = icon.scaleY = 1.5;
-        icon.width = 200;
-        icon.height = 180;
     };
     return BitmapScale9ZoomSize;
 }(EntryDisplayObjectContainer));

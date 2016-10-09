@@ -29,7 +29,7 @@
 var AssetAdapter = (function () {
     function AssetAdapter() {
     }
-    var d = __define,c=AssetAdapter;p=c.prototype;
+    var d = __define,c=AssetAdapter,p=c.prototype;
     /**
      * 解析素材
      * @method egret.gui.DefaultAssetAdapter#getAsset
@@ -64,5 +64,5 @@ var AssetAdapter = (function () {
         }
     };
     return AssetAdapter;
-})();
-egret.registerClass(AssetAdapter,"AssetAdapter",["egret.gui.IAssetAdapter"]);
+}());
+egret.registerClass(AssetAdapter,'AssetAdapter',["egret.gui.IAssetAdapter"]);

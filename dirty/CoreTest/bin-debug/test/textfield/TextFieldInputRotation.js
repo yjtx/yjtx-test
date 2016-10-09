@@ -8,7 +8,7 @@ var TextFieldInputRotation = (function (_super) {
     }
     var d = __define,c=TextFieldInputRotation,p=c.prototype;
     p.initRoot = function () {
-        this.stage.setContentSize(800, 480);
+        // this.stage.setContentSize(800, 480);
         this.stage.orientation = egret.OrientationMode.LANDSCAPE_FLIPPED;
         this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
         var shape = new egret.Shape();

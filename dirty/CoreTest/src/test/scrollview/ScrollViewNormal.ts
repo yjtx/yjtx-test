@@ -44,6 +44,19 @@ class ScrollViewNormal extends EntryDisplayObjectContainer {
         scroller.width = 200;
         scroller.height = 300;
         scroller.bounces = true;
+
+
+        var btp1 = new egret.Bitmap(RES.getRes("bg_jpg"));
+        //btp1.width = 400;
+        //btp1.height = 600;
+        var scroller = new egret.ScrollView();
+        scroller.scrollSpeed = 6;
+        scroller.setContent(btp1);
+        this.addChild(scroller);
+        scroller.y = 400;
+        scroller.width = 200;
+        scroller.height = 300;
+        scroller.bounces = true;
     }
 }
 

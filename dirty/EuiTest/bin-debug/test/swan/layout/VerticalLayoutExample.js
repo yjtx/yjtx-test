@@ -13,7 +13,7 @@ var VerticalLayoutExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=VerticalLayoutExample;p=c.prototype;
+    var d = __define,c=VerticalLayoutExample,p=c.prototype;
     p.init = function () {
         var group = new eui.Group();
         group.x = 20;
@@ -37,5 +37,5 @@ var VerticalLayoutExample = (function (_super) {
         return btn;
     };
     return VerticalLayoutExample;
-})(egret.Sprite);
-egret.registerClass(VerticalLayoutExample,"VerticalLayoutExample");
+}(egret.Sprite));
+egret.registerClass(VerticalLayoutExample,'VerticalLayoutExample');

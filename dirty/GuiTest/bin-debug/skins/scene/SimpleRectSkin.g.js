@@ -18,7 +18,7 @@ var skins;
                     ])
                 ];
             }
-            var d = __define,c=SimpleRectSkin;p=c.prototype;
+            var d = __define,c=SimpleRectSkin,p=c.prototype;
             p.__3_i = function () {
                 var t = new egret.gui.Rect();
                 this.__3 = t;
@@ -26,8 +26,8 @@ var skins;
                 return t;
             };
             return SimpleRectSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         scene.SimpleRectSkin = SimpleRectSkin;
-        egret.registerClass(SimpleRectSkin,"skins.scene.SimpleRectSkin");
+        egret.registerClass(SimpleRectSkin,'skins.scene.SimpleRectSkin');
     })(scene = skins.scene || (skins.scene = {}));
 })(skins || (skins = {}));

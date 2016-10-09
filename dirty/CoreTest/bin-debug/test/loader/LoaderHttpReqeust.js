@@ -30,16 +30,25 @@ var LoaderHttpReqeust = (function (_super) {
     __extends(LoaderHttpReqeust, _super);
     function LoaderHttpReqeust() {
         _super.call(this);
+        this.count = 0;
     }
     var d = __define,c=LoaderHttpReqeust,p=c.prototype;
     p.initRoot = function () {
+        var urlArr = [];
+        urlArr.push("http://gameanalysis.egret.com/loadingStat.php");
         var request = new egret.HttpRequest();
-        //request.withCredentials = true;
         request.responseType = egret.HttpResponseType.TEXT;
-        request.open("http://www.baidu.com", egret.HttpMethod.GET); //http://httpbin.org/get这个网址没有问题。
-        request.send();
+        request.open(urlArr[0], egret.HttpMethod.POST);
+        request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;");
+        var variables = new egret.URLVariables();
+        variables.variables = { "uid": "a75a7384517243139a6622282c1744e0", "act": "login", "gameId": "51586B42", "chanId": "9166", "pixel": { "height": 1080, "width": 1920, "dp": 1 }, "os": { "os": 3 } };
+        request.send('data={"uid":"a75a7384517243139a6622282c1744e0","act":"login","gameId":"51586B42","chanId":"9166","pixel":{"height":1080,"width":1920,"dp":1},"os":{"os":3}}');
         request.addEventListener(egret.Event.COMPLETE, function (e) {
-            console.log(" sss  ");
+            egret.log(" sss  " + request.response);
+            this.count++;
+            if (this.count < 12) {
+                this.initRoot();
+            }
         }, this);
     };
     return LoaderHttpReqeust;

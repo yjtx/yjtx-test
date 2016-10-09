@@ -33,14 +33,10 @@ var Base64FromCrossUrl = (function (_super) {
     }
     var d = __define,c=Base64FromCrossUrl,p=c.prototype;
     p.initRoot = function () {
-        // egret.ImageLoader.crossOrigin = "anonymous";
         RES.getResByUrl("http://official.egret.com/new-egret/img/egret-nav-icon-2.png", function (texture) {
-            // RES.getResByUrl("http://dfm.cdn.ran10.com.cn/game/resource/assets/btn_left.png", function (texture:egret.Texture) {
             var bitmap = new egret.Bitmap(texture);
             this.addChild(bitmap);
-            bitmap.pixelHitTest = true;
-            bitmap.touchEnabled = true;
-            // var base64 = texture.toDataURL("image/png");
+            var base64 = texture.toDataURL("image/png");
         }, this, RES.ResourceItem.TYPE_IMAGE);
     };
     return Base64FromCrossUrl;

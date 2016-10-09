@@ -89,13 +89,14 @@ declare module egret {
      * @extends egret.DisplayObject
      * @event egret.Event.COMPLETE 动画播放完成。
      * @event egret.Event.LOOP_COMPLETE 动画循环播放完成。
-     * @see http://edn.egret.com/cn/index.php/article/index/id/151 MovieClip序列帧动画
+     * @see http://edn.egret.com/cn/docs/page/596 MovieClip序列帧动画
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/display/MovieClip.ts
      */
     class MovieClip extends DisplayObject {
         $bitmapData: Texture;
+        private offsetPoint;
         $movieClipData: MovieClipData;
         /**
          * @private
@@ -167,6 +168,23 @@ declare module egret {
         constructor(movieClipData?: MovieClipData);
         /**
          * @private
+         */
+        $smoothing: boolean;
+        /**
+         * @language en_US
+         * Whether or not is smoothed when scaled.
+         * @version Egret 3.0
+         * @platform Web
+         */
+        /**
+         * @language zh_CN
+         * 控制在缩放时是否进行平滑处理。
+         * @version Egret 3.0
+         * @platform Web
+         */
+        smoothing: boolean;
+        /**
+         * @private
          *
          */
         $init(): void;
@@ -183,7 +201,7 @@ declare module egret {
         /**
          * @private
          */
-        $render(context: sys.RenderContext): void;
+        $render(): void;
         /**
          * @private
          */
@@ -368,7 +386,7 @@ declare module egret {
 declare module egret {
     /**
      * @classdesc 使用 MovieClipData 类，您可以创建 MovieClip 对象和处理 MovieClip 对象的数据。MovieClipData 一般由MovieClipDataFactory生成
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
+     * @see http://edn.egret.com/cn/docs/page/596 MovieClip序列帧动画
      * @version Egret 2.4
      * @platform Web,Native
      */
@@ -450,6 +468,7 @@ declare module egret {
          * @platform Web,Native
          */
         getTextureByFrame(frame: number): Texture;
+        $getOffsetByFrame(frame: number, point: Point): void;
         /**
          * @private
          *
@@ -888,7 +907,7 @@ declare module egret {
          * @param actionsMode
          * @returns
          */
-        private setPosition(value);
+        private setPosition(value, actionsMode?);
         /**
          * @private
          *
@@ -2143,7 +2162,7 @@ declare module egret {
         private update(timeStamp);
         private callBackList;
         /**
-         * 注册帧回调事件，同一函数的重复监听会被忽略。
+         * 注册帧回调事件，同一函数的重复监听会被忽略。推荐使用 egret.startTick 替代此方法。
          * @method egret.Ticker#register
          * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
          * @param thisObject {any} 帧回调函数的this对象
@@ -2154,7 +2173,7 @@ declare module egret {
          */
         register(listener: Function, thisObject: any, priority?: number): void;
         /**
-         * 取消侦听enterFrame事件
+         * 取消侦听enterFrame事件。推荐使用 egret.stopTick 替代此方法。
          * @method egret.Ticker#unregister
          * @param listener {Function} 事件侦听函数
          * @param thisObject {any} 侦听函数的this对象
@@ -2263,6 +2282,10 @@ declare module egret {
          * @platform Web,Native
          */
         static DEVICE_MOBILE: string;
+        /**
+         * @private
+         */
+        static _runtimeType: string;
         /**
          * @version Egret 2.4
          * @platform Web,Native

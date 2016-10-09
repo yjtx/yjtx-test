@@ -22,5 +22,6 @@ class MaskDisplayObject extends EntryDisplayObjectContainer {
         this.addChild(shape);
 
         shape.mask = icon;
+
     }
 }

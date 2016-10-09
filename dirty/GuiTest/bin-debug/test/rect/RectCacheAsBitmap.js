@@ -31,7 +31,7 @@ var RectCacheAsBitmap = (function (_super) {
     function RectCacheAsBitmap() {
         _super.call(this);
     }
-    var d = __define,c=RectCacheAsBitmap;p=c.prototype;
+    var d = __define,c=RectCacheAsBitmap,p=c.prototype;
     p.initRoot = function () {
         var guiLayer = new egret.gui.UIStage();
         this.addChild(guiLayer);
@@ -43,5 +43,5 @@ var RectCacheAsBitmap = (function (_super) {
         rect.cacheAsBitmap = true;
     };
     return RectCacheAsBitmap;
-})(EntryDisplayObjectContainer);
-egret.registerClass(RectCacheAsBitmap,"RectCacheAsBitmap");
+}(EntryDisplayObjectContainer));
+egret.registerClass(RectCacheAsBitmap,'RectCacheAsBitmap');

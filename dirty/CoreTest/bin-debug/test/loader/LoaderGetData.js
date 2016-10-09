@@ -43,9 +43,9 @@ var LoaderGetData = (function (_super) {
             egret.log(loader.data);
         }, this);
         loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-        var request = new egret.URLRequest("http://s1.ns.qimi.com/zmfsj/www/qimi/local/api.php");
+        var request = new egret.URLRequest("http://gameanalysis.egret.com/loadingStat.php");
         request.method = egret.URLRequestMethod.GET;
-        var variables = new egret.URLVariables("data={%22mod%22:%22User%22,%22do%22:%22login%22,%22p%22:{%22uName%22:%22ivens0008@ismole.com%22,%22uPass%22:%22whatAfuckingDay%22}}&h=U1p7QAlvfmNmXXBcWWZBdm4KFF4Idxp1YXgkPAIeFFd9&print=no&secket=");
+        var variables = new egret.URLVariables('data={"uid":"a75a7384517243139a6622282c1744e0","act":"login","gameId":"51586B42","chanId":"9166","pixel":{"height":1080,"width":1920,"dp":1},"os":{"os":3}}');
         request.data = variables;
         loader.load(request);
     };
@@ -56,11 +56,11 @@ var LoaderGetData = (function (_super) {
             egret.log(loader.data);
         }, this);
         loader.dataFormat = egret.URLLoaderDataFormat.TEXT;
-        var request = new egret.URLRequest("http://s1.ns.qimi.com/zmfsj/www/qimi/local/api.php");
+        var request = new egret.URLRequest("http://gameanalysis.egret.com/loadingStat.php");
         request.method = egret.URLRequestMethod.GET;
         var variables = new egret.URLVariables();
         request.data = variables;
-        variables.variables = { "data": '{"mod":"User","do":"login","p":{"uName":"ivens0008@ismole.com","uPass":"whatAfuckingDay"}}', "h": "U1p7QAlvfmNmXXBcWWZBdm4KFF4Idxp1YXgkPAIeFFd9", "print": "no", "secket": "" };
+        variables.variables = { "data": '"uid":"a75a7384517243139a6622282c1744e0","act":"login","gameId":"51586B42","chanId":"9166","pixel":{"height":1080,"width":1920,"dp":1},"os":{"os":3}' };
         loader.load(request);
     };
     return LoaderGetData;

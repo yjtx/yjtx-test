@@ -10,15 +10,15 @@ var skins;
                 this.__s(this, ["height", "width"], [800, 480]);
                 this.elementsContent = [this.__1_i()];
             }
-            var d = __define,c=SimpleUIAssetSkin;p=c.prototype;
+            var d = __define,c=SimpleUIAssetSkin,p=c.prototype;
             p.__1_i = function () {
                 var t = new egret.gui.UIAsset();
                 t.source = "resource/assets/bg.jpg";
                 return t;
             };
             return SimpleUIAssetSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         scene.SimpleUIAssetSkin = SimpleUIAssetSkin;
-        egret.registerClass(SimpleUIAssetSkin,"skins.scene.SimpleUIAssetSkin");
+        egret.registerClass(SimpleUIAssetSkin,'skins.scene.SimpleUIAssetSkin');
     })(scene = skins.scene || (skins.scene = {}));
 })(skins || (skins = {}));

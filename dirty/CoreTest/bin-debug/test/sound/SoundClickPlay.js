@@ -43,6 +43,9 @@ var SoundClickPlay = (function (_super) {
         text1.touchEnabled = true;
         text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             sChannel = s.play(0, 1);
+            sChannel.addEventListener(egret.Event.SOUND_COMPLETE, function (e) {
+                console.log(e.type);
+            }, this);
         }, this);
         var text2 = new egret.TextField();
         text2.text = "pause";
@@ -53,9 +56,6 @@ var SoundClickPlay = (function (_super) {
             sChannel.stop();
         }, this);
         this.addChild(text2);
-        s.addEventListener(egret.Event.SOUND_COMPLETE, function (e) {
-            console.log(e.type);
-        }, this);
     };
     return SoundClickPlay;
 }(EntryDisplayObjectContainer));

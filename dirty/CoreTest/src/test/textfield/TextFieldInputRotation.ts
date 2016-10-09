@@ -8,7 +8,7 @@ class TextFieldInputRotation extends EntryDisplayObjectContainer {
     }
 
     protected initRoot():void {
-        this.stage.setContentSize(800, 480);
+        // this.stage.setContentSize(800, 480);
         this.stage.orientation = egret.OrientationMode.LANDSCAPE_FLIPPED;
         this.stage.scaleMode = egret.StageScaleMode.SHOW_ALL;
         

@@ -13,7 +13,7 @@ var FunctionRegExp1 = (function (_super) {
     }
     var d = __define,c=FunctionRegExp1,p=c.prototype;
     p.init = function () {
-        // var regx = /^[a-zA-Z0-9\u4e00-\u9fa5]{1,10}+$/;
+        // var regx = /[a-z]{1,10}+/;
         alert("use");
     };
     return FunctionRegExp1;

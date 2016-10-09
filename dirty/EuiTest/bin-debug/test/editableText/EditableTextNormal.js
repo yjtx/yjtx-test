@@ -9,7 +9,7 @@ var EditableTextNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=EditableTextNormal;p=c.prototype;
+    var d = __define,c=EditableTextNormal,p=c.prototype;
     p.init = function () {
         this.testUrl();
     };
@@ -21,5 +21,5 @@ var EditableTextNormal = (function (_super) {
         this.addChild(ui);
     };
     return EditableTextNormal;
-})(eui.Group);
-egret.registerClass(EditableTextNormal,"EditableTextNormal");
+}(eui.Group));
+egret.registerClass(EditableTextNormal,'EditableTextNormal');

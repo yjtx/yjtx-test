@@ -33,12 +33,13 @@ var BitmapScale9FromRes = (function (_super) {
     }
     var d = __define,c=BitmapScale9FromRes,p=c.prototype;
     p.initRoot = function () {
+        //15, 53, 3, 3   9宫数据在res配置里
         var icon = new egret.Bitmap(RES.getRes("talkingPanel_png"));
         icon.width = 200;
         icon.height = 180;
         this.addChild(icon);
         icon.x = 100;
-        icon.y = 100; //[15,53,3,3]
+        icon.y = 100;
     };
     return BitmapScale9FromRes;
 }(EntryDisplayObjectContainer));

@@ -14,7 +14,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=VScrollBarSkin;p=c.prototype;
+            var d = __define,c=VScrollBarSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return VScrollBarSkin._skinParts;
@@ -34,8 +34,8 @@ var skins;
             };
             VScrollBarSkin._skinParts = ["track", "thumb"];
             return VScrollBarSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.VScrollBarSkin = VScrollBarSkin;
-        egret.registerClass(VScrollBarSkin,"skins.simple.VScrollBarSkin");
+        egret.registerClass(VScrollBarSkin,'skins.simple.VScrollBarSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

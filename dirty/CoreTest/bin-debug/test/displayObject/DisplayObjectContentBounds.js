@@ -33,20 +33,20 @@ var DisplayObjectContentBounds = (function (_super) {
     }
     var d = __define,c=DisplayObjectContentBounds,p=c.prototype;
     p.initRoot = function () {
-        var container1 = new egret.DisplayObjectContainer();
-        this.addChild(container1);
-        container1.name = "container1";
-        var container2 = new egret.DisplayObjectContainer();
-        container1.addChild(container2);
-        container2.width = 100;
-        container2.height = 100;
-        container2.name = "container2";
         var texture = RES.getRes("bg_jpg");
         var icon = new egret.Bitmap();
         icon.texture = texture;
+        var container2 = new egret.DisplayObjectContainer();
+        container2.width = 100;
+        container2.height = 100;
+        container2.name = "container2";
         container2.addChild(icon);
-        console.log("width=" + container1.width + "  height=" + container1.height);
         console.log("width=" + container2.width + "  height=" + container2.height);
+        var container1 = new egret.DisplayObjectContainer();
+        this.addChild(container1);
+        container1.name = "container1";
+        container1.addChild(container2);
+        console.log("width=" + container1.width + "  height=" + container1.height);
     };
     return DisplayObjectContentBounds;
 }(EntryDisplayObjectContainer));

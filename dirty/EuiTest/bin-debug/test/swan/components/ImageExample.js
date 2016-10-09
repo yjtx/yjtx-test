@@ -16,7 +16,7 @@ var ImageExample = (function (_super) {
         image.x = 100;
         image.y = 100;
     }
-    var d = __define,c=ImageExample;p=c.prototype;
+    var d = __define,c=ImageExample,p=c.prototype;
     return ImageExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ImageExample,"ImageExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ImageExample,'ImageExample');

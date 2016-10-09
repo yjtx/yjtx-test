@@ -13,7 +13,7 @@ var ListExample = (function (_super) {
         }
         list.dataProvider = collection;
     }
-    var d = __define,c=ListExample;p=c.prototype;
+    var d = __define,c=ListExample,p=c.prototype;
     return ListExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ListExample,"ListExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ListExample,'ListExample');

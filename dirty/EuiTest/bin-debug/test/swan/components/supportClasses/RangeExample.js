@@ -13,7 +13,7 @@ var RangeViewer = (function (_super) {
         this.skinName =
             "<s:Skin class=\"skins.RangeViewerSkin\" minWidth=\"30\" minHeight=\"18\" xmlns:s=\"http://ns.egret.com/eui\">\n\t        <s:Image x=\"0\" y=\"0\" source=\"resource/examples/range-background.png\"/>\n\t        <s:Image id=\"pointer\" x=\"60\" y=\"60\" source=\"resource/examples/pointer.png\"/>\n        </s:Skin>";
     }
-    var d = __define,c=RangeViewer;p=c.prototype;
+    var d = __define,c=RangeViewer,p=c.prototype;
     p.updateSkinDisplayList = function () {
         var range = this.maximum - this.minimum;
         var rate = (this.value - this.minimum) / range;
@@ -21,8 +21,8 @@ var RangeViewer = (function (_super) {
         this.pointer.rotation = angle;
     };
     return RangeViewer;
-})(eui.Range);
-egret.registerClass(RangeViewer,"RangeViewer");
+}(eui.Range));
+egret.registerClass(RangeViewer,'RangeViewer');
 var RangeExample = (function (_super) {
     __extends(RangeExample, _super);
     function RangeExample() {
@@ -37,7 +37,7 @@ var RangeExample = (function (_super) {
         timer.start();
         this.addChild(rangeViewer);
     }
-    var d = __define,c=RangeExample;p=c.prototype;
+    var d = __define,c=RangeExample,p=c.prototype;
     return RangeExample;
-})(eui.Group);
-egret.registerClass(RangeExample,"RangeExample");
+}(eui.Group));
+egret.registerClass(RangeExample,'RangeExample');

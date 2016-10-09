@@ -9,7 +9,7 @@ var ImageNormal = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=ImageNormal;p=c.prototype;
+    var d = __define,c=ImageNormal,p=c.prototype;
     p.init = function () {
         new LoadResources(this.testUrl, this, this.stage, ["resource/test/ImageNormal.exml"]);
     };
@@ -18,5 +18,5 @@ var ImageNormal = (function (_super) {
         this.addChild(ui);
     };
     return ImageNormal;
-})(eui.Group);
-egret.registerClass(ImageNormal,"ImageNormal");
+}(eui.Group));
+egret.registerClass(ImageNormal,'ImageNormal');

@@ -44,11 +44,6 @@ var BitmapScale9Size = (function (_super) {
         icon.height = 180;
         this.addChild(icon);
         icon.y = 200;
-        var icon = new egret.Bitmap(RES.getRes("img_scale9_png"));
-        icon.width = 200;
-        icon.height = 180;
-        this.addChild(icon);
-        icon.x = 220;
     };
     return BitmapScale9Size;
 }(EntryDisplayObjectContainer));

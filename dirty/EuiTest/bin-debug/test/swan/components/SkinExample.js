@@ -15,7 +15,7 @@ var SkinExample = (function (_super) {
         var button = new clazz();
         this.addChild(button);
     }
-    var d = __define,c=SkinExample;p=c.prototype;
+    var d = __define,c=SkinExample,p=c.prototype;
     return SkinExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(SkinExample,"SkinExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(SkinExample,'SkinExample');

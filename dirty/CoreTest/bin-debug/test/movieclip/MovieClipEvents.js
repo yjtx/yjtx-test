@@ -35,25 +35,35 @@ var MovieClipEvents = (function (_super) {
     p.initRoot = function () {
         var movieclipData1 = RES.getRes("run_down_json");
         var texture1 = RES.getRes("run_down_png");
-        var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData1, texture1);
-        var movieclipData2 = RES.getRes("run_up_json");
-        var texture2 = RES.getRes("run_up_png");
-        var mcDataFactory2 = new egret.MovieClipDataFactory(movieclipData2, texture2);
+        var mcDataFactory1 = new egret.MovieClipDataFactory(movieclipData1, null);
         var self = this;
-        var role1 = new egret.MovieClip(mcDataFactory1.generateMovieClipData("run"));
+        var mcData = mcDataFactory1.generateMovieClipData("run");
+        var role1 = new egret.MovieClip(mcData);
         self.addChild(role1);
-        role1.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
+        role1.gotoAndPlay(Math.floor(Math.random() * 12 + 1), 990);
         role1.scaleX = 1;
-        role1.x = Math.random() * self.stage.stageWidth;
-        role1.y = Math.random() * self.stage.stageHeight + 20;
+        role1.x = self.stage.stageWidth / 2;
+        role1.y = self.stage.stageHeight / 2;
         role1.addEventListener(egret.MovieClipEvent.FRAME_LABEL, function (e) {
             console.log("111 " + e.type + "  " + e.frameLabel + "  " + role1.currentFrame); //frame_label @fall 6
         }, this);
-        var role2 = new egret.MovieClip(mcDataFactory1.generateMovieClipData("run"));
-        role2.gotoAndPlay(Math.floor(Math.random() * 12 + 1), -1);
-        role2.addEventListener(egret.MovieClipEvent.FRAME_LABEL, function (e) {
-            console.log("222 " + e.type + "  " + e.frameLabel + "  " + role2.currentFrame); //frame_label @fall 6
+        role1.addEventListener(egret.Event.COMPLETE, function (e) {
+            console.log("111 COMPLETE" + e.type); //
         }, this);
+        egret.setTimeout(function () {
+            role1.stop();
+            console.log("111 stop"); //
+            egret.setTimeout(function () {
+                console.log("111 gotoAndPlay"); //
+                role1.gotoAndPlay(0, 91);
+            }, this, 3000);
+        }, this, 3000);
+        egret.setTimeout(function () {
+            console.log("111 "); //
+            mcDataFactory1.texture = texture1;
+            mcData.spriteSheet = mcDataFactory1.spriteSheet;
+            // role1.$renderFrame();
+        }, this, 8000);
     };
     return MovieClipEvents;
 }(EntryDisplayObjectContainer));

@@ -18,7 +18,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=DropDownListOpenButtonSkin;p=c.prototype;
+            var d = __define,c=DropDownListOpenButtonSkin,p=c.prototype;
             p.__4_i = function () {
                 var t = new egret.gui.UIAsset();
                 this.__4 = t;
@@ -32,8 +32,8 @@ var skins;
                 return t;
             };
             return DropDownListOpenButtonSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.DropDownListOpenButtonSkin = DropDownListOpenButtonSkin;
-        egret.registerClass(DropDownListOpenButtonSkin,"skins.simple.DropDownListOpenButtonSkin");
+        egret.registerClass(DropDownListOpenButtonSkin,'skins.simple.DropDownListOpenButtonSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

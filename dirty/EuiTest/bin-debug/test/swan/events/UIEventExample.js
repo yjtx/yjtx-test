@@ -12,7 +12,7 @@ var UIEventExample = (function (_super) {
         _super.call(this);
         this.once(egret.Event.ADDED_TO_STAGE, this.init, this);
     }
-    var d = __define,c=UIEventExample;p=c.prototype;
+    var d = __define,c=UIEventExample,p=c.prototype;
     p.init = function () {
         var panel = this.getPanel();
         panel.x = 200;
@@ -44,8 +44,8 @@ var UIEventExample = (function (_super) {
         return panel;
     };
     return UIEventExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(UIEventExample,"UIEventExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(UIEventExample,'UIEventExample');
 var IR_UIEvents = (function (_super) {
     __extends(IR_UIEvents, _super);
     function IR_UIEvents() {
@@ -53,10 +53,10 @@ var IR_UIEvents = (function (_super) {
         this.label = new eui.Label();
         this.addChild(this.label);
     }
-    var d = __define,c=IR_UIEvents;p=c.prototype;
+    var d = __define,c=IR_UIEvents,p=c.prototype;
     p.dataChanged = function () {
         this.label.text = "label:" + this.data.toString();
     };
     return IR_UIEvents;
-})(eui.ItemRenderer);
-egret.registerClass(IR_UIEvents,"IR_UIEvents");
+}(eui.ItemRenderer));
+egret.registerClass(IR_UIEvents,'IR_UIEvents');

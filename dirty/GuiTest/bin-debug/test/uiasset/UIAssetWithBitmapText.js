@@ -32,7 +32,7 @@ var UIAssetWithBitmapText = (function (_super) {
         _super.call(this);
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
-    var d = __define,c=UIAssetWithBitmapText;p=c.prototype;
+    var d = __define,c=UIAssetWithBitmapText,p=c.prototype;
     p.onAddToStage = function (event) {
         //inject the custom material parser
         //注入自定义的素材解析器
@@ -110,5 +110,5 @@ var UIAssetWithBitmapText = (function (_super) {
         ui.source = bitmap1;
     };
     return UIAssetWithBitmapText;
-})(egret.DisplayObjectContainer);
-egret.registerClass(UIAssetWithBitmapText,"UIAssetWithBitmapText");
+}(egret.DisplayObjectContainer));
+egret.registerClass(UIAssetWithBitmapText,'UIAssetWithBitmapText');

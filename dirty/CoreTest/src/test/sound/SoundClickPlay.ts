@@ -46,6 +46,12 @@ class SoundClickPlay extends EntryDisplayObjectContainer {
 
         text1.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
             sChannel = s.play(0, 1);
+
+
+            sChannel.addEventListener(egret.Event.SOUND_COMPLETE, function (e:egret.Event) {
+                console.log(e.type);
+            }, this);
+
         }, this);
 
         var text2:egret.TextField = new egret.TextField();
@@ -58,9 +64,6 @@ class SoundClickPlay extends EntryDisplayObjectContainer {
         }, this);
         this.addChild(text2);
 
-        s.addEventListener(egret.Event.SOUND_COMPLETE, function (e:egret.Event) {
-            console.log(e.type);
-        }, this);
     }
 }
 

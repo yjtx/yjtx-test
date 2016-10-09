@@ -13,7 +13,7 @@ var skins;
                     new egret.gui.State("disabled", [])
                 ];
             }
-            var d = __define,c=ProgressBarSkin;p=c.prototype;
+            var d = __define,c=ProgressBarSkin,p=c.prototype;
             d(p, "skinParts"
                 ,function () {
                     return ProgressBarSkin._skinParts;
@@ -39,8 +39,8 @@ var skins;
             };
             ProgressBarSkin._skinParts = ["track", "thumb", "labelDisplay"];
             return ProgressBarSkin;
-        })(egret.gui.Skin);
+        }(egret.gui.Skin));
         simple.ProgressBarSkin = ProgressBarSkin;
-        egret.registerClass(ProgressBarSkin,"skins.simple.ProgressBarSkin");
+        egret.registerClass(ProgressBarSkin,'skins.simple.ProgressBarSkin');
     })(simple = skins.simple || (skins.simple = {}));
 })(skins || (skins = {}));

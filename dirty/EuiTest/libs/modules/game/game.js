@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -46,7 +46,7 @@ var egret;
             if (end)
                 this._end = end | 0;
         }
-        var d = __define,c=FrameLabel;p=c.prototype;
+        var d = __define,c=FrameLabel,p=c.prototype;
         d(p, "name"
             /**
              * @language en_US
@@ -114,13 +114,13 @@ var egret;
             return new FrameLabel(this._name, this._frame, this._end);
         };
         return FrameLabel;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.FrameLabel = FrameLabel;
-    egret.registerClass(FrameLabel,"egret.FrameLabel");
+    egret.registerClass(FrameLabel,'egret.FrameLabel');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -160,7 +160,7 @@ var egret;
      * @extends egret.DisplayObject
      * @event egret.Event.COMPLETE 动画播放完成。
      * @event egret.Event.LOOP_COMPLETE 动画循环播放完成。
-     * @see http://edn.egret.com/cn/index.php/article/index/id/151 MovieClip序列帧动画
+     * @see http://edn.egret.com/cn/docs/page/596 MovieClip序列帧动画
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/display/MovieClip.ts
@@ -178,6 +178,8 @@ var egret;
             _super.call(this);
             //Render Property
             this.$bitmapData = null;
+            //Render Property
+            this.offsetPoint = egret.Point.create(0, 0);
             //Data Property
             this.$movieClipData = null;
             /**
@@ -246,10 +248,36 @@ var egret;
              * @private
              */
             this.lastTime = 0;
-            this.$renderRegion = new egret.sys.Region();
+            this.$smoothing = egret.Bitmap.defaultSmoothing;
+            this.$renderNode = new egret.sys.BitmapNode();
             this.setMovieClipData(movieClipData);
         }
-        var d = __define,c=MovieClip;p=c.prototype;
+        var d = __define,c=MovieClip,p=c.prototype;
+        d(p, "smoothing"
+            /**
+             * @language en_US
+             * Whether or not is smoothed when scaled.
+             * @version Egret 3.0
+             * @platform Web
+             */
+            /**
+             * @language zh_CN
+             * 控制在缩放时是否进行平滑处理。
+             * @version Egret 3.0
+             * @platform Web
+             */
+            ,function () {
+                return this.$smoothing;
+            }
+            ,function (value) {
+                value = !!value;
+                if (value == this.$smoothing) {
+                    return;
+                }
+                this.$smoothing = value;
+                this.$invalidate();
+            }
+        );
         /**
          * @private
          *
@@ -294,17 +322,20 @@ var egret;
         /**
          * @private
          */
-        p.$render = function (context) {
+        p.$render = function () {
             var texture = this.$bitmapData;
             if (texture) {
-                context.imageSmoothingEnabled = false;
-                var offsetX = Math.round(texture._offsetX);
-                var offsetY = Math.round(texture._offsetY);
+                var offsetX = Math.round(this.offsetPoint.x);
+                var offsetY = Math.round(this.offsetPoint.y);
                 var bitmapWidth = texture._bitmapWidth;
                 var bitmapHeight = texture._bitmapHeight;
+                var textureWidth = texture.$getTextureWidth();
+                var textureHeight = texture.$getTextureHeight();
                 var destW = Math.round(texture.$getScaleBitmapWidth());
                 var destH = Math.round(texture.$getScaleBitmapHeight());
-                context.drawImage(texture._bitmapData, texture._bitmapX, texture._bitmapY, bitmapWidth, bitmapHeight, offsetX, offsetY, destW, destH);
+                var sourceWidth = texture._sourceWidth;
+                var sourceHeight = texture._sourceHeight;
+                egret.Bitmap.$drawImage(this.$renderNode, texture._bitmapData, texture._bitmapX, texture._bitmapY, bitmapWidth, bitmapHeight, offsetX, offsetY, textureWidth, textureHeight, destW, destH, sourceWidth, sourceHeight, null, egret.BitmapFillMode.SCALE, this.$smoothing);
             }
         };
         /**
@@ -313,8 +344,8 @@ var egret;
         p.$measureContentBounds = function (bounds) {
             var texture = this.$bitmapData;
             if (texture) {
-                var x = texture._offsetX;
-                var y = texture._offsetY;
+                var x = this.offsetPoint.x;
+                var y = this.offsetPoint.y;
                 var w = texture.$getTextureWidth();
                 var h = texture.$getTextureHeight();
                 bounds.setTo(x, y, w, h);
@@ -550,9 +581,14 @@ var egret;
             if (num < 1) {
                 return false;
             }
+            var event;
             while (num >= 1) {
                 num--;
                 self.$nextFrameNum++;
+                event = this.frameEvents[self.$nextFrameNum];
+                if (event && event != "") {
+                    egret.MovieClipEvent.dispatchMovieClipEvent(self, egret.MovieClipEvent.FRAME_LABEL, event);
+                }
                 if (self.$nextFrameNum > self.$totalFrames || (self.$frameLabelStart > 0 && self.$nextFrameNum > self.$frameLabelEnd)) {
                     if (self.playTimes == -1) {
                         self.$eventPool.push(egret.Event.LOOP_COMPLETE);
@@ -597,11 +633,8 @@ var egret;
             if (this.displayedKeyFrameNum == currentFrameNum) {
                 return;
             }
-            var event = this.frameEvents[currentFrameNum];
-            if (event && event != "") {
-                egret.MovieClipEvent.dispatchMovieClipEvent(this, egret.MovieClipEvent.FRAME_LABEL, event);
-            }
             this.$bitmapData = this.$movieClipData.getTextureByFrame(currentFrameNum);
+            this.$movieClipData.$getOffsetByFrame(currentFrameNum, this.offsetPoint);
             this.$invalidateContentBounds();
             this.displayedKeyFrameNum = currentFrameNum;
         };
@@ -764,13 +797,13 @@ var egret;
             }
         };
         return MovieClip;
-    })(egret.DisplayObject);
+    }(egret.DisplayObject));
     egret.MovieClip = MovieClip;
-    egret.registerClass(MovieClip,"egret.MovieClip");
+    egret.registerClass(MovieClip,'egret.MovieClip');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -800,7 +833,7 @@ var egret;
 (function (egret) {
     /**
      * @classdesc 使用 MovieClipData 类，您可以创建 MovieClip 对象和处理 MovieClip 对象的数据。MovieClipData 一般由MovieClipDataFactory生成
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
+     * @see http://edn.egret.com/cn/docs/page/596 MovieClip序列帧动画
      * @version Egret 2.4
      * @platform Web,Native
      */
@@ -861,7 +894,7 @@ var egret;
              */
             this.spriteSheet = null;
         }
-        var d = __define,c=MovieClipData;p=c.prototype;
+        var d = __define,c=MovieClipData,p=c.prototype;
         /**
          * @private
          *
@@ -899,11 +932,15 @@ var egret;
             var frameData = this.getKeyFrameData(frame);
             if (frameData.res) {
                 var outputTexture = this.getTextureByResName(frameData.res);
-                outputTexture._offsetX = frameData.x | 0;
-                outputTexture._offsetY = frameData.y | 0;
                 return outputTexture;
             }
             return null;
+        };
+        p.$getOffsetByFrame = function (frame, point) {
+            var frameData = this.getKeyFrameData(frame);
+            if (frameData.res) {
+                point.setTo(frameData.x | 0, frameData.y | 0);
+            }
         };
         /**
          * @private
@@ -1034,13 +1071,13 @@ var egret;
             }
         };
         return MovieClipData;
-    })(egret.HashObject);
+    }(egret.HashObject));
     egret.MovieClipData = MovieClipData;
-    egret.registerClass(MovieClipData,"egret.MovieClipData");
+    egret.registerClass(MovieClipData,'egret.MovieClipData');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -1070,7 +1107,7 @@ var egret;
 (function (egret) {
     /**
      * @classdesc 使用 MovieClipDataFactory 类，可以生成 MovieClipData 对象用于创建MovieClip
-     * @see http://docs.egret-labs.org/post/manual/displaycon/movieclip.html MovieClip序列帧动画
+     * @see http://edn.egret.com/cn/docs/page/596 MovieClip序列帧动画
      * @version Egret 2.4
      * @platform Web,Native
      */
@@ -1098,7 +1135,7 @@ var egret;
             this.$mcDataSet = movieClipDataSet;
             this.setTexture(texture);
         }
-        var d = __define,c=MovieClipDataFactory;p=c.prototype;
+        var d = __define,c=MovieClipDataFactory,p=c.prototype;
         /**
          * 清空缓存
          * @version Egret 2.4
@@ -1204,13 +1241,13 @@ var egret;
             this.$spriteSheet = value ? new egret.SpriteSheet(value) : null;
         };
         return MovieClipDataFactory;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.MovieClipDataFactory = MovieClipDataFactory;
-    egret.registerClass(MovieClipDataFactory,"egret.MovieClipDataFactory");
+    egret.registerClass(MovieClipDataFactory,'egret.MovieClipDataFactory');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -1292,7 +1329,7 @@ var egret;
             this.frameLabel = null;
             this.frameLabel = frameLabel;
         }
-        var d = __define,c=MovieClipEvent;p=c.prototype;
+        var d = __define,c=MovieClipEvent,p=c.prototype;
         /**
          * @language en_US
          * EventDispatcher object using the specified event object thrown MovieClipEvent. The objects will be thrown in the object cache pool for the next round robin.
@@ -1333,13 +1370,13 @@ var egret;
          */
         MovieClipEvent.FRAME_LABEL = "frame_label";
         return MovieClipEvent;
-    })(egret.Event);
+    }(egret.Event));
     egret.MovieClipEvent = MovieClipEvent;
-    egret.registerClass(MovieClipEvent,"egret.MovieClipEvent");
+    egret.registerClass(MovieClipEvent,'egret.MovieClipEvent');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -1378,7 +1415,7 @@ var egret;
         function ScrollEase() {
             egret.$error(1014);
         }
-        var d = __define,c=ScrollEase;p=c.prototype;
+        var d = __define,c=ScrollEase,p=c.prototype;
         /**
          *
          * @param amount
@@ -1426,25 +1463,10 @@ var egret;
          */
         ScrollEase.quartOut = ScrollEase.getPowOut(4);
         return ScrollEase;
-    })();
+    }());
     egret.ScrollEase = ScrollEase;
-    egret.registerClass(ScrollEase,"egret.ScrollEase");
+    egret.registerClass(ScrollEase,'egret.ScrollEase');
     /**
-     * @language en_US
-     * ScrollTween is the animation easing class of Egret
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html Tween缓动动画
-     * @version Egret 2.4
-     * @platform Web,Native
-     * @includeExample egret/tween/ScrollTween.ts
-     * @private
-     */
-    /**
-     * @language zh_CN
-     * Tween是Egret的动画缓动类
-     * @see http://docs.egret-labs.org/post/manual/anim/tween.html ScrollTween ease animation
-     * @version Egret 2.4
-     * @platform Web,Native
-     * @includeExample egret/tween/ScrollTween.ts
      * @private
      */
     var ScrollTween = (function (_super) {
@@ -1515,7 +1537,7 @@ var egret;
             this.passive = false;
             this.initialize(target, props, pluginData);
         }
-        var d = __define,c=ScrollTween;p=c.prototype;
+        var d = __define,c=ScrollTween,p=c.prototype;
         /**
          * @language en_US
          * Activate an object and add a ScrollTween animation to the object
@@ -1665,7 +1687,8 @@ var egret;
          * @param actionsMode
          * @returns
          */
-        p.setPosition = function (value) {
+        p.setPosition = function (value, actionsMode) {
+            if (actionsMode === void 0) { actionsMode = 1; }
             if (value < 0) {
                 value = 0;
             }
@@ -1684,6 +1707,7 @@ var egret;
             if (t == this._prevPos) {
                 return end;
             }
+            var prevPos = this._prevPos;
             this.position = this._prevPos = t;
             this._prevPosition = value;
             if (this._target) {
@@ -1704,6 +1728,21 @@ var egret;
             }
             if (end) {
                 this.setPaused(true);
+            }
+            //执行actions
+            if (actionsMode != 0 && this._actions.length > 0) {
+                if (this._useTicks) {
+                    this._runActions(t, t);
+                }
+                else if (actionsMode == 1 && t < prevPos) {
+                    if (prevPos != this.duration) {
+                        this._runActions(prevPos, this.duration);
+                    }
+                    this._runActions(0, t, true);
+                }
+                else {
+                    this._runActions(prevPos, t);
+                }
             }
             this.dispatchEventWith("change");
             return end;
@@ -1849,7 +1888,7 @@ var egret;
         p._appendQueueProps = function (o) {
             var arr, oldValue, i, l, injectProps;
             for (var n in o) {
-                if (egret.sys.isUndefined(this._initQueueProps[n])) {
+                if (this._initQueueProps[n] === undefined) {
                     oldValue = this._target[n];
                     //设置plugins
                     if (arr = ScrollTween._plugins[n]) {
@@ -1974,13 +2013,13 @@ var egret;
         ScrollTween._inited = false;
         ScrollTween._lastTime = 0;
         return ScrollTween;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.ScrollTween = ScrollTween;
-    egret.registerClass(ScrollTween,"egret.ScrollTween");
+    egret.registerClass(ScrollTween,'egret.ScrollTween');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -2087,7 +2126,7 @@ var egret;
                 this.setContent(content);
             }
         }
-        var d = __define,c=ScrollView;p=c.prototype;
+        var d = __define,c=ScrollView,p=c.prototype;
         d(p, "bounces"
             /**
              * @language en_US
@@ -2949,13 +2988,13 @@ var egret;
          */
         ScrollView.weight = [1, 1.33, 1.66, 2, 2.33];
         return ScrollView;
-    })(egret.DisplayObjectContainer);
+    }(egret.DisplayObjectContainer));
     egret.ScrollView = ScrollView;
-    egret.registerClass(ScrollView,"egret.ScrollView");
+    egret.registerClass(ScrollView,'egret.ScrollView');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3059,15 +3098,15 @@ var egret;
              */
             this._bounces = true;
         }
-        var d = __define,c=ScrollViewProperties;p=c.prototype;
+        var d = __define,c=ScrollViewProperties,p=c.prototype;
         return ScrollViewProperties;
-    })();
+    }());
     egret.ScrollViewProperties = ScrollViewProperties;
-    egret.registerClass(ScrollViewProperties,"egret.ScrollViewProperties");
+    egret.registerClass(ScrollViewProperties,'egret.ScrollViewProperties');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3113,7 +3152,7 @@ var egret;
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3146,7 +3185,7 @@ var egret;
      * UThe URLLoader class downloads data from a URL as text, binary data, or URL-encoded variables.  It is useful for downloading text files, XML, or other information to be used in a dynamic, data-driven application.
      * A URLLoader object downloads all of the data from a URL before making it available to code in the applications. It sends out notifications about the progress of the download,
      * which you can monitor through bytesLoaded and bytesTotal properties, as well as through dispatched events.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @see http://edn.egret.com/cn/docs/page/601 Build communication request
      * @event egret.Event.COMPLETE Dispatched when the net request is complete.
      * @event egret.IOErrorEvent.IO_ERROR io error.
      * @version Egret 2.4
@@ -3158,7 +3197,7 @@ var egret;
      * URLLoader 类以文本、二进制数据或 URL 编码变量的形式从 URL 下载数据。在下载文本文件、XML 或其他用于动态数据驱动应用程序的信息时，它很有用。
      * URLLoader 对象会先从 URL 中下载所有数据，然后才将数据用于应用程序中的代码。它会发出有关下载进度的通知，
      * 通过 bytesLoaded 和 bytesTotal 属性以及已调度的事件，可以监视下载进度。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @see http://edn.egret.com/cn/docs/page/601 构建通信请求
      * @event egret.Event.COMPLETE 加载完成后调度。
      * @event egret.IOErrorEvent.IO_ERROR 加载错误后调度。
      * @version Egret 2.4
@@ -3243,7 +3282,7 @@ var egret;
                 this.load(request);
             }
         }
-        var d = __define,c=URLLoader;p=c.prototype;
+        var d = __define,c=URLLoader,p=c.prototype;
         /**
          * @language en_US
          * Send and load data from the specified URL. The data can be received as text, raw binary data, or URL-encoded variables, depending on the value you set for the dataFormat property.
@@ -3274,13 +3313,13 @@ var egret;
             this.data = null;
         };
         return URLLoader;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.URLLoader = URLLoader;
-    egret.registerClass(URLLoader,"egret.URLLoader");
+    egret.registerClass(URLLoader,'egret.URLLoader');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3311,7 +3350,7 @@ var egret;
     /**
      * @language en_US
      * The URLLoaderDataFormat class provides values that specify how downloaded data is received.
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html Read different data format
+     * @see http://edn.egret.com/cn/docs/page/600 Read different data format
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLLoaderDataFormat.ts
@@ -3319,7 +3358,7 @@ var egret;
     /**
      * @language zh_CN
      * URLLoaderDataFormat 类提供了一些用于指定如何接收已下载数据的值。
-     * @see http://docs.egret-labs.org/post/manual/net/netformat.html 读取不同数据格式
+     * @see http://edn.egret.com/cn/docs/page/600 读取不同数据格式
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLLoaderDataFormat.ts
@@ -3327,7 +3366,7 @@ var egret;
     var URLLoaderDataFormat = (function () {
         function URLLoaderDataFormat() {
         }
-        var d = __define,c=URLLoaderDataFormat;p=c.prototype;
+        var d = __define,c=URLLoaderDataFormat,p=c.prototype;
         /**
          * @language en_US
          * Specify that downloaded data is received as raw binary data.
@@ -3394,13 +3433,13 @@ var egret;
          */
         URLLoaderDataFormat.SOUND = "sound";
         return URLLoaderDataFormat;
-    })();
+    }());
     egret.URLLoaderDataFormat = URLLoaderDataFormat;
-    egret.registerClass(URLLoaderDataFormat,"egret.URLLoaderDataFormat");
+    egret.registerClass(URLLoaderDataFormat,'egret.URLLoaderDataFormat');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3431,7 +3470,7 @@ var egret;
     /**
      * @language en_US
      * The URLRequest class captures all of the information in a single HTTP request.
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html Build communication request
+     * @see http://edn.egret.com/cn/index.php/article/index/id/601 Build communication request
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLRequest.ts
@@ -3439,7 +3478,7 @@ var egret;
     /**
      * @language zh_CN
      * URLRequest 类可捕获单个 HTTP 请求中的所有信息。
-     * @see http://docs.egret-labs.org/post/manual/net/createconnect.html 构建通信请求
+     * @see http://edn.egret.com/cn/index.php/article/index/id/601 构建通信请求
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLRequest.ts
@@ -3468,6 +3507,9 @@ var egret;
              * An object contains data to be transmitted with the URL request.
              * This property is used in conjunction with the method property.  When the value of method is GET, the value of data is appended to the value of URLRequest.url, using HTTP query-string syntax.
              * When the method value is POST (or any value other than GET), the value of data is transmitted in the body of the HTTP request.
+             * The URLRequest API offers binary POST support and support for URL-encoded variables, as well as support for strings. The data object can be a ArrayBuffer, URLVariables, or String object.
+             * The way in which the data is used depends on the type of object used:
+             * If the object is a ArrayBuffer object, the binary data of the ArrayBuffer object is used as POST data. For GET, data of ArrayBuffer type is not supported.
              * If the object is a URLVariables object and the method is POST, then the variables are encoded using x-www-form-urlencoded format and the resulting string is used as POST data.
              * If the object is a URLVariables object and the method is GET, the URLVariables object will define variables to be sent with the URLRequest object.
              * Otherwise, the object is converted into a string, and the string is used as the POST or GET data.
@@ -3479,8 +3521,9 @@ var egret;
              * 一个对象，它包含将随 URL 请求一起传输的数据。
              * 该属性与 method 属性配合使用。当 method 值为 GET 时，将使用 HTTP 查询字符串语法将 data 值追加到 URLRequest.url 值。
              * 当 method 值为 POST（或 GET 之外的任何值）时，将在 HTTP 请求体中传输 data 值。
-             * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ByteArray、URLVariables 或 String 对象。
+             * URLRequest API 支持二进制 POST，并支持 URL 编码变量和字符串。该数据对象可以是 ArrayBuffer、URLVariables 或 String 对象。
              * 该数据的使用方式取决于所用对象的类型：
+             * 如果该对象为 ArrayBuffer 对象，则 ArrayBuffer 对象的二进制数据用作 POST 数据。对于 GET，不支持 ArrayBuffer 类型的数据。
              * 如果该对象是 URLVariables 对象，并且该方法是 POST，则使用 x-www-form-urlencoded 格式对变量进行编码，并且生成的字符串会用作 POST 数据。
              * 如果该对象是 URLVariables 对象，并且该方法是 GET，则 URLVariables 对象将定义要随 URLRequest 对象一起发送的变量。
              * 否则，该对象会转换为字符串，并且该字符串会用作 POST 或 GET 数据。
@@ -3533,15 +3576,15 @@ var egret;
             this.requestHeaders = [];
             this.url = url;
         }
-        var d = __define,c=URLRequest;p=c.prototype;
+        var d = __define,c=URLRequest,p=c.prototype;
         return URLRequest;
-    })(egret.HashObject);
+    }(egret.HashObject));
     egret.URLRequest = URLRequest;
-    egret.registerClass(URLRequest,"egret.URLRequest");
+    egret.registerClass(URLRequest,'egret.URLRequest');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3628,15 +3671,15 @@ var egret;
             this.name = name;
             this.value = value;
         }
-        var d = __define,c=URLRequestHeader;p=c.prototype;
+        var d = __define,c=URLRequestHeader,p=c.prototype;
         return URLRequestHeader;
-    })();
+    }());
     egret.URLRequestHeader = URLRequestHeader;
-    egret.registerClass(URLRequestHeader,"egret.URLRequestHeader");
+    egret.registerClass(URLRequestHeader,'egret.URLRequestHeader');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3668,7 +3711,7 @@ var egret;
      * @language en_US
      * The URLRequestMethod class provides values that specify whether the
      * URLRequest object should use the POST method or the GET method when sending data to a server.
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @see http://edn.egret.com/cn/docs/page/599 POST与GET
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLRequestMethod.ts
@@ -3677,7 +3720,7 @@ var egret;
      * @language zh_CN
      * URLRequestMethod 类提供了一些值，这些值可指定在将数据发送到服务器时，
      * URLRequest 对象应使用 POST 方法还是 GET 方法。
-     * @see http://docs.egret-labs.org/post/manual/net/postget.html POST与GET
+     * @see http://edn.egret.com/cn/docs/page/599 POST与GET
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLRequestMethod.ts
@@ -3685,7 +3728,7 @@ var egret;
     var URLRequestMethod = (function () {
         function URLRequestMethod() {
         }
-        var d = __define,c=URLRequestMethod;p=c.prototype;
+        var d = __define,c=URLRequestMethod,p=c.prototype;
         /**
          * @language en_US
          * Specify that the URLRequest object is a GET.
@@ -3713,13 +3756,13 @@ var egret;
          */
         URLRequestMethod.POST = "post";
         return URLRequestMethod;
-    })();
+    }());
     egret.URLRequestMethod = URLRequestMethod;
-    egret.registerClass(URLRequestMethod,"egret.URLRequestMethod");
+    egret.registerClass(URLRequestMethod,'egret.URLRequestMethod');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3751,7 +3794,7 @@ var egret;
      * @language en_US
      * The URLVariables class allows you to transfer variables between an application and a server.
      * Use URLVariables objects with methods of the URLLoader class and the data property of the URLRequest class.
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html Send the request with parameters
+     * @see http://edn.egret.com/cn/docs/page/598 Send the request with parameters
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLVariables.ts
@@ -3760,7 +3803,7 @@ var egret;
      * @language zh_CN
      * 使用 URLVariables 类可以在应用程序和服务器之间传输变量。
      * 将 URLVariables 对象与 URLLoader 类的方法、URLRequest 类的 data 属性一起使用。
-     * @see http://docs.egret-labs.org/post/manual/net/senddata.html 发送带参数的请求
+     * @see http://edn.egret.com/cn/docs/page/598 发送带参数的请求
      * @version Egret 2.4
      * @platform Web,Native
      * @includeExample extension/game/net/URLVariables.ts
@@ -3801,7 +3844,7 @@ var egret;
                 this.decode(source);
             }
         }
-        var d = __define,c=URLVariables;p=c.prototype;
+        var d = __define,c=URLVariables,p=c.prototype;
         /**
          * @language en_US
          * Convert the variable string into the property of this URLVariables.variables object.
@@ -3891,13 +3934,13 @@ var egret;
             return value.map(function (v) { return encodeURIComponent(key) + "=" + encodeURIComponent(v); }).join("&");
         };
         return URLVariables;
-    })(egret.HashObject);
+    }(egret.HashObject));
     egret.URLVariables = URLVariables;
-    egret.registerClass(URLVariables,"egret.URLVariables");
+    egret.registerClass(URLVariables,'egret.URLVariables');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -3959,7 +4002,7 @@ var egret;
             egret.sys.$ticker.$startTick(this.update, this);
             this._lastTime = egret.getTimer();
         }
-        var d = __define,c=Ticker;p=c.prototype;
+        var d = __define,c=Ticker,p=c.prototype;
         p.update = function (timeStamp) {
             var advancedTime = timeStamp - this._lastTime;
             this._lastTime = timeStamp;
@@ -3978,7 +4021,7 @@ var egret;
             return false;
         };
         /**
-         * 注册帧回调事件，同一函数的重复监听会被忽略。
+         * 注册帧回调事件，同一函数的重复监听会被忽略。推荐使用 egret.startTick 替代此方法。
          * @method egret.Ticker#register
          * @param listener {Function} 帧回调函数,参数返回上一帧和这帧的间隔时间。示例：onEnterFrame(frameTime:number):void
          * @param thisObject {any} 帧回调函数的this对象
@@ -3992,7 +4035,7 @@ var egret;
             this.$insertEventBin(this.callBackList, "", listener, thisObject, false, priority, false);
         };
         /**
-         * 取消侦听enterFrame事件
+         * 取消侦听enterFrame事件。推荐使用 egret.stopTick 替代此方法。
          * @method egret.Ticker#unregister
          * @param listener {Function} 事件侦听函数
          * @param thisObject {any} 侦听函数的this对象
@@ -4049,13 +4092,13 @@ var egret;
             return Ticker.instance;
         };
         return Ticker;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.Ticker = Ticker;
-    egret.registerClass(Ticker,"egret.Ticker");
+    egret.registerClass(Ticker,'egret.Ticker');
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -4101,7 +4144,7 @@ var egret;
         function MainContext() {
             _super.call(this);
         }
-        var d = __define,c=MainContext;p=c.prototype;
+        var d = __define,c=MainContext,p=c.prototype;
         d(p, "stage"
             /**
              * 渲染Context
@@ -4139,6 +4182,16 @@ var egret;
              */
             ,function () {
                 return egret.sys.$TempStage;
+            }
+        );
+        d(MainContext, "runtimeType"
+            /**
+             * @version Egret 2.4
+             * @platform Web,Native
+             */
+            ,function () {
+                egret.$warn(1041);
+                return MainContext._runtimeType;
             }
         );
         /**
@@ -4189,9 +4242,9 @@ var egret;
          */
         MainContext.RUNTIME_NATIVE = "runtimeNative";
         return MainContext;
-    })(egret.EventDispatcher);
+    }(egret.EventDispatcher));
     egret.MainContext = MainContext;
-    egret.registerClass(MainContext,"egret.MainContext");
+    egret.registerClass(MainContext,'egret.MainContext');
 })(egret || (egret = {}));
 var testDeviceType1 = function () {
     if (!this["navigator"]) {
@@ -4207,12 +4260,12 @@ var testRuntimeType1 = function () {
     return false;
 };
 egret.MainContext.deviceType = testDeviceType1() ? egret.MainContext.DEVICE_MOBILE : egret.MainContext.DEVICE_PC;
-egret.MainContext.runtimeType = testRuntimeType1() ? egret.MainContext.RUNTIME_HTML5 : egret.MainContext.RUNTIME_NATIVE;
+egret.MainContext._runtimeType = testRuntimeType1() ? egret.MainContext.RUNTIME_HTML5 : egret.MainContext.RUNTIME_NATIVE;
 delete testDeviceType1;
 delete testRuntimeType1;
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -4288,7 +4341,7 @@ var egret;
             this.autoDisposeTime = autoDisposeTime;
             this.frameCount = 0;
         }
-        var d = __define,c=Recycler;p=c.prototype;
+        var d = __define,c=Recycler,p=c.prototype;
         Recycler.$init = function () {
             egret.sys.$ticker.$startTick(Recycler.onUpdate, Recycler);
         };
@@ -4403,9 +4456,9 @@ var egret;
          */
         Recycler._callBackList = [];
         return Recycler;
-    })(egret.HashObject);
+    }(egret.HashObject));
     egret.Recycler = Recycler;
-    egret.registerClass(Recycler,"egret.Recycler");
+    egret.registerClass(Recycler,'egret.Recycler');
     Recycler.$init();
 })(egret || (egret = {}));
 var egret;
@@ -4501,7 +4554,7 @@ var egret;
 })(egret || (egret = {}));
 //////////////////////////////////////////////////////////////////////////////////////
 //
-//  Copyright (c) 2014-2015, Egret Technology Inc.
+//  Copyright (c) 2014-present, Egret Technology.
 //  All rights reserved.
 //  Redistribution and use in source and binary forms, with or without
 //  modification, are permitted provided that the following conditions are met:
@@ -4606,11 +4659,12 @@ var egret;
         var dt = timeStamp - lastTime;
         lastTime = timeStamp;
         for (var key in setTimeoutCache) {
-            var data = setTimeoutCache[key];
+            var key2 = key;
+            var data = setTimeoutCache[key2];
             data.delay -= dt;
             if (data.delay <= 0) {
                 data.listener.apply(data.thisObject, data.params);
-                clearTimeout(key);
+                clearTimeout(key2);
             }
         }
         return false;

@@ -8,7 +8,7 @@ var EntryDisplayObjectContainer = (function (_super) {
         this.groups = groups;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.initHandler, this);
     }
-    var d = __define,c=EntryDisplayObjectContainer;p=c.prototype;
+    var d = __define,c=EntryDisplayObjectContainer,p=c.prototype;
     p.initHandler = function () {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.initHandler, this);
         if (this.groups == null || this.groups.length == 0) {
@@ -22,5 +22,5 @@ var EntryDisplayObjectContainer = (function (_super) {
         egret.error("请重写此方法");
     };
     return EntryDisplayObjectContainer;
-})(egret.DisplayObjectContainer);
-egret.registerClass(EntryDisplayObjectContainer,"EntryDisplayObjectContainer");
+}(egret.DisplayObjectContainer));
+egret.registerClass(EntryDisplayObjectContainer,'EntryDisplayObjectContainer');

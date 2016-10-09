@@ -31,7 +31,7 @@ var RectExmlSimple = (function (_super) {
     function RectExmlSimple() {
         _super.call(this);
     }
-    var d = __define,c=RectExmlSimple;p=c.prototype;
+    var d = __define,c=RectExmlSimple,p=c.prototype;
     p.initRoot = function () {
         var guiLayer = new egret.gui.UIStage();
         this.addChild(guiLayer);
@@ -39,8 +39,8 @@ var RectExmlSimple = (function (_super) {
         guiLayer.addElement(ui);
     };
     return RectExmlSimple;
-})(EntryDisplayObjectContainer);
-egret.registerClass(RectExmlSimple,"RectExmlSimple");
+}(EntryDisplayObjectContainer));
+egret.registerClass(RectExmlSimple,'RectExmlSimple');
 var SimpleRect = (function (_super) {
     __extends(SimpleRect, _super);
     function SimpleRect() {
@@ -49,7 +49,7 @@ var SimpleRect = (function (_super) {
         //  Assign the skin name used by this Component
         this.skinName = "skins.scene.SimpleRectSkin";
     }
-    var d = __define,c=SimpleRect;p=c.prototype;
+    var d = __define,c=SimpleRect,p=c.prototype;
     return SimpleRect;
-})(egret.gui.SkinnableComponent);
-egret.registerClass(SimpleRect,"SimpleRect");
+}(egret.gui.SkinnableComponent));
+egret.registerClass(SimpleRect,'SimpleRect');

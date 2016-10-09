@@ -15,7 +15,7 @@ var GroupExample = (function (_super) {
         var group = new clazz();
         this.addChild(group);
     }
-    var d = __define,c=GroupExample;p=c.prototype;
+    var d = __define,c=GroupExample,p=c.prototype;
     return GroupExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(GroupExample,"GroupExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(GroupExample,'GroupExample');

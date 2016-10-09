@@ -34,8 +34,6 @@ class BlendModeErase extends EntryDisplayObjectContainer {
 
         erase.blendMode = egret.BlendMode.ERASE;
 
-        //this.addChild(container);
-
 
         var renderTexture:egret.RenderTexture = new egret.RenderTexture();
         renderTexture.drawToTexture(container);

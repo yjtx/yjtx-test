@@ -24,7 +24,7 @@
     		-webkit-writing-mode: horizontal-tb;
 		}
     </style>
-	<script src="http://qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js"></script>
+	<!--<script src="http://qzonestyle.gtimg.cn/qzone/phone/m/v4/widget/mobile/jsbridge.js"></script>-->
 
 
     <!--这个标签为通过egret提供的第三方库的方式生成的 javascript 文件-->
@@ -52,9 +52,11 @@
 	<script egret="game" src="bin-debug/gamelibs/EntryDisplayObjectContainer.js"></script>
 	<script egret="game" src="bin-debug/bugs/CacheAsBitmapEmptyContainer.js"></script>
 	<script egret="game" src="bin-debug/bugs/GraphicsDrawArcOne.js"></script>
+	<script egret="game" src="bin-debug/bugs/GraphicsLineDDD.js"></script>
+	<script egret="game" src="bin-debug/bugs/MaskScaleX.js"></script>
+	<script egret="game" src="bin-debug/bugs/XMLParseError.js"></script>
 	<script egret="game" src="bin-debug/gamelibs/LoadResources.js"></script>
 	<script egret="game" src="bin-debug/gamelibs/ResourceUtils.js"></script>
-	<script egret="game" src="bin-debug/test/arc/ArcAllUse.js"></script>
 	<script egret="game" src="bin-debug/test/base64/Base64FromCrossUrl.js"></script>
 	<script egret="game" src="bin-debug/test/base64/Base64FromDisplayObject.js"></script>
 	<script egret="game" src="bin-debug/test/base64/Base64FromTexture.js"></script>
@@ -64,6 +66,7 @@
 	<script egret="game" src="bin-debug/test/bitmap/BitmapClickSimpleMore.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapClickZoom.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapDelay.js"></script>
+	<script egret="game" src="bin-debug/test/bitmap/BitmapFillMode.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapNormal.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapOffsetAnchor.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapOffsetAnchorRun.js"></script>
@@ -79,7 +82,6 @@
 	<script egret="game" src="bin-debug/test/bitmap/BitmapScale9ZoomSize.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapScaleX.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapSize.js"></script>
-	<script egret="game" src="bin-debug/test/bitmap/BitmapWithVideo.js"></script>
 	<script egret="game" src="bin-debug/test/bitmap/BitmapZoom.js"></script>
 	<script egret="game" src="bin-debug/test/bitmaptext/BitmapTextNormal.js"></script>
 	<script egret="game" src="bin-debug/test/bitmaptext/BitmapTextNumberAdd.js"></script>
@@ -90,8 +92,9 @@
 	<script egret="game" src="bin-debug/test/cacheAsbitmap/CacheAsBitmapEmptyBitmap.js"></script>
 	<script egret="game" src="bin-debug/test/cacheAsbitmap/CacheAsBitmapParentSizeZero.js"></script>
 	<script egret="game" src="bin-debug/test/cacheAsbitmap/CacheAsBitmapTwice.js"></script>
+	<script egret="game" src="bin-debug/test/container/ContainerAddRemoved.js"></script>
 	<script egret="game" src="bin-debug/test/container/ContainerChildRemove.js"></script>
-	<script egret="game" src="bin-debug/test/container/ContainerOutSideChildInScreen.js"></script>
+	<script egret="game" src="bin-debug/test/db/DBBaozha.js"></script>
 	<script egret="game" src="bin-debug/test/db/DBBigFla.js"></script>
 	<script egret="game" src="bin-debug/test/db/DBEffects.js"></script>
 	<script egret="game" src="bin-debug/test/db/DBGirlRun.js"></script>
@@ -101,33 +104,38 @@
 	<script egret="game" src="bin-debug/test/displayObject/DisplayObjectContentBounds.js"></script>
 	<script egret="game" src="bin-debug/test/displayObject/DisplayObjectGetBounds.js"></script>
 	<script egret="game" src="bin-debug/test/displayObject/DisplayObjectSkewValue.js"></script>
-	<script egret="game" src="bin-debug/test/draw/DrawClickShowSprites.js"></script>
-	<script egret="game" src="bin-debug/test/draw/DrawDBAndClick.js"></script>
-	<script egret="game" src="bin-debug/test/draw/DrawMCAndClick.js"></script>
 	<script egret="game" src="bin-debug/test/empty/EmptyHelloWorld.js"></script>
+	<script egret="game" src="bin-debug/test/event/EventAddedAndRemoved.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventBoyAndGirl.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventStageADDAndREMOVE.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventStageRESIZE.js"></script>
 	<script egret="game" src="bin-debug/test/event/EventTouchCapture.js"></script>
-	<script egret="game" src="bin-debug/test/fillmode/BitmapFillModeExample.js"></script>
+	<script egret="game" src="bin-debug/test/filters/FiltersBlur.js"></script>
+	<script egret="game" src="bin-debug/test/filters/FiltersColor.js"></script>
+	<script egret="game" src="bin-debug/test/filters/FiltersGlow.js"></script>
+	<script egret="game" src="bin-debug/test/filters/FiltersShadow.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionDefaultValue.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionRegExp1.js"></script>
 	<script egret="game" src="bin-debug/test/function/FunctionSuper.js"></script>
-	<script egret="game" src="bin-debug/test/function/FunctionSuperClasses.js"></script>
+	<script egret="game" src="bin-debug/test/function/FunctionTransmit.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsAllUse.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsArcCircleDiff.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsArcCircleRun.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsCurveTo.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArc.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArcFill.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArcLine.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawArcRun.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawCurve.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawEllipse.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawLine.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawLineClick.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawRectMore.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawRectTwice.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsDrawRoundRect.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsGradientFill.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsGuaguale.js"></script>
-	<script egret="game" src="bin-debug/test/graphics/GraphicsGuaguale2.js"></script>
+	<script egret="game" src="bin-debug/test/graphics/GraphicsGuagualeWithRenderTexture.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsLineStyle.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsLineTest.js"></script>
 	<script egret="game" src="bin-debug/test/graphics/GraphicsLinesDiff.js"></script>
@@ -136,8 +144,8 @@
 	<script egret="game" src="bin-debug/test/loader/LoaderBinFile.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderBitmap.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderGetData.js"></script>
-	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeust.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeustGet.js"></script>
+	<script egret="game" src="bin-debug/test/loader/LoaderHttpReqeustPost.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderPostData.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderSound.js"></script>
 	<script egret="game" src="bin-debug/test/loader/LoaderText.js"></script>
@@ -151,9 +159,11 @@
 	<script egret="game" src="bin-debug/test/mask/MaskMaskRectChanges.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskProgressCircle.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskScrollRect.js"></script>
+	<script egret="game" src="bin-debug/test/mask/MaskWithRotation.js"></script>
 	<script egret="game" src="bin-debug/test/mask/MaskWithShapeMove.js"></script>
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipClickCrossMore.js"></script>
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipClickSimpleMore.js"></script>
+	<script egret="game" src="bin-debug/test/movieclip/MovieClipDaSheng.js"></script>
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipEvents.js"></script>
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipHorse.js"></script>
 	<script egret="game" src="bin-debug/test/movieclip/MovieClipNormal.js"></script>
@@ -168,9 +178,12 @@
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureCopyGrids.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureDrawTwo.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureLess257.js"></script>
+	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureOutSideChildInScreen.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureRectSize.js"></script>
 	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureSpriteWithBitmap.js"></script>
+	<script egret="game" src="bin-debug/test/renderTexture/RenderTextureWithTextField.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESAsync.js"></script>
+	<script egret="game" src="bin-debug/test/res/RESBin.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESByUrl.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeAfterAsync.js"></script>
 	<script egret="game" src="bin-debug/test/res/RESDisposeAfterRenderTexture.js"></script>
@@ -189,6 +202,7 @@
 	<script egret="game" src="bin-debug/test/scaleMode/ScaleModeCenterWithBg.js"></script>
 	<script egret="game" src="bin-debug/test/scaleMode/ScaleModeClickChangeModes.js"></script>
 	<script egret="game" src="bin-debug/test/scaleMode/ScaleModeFixedWidthAndPortrait.js"></script>
+	<script egret="game" src="bin-debug/test/scrollview/ScrollViewDouble.js"></script>
 	<script egret="game" src="bin-debug/test/scrollview/ScrollViewList.js"></script>
 	<script egret="game" src="bin-debug/test/scrollview/ScrollViewNormal.js"></script>
 	<script egret="game" src="bin-debug/test/sound/SoundAllTest.js"></script>
@@ -215,8 +229,10 @@
 	<script egret="game" src="bin-debug/test/textfield/TextFieldBackground.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldFamily.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldFlow.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldFlowEndWithEmpty.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldFlowRun.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldHref.js"></script>
+	<script egret="game" src="bin-debug/test/textfield/TextFieldHref2.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInput.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInput2.js"></script>
 	<script egret="game" src="bin-debug/test/textfield/TextFieldInputAndArea.js"></script>
@@ -250,6 +266,7 @@
 	<script egret="game" src="bin-debug/test/touch/TouchMultiTouches.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchReleaseOutSide.js"></script>
 	<script egret="game" src="bin-debug/test/touch/TouchSpriteBitmap.js"></script>
+	<script egret="game" src="bin-debug/test/tween/TweenHasMore.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenLoopWithShape.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenNormal.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenPauseAndPlay.js"></script>
@@ -261,6 +278,7 @@
 	<script egret="game" src="bin-debug/test/tween/TweenTreeRunRotation.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenTweensOp.js"></script>
 	<script egret="game" src="bin-debug/test/tween/TweenTwoTween.js"></script>
+	<script egret="game" src="bin-debug/test/video/VideoInBitmap.js"></script>
 	<script egret="game" src="bin-debug/test/video/VideoNormal.js"></script>
 	<script egret="game" src="bin-debug/test/websocket/WebSocketBinary.js"></script>
 	<script egret="game" src="bin-debug/test/websocket/WebSocketString.js"></script>
@@ -279,9 +297,9 @@
 </style>
 
 <div  id="egret-sample" style="margin: auto;width: 100%;height:100%;overflow:visible;-webkit-transform: translateZ(0);" class="egret-player"
-     data-entry-class="DBBigFla"
-     data-orientation="portrait"
-     data-scale-mode="fixedWidth"
+     data-entry-class="MaskWithRotation"
+     data-orientation="auto"
+     data-scale-mode="showAll"
      data-resolution-mode="retina"
      data-frame-rate="60"
      data-content-width="480"
@@ -290,7 +308,7 @@
      data-multi-fingered="99"
      data-show-fps="true" data-show-log="true"
 	 texture-scale-factor="1"
-     data-log-filter="" data-show-fps-style="x:0,y:0,size:30,bgAlpha:0.5">
+     data-log-filter="" data-show-fps-style="x:0,y:0,size:18,bgAlpha:0.5">
 </div>
 <script>
     var evt = "onorientationchange" in window ? "orientationchange" : "resize";
@@ -313,7 +331,8 @@
         dive.setAttribute("texture-scale-factor", factor);
     }
 
-    egret.runEgret({"renderMode" : "canvas"});
+    // egret.runEgret({"renderMode" : "canvas"});
+	egret.runEgret({renderMode:"webgl1", audioType:0});
 
 
     function getOption(key) {

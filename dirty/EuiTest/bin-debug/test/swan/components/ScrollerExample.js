@@ -15,7 +15,7 @@ var ScrollerExample = (function (_super) {
         var scroller = new clazz();
         this.addChild(scroller);
     }
-    var d = __define,c=ScrollerExample;p=c.prototype;
+    var d = __define,c=ScrollerExample,p=c.prototype;
     return ScrollerExample;
-})(egret.DisplayObjectContainer);
-egret.registerClass(ScrollerExample,"ScrollerExample");
+}(egret.DisplayObjectContainer));
+egret.registerClass(ScrollerExample,'ScrollerExample');

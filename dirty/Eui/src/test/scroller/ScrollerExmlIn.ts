@@ -3,7 +3,7 @@
  */
 class ScrollerExmlIn extends EntryEuiDocument {
     constructor() {
-        super(["preload"]);
+        super([""]);
 
     }
 
@@ -16,6 +16,8 @@ class ScrollerExmlIn extends EntryEuiDocument {
         <e:List id="list">
             <e:itemRendererSkinName>
                 <e:Skin states="up,down,disabled" height="64">
+                    <e:Image width="100%" height="100%" scale9Grid="1,3,8,8" alpha.disabled="0.5"
+                        source="button_up_png" source.down="button_down_png"/>
                     <e:Label size="24" fontFamily="Tahoma" text="{data.label}"
                              textColor="0x555555" textColor.down="0x000000" left="32"
                              verticalCenter="0"/>
@@ -47,12 +49,16 @@ class ScrollerExmlIn extends EntryEuiDocument {
     }
 
     protected init(ui):void {
-
+        ui.list.allowMultipleSelection = false;
+        ui.list.useVirtualLayout = false;
         ui.list.touchEnabled = true;
         this.touchEnabled = true;
 
+        ui.list.selectedIndex = 1;
+
         ui.list.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTrueHandler, { useCapture: true }, true);
         ui.list.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onFalseHandler, { useCapture: false }, false);
+        ui.list.addEventListener(eui.ItemTapEvent.ITEM_TAP, this.onItemChoose, this);
 
         ui.list.addEventListener(egret.TouchEvent.TOUCH_END, this.onTrueHandler, { useCapture: true }, true);
         ui.list.addEventListener(egret.TouchEvent.TOUCH_END, this.onFalseHandler, { useCapture: false }, false);
@@ -112,6 +118,10 @@ class ScrollerExmlIn extends EntryEuiDocument {
 
         this.stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onTrueHandler, { useCapture: true }, true);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_CANCEL, this.onFalseHandler, { useCapture: false }, false);
+    }
+
+    private onItemChoose(e:eui.ItemTapEvent):void {
+        console.log(111);
     }
 
     private onTrueHandler(e:egret.TouchEvent):void {
