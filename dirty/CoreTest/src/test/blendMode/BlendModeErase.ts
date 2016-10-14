@@ -29,8 +29,8 @@ class BlendModeErase extends EntryDisplayObjectContainer {
         erase.graphics.drawCircle(50, 50, 50);
         erase.graphics.endFill();
         container.addChild(erase);
-        erase.x = 200;
-        erase.y = 200;
+        erase.x = 500;
+        erase.y = 500;
 
         erase.blendMode = egret.BlendMode.ERASE;
 

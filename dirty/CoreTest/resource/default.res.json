@@ -19,12 +19,17 @@
 			"name": "sunwukong_attack1_png",
 			"type": "image",
 			"url": "mc/dasheng/sunwukong_attack1.png"
+		},
+		{
+			"name": "gif_gif",
+			"type": "image",
+			"url": "gif.gif"
 		}
 	],
 	"groups": [
 		{
 			"name": "preload",
-			"keys": "decode_error_mp3,binTest_json,sunwukong_attack1_json,sunwukong_attack1_png"
+			"keys": "decode_error_mp3,binTest_json,sunwukong_attack1_json,sunwukong_attack1_png,gif_gif"
 		}
 	]
 }
