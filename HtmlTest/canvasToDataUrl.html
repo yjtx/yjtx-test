@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<script>
+    var canvas = document.createElement("canvas");
+    canvas.width = 480;
+    canvas.height = 800;
+    canvas.style.width = "500px";
+    canvas.style.height = "800px";
+    document.body.appendChild(canvas);
+
+    var bitmapData = document.createElement("img");
+    bitmapData.onload = function () {
+        alert(1);
+        var context = canvas.getContext("2d");
+        context.drawImage(bitmapData, 0, 0, bitmapData.width, bitmapData.height, 0, 0, bitmapData.width, bitmapData.height);
+
+        var base64 = canvas.toDataURL("image/png");
+        alert(base64);
+    };
+    bitmapData.onerror = function () {
+    };
+
+    bitmapData.src = "canvasToDataUrl/bg.jpg";
+
+</script>
+
+</body>
+</html>
