@@ -121,10 +121,10 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(input);
         input.type = egret.TextFieldType.INPUT;
         input.width = 300;
-        input.height = 50;
+        input.height = 30;
         input.x = 100;
         input.y = 300;
-        input.size = 50;
+        input.size = 30;
         input.text = "将要复制的内容";
         input.border = true;
 
@@ -132,10 +132,10 @@ class Main extends egret.DisplayObjectContainer {
         this.addChild(input1);
         input1.type = egret.TextFieldType.INPUT;
         input1.width = 300;
-        input1.height = 50;
+        input1.height = 30;
         input1.x = 100;
         input1.y = 400;
-        input1.size = 50;
+        input1.size = 30;
         input1.text = "";
         input1.border = true;
         
